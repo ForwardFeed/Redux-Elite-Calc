@@ -7,6 +7,6 @@ calc/*
 !calc/bundle
 !calc/eslintrc
 !calc/eslintignore
-!calc/package-json
+!calc/package.json
 !calc/production.min.js
 !calc/tsconfig.json
