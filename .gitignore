@@ -1,12 +1,3 @@
 node_modules/
 dist/
-calc/*
-!calc/src/
-!calc/README.md
-!calc/LICENSE
-!calc/bundle
-!calc/eslintrc
-!calc/eslintignore
-!calc/package-json
-!calc/production.min.js
-!calc/tsconfig.json
+calc/
