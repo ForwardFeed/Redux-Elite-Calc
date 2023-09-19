@@ -1,0 +1,37 @@
+/* Dark mode styles */
+
+:root {
+    /* Should make it easier to change colors in the future */
+    --text: #0f0e0e;
+    --background: #f7eded;
+
+    --button-hover: rgb(255, 255, 255);
+    --button-selected: #bbc5e8;
+    --fieldset-color: #e2e0e0;
+    --background-image: linear-gradient(#f2f2f2, 70%, #d7d7d7);
+    --column-1: #757575;
+}
+
+a.links-lighten {
+    color: #3f5085;
+}
+
+a.links-lighten:hover {
+    color: #51586d;
+}
+
+a.links-lighten:visited {
+    color: #59416e;
+}
+
+a.links-lighten:visited:hover {
+    color: #3d3846;
+}
+/* Select2 Dropdown stylings */
+
+.select2-container .select2-choice {
+	background: var(--background);
+	background-image: var(--background-image);
+	color: var(--text);
+}
+

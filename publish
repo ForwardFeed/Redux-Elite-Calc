@@ -1,0 +1,24 @@
+#!/bin/bash -xe
+
+# Setup
+
+rev=$(git rev-parse --short HEAD | tr -d "\n")
+
+# Build
+
+node build
+
+# Checkout: master -> gh-pages
+
+git checkout gh-pages
+
+# Publish
+
+cp -a dist/* .
+
+git add -A .
+git commit -m "Publish: '${rev}'"
+git push git@github.com:forwardfeed/unc.git --force 
+# Checkout: gh-pages -> main
+
+git checkout main
