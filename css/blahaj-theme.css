@@ -1,0 +1,32 @@
+:root {
+    --text: #052f2f;
+    --background: #f494d8;
+    --button-hover: rgb(95, 175, 223);
+    --button-selected: #c669bf;
+    --fieldset-color: #89c5dd;
+    --background-image: linear-gradient(rgba(255,255,255,1) 0%, rgba(133,185,222,1) 100%);
+    --column-1: rgb(129, 23, 133);
+}
+
+a.links-lighten {
+    color: #3f5085;
+}
+
+a.links-lighten:hover {
+    color: #51586d;
+}
+
+a.links-lighten:visited {
+    color: #59416e;
+}
+
+a.links-lighten:visited:hover {
+    color: #3d3846;
+}
+
+.select2-container .select2-choice {
+	background: var(--background);
+	background-image: var(--background-image);
+	color: var(--text);
+}
+

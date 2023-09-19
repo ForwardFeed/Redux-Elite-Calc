@@ -1,0 +1,37 @@
+/* Dark mode styles */
+
+:root {
+    /* Should make it easier to change colors in the future */
+    --text: #e4e4e4;
+    --background: #1b1b1b;
+
+    --button-hover: black;
+    --button-selected: #232e51;
+    --fieldset-color: #2a2a2a;
+    --background-image: linear-gradient(#333, 70%, #1b1b1b);
+    --column-1: #2a2a2a;
+}
+
+a.links-lighten {
+    color: #7A9CFF;
+}
+
+a.links-lighten:hover {
+    color: #C2D0FF;
+}
+
+a.links-lighten:visited {
+    color: #BC8BEA;
+}
+
+a.links-lighten:visited:hover {
+    color: #DACAF7;
+}
+/* Select2 Dropdown stylings */
+
+.select2-container .select2-choice {
+    background: var(--background);
+    background-image: var(--background-image);
+    /* Not fully satisfied w/ this gradient, but it's w/e */
+    color: var(--text);
+}

@@ -1,0 +1,102 @@
+.global-settings{
+    text-align: center;
+}
+
+.main-title-text{
+    top: 10px;
+}
+
+.poke-info {
+    width: 46em;
+}
+.import-export {
+    text-align: center;
+}
+.import-team{
+    display: inline-grid;
+}
+.listed-trainer > input[type="text"], .listed-trainer > span, .trainer-list-search > input[type="text"], .trainer-list-search > span  {
+    width: unset;
+}
+
+
+fieldset > legend{
+    margin: auto;
+}
+
+.trainer-list {
+    height: 42em;
+    overflow-y: scroll;
+}
+
+#trainer-edition-name{
+    width: 15em;
+}
+
+.edition-export > label{
+    width: 4em;
+    display: inline;
+}
+
+.edition-export{
+    margin-bottom: 4px;
+}
+
+.genSelection{
+    top: unset;
+}
+
+.row-pair{
+    background-color: rgb(87, 93, 99);
+}
+.row-odd{
+    background-color: rgb(85, 107, 130);
+}
+
+.row-edit:hover{
+    color: rgb(161, 88, 88);
+    background-color: rgb(85, 27, 27);
+    cursor: pointer;
+}
+.row-delete:hover{
+    color: rgb(161, 88, 88);
+    background-color: rgb(85, 27, 27);
+    cursor: pointer;
+}
+.row-edit, .row-delete{
+    width: 4em;
+    text-align: center;
+}
+.t-pos{
+    width: 5em !important;
+}
+.poke-box{
+    min-height: 30px;
+}
+
+#edit-error{
+    display: inline;
+    color: red;
+}
+input[type='radio'] {
+    box-sizing: border-box;
+    appearance: none;
+    background: white;
+    outline: 2px solid #333;
+    border: 3px solid white;
+    width: 16px;
+    height: 16px;
+}
+
+input[type='radio']:checked {
+    background: #333;
+}
+  
+
+#edition-rename-trainer{
+    width: 20em !important;
+}
+
+#trainer-search{
+    width: 20em !important;
+}

@@ -8,7 +8,7 @@ rev=$(git rev-parse --short HEAD | tr -d "\n")
 
 node build
 
-# Checkout: master -> gh-pages
+# Checkout: main -> gh-pages
 
 git checkout gh-pages
 
@@ -18,7 +18,7 @@ cp -a dist/* .
 
 git add -A .
 git commit -m "Publish: '${rev}'"
-git push git@github.com:forwardfeed/unc.git --force 
+git push git@github.com:ForwardFeed/Redux-Elite-Calc.git --force 
 # Checkout: gh-pages -> main
 
 git checkout main
