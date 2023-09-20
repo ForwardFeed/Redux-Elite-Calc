@@ -8844,13 +8844,13 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Sandshrew': {
     id: 27,
     abilities: ['Sand Veil', 'Stamina', 'Sand Stream'],
-    innates: ['Lets Roll', 'Sand Rush', 'Battle Armor'],
+    innates: ['Let\'s Roll', 'Sand Rush', 'Battle Armor'],
     otherFormes: ['Sandshrew-Alola'],
   },
   'Sandslash': {
     id: 28,
     abilities: ['Battle Armor', 'Stamina', 'Sand Stream'],
-    innates: ['Lets Roll', 'Sand Rush', 'Tough Claws'],
+    innates: ['Let\'s Roll', 'Sand Rush', 'Tough Claws'],
     otherFormes: ['Sandslash-Alola'],
     bs: {hp: 95, at: 100, df: 110, sa: 45, sd: 55, sp: 65},
   },
@@ -8911,7 +8911,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Jigglypuff': {
     id: 39,
     abilities: ['Sweet Dreams', 'Competitive', 'Magic Guard'],
-    innates: ['Cute Charm', 'Inflatable', 'Lets Roll'],
+    innates: ['Cute Charm', 'Inflatable', 'Let\'s Roll'],
     bs: {hp: 105, at: 45, df: 20, sa: 65, sd: 35, sp: 20},
   },
   'Wigglytuff': {
@@ -9102,19 +9102,19 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Geodude': {
     id: 74,
     abilities: ['Rock Head', 'Sand Force', 'Fort Knox'],
-    innates: ['Lets Roll', 'Sturdy', 'Solid Rock'],
+    innates: ['Let\'s Roll', 'Sturdy', 'Solid Rock'],
     otherFormes: ['Geodude-Alola'],
   },
   'Graveler': {
     id: 75,
     abilities: ['Rock Head', 'Sand Force', 'Fort Knox'],
-    innates: ['Lets Roll', 'Sturdy', 'Solid Rock'],
+    innates: ['Let\'s Roll', 'Sturdy', 'Solid Rock'],
     otherFormes: ['Graveler-Alola'],
   },
   'Golem': {
     id: 76,
     abilities: ['Rock Head', 'Sand Force', 'Fort Knox'],
-    innates: ['Lets Roll', 'Sturdy', 'Solid Rock'],
+    innates: ['Let\'s Roll', 'Sturdy', 'Solid Rock'],
     otherFormes: ['Golem-Alola'],
     bs: {hp: 90, at: 135, df: 130, sa: 55, sd: 65, sp: 45},
   },
@@ -9500,7 +9500,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   },
   'Snorlax': {
     id: 143,
-    abilities: ['Lets Roll', 'Oblivious', 'Comatose'],
+    abilities: ['Let\'s Roll', 'Oblivious', 'Comatose'],
     innates: ['Field Explorer', 'Thick Fat', 'Gluttony'],
   },
   'Articuno': {
@@ -9533,7 +9533,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   },
   'Dragonite': {
     id: 149,
-    abilities: ['Dragons Maw', 'Aerilate', 'Prism Scales'],
+    abilities: ['Dragon\'s Maw', 'Aerilate', 'Prism Scales'],
     innates: ['Multiscale', 'Overwhelm', 'Rampage'],
     otherFormes: ['Dragonite-Mega'],
   },
@@ -9679,7 +9679,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Igglybuff': {
     id: 174,
     abilities: ['Sweet Dreams', 'Competitive', 'Magic Guard'],
-    innates: ['Cute Charm', 'Inflatable', 'Lets Roll'],
+    innates: ['Cute Charm', 'Inflatable', 'Let\'s Roll'],
   },
   'Togepi': {
     id: 175,
@@ -10006,12 +10006,12 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Phanpy': {
     id: 231,
     abilities: ['Sheer Force', 'Thick Fat', 'Stamina'],
-    innates: ['Lets Roll', 'Rough Skin'],
+    innates: ['Let\'s Roll', 'Rough Skin'],
   },
   'Donphan': {
     id: 232,
     abilities: ['Sheer Force', 'Thick Fat', 'Stamina'],
-    innates: ['Lets Roll', 'Rough Skin', 'Battle Armor'],
+    innates: ['Let\'s Roll', 'Rough Skin', 'Battle Armor'],
     bs: {hp: 90, at: 130, df: 130, sa: 60, sd: 60, sp: 50},
   },
   'Porygon2': {
@@ -10762,12 +10762,12 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Spheal': {
     id: 363,
     abilities: ['Sheer Force', 'Refrigerate', 'Oblivious'],
-    innates: ['Thick Fat', 'Ice Body', 'Lets Roll'],
+    innates: ['Thick Fat', 'Ice Body', 'Let\'s Roll'],
   },
   'Sealeo': {
     id: 364,
     abilities: ['Sheer Force', 'Refrigerate', 'Oblivious'],
-    innates: ['Thick Fat', 'Ice Body', 'Lets Roll'],
+    innates: ['Thick Fat', 'Ice Body', 'Let\'s Roll'],
   },
   'Walrein': {
     id: 365,
@@ -10880,7 +10880,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   },
   'Rayquaza': {
     id: 384,
-    abilities: ['Dragons Maw', 'Air Blower', 'Violent Rush'],
+    abilities: ['Dragon\'s Maw', 'Air Blower', 'Violent Rush'],
     innates: ['Air Lock', 'Weather Control', 'Rampage'],
     otherFormes: ['Rayquaza-Mega'],
   },
@@ -11234,7 +11234,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   },
   'Munchlax': {
     id: 446,
-    abilities: ['Lets Roll', 'Oblivious', 'Oblivious'],
+    abilities: ['Let\'s Roll', 'Oblivious', 'Oblivious'],
     innates: ['Immunity', 'Thick Fat', 'Gluttony'],
   },
   'Riolu': {
@@ -11772,12 +11772,12 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Whirlipede': {
     id: 544,
     abilities: ['Poison Point', 'Exploit Weakness', 'Speed Boost'],
-    innates: ['Lets Roll', 'Coil Up', 'Shell Armor'],
+    innates: ['Let\'s Roll', 'Coil Up', 'Shell Armor'],
   },
   'Scolipede': {
     id: 545,
     abilities: ['Poison Point', 'Predator', 'Speed Boost'],
-    innates: ['Lets Roll', 'Solenoglyphs', 'Hyper Aggressive'],
+    innates: ['Let\'s Roll', 'Solenoglyphs', 'Hyper Aggressive'],
   },
   'Cottonee': {
     id: 546,
@@ -12062,12 +12062,12 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Ferroseed': {
     id: 597,
     abilities: ['Impenetrable', 'Bulletproof', 'Fort Knox'],
-    innates: ['Iron Barbs', 'Lets Roll', 'Battle Armor'],
+    innates: ['Iron Barbs', 'Let\'s Roll', 'Battle Armor'],
   },
   'Ferrothorn': {
     id: 598,
     abilities: ['Impenetrable', 'Bulletproof', 'Fort Knox'],
-    innates: ['Iron Barbs', 'Lets Roll', 'Battle Armor'],
+    innates: ['Iron Barbs', 'Let\'s Roll', 'Battle Armor'],
   },
   'Klink': {
     id: 599,
@@ -12353,17 +12353,17 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   },
   'Chespin': {
     id: 650,
-    abilities: ['Lets Roll', 'Stamina', 'Rough Skin'],
+    abilities: ['Let\'s Roll', 'Stamina', 'Rough Skin'],
     innates: ['Overgrow', 'Shell Armor', 'Bulletproof'],
   },
   'Quilladin': {
     id: 651,
-    abilities: ['Lets Roll', 'Stamina', 'Rough Skin'],
+    abilities: ['Let\'s Roll', 'Stamina', 'Rough Skin'],
     innates: ['Overgrow', 'Shell Armor', 'Bulletproof'],
   },
   'Chesnaught': {
     id: 652,
-    abilities: ['Lets Roll', 'Stamina', 'Iron Barbs'],
+    abilities: ['Let\'s Roll', 'Stamina', 'Iron Barbs'],
     innates: ['Overgrow', 'Shell Armor', 'Bulletproof'],
   },
   'Fennekin': {
@@ -12525,6 +12525,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     abilities: ['Shadow Shield', 'Dragonslayer', 'Soul Eater'],
     innates: ['Levitate', 'Keen Edge', 'Stance Change'],
     otherFormes: ['Aegislash-Blade'],
+    weightkg: 53,
     bs: {hp: 60, at: 50, df: 140, sa: 50, sd: 140, sp: 60},
   },
   'Spritzee': {
@@ -13028,7 +13029,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   },
   'Silvally': {
     id: 773,
-    abilities: ['Rks System', 'Protean', 'Unaware'],
+    abilities: ['RKS System', 'Protean', 'Unaware'],
     innates: ['Adaptability', 'Anger Point', 'Primal Armor'],
     otherFormes: ['Silvally-Fighting', 'Silvally-Flying', 'Silvally-Poison', 'Silvally-Ground', 'Silvally-Rock', 'Silvally-Bug', 'Silvally-Ghost', 'Silvally-Steel', 'Silvally-Fire', 'Silvally-Water', 'Silvally-Grass', 'Silvally-Electric', 'Silvally-Psychic', 'Silvally-Ice', 'Silvally-Dragon', 'Silvally-Dark', 'Silvally-Fairy'],
   },
@@ -13427,7 +13428,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Dracozolt': {
     id: 880,
     abilities: ['Strong Jaw', 'Surge Surfer', 'Sand Rush'],
-    innates: ['Fossilized', 'Dragons Maw', 'Volt Absorb'],
+    innates: ['Fossilized', 'Dragon\'s Maw', 'Volt Absorb'],
   },
   'Arctozolt': {
     id: 881,
@@ -13437,7 +13438,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Dracovish': {
     id: 882,
     abilities: ['Strong Jaw', 'Swift Swim', 'Sand Rush'],
-    innates: ['Fossilized', 'Dragons Maw', 'Water Absorb'],
+    innates: ['Fossilized', 'Dragon\'s Maw', 'Water Absorb'],
   },
   'Arctovish': {
     id: 883,
@@ -13784,7 +13785,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   },
   'Rayquaza-Mega': {
     id: 946,
-    abilities: ['Dragons Maw', 'Deadeye', 'Mold Breaker'],
+    abilities: ['Dragon\'s Maw', 'Deadeye', 'Mold Breaker'],
     innates: ['Delta Stream', 'Weather Control', 'Aerilate'],
     otherFormes: ['Rayquaza'],
   },
@@ -13828,7 +13829,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     id: 952,
     'types': ['Ice', 'Steel'],
     abilities: ['Snow Cloak', 'Stamina', 'Mountaineer'],
-    innates: ['Lets Roll', 'Slush Rush', 'Battle Armor'],
+    innates: ['Let\'s Roll', 'Slush Rush', 'Battle Armor'],
     otherFormes: ['Sandshrew'],
     bs: {hp: 50, at: 75, df: 90, sa: 10, sd: 35, sp: 40},
   },
@@ -13836,7 +13837,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     id: 953,
     'types': ['Ice', 'Steel'],
     abilities: ['Slush Rush', 'Stamina', 'Mountaineer'],
-    innates: ['Lets Roll', 'Tough Claws', 'Iron Barbs'],
+    innates: ['Let\'s Roll', 'Tough Claws', 'Iron Barbs'],
     otherFormes: ['Sandslash'],
     bs: {hp: 95, at: 100, df: 120, sa: 25, sd: 65, sp: 65},
   },
@@ -13893,7 +13894,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     id: 960,
     'types': ['Rock', 'Electric'],
     abilities: ['Magnet Pull', 'Rock Head', 'Fort Knox'],
-    innates: ['Lets Roll', 'Sturdy', 'Galvanize'],
+    innates: ['Let\'s Roll', 'Sturdy', 'Galvanize'],
     otherFormes: ['Geodude'],
     bs: {hp: 40, at: 80, df: 100, sa: 30, sd: 30, sp: 20},
   },
@@ -13901,7 +13902,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     id: 961,
     'types': ['Rock', 'Electric'],
     abilities: ['Magnet Pull', 'Rock Head', 'Fort Knox'],
-    innates: ['Lets Roll', 'Sturdy', 'Galvanize'],
+    innates: ['Let\'s Roll', 'Sturdy', 'Galvanize'],
     otherFormes: ['Graveler'],
     bs: {hp: 55, at: 95, df: 115, sa: 45, sd: 45, sp: 35},
   },
@@ -13909,7 +13910,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     id: 962,
     'types': ['Rock', 'Electric'],
     abilities: ['Magnet Pull', 'Ground Shock', 'Fort Knox'],
-    innates: ['Lets Roll', 'Sturdy', 'Galvanize'],
+    innates: ['Let\'s Roll', 'Sturdy', 'Galvanize'],
     otherFormes: ['Golem'],
     bs: {hp: 90, at: 135, df: 130, sa: 55, sd: 65, sp: 45},
   },
@@ -14445,6 +14446,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     abilities: ['Shadow Shield', 'Dragonslayer', 'Soul Eater'],
     innates: ['Levitate', 'Keen Edge', 'Stance Change'],
     otherFormes: ['Aegislash'],
+    weightkg: 53,
   },
   'Pumpkaboo-Small': {
     id: 1130,
@@ -14585,103 +14587,103 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   },
   'Silvally-Fighting': {
     id: 1149,
-    abilities: ['Rks System', 'Rks System', 'Rks System'],
+    abilities: ['RKS System', 'RKS System', 'RKS System'],
     innates: ['Adaptability', 'Anger Point', 'Primal Armor'],
     otherFormes: ['Silvally', 'Silvally-Flying', 'Silvally-Poison', 'Silvally-Ground', 'Silvally-Rock', 'Silvally-Bug', 'Silvally-Ghost', 'Silvally-Steel', 'Silvally-Fire', 'Silvally-Water', 'Silvally-Grass', 'Silvally-Electric', 'Silvally-Psychic', 'Silvally-Ice', 'Silvally-Dragon', 'Silvally-Dark', 'Silvally-Fairy'],
   },
   'Silvally-Flying': {
     id: 1150,
-    abilities: ['Rks System', 'Rks System', 'Rks System'],
+    abilities: ['RKS System', 'RKS System', 'RKS System'],
     innates: ['Adaptability', 'Anger Point', 'Primal Armor'],
     otherFormes: ['Silvally', 'Silvally-Fighting', 'Silvally-Poison', 'Silvally-Ground', 'Silvally-Rock', 'Silvally-Bug', 'Silvally-Ghost', 'Silvally-Steel', 'Silvally-Fire', 'Silvally-Water', 'Silvally-Grass', 'Silvally-Electric', 'Silvally-Psychic', 'Silvally-Ice', 'Silvally-Dragon', 'Silvally-Dark', 'Silvally-Fairy'],
   },
   'Silvally-Poison': {
     id: 1151,
-    abilities: ['Rks System', 'Rks System', 'Rks System'],
+    abilities: ['RKS System', 'RKS System', 'RKS System'],
     innates: ['Adaptability', 'Anger Point', 'Primal Armor'],
     otherFormes: ['Silvally', 'Silvally-Fighting', 'Silvally-Flying', 'Silvally-Ground', 'Silvally-Rock', 'Silvally-Bug', 'Silvally-Ghost', 'Silvally-Steel', 'Silvally-Fire', 'Silvally-Water', 'Silvally-Grass', 'Silvally-Electric', 'Silvally-Psychic', 'Silvally-Ice', 'Silvally-Dragon', 'Silvally-Dark', 'Silvally-Fairy'],
   },
   'Silvally-Ground': {
     id: 1152,
-    abilities: ['Rks System', 'Rks System', 'Rks System'],
+    abilities: ['RKS System', 'RKS System', 'RKS System'],
     innates: ['Adaptability', 'Anger Point', 'Primal Armor'],
     otherFormes: ['Silvally', 'Silvally-Fighting', 'Silvally-Flying', 'Silvally-Poison', 'Silvally-Rock', 'Silvally-Bug', 'Silvally-Ghost', 'Silvally-Steel', 'Silvally-Fire', 'Silvally-Water', 'Silvally-Grass', 'Silvally-Electric', 'Silvally-Psychic', 'Silvally-Ice', 'Silvally-Dragon', 'Silvally-Dark', 'Silvally-Fairy'],
   },
   'Silvally-Rock': {
     id: 1153,
-    abilities: ['Rks System', 'Rks System', 'Rks System'],
+    abilities: ['RKS System', 'RKS System', 'RKS System'],
     innates: ['Adaptability', 'Anger Point', 'Primal Armor'],
     otherFormes: ['Silvally', 'Silvally-Fighting', 'Silvally-Flying', 'Silvally-Poison', 'Silvally-Ground', 'Silvally-Bug', 'Silvally-Ghost', 'Silvally-Steel', 'Silvally-Fire', 'Silvally-Water', 'Silvally-Grass', 'Silvally-Electric', 'Silvally-Psychic', 'Silvally-Ice', 'Silvally-Dragon', 'Silvally-Dark', 'Silvally-Fairy'],
   },
   'Silvally-Bug': {
     id: 1154,
-    abilities: ['Rks System', 'Rks System', 'Rks System'],
+    abilities: ['RKS System', 'RKS System', 'RKS System'],
     innates: ['Adaptability', 'Anger Point', 'Primal Armor'],
     otherFormes: ['Silvally', 'Silvally-Fighting', 'Silvally-Flying', 'Silvally-Poison', 'Silvally-Ground', 'Silvally-Rock', 'Silvally-Ghost', 'Silvally-Steel', 'Silvally-Fire', 'Silvally-Water', 'Silvally-Grass', 'Silvally-Electric', 'Silvally-Psychic', 'Silvally-Ice', 'Silvally-Dragon', 'Silvally-Dark', 'Silvally-Fairy'],
   },
   'Silvally-Ghost': {
     id: 1155,
-    abilities: ['Rks System', 'Rks System', 'Rks System'],
+    abilities: ['RKS System', 'RKS System', 'RKS System'],
     innates: ['Adaptability', 'Anger Point', 'Primal Armor'],
     otherFormes: ['Silvally', 'Silvally-Fighting', 'Silvally-Flying', 'Silvally-Poison', 'Silvally-Ground', 'Silvally-Rock', 'Silvally-Bug', 'Silvally-Steel', 'Silvally-Fire', 'Silvally-Water', 'Silvally-Grass', 'Silvally-Electric', 'Silvally-Psychic', 'Silvally-Ice', 'Silvally-Dragon', 'Silvally-Dark', 'Silvally-Fairy'],
   },
   'Silvally-Steel': {
     id: 1156,
-    abilities: ['Rks System', 'Rks System', 'Rks System'],
+    abilities: ['RKS System', 'RKS System', 'RKS System'],
     innates: ['Adaptability', 'Anger Point', 'Primal Armor'],
     otherFormes: ['Silvally', 'Silvally-Fighting', 'Silvally-Flying', 'Silvally-Poison', 'Silvally-Ground', 'Silvally-Rock', 'Silvally-Bug', 'Silvally-Ghost', 'Silvally-Fire', 'Silvally-Water', 'Silvally-Grass', 'Silvally-Electric', 'Silvally-Psychic', 'Silvally-Ice', 'Silvally-Dragon', 'Silvally-Dark', 'Silvally-Fairy'],
   },
   'Silvally-Fire': {
     id: 1157,
-    abilities: ['Rks System', 'Rks System', 'Rks System'],
+    abilities: ['RKS System', 'RKS System', 'RKS System'],
     innates: ['Adaptability', 'Anger Point', 'Primal Armor'],
     otherFormes: ['Silvally', 'Silvally-Fighting', 'Silvally-Flying', 'Silvally-Poison', 'Silvally-Ground', 'Silvally-Rock', 'Silvally-Bug', 'Silvally-Ghost', 'Silvally-Steel', 'Silvally-Water', 'Silvally-Grass', 'Silvally-Electric', 'Silvally-Psychic', 'Silvally-Ice', 'Silvally-Dragon', 'Silvally-Dark', 'Silvally-Fairy'],
   },
   'Silvally-Water': {
     id: 1158,
-    abilities: ['Rks System', 'Rks System', 'Rks System'],
+    abilities: ['RKS System', 'RKS System', 'RKS System'],
     innates: ['Adaptability', 'Anger Point', 'Primal Armor'],
     otherFormes: ['Silvally', 'Silvally-Fighting', 'Silvally-Flying', 'Silvally-Poison', 'Silvally-Ground', 'Silvally-Rock', 'Silvally-Bug', 'Silvally-Ghost', 'Silvally-Steel', 'Silvally-Fire', 'Silvally-Grass', 'Silvally-Electric', 'Silvally-Psychic', 'Silvally-Ice', 'Silvally-Dragon', 'Silvally-Dark', 'Silvally-Fairy'],
   },
   'Silvally-Grass': {
     id: 1159,
-    abilities: ['Rks System', 'Rks System', 'Rks System'],
+    abilities: ['RKS System', 'RKS System', 'RKS System'],
     innates: ['Adaptability', 'Anger Point', 'Primal Armor'],
     otherFormes: ['Silvally', 'Silvally-Fighting', 'Silvally-Flying', 'Silvally-Poison', 'Silvally-Ground', 'Silvally-Rock', 'Silvally-Bug', 'Silvally-Ghost', 'Silvally-Steel', 'Silvally-Fire', 'Silvally-Water', 'Silvally-Electric', 'Silvally-Psychic', 'Silvally-Ice', 'Silvally-Dragon', 'Silvally-Dark', 'Silvally-Fairy'],
   },
   'Silvally-Electric': {
     id: 1160,
-    abilities: ['Rks System', 'Rks System', 'Rks System'],
+    abilities: ['RKS System', 'RKS System', 'RKS System'],
     innates: ['Adaptability', 'Anger Point', 'Primal Armor'],
     otherFormes: ['Silvally', 'Silvally-Fighting', 'Silvally-Flying', 'Silvally-Poison', 'Silvally-Ground', 'Silvally-Rock', 'Silvally-Bug', 'Silvally-Ghost', 'Silvally-Steel', 'Silvally-Fire', 'Silvally-Water', 'Silvally-Grass', 'Silvally-Psychic', 'Silvally-Ice', 'Silvally-Dragon', 'Silvally-Dark', 'Silvally-Fairy'],
   },
   'Silvally-Psychic': {
     id: 1161,
-    abilities: ['Rks System', 'Rks System', 'Rks System'],
+    abilities: ['RKS System', 'RKS System', 'RKS System'],
     innates: ['Adaptability', 'Anger Point', 'Primal Armor'],
     otherFormes: ['Silvally', 'Silvally-Fighting', 'Silvally-Flying', 'Silvally-Poison', 'Silvally-Ground', 'Silvally-Rock', 'Silvally-Bug', 'Silvally-Ghost', 'Silvally-Steel', 'Silvally-Fire', 'Silvally-Water', 'Silvally-Grass', 'Silvally-Electric', 'Silvally-Ice', 'Silvally-Dragon', 'Silvally-Dark', 'Silvally-Fairy'],
   },
   'Silvally-Ice': {
     id: 1162,
-    abilities: ['Rks System', 'Rks System', 'Rks System'],
+    abilities: ['RKS System', 'RKS System', 'RKS System'],
     innates: ['Adaptability', 'Anger Point', 'Primal Armor'],
     otherFormes: ['Silvally', 'Silvally-Fighting', 'Silvally-Flying', 'Silvally-Poison', 'Silvally-Ground', 'Silvally-Rock', 'Silvally-Bug', 'Silvally-Ghost', 'Silvally-Steel', 'Silvally-Fire', 'Silvally-Water', 'Silvally-Grass', 'Silvally-Electric', 'Silvally-Psychic', 'Silvally-Dragon', 'Silvally-Dark', 'Silvally-Fairy'],
   },
   'Silvally-Dragon': {
     id: 1163,
-    abilities: ['Rks System', 'Rks System', 'Rks System'],
+    abilities: ['RKS System', 'RKS System', 'RKS System'],
     innates: ['Adaptability', 'Anger Point', 'Primal Armor'],
     otherFormes: ['Silvally', 'Silvally-Fighting', 'Silvally-Flying', 'Silvally-Poison', 'Silvally-Ground', 'Silvally-Rock', 'Silvally-Bug', 'Silvally-Ghost', 'Silvally-Steel', 'Silvally-Fire', 'Silvally-Water', 'Silvally-Grass', 'Silvally-Electric', 'Silvally-Psychic', 'Silvally-Ice', 'Silvally-Dark', 'Silvally-Fairy'],
   },
   'Silvally-Dark': {
     id: 1164,
-    abilities: ['Rks System', 'Rks System', 'Rks System'],
+    abilities: ['RKS System', 'RKS System', 'RKS System'],
     innates: ['Adaptability', 'Anger Point', 'Primal Armor'],
     otherFormes: ['Silvally', 'Silvally-Fighting', 'Silvally-Flying', 'Silvally-Poison', 'Silvally-Ground', 'Silvally-Rock', 'Silvally-Bug', 'Silvally-Ghost', 'Silvally-Steel', 'Silvally-Fire', 'Silvally-Water', 'Silvally-Grass', 'Silvally-Electric', 'Silvally-Psychic', 'Silvally-Ice', 'Silvally-Dragon', 'Silvally-Fairy'],
   },
   'Silvally-Fairy': {
     id: 1165,
-    abilities: ['Rks System', 'Rks System', 'Rks System'],
+    abilities: ['RKS System', 'RKS System', 'RKS System'],
     innates: ['Adaptability', 'Anger Point', 'Primal Armor'],
     otherFormes: ['Silvally', 'Silvally-Fighting', 'Silvally-Flying', 'Silvally-Poison', 'Silvally-Ground', 'Silvally-Rock', 'Silvally-Bug', 'Silvally-Ghost', 'Silvally-Steel', 'Silvally-Fire', 'Silvally-Water', 'Silvally-Grass', 'Silvally-Electric', 'Silvally-Psychic', 'Silvally-Ice', 'Silvally-Dragon', 'Silvally-Dark'],
   },

@@ -53,7 +53,7 @@ function getSetOptions() {
 		for (var i = 0; i < setdex.length; i++) {
 			var trainer = setdex[i];
 			if (!trainer.mons && i != 0) {
-				console.log("invalid trainer: ", trainer.trn, " Removing")
+				console.log("invalid trainer: ", i, " Removing")
 				setdex.splice(i, 1)
 				continue
 			}
@@ -280,6 +280,11 @@ class DiscreteFuze{
 		this.species = [] 
 		this.items = []
 		this.moves = []
+		this.abi = []
+		this.inn = []
+		this.weightkg = []
+		this.bs = []
+		this.unnamed = []
 	}
 	correctSpecies(specie, list){
 		if (list[specie]) return specie
@@ -332,8 +337,14 @@ class DiscreteFuze{
 		console.log("Species: ", this.species)
 		console.log("Items: ", this.items)
 		console.log("Moves: ", this.moves)
+		console.log("Abilities: ", this.abi)
+		console.log("Innates: ", this.inn)
+		console.log("weighkg: ", this.weightkg)
+		console.log("BaseStats: ", this.bs)
+		console.log("you forgot log: ", this.unnamed)
 	}
 	hasOrLog(list, item, log){
+		if (!log) log = this.unnamed
 		if (list.constructor.name === 'Object'){
 			if (list[item] === undefined) {
 				//log
@@ -376,7 +387,7 @@ class DiscreteFuze{
 			this.fuzzSet(trn.insane)
 		}
 	}
-	start(){
+	startTrainer(){
 		var t0 = performance.now()
 		// then fuze progressively all trainer
 		for (var i = 1; i < setdex.length; i++) {
@@ -390,6 +401,40 @@ class DiscreteFuze{
 		var t1 = performance.now()
 		var timefuze = (t1 - t0) / 1000
 		console.log("Discrete fuzing " + setdex.length + " trainers has taken " + timefuze + " seconds")
+	}
+	fuzzPokemon(pokeName){
+		const poke = pokedex[pokeName]
+		if (poke.abilities && typeof poke.abilities[Symbol.iterator] === 'function'){
+			for (var abi of poke.abilities){
+				this.hasOrLog(abilities, abi, this.abi)
+			}
+		} else {
+			if (!poke.abilities) {
+				this.hasOrLog([], pokeName, this.abi)
+			}
+		}
+		if (poke.innates && typeof poke.innates[Symbol.iterator] === 'function'){
+			for (var abi of poke.innates){
+				this.hasOrLog(abilities, abi, this.inn)
+			}
+		} else {
+			if (!poke.innates) {
+				this.hasOrLog([], pokeName, this.inn)
+			}
+		}
+		if (poke.weightkg == undefined) this.hasOrLog([], pokeName, this.weightkg)
+		if (poke.bs == undefined) this.hasOrLog([], pokeName, this.bs)
+		if (poke.id == undefined) this.hasOrLog([], pokeName, this.id)
+	}
+	startPokedex(){
+		var t0 = performance.now()
+		for (var pokeName of Object.keys(pokedex)){
+			this.fuzzPokemon(pokeName)
+		}
+		this.printLog()
+		var t1 = performance.now()
+		var timefuze = (t1 - t0) / 1000
+		console.log("Discrete fuzing of " + pokedex.length + " pokemons has taken " + timefuze + " seconds")
 	}
 }
 
@@ -415,5 +460,9 @@ function reorder(){
 	//setdex = newOrder.concat(setdex)
 	console.log("Missed:",missed.length,' ', missed)
 	console.log('Hit :', newOrder.length,' ', newOrder)
-	console.log('Unknown: ', setdex.length)
+	console.log('not in list: ', newSet.length)
+}
+
+function fuzeAllPokedex(){
+	
 }

@@ -257,6 +257,10 @@ const SM = XY.concat([
 ]);
 
 const SS = Array.from(new Set(SM.concat([
+  'Wandering Spirit',
+  'Hunger Switch',
+  'Screen Cleaner',
+  'Chilling Neigh',
   'Lethargy',
   'Arctic Fur',
   'Hardened Sheath',
@@ -384,12 +388,11 @@ const SS = Array.from(new Set(SM.concat([
   'Whiteout',
   'Chloroplast',
   'As One',
-  'As One',
   'Grim Neigh',
   'ChillngNeigh',
   'Dragon\'s Maw',
   'Transistor',
-  'CuriusMedicn',
+  'Curious Medicine',
   'Unseen Fist',
   'Quick Draw',
   'HungerSwitch',
