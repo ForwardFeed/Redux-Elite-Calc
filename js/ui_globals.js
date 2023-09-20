@@ -32,7 +32,6 @@ var GENERATION = {
 
 var gen, notation, pokedex, dexpoke, setdex, dexset, typeChart, moves, abilities, items, GENERATION = [];
 
-
 function initializeUICalc() {
 	gen = window.CALC_GEN_SETTINGS.calc;
 	GENERATION = calc.Generations.get(gen);
@@ -42,7 +41,6 @@ function initializeUICalc() {
 		dexpoke.push([pokeName])
 	}
 	setdex = TRAINER_DEX;
-	
 	dexset = [];
 	for (var a in setdex) {
 		var name = setdex[a].trn;
