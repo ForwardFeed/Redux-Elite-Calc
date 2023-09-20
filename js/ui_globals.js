@@ -32,6 +32,19 @@ var GENERATION = {
 
 var gen, notation, pokedex, dexpoke, setdex, dexset, typeChart, moves, abilities, items, GENERATION = [];
 
+function filterName(name) {
+	name = name.replace('&', 'And')
+	name = name.replace(' and ', ' And ')
+	name = name.replace(' F ', ' ')
+	name = name.replace(' M ', ' ')
+	name = name.replace('Pokemon', 'Pkmn')
+	name = name.replace('Pokéfan', 'Pokefan')
+	name = name.replace('PKMN', 'Pkmn')
+	name = name.replace('PokeManiac', 'Pokemaniac')
+	name =  name.replace('Sr and Jr', 'Sr. and Jr.')
+
+	return name
+}
 function initializeUICalc() {
 	gen = window.CALC_GEN_SETTINGS.calc;
 	GENERATION = calc.Generations.get(gen);
@@ -41,6 +54,14 @@ function initializeUICalc() {
 		dexpoke.push([pokeName])
 	}
 	setdex = TRAINER_DEX;
+	for (const id in setdex){
+		trn = setdex[id]
+		if (!trn.trn) {
+			console.warn('Missing values in trainer :', trn, id)
+			continue
+		}
+		setdex[id].trn = filterName(trn.trn)
+	}
 	dexset = [];
 	for (var a in setdex) {
 		var name = setdex[a].trn;
