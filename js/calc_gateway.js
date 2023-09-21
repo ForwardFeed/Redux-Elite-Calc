@@ -21,7 +21,14 @@ class CalcGateway{
         // which then cause calc trigger to be called again
         // that's why the calc gateway close itself while the last calculation hasn't done
         if (this.isGateClosed) return
-        this.launchCalculation()
+        try {
+            this.launchCalculation()
+        } catch(e){
+            console.log(P2.createPokemon())
+            console.log(P.createPokemon())
+            console.error('something went wrong in the calculation', e)
+        }
+        
     }
     prepareDouble(topActive, topInactive, bot){
         /*  Since i take rigor not to change more than once the panel

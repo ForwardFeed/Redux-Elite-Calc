@@ -13,7 +13,11 @@ function getSrcImgPokemon(pokeName) {
 		pokeName = "Zygarde-10%25";
 	} else if (pokeName == "Aegislash-Shield") {
 		pokeName = "Aegislash";
+	} else if (pokeName === "Sirfetchd"){
+		pokeName = "Sirfetch’d"
 	}
+	if (/Arceus/.test(pokeName)) pokeName = 'Arceus'
+	pokeName = pokeName.replace('Galarian', 'Galar')
 	return "https://raw.githubusercontent.com/May8th1995/sprites/master/" + pokeName + ".png";
 
 }
@@ -287,13 +291,17 @@ class DiscreteFuze{
 		this.unnamed = []
 	}
 	correctSpecies(specie, list){
+		return specie
 		if (list[specie]) return specie
 		if (list[specie.replace('Of', 'of')]) return specie.replace('Of', 'of')
 		if (list[specie.replace(' ', '-')]) return specie.replace(' ', '-')
+		if (list[specie.replace('-', ' ')]) return specie.replace('-', ' ')
 		if (list[specie.split(' ')[0]]) return specie.split(' ')[0]
 		switch(specie){
-			case 'Sirfetchd':
-				return 'Sirfetch\u2019d'
+			case 'Calyrex':
+				return 'Calyrex Ice Rider'
+			case 'Sirfetch’d':
+				return 'Sirfetchd'
 		}
 		return specie
 	}

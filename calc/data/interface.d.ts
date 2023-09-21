@@ -137,6 +137,7 @@ export interface Specie extends Data<SpeciesName> {
         0: AbilityName | '';
     };
     readonly heads?: number;
+    readonly genderR?: number;
 }
 export interface Types {
     get(id: ID): Type | undefined;

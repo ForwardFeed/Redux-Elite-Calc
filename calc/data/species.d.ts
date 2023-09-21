@@ -23,6 +23,7 @@ export interface SpeciesData {
         0: string;
     };
     readonly heads?: number;
+    readonly genderR?: number;
 }
 export declare const SPECIES: {
     [name: string]: SpeciesData;
@@ -48,6 +49,7 @@ declare class Specie implements I.Specie {
         0: I.AbilityName;
     };
     readonly heads?: number | undefined;
+    readonly genderR?: number | undefined;
     private static readonly EXCLUDE;
     constructor(name: string, data: SpeciesData);
 }
