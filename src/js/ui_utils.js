@@ -383,6 +383,11 @@ class DiscreteFuze{
 				this.fuzzSet(rem)
 			}
 		}
+		if (trn.alt){
+			for (const rem of trn.alt) {
+				this.fuzzTrainer(rem)
+			}
+		}
 		if (trn.insane){
 			this.fuzzSet(trn.insane)
 		}
@@ -442,13 +447,35 @@ function reorder(){
 	var newOrder = []
 	var missed = []
 	for (var name of T_LIST){
-		var id = dexset[name]
-		if (id) {
-			newOrder.push(setdex[id])
-			setdex[id] = ""
+		if (typeof name === 'string'){
+			var id = dexset[name]
+			if (id) {
+				newOrder.push(setdex[id])
+				setdex[id] = ""
+			} else {
+				missed.push(name)
+			}
 		} else {
-			missed.push(name)
+			var id = dexset[name[0]]
+			if (id) {
+				newOrder.push(setdex[id])
+				setdex[id] = ""
+			} else {
+				missed.push(name)
+			}
+			var trn = newOrder[newOrder.length - 1]
+			trn.alt = []
+			for (var i = 1; i < name.length; i++) {
+				var id = dexset[name[i]]
+				if (id) {
+					trn.alt.push(setdex[id])
+					setdex[id] = ""
+				} else {
+					missed.push(name)
+				}
+			}
 		}
+		
 	}
 	var newSet = []
 	for (var index in setdex) {
