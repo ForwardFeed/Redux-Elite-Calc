@@ -33,6 +33,9 @@ class Panel{
             },
             set: function(target, index, val){
                 target[index].val(val)
+                if (ABI_DESC) {
+                    target[index].attr('title', ABI_DESC[val]) 
+                }
                 return true
             }
         })
@@ -112,7 +115,12 @@ class Panel{
     get nature(){return this.field_nature.val()}
     set nature(val){this.field_nature.val(val)}
     get ability(){return this.field_ability.val()}
-    set ability(val){this.field_ability.val(val)}
+    set ability(val){
+        this.field_ability.val(val)
+        if (ABI_DESC) {
+            this.field_ability.attr('title', ABI_DESC[val]) 
+        }
+    }
     get abilityOn(){return this.field_abilityOn.prop("checked")}
     set abilityOn(val){this.field_abilityOn.prop("checked", val)}
     get alliesFainted(){return +this.field_allies_fainted.val()}

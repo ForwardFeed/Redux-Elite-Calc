@@ -157,6 +157,7 @@ export interface Specie extends Data<SpeciesName> {
   readonly abilities?: {0: AbilityName | ''};
   readonly innates?: {0: AbilityName | ''};
   readonly heads?: number;
+  readonly genderR?: number;
 }
 
 export interface Types {

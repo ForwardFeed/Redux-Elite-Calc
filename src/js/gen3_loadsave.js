@@ -359,7 +359,15 @@ function createGEN3mon(mon){
         poke.moves[i] = move
     }
     poke.zeroSpe = mon.zeroSpe;
-    poke.gender = mon.personality % 256 ? 'F' : 'M'
+    var genderRatio = pokedex[poke.species].genderR
+    var pGender = mon.personality % 256
+    if (genderRatio == 255){
+        poke.gender = 'N'
+    } else if (genderRatio != 0 && genderRatio < pGender ){
+        poke.gender = 'F'
+    } else {
+        poke.gender = 'M'
+    }
     return poke
 }
 
