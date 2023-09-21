@@ -162,7 +162,7 @@ function readSubStructure(OTID, personV, start, bytes){
 	mon.spAttackIV = (flags >> 20) & 0x1F
 	mon.spDefenseIV = (flags >> 25) & 0x1F
     mon.isEgg = (flags >> 30) & 0x1
-    mon.speedDown = (flags >> 31) & 0x1
+    mon.zeroSpe = (flags >> 31) & 0x1
     
     flags = ss3[2]
     mon.pokeball = flags & 0xF;
@@ -358,7 +358,8 @@ function createGEN3mon(mon){
         }
         poke.moves[i] = move
     }
-    poke.gender = "M"; //default to M?
+    poke.zeroSpe = mon.zeroSpe;
+    poke.gender = mon.personality % 256 ? 'F' : 'M'
     return poke
 }
 
