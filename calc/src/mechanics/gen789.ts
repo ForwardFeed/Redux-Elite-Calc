@@ -268,7 +268,7 @@ export function calculateSMSSSV(
       type = 'Water';
     } else if ((isGroundate = !!attacker.hasAbility('Groundate')) && normal) {
       type = 'Ground';
-    } else if ((isFightingSpirit = !!attacker.hasAbility('Fighting Spirit')) && normal) {
+    } else if ((isFightingSpirit = !!attacker.hasAbility('Fight Spirit')) && normal) {
       type = 'Fighting';
     } else if ((isCrystallize = !!attacker.hasAbility('Crystallize')) && move.hasType('Rock')) {
       type = 'Ice';
@@ -406,11 +406,11 @@ export function calculateSMSSSV(
    move.type === 'Fire') {
     typeEffectiveness = 2;
   }
-  if (attacker.hasAbility('Seaweed	Grass') && move.hasType('Grass') &&
+  if (attacker.hasAbility('Seaweed Grass') && move.hasType('Grass') &&
     defender.hasType('Fire')) {
     typeEffectiveness = typeEffectiveness * 2;
   }
-  if (defender.hasAbility('Seaweed	Grass') && move.hasType('Fire') &&
+  if (defender.hasAbility('Seaweed Grass') && move.hasType('Fire') &&
   defender.hasType('Grass')) {
     typeEffectiveness = typeEffectiveness / 2;
   }
@@ -470,7 +470,7 @@ export function calculateSMSSSV(
         !defender.hasItem('Iron Ball') && defender.hasAbility('Levitate', 'Dragonfly')) ||
       (move.flags.bullet && defender.hasAbility('Bulletproof')) ||
       (move.flags.sound && !move.named('Clangorous Soul') && defender.hasAbility('Soundproof')) ||
-      (move.priority > 0 && defender.hasAbility('Queenly Majesty', 'Dazzling', 'Armor Tail')) ||
+      (move.priority > 0 && defender.hasAbility('Queenly Majesty', 'Dazzling')) ||
       (move.hasType('Ground') && defender.hasAbility('Earth Eater')) ||
       (move.flags.wind && defender.hasAbility('Wind Rider'))
   ) {
@@ -1419,7 +1419,7 @@ export function calculateAtModsSMSSSV(
     desc.attackerAbility = appSpacedStr(desc.attackerAbility, 'Flash Fire');
   } else if (
     (attacker.hasAbility('Steelworker') && move.hasType('Steel')) ||
-    (attacker.hasAbility('Dragon\'s Maw') && move.hasType('Dragon')) ||
+    (attacker.hasAbility('Dragons Maw') && move.hasType('Dragon')) ||
     (attacker.hasAbility('Rocky Payload') && move.hasType('Rock'))
   ) {
     atMods.push(6144);
@@ -1511,7 +1511,7 @@ export function calculateAtModsSMSSSV(
   if (attacker.hasAbility('Electrocytes') && move.hasType('Electric')) {
     atMods.push(5120);
   }
-  if (attacker.hasAbility('Sage') && move.category === 'Special') {
+  if (attacker.hasAbility('Sage Power') && move.category === 'Special') {
     atMods.push(6144);
   }
   if (attacker.hasAbility('Majestic Bird') && move.category === 'Special') {
@@ -1786,7 +1786,7 @@ export function calculateFinalModsSMSSSV(
   if (attacker.hasAbility('Giant Wings') && move.flags.air) {
     finalMods.push(5120);
   }
-  if (attacker.hasAbility('Dragon\'s Maw') && move.hasType('Dragon')) {
+  if (attacker.hasAbility('Dragons Maw') && move.hasType('Dragon')) {
     finalMods.push(5325);
   }
   if (attacker.hasAbility('Transistor') && move.hasType('Electric')) {

@@ -259,8 +259,9 @@ function showClearPNotes() {
 	$("#clearNotes").prop("hidden", false);
 }
 var PNOTES = new Map(JSON.parse(localStorage.getItem(GameName + "pnotes")))
-function savePNotes(fullID) {
-	var prevNotes = PNOTES.get(fullID);
+function savePNotes() {
+	fullID = P2.select
+	var prevNotes = PNOTES.get();
 	var notes = $('#active-p-note').val();
 	if (prevNotes) {
 		if (!notes) {
@@ -334,6 +335,7 @@ $(document).ready(function () {
 	$('#close-note-box, #open-note').click(openCloseNoteBox);
 	$('#screen-calc').click(onClickScreenCalc)
 	$('#active-p-note').keydown(showClearPNotes);
+	$('#active-p-note').focusout(savePNotes)
 	$('#clearNotes').click(clearPNotes);
 	for (let dropzone of document.getElementsByClassName("dropzone")) {
 		dropzone.ondragenter = handleDragEnter;

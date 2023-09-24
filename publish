@@ -18,7 +18,7 @@ cp -a dist/* .
 
 git add -A .
 git commit -m "Publish: '${rev}'"
-git push
+git push github.com:ForwardFeed/Redux-Elite-Calc.git
 
 
 # Checkout: gh-pages -> main

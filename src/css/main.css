@@ -260,6 +260,9 @@ th {
     width: 5em;
     border-radius: 8px;
 }
+.btn-mwide {
+    width: 5.8em;
+}
 .btn-wide {
     width: 7em;
 }
@@ -271,6 +274,9 @@ th {
 }
 .btn-xxxwide {
     width: 10em;
+}
+.btn-ywide {
+    width: 7.5em;
 }
 .btn-small {
     width: 4em;
@@ -666,10 +672,10 @@ table.field {
     color:gray
 }
 .dropzone > img, #p2mon, #p1mon{
-    min-height: 30px;
-    min-width: 40px;
-    max-height: 30px;
-    max-width: 40px;
+    min-height: 32px;
+    min-width: 32px;
+    max-height: 32px;
+    max-width: 32px;
 }
 .box-poke > img:hover, .poke-box > img:hover{
     background: var(--button-hover);

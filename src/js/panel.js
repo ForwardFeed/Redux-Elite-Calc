@@ -78,6 +78,7 @@ class Panel{
         // Misc
         this.abiForme = [];
         this.box = this.fetchBox()
+        this.switchSet = false;
         // Setups the event listeners
         this.setup()
     }
@@ -157,7 +158,7 @@ class Panel{
             }
             this.setPanel()
         })
-        this.field_level.keyup(()=>{
+        this.field_level.bind('keyup', 'change', ()=>{
             this.level = Math.max(0, Math.min(100, this.level))// apply sanit
             this.stats.calcHP();
             this.stats.calcStats()
@@ -323,6 +324,24 @@ class Panel{
              //modify final speed too
         }
     }
+    resetTrainerToDefault(){
+        if (!this.trainer) return
+        // safely restore base team if there was previously a changement (rematch / alternative sets)
+        if (this.trainer.swp) {
+            var trn = this.trainer
+            trn.mons = trn.swp;
+            delete trn.swp;
+            delete trn.flagid;
+        }
+        if (this.trainer.trnswp){
+            var trn = this.trainer
+            trn.trn = trn.trnswp.trn
+            trn.mons = trn.trnswp.mons
+            trn.rem = trn.trnswp.rem
+            delete trn.trnswp
+            delete trn.flagid
+        }
+    }
     parseSelector(){
         const parsed = this.select.split(";")
         this.pokemonName = parsed[0]
@@ -350,27 +369,58 @@ class Panel{
         this.pokemon = structuredClone(pokedex[this.pokemonName])
         this.trainerID = +dexset[this.trainerName]
         this.trainer = setdex[this.trainerID]
-        this.pokeID  = parsed[2]
+        this.pokeID  = +parsed[2]
         this.pokemon = Object.assign(this.pokemon, this.trainer.mons[this.pokeID])
+        if (parsed.length == 5){
+            // rematch or alt set
+            var setID = +parsed[4]
+            this.switchSet = {[parsed[3]] : setID}
+        }
+        
     }
     setPanel(){
         this.parseSelector()
         this.selectTitle = this.trainerName + " : " + this.pokemonName
         if (!this.pokemon) return
         if(this.hasTrainerChanged()) {
+            this.resetTrainerToDefault()
+            if ($('#field-reset-on').prop("checked")) clearField();
+            if (+localStorage.getItem("p-notes") && this.trainerID != 0) restorePNotes(this.select);
+            critsResets(this.panel);
+            localStorage.setItem(GameName + "trainer", this.trainerID);
             this.box.changeTrainer()
-            // apply reset of terrain if trainer
+        }
+        if (this.switchSet){
+            if (this.switchSet.rem){
+                var setID = this.switchSet.rem //ev.target.dataset.id
+                this.box.selected = this.box.field_rematch.children().eq(setID + 1)
+                this.box.trainerTeamChange('rem', setID)
+            } else{
+                var setID = this.switchSet.alt
+                this.box.selected = this.box.field_alternative.children().eq(setID +1)
+                this.box.trainerTeamChange('alt', setID)
+            }
+            this.switchSet = false
+            this.box.fullRebox()
+            return
         }
         const poke = correctCompactedIVEV(this.pokemon)
         this.pokeImg = poke.species
         this.showFormes();
         this.type1 = poke.types[0]
         this.type2 = poke.types[1]
-        this.level = poke.level || 1
+        this.level = poke.level || highestMonLevel
         
         for (const stat of LEGACY_STATS[gen]) {
             this.stats[stat + "Base"] = poke.bs[stat]
-            this.stats[stat + "IV"] = poke.ivs && poke.ivs[stat] || 31
+            
+            if (stat === 'sp' && poke.zeroSpe) {
+                this.stats[stat + "IV"] = 0
+            }  else if (this.constructor.name === 'PlayerPanel') {
+                this.stats[stat + "IV"] = 31
+            } else {
+                this.stats[stat + "IV"] = poke.ivs && poke.ivs[stat] || 31
+            }
             this.stats[stat + "EV"] = poke.evs && poke.evs[stat] || 0
             if (stat === "hp") continue
             this.stats[stat + "Boost"] = 0
@@ -616,6 +666,4 @@ class TrainerPanel extends Panel{
     constructor(panel){
         super(panel)
     }
-    get level(){return highestMonLevel}
-    set level(val){this.field_level.val(highestMonLevel)}
 }

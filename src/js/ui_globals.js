@@ -43,9 +43,15 @@ function initializeUICalc() {
 	setdex = TRAINER_DEX;
 	dexset = [];
 	for (var a in setdex) {
-		var name = setdex[a].trn;
+		var trn = setdex[a];
+		var name = trn.trn
 		if (dexset[name]) {
 			continue;
+		}
+		if (trn.alt){
+			for(const alt of trn.alt){
+				dexset[alt.trn] = a
+			}
 		}
 		dexset[name] = a;
 	}
