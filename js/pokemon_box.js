@@ -206,32 +206,16 @@ class TrainerBox extends BasicBox{
         this.rematchAlternativeShow()
     }
     selectTrainer(id) {
-        this.props.trainerID = id
-        // safe check for alternative/rematch sets
-        if (this.props.trainer && this.props.trainer.swp) {
-            this.props.trainer.mons = this.props.trainer.swp;
-            delete this.props.trainer.swp;
-            delete this.props.trainer.flagid;
-        }
-        
-        if ($('#field-reset-on').prop("checked")) clearField();
-        if (+localStorage.getItem("p-notes") && this.props.trainerID != 0) savePNotes(this.props.select);
         this.props.select = id
-        if (+localStorage.getItem("p-notes") && this.props.trainerID != 0) restorePNotes(this.props.select);
-        critsResets(this.props.panel);
-        localStorage.setItem(GameName + "trainer", id);
     }
     iconMonClicked(pokeID, selection){
         if (this.props.pokeID != pokeID){
-            if (+localStorage.getItem("p-notes") && this.props.trainerID != 0) savePNotes(this.props.select);
             this.props.select = selection
             if (+localStorage.getItem("p-notes") && this.props.trainerID != 0) restorePNotes(this.props.select);
         }
     }
     //flag => "mons", "rem", "insane, "alt"
-    trainerTeamChange(flag, ev){
-        this.selected = $(ev.target)
-        var id = ev.target.dataset.id
+    trainerTeamChange(flag, id){
         if (!flag) return
         const trn = this.props.trainer
         switch(flag){
@@ -266,6 +250,7 @@ class TrainerBox extends BasicBox{
                     trn.mons = alt.mons;
                     trn.rem = alt.rem;
                     trn.flagid = flag + ";" + id;
+                    this.props.trainerName = alt.trn
                 }
                 break;
             case "rem":
@@ -293,13 +278,16 @@ class TrainerBox extends BasicBox{
                 return
         }
 	    this.fullRebox()
-        this.props.select = this.monRow1
     }
     generateButton(text, flag, id){
         const newBtn = document.createElement("button");
         newBtn.innerText = text;
         if (!isNaN(id)) newBtn.dataset.id = id
-        newBtn.onclick = (ev)=>{this.trainerTeamChange(flag, ev)};
+        newBtn.onclick = (ev)=>{
+            this.selected = $(ev.target)
+            this.trainerTeamChange(flag, ev.target.dataset.id)
+            this.props.select = this.monRow1
+        };
         return newBtn
     }
     rematchAlternativeShow(){
@@ -334,10 +322,13 @@ class TrainerBox extends BasicBox{
         }
         
         if (trainer.alt){
-            this.field_alternative.append(this.generateButton(this.props.trainerName, "alt", -1))
+            const base = this.generateButton(this.props.trainerName, "alt", -1)
+            this.selected = $(base)
+            this.field_alternative.append(base)
             for(var i = 0; i < trainer.alt.length; i++){
                 this.field_alternative.append(this.generateButton(this.props.trainer.alt[i].trn, "alt", i))
             }
+            
         }
     }
 }

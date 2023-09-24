@@ -3,22 +3,44 @@ function getSrcImgPokemon(pokeName) {
 	if (!pokeName) {
 		return;
 	}
-	// Redux megas
-	var exceptions = ["Milotic-Mega","Butterfree-Mega","Machamp-Mega","Kingler-Mega","Lapras-Mega","Flygon-Mega","Kingdra-Mega","Dewgong-Mega","Hitmonchan-Mega","Hitmonlee-Mega","Hitmontop-Mega","Crobat-Mega","Skarmory-Mega","Bruxish-Mega","Torterra-Mega","Infernape-Mega","Empoleon-Mega","Shuckle-Mega","Relicanth-Mega","Quagsire-Mega","Jellicent-Mega","Toucannon-Mega","Dragonite-Mega","Breloom-Mega","Slaking-Mega"]
-	if (exceptions.includes(pokeName)){
-		return "../img/" + pokeName + ".png";
-	}
 	//General exceptions
-	if (pokeName == "Zygarde-10%") {
-		pokeName = "Zygarde-10%25";
+	if (pokeName == "Zygarde 10" || pokeName == 'Zygarde 10 Power Construct') {
+		pokeName = "Zygarde 10 Percent";
+	} else if (pokeName == "Zygarde 50 Power Construct") {
+		pokeName = "Zygarde Complete";
 	} else if (pokeName == "Aegislash-Shield") {
 		pokeName = "Aegislash";
-	} else if (pokeName === "Sirfetchd"){
-		pokeName = "Sirfetch’d"
-	}
-	if (/Arceus/.test(pokeName)) pokeName = 'Arceus'
-	pokeName = pokeName.replace('Galarian', 'Galar')
-	return "https://raw.githubusercontent.com/May8th1995/sprites/master/" + pokeName + ".png";
+	} else if (pokeName == 'Rockruff Own Tempo') {
+		pokeName = "Rockruff";
+	} else if (pokeName == "Unown Emark" || pokeName == "Unown Qmark"){
+		pokeName = "Unown";
+	} else if (pokeName == "Pikachu World Cap"){
+		pokeName = "Pikachu";
+	} else if (pokeName == "Sinistea Antique"){
+		pokeName = "Sinistea";
+	} else if (pokeName == "Polteageist Antique"){
+		pokeName = "Polteageist";
+	} else if (pokeName == "Greninja Battle Bond"){
+		pokeName = "Greninja";
+	} else if (/Arceus/.test(pokeName)){
+		pokeName = "Arceus";
+	} else if (/Genesect/.test(pokeName)){
+		pokeName = "Genesect";
+	} else if (/Pumpkaboo/.test(pokeName)){
+		pokeName = "Pumpkaboo";
+	} else if (/Gourgeist/.test(pokeName)){
+		pokeName = "Gourgeist";
+	} else if (/Silvally/.test(pokeName)){
+		pokeName = "Silvally";
+	} else if (/Minior/.test(pokeName)){
+		pokeName = "Minior";
+	} else if (/Alcremie/.test(pokeName)){
+		pokeName = "Alcremie";
+	} else if (/Urshifu/.test(pokeName)){
+		pokeName = "Urshifu";
+	} 
+	
+	return "../img/sprites/" + pokeName + ".png";
 
 }
 
@@ -77,8 +99,34 @@ function getSetOptions() {
 					setOptions.push({
 						text: mon.species + " : " + trainer.trn,
 						id: mon.species + ";" + trainer.trn + ";" + j, /*without id it doesn't get selectable*/
-						isMon: true,
+						isMon: true, /* shows a different text boldness*/
 					});
+				}
+				// get rematch sets
+				if (trainer.rem){
+					for (const rem of trainer.rem){
+						for (const remMon of rem){
+							setOptions.push({
+								text: remMon.species + " : " + trainer.trn,
+								id: remMon.species + ";" + trainer.trn + ";" + rem.indexOf(remMon) +
+									';rem;' + trainer.rem.indexOf(rem),
+								isMon: true,
+							});
+						}
+					}
+				}
+				// get alternative sets
+				if (trainer.alt){
+					for (const alt of trainer.alt){
+						for (const altMon of alt.mons){
+							setOptions.push({
+								text: altMon.species + " : " + alt.trn,
+								id: altMon.species + ";" + trainer.trn + ";" + alt.mons.indexOf(altMon) +
+								 ';alt;' + trainer.alt.indexOf(alt),
+								isMon: true,
+							});
+						}
+					}
 				}
 			}
 		}
@@ -217,287 +265,5 @@ function setHighestLevelMon(){
 		} 
 	}
 	if (hasChanged) P2.stats.calcStats() 
-	
-}
-
-function fuzeAllTrainers() {
-	//prevent spamming the img request
-	window.getSrcImgPokemon = function(){
-		return ""
-	}
-	var t0 = performance.now()
-	// then fuze progressively all trainer
-	for (var i = 1; i < setdex.length; i++) {
-		try{
-			fuzeTrainer(i)
-		} catch(e){
-			console.error("Error at trainer n° " + i + " : " + e)
-		}
-	}
-	var t1 = performance.now()
-	var timefuze = (t1 - t0) / 1000
-	console.log("Fuzing " + setdex.length + " trainers has taken " + timefuze + " seconds")
-}
-
-function fuzeTrainer(i) {
-	P2.box.selectTrainer(i)
-		if (P2.trainer.rem){
-			for (var j = 0; j < P2.trainer.rem.length; j++) {
-				const fakeEV = {
-					target: {
-						dataset : {
-							id: j
-						}
-					}
-				}
-				P2.box.trainerTeamChange("rem", fakeEV)
-			}
-		}
-		if (P2.trainer.insane){
-			const fakeEV = {
-				target: {
-					dataset : {
-						id: 0
-					}
-				}
-			}
-			P2.box.trainerTeamChange("insane", fakeEV)
-		}
-		if (P2.trainer.alt) {
-			for (var j = 0; j < P2.trainer.alt.length; j++) {
-				const fakeEV = {
-					target: {
-						dataset : {
-							id: j
-						}
-					}
-				}
-				P2.box.trainerTeamChange("alt", fakeEV)
-			}
-		}
-}
-
-// IT also corrects wrongs stuff
-class DiscreteFuze{
-	constructor(){
-		// list all bad named fields
-		this.species = [] 
-		this.items = []
-		this.moves = []
-		this.abi = []
-		this.inn = []
-		this.weightkg = []
-		this.bs = []
-		this.unnamed = []
-	}
-	correctSpecies(specie, list){
-		return specie
-		if (list[specie]) return specie
-		if (list[specie.replace('Of', 'of')]) return specie.replace('Of', 'of')
-		if (list[specie.replace(' ', '-')]) return specie.replace(' ', '-')
-		if (list[specie.replace('-', ' ')]) return specie.replace('-', ' ')
-		if (list[specie.split(' ')[0]]) return specie.split(' ')[0]
-		switch(specie){
-			case 'Calyrex':
-				return 'Calyrex Ice Rider'
-			case 'Sirfetch’d':
-				return 'Sirfetchd'
-		}
-		return specie
-	}
-	correctItemName(itemName, list){
-		if (list[itemName]) return itemName
-		switch(itemName){
-			case "Heavy Duty Boots":
-				return 'Heavy-Duty Boots'
-			case 'Kings Rock':
-				return 'King\'s Rock'
-			case 'None':
-				return ''
-		}
-		return itemName
-	}
-	correctMoveName(igName, list){
-		if (list[igName]) return igName
-		switch(igName){
-			case "Baby Doll Eyes":
-				igName = "Baby-Doll Eyes";break
-			case "V Create":
-				igName = "V-create";break
-			case "U Turn":
-				igName = "U-turn";break
-			case "Will O Wisp":
-				igName = "Will-O-Wisp";break
-			case "Freeze Dry":
-				igName = "Freeze-Dry";break
-			case "Double Edge":
-				igName = "Double-Edge";break
-			case 'None':
-				igName = '(No Move)';break
-			default:
-				if (list[igName.replace(" Of ", " of ")]) return igName.replace(" Of ", " of ");
-				if (list[igName.replace("s ", "'s ")]) return igName.replace("s ", "'s ");
-				if (list[igName.replace(" ", "-")]) return igName.replace(" ", "-");
-		}
-		return igName
-	}
-	printLog(){
-		console.log("Species: ", this.species)
-		console.log("Items: ", this.items)
-		console.log("Moves: ", this.moves)
-		console.log("Abilities: ", this.abi)
-		console.log("Innates: ", this.inn)
-		console.log("weighkg: ", this.weightkg)
-		console.log("BaseStats: ", this.bs)
-		console.log("you forgot log: ", this.unnamed)
-	}
-	hasOrLog(list, item, log){
-		if (!log) log = this.unnamed
-		if (list.constructor.name === 'Object'){
-			if (list[item] === undefined) {
-				//log
-				if(!log.includes(item)){
-					log.push(item)
-				}
-			}
-		} else if (list.constructor.name === 'Array'){
-			if (!list.includes(item)) {
-				//log
-				if(!log.includes(item)){
-					log.push(item)
-				}
-			}
-		}
-	}
-	fuzzPoke(poke){
-		poke.species = this.correctSpecies(poke.species, pokedex)
-		this.hasOrLog(pokedex, poke.species, this.species)
-		poke.item = this.correctItemName(poke.item, items)
-		this.hasOrLog(items, poke.item, this.items)
-		for (var i in poke.moves){
-			poke.moves[i] = this.correctMoveName(poke.moves[i], moves)
-			this.hasOrLog(moves, poke.moves[i], this.moves)
-		}
-	}
-	fuzzSet(set){
-		for (const poke of set){
-			this.fuzzPoke(poke)
-		}
-	}
-	fuzzTrainer(trn){
-		this.fuzzSet(trn.mons)
-		if (trn.rem){
-			for (const rem of trn.rem) {
-				this.fuzzSet(rem)
-			}
-		}
-		if (trn.alt){
-			for (const rem of trn.alt) {
-				this.fuzzTrainer(rem)
-			}
-		}
-		if (trn.insane){
-			this.fuzzSet(trn.insane)
-		}
-	}
-	startTrainer(){
-		var t0 = performance.now()
-		// then fuze progressively all trainer
-		for (var i = 1; i < setdex.length; i++) {
-			try{
-				this.fuzzTrainer(setdex[i])
-			} catch(e){
-				console.error("Error at trainer n° " + i + " : " + e)
-			}
-		}
-		this.printLog()
-		var t1 = performance.now()
-		var timefuze = (t1 - t0) / 1000
-		console.log("Discrete fuzing " + setdex.length + " trainers has taken " + timefuze + " seconds")
-	}
-	fuzzPokemon(pokeName){
-		const poke = pokedex[pokeName]
-		if (poke.abilities && typeof poke.abilities[Symbol.iterator] === 'function'){
-			for (var abi of poke.abilities){
-				this.hasOrLog(abilities, abi, this.abi)
-			}
-		} else {
-			if (!poke.abilities) {
-				this.hasOrLog([], pokeName, this.abi)
-			}
-		}
-		if (poke.innates && typeof poke.innates[Symbol.iterator] === 'function'){
-			for (var abi of poke.innates){
-				this.hasOrLog(abilities, abi, this.inn)
-			}
-		} else {
-			if (!poke.innates) {
-				this.hasOrLog([], pokeName, this.inn)
-			}
-		}
-		if (poke.weightkg == undefined) this.hasOrLog([], pokeName, this.weightkg)
-		if (poke.bs == undefined) this.hasOrLog([], pokeName, this.bs)
-		if (poke.id == undefined) this.hasOrLog([], pokeName, this.id)
-	}
-	startPokedex(){
-		var t0 = performance.now()
-		for (var pokeName of Object.keys(pokedex)){
-			this.fuzzPokemon(pokeName)
-		}
-		this.printLog()
-		var t1 = performance.now()
-		var timefuze = (t1 - t0) / 1000
-		console.log("Discrete fuzing of " + pokedex.length + " pokemons has taken " + timefuze + " seconds")
-	}
-}
-
-function reorder(){
-	var newOrder = []
-	var missed = []
-	for (var name of T_LIST){
-		if (typeof name === 'string'){
-			var id = dexset[name]
-			if (id) {
-				newOrder.push(setdex[id])
-				setdex[id] = ""
-			} else {
-				missed.push(name)
-			}
-		} else {
-			var id = dexset[name[0]]
-			if (id) {
-				newOrder.push(setdex[id])
-				setdex[id] = ""
-			} else {
-				missed.push(name)
-			}
-			var trn = newOrder[newOrder.length - 1]
-			trn.alt = []
-			for (var i = 1; i < name.length; i++) {
-				var id = dexset[name[i]]
-				if (id) {
-					trn.alt.push(setdex[id])
-					setdex[id] = ""
-				} else {
-					missed.push(name)
-				}
-			}
-		}
-		
-	}
-	var newSet = []
-	for (var index in setdex) {
-		if (setdex[index]) {
-			newSet.push(setdex[index])
-		}
-	}
-	setdex = newOrder.concat(newSet)
-	//setdex = newOrder.concat(setdex)
-	console.log("Missed:",missed.length,' ', missed)
-	console.log('Hit :', newOrder.length,' ', newOrder)
-	console.log('not in list: ', newSet.length)
-}
-
-function fuzeAllPokedex(){
 	
 }
