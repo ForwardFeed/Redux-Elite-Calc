@@ -24,8 +24,6 @@ class CalcGateway{
         try {
             this.launchCalculation()
         } catch(e){
-            console.log(P2.createPokemon())
-            console.log(P.createPokemon())
             console.error('something went wrong in the calculation', e)
         }
         
@@ -182,12 +180,30 @@ class CalcGateway{
         if (defender.hasAbility('Cold Rebound') && move.flags.contact){
             var saveMoveName = move
             move = calc.MOVES[gen]['Icy Wind'] 
+            var overrides = {
+                basePower: move.basePower,
+                type: move.type,
+            };
+            move = new calc.Move(gen, 'Icy Wind', {
+                ability: attacker.ability, innates: attacker.innates, item: attacker.item, useZ: false, species: attacker.species, isCrit: false,
+                hits: 1, timesUsed: 0, timesUsedWithMetronome: 0, overrides: overrides,
+                useMax: false
+            });
             var retribution = calc.calculate(gen,defender, attacker, move, field, defenderFriend)
             move = saveMoveName;
             return "Warning: "  + attacker.name + " May Trigger Cold Rebound for " + retribution.moveDesc(notation) + "   "
         } else if (defender.hasAbility('Parry') && move.flags.contact) {
             var saveMoveName = move
-            move = calc.MOVES[gen]['Mach Punch'] 
+            move = calc.MOVES[gen]['Mach Punch']
+            var overrides = {
+                basePower: move.basePower,
+                type: move.type,
+            };
+            move = new calc.Move(gen, 'Mach Punch', {
+                ability: attacker.ability, innates: attacker.innates, item: attacker.item, useZ: false, species: attacker.species, isCrit: false,
+                hits: 1, timesUsed: 0, timesUsedWithMetronome: 0, overrides: overrides,
+                useMax: false
+            });
             var retribution = calc.calculate(gen,defender, attacker, move, field, defenderFriend)
             move = saveMoveName;
             return "Warning: "  + attacker.name + " May Trigger Parry for " + retribution.moveDesc(notation) + "   "

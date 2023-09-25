@@ -128,6 +128,17 @@ function getSetOptions() {
 						}
 					}
 				}
+				// get insane sets
+				if (trainer.insane){
+					for (const mon of trainer.insane){
+						setOptions.push({
+							text: mon.species + " : " + trainer.trn + '(Elite)',
+							id: mon.species + ";" + trainer.trn + ";" + trainer.insane.indexOf(mon) +
+							 ';insane;' + 0,
+							isMon: true,
+						});
+					}
+				}
 			}
 		}
 	}
