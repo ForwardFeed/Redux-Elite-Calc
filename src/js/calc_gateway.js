@@ -63,6 +63,7 @@ class CalcGateway{
         P2.stats.spFinal = p2.stats.spe
         this.display.display(result[0])
         this.display2.display(result[1])
+        this.result=result
     }
     prepareSingle(){
         const p1 = P1.createPokemon()
@@ -71,6 +72,7 @@ class CalcGateway{
         P1.stats.spFinal = p1.stats.spe
         P2.stats.spFinal = p2.stats.spe
         this.display.display(result[0])
+        this.result=result
     }
     launchCalculation() {
         this.isGateClosed = true;

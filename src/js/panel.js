@@ -158,10 +158,11 @@ class Panel{
             }
             this.setPanel()
         })
-        this.field_level.bind('keyup', 'change', ()=>{
-            this.level = Math.max(0, Math.min(100, this.level))// apply sanit
+        this.field_level.bind('keyup, change', ()=>{
+            this.level = Math.max(1, Math.min(100, this.level))// apply sanit
             this.stats.calcHP();
             this.stats.calcStats()
+            calcGateway.calcTrigger()
         })
         this.field_nature.change(()=>{
             this.stats.calcStats()
@@ -352,9 +353,10 @@ class Panel{
                 this.pokemon.species = this.pokemonName
                 // i won't change the trainer however i'll add this pokemon to the current trainer
                 // also don't append to the player
+                this.pokeID = this.trainer.mons.length - 1 || 0
                 if (!this.trainer || this.trainerID == 0) return
                 this.trainer.mons.push(this.pokemon)
-                this.box.addBoxed(this.pokemon, this.trainer.mons.length)
+                this.box.addBoxed(this.pokemon, this.pokeID)
                 return
             } else {
                 //trainer id
