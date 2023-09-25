@@ -271,7 +271,10 @@ function setHighestLevelMon(){
 $(document).ready(function(){
     $('#report').click( function() {
 		var to_print = {
-			
+			result: calcGateway.result,
+			settings: {
+				
+			}
 		}
 	})
 });
