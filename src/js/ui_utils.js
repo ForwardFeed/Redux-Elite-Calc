@@ -267,3 +267,11 @@ function setHighestLevelMon(){
 	if (hasChanged) P2.stats.calcStats() 
 	
 }
+
+$(document).ready(function(){
+    $('#report').click( function() {
+		var to_print = {
+			
+		}
+	})
+});

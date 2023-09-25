@@ -113,8 +113,13 @@
     <script type="text/javascript" src="../js/theme-toggle.js"></script>
 <div class="wrapper">
 
-    <div aria-label="Settings" role="region">
-        <span class="title-text">Pok&eacute;mon Damage Calculator</span>
+    <div aria-label="Title" role="region">
+        <span class="title-text"> 
+            <span class="pokemon-gradient">Pok&eacute;mon</span>
+            <span class="redux-gradient">Elite Redux</span>
+            <span>Damage Calculator</span>
+        </span>
+        
         <button id="calcadd">Calc Addition</button>
         <button id="screen-calc">
             put this calculation in a grabbable window
@@ -582,7 +587,7 @@
                         <span id="hidden-power" class="hidden-power"></span>
                     </div>
                     <div class="gen-specific g3 g4 g5 g6 g7 g8 g9">
-                        <label for="innates">Innates</label>
+                        <label for="innates" class="hint" title="Mouse hover an ability to get the description">Innates</label>
                         <select class="innates terrain-trigger save-trigger calc-trigger" id="innatesL1"></select>
                         <input hidden type="checkbox" title= "Is this ability active?" class="innatesToggle calc-trigger">
                         </input>
@@ -1269,7 +1274,8 @@
                 <legend align="center">Pok&eacute;mon 2
                     <img id="p2mon" src="" alt="">
                 </legend>
-                <input type="text" class="set-selector selector" />
+                <input type="text" class="set-selector selector"/>
+                <span class="right-poke-creation">create pokemon</span>
                 <span class="pokebar-selection-specifier">
                     <input type="radio" name="selection-filter" id="pokemons-only">Only pokedex</input>
                     <input type="radio" name="selection-filter" id="no-pokedex">No pokedex</input> 
@@ -1583,7 +1589,7 @@
                         </select>
                     </div>
                     <div class="gen-specific g3 g4 g5 g6 g7 g8 g9">
-                        <label for="innates">Innates</label>
+                        <label for="innates" class="hint" title="Mouse hover an ability to get the description">Innates</label>
                         <select class="innates terrain-trigger calc-trigger" id="innatesR1"></select>
                         <input hidden type="checkbox" title= "Is this ability active?" class="innatesToggle calc-trigger">
                         </input>
@@ -1974,8 +1980,9 @@
         <li><a href="https://github.com/smogon/damage-calc/" class="links-lighten" target="_blank">Original Smogon Calc</a></li>
     </ul>
     <button id="open-settings-box">Open Settings Panel</button>
+    <button title="If the calculation feels off, explain it to the dev with this report" id="report" hidden>Download Report</button>
     <div id="sets">
-        <span>version 0.3.1 "And thy spagetti arose but soon it will vanish"</span>
+        <span>version 0.3.3 "Carefullness"</span>
     </div>
     
 </div> 

@@ -198,7 +198,7 @@ th {
     font-size: 1.5em;
     margin: 0.5em 1em 0.5em 0;
     position: relative;
-    top: -5px;
+    top: 5px;
 }
 .big-text {
     text-align: left;
@@ -1009,4 +1009,43 @@ input[type='radio']:checked {
 .selectedButton{
     background-image: unset;
     background-color: var(--button-selected) !important;
+}
+
+.hint{
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+}
+
+.redux-gradient{
+    background: rgb(228, 39, 74);
+    background: linear-gradient(0deg, rgb(228, 39, 74) 0%, rgb(255, 191, 203) 50%, rgba(247,252,255,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.pokemon-gradient{
+    background: rgb(224, 121, 24);
+    background: linear-gradient(0deg, rgb(224, 121, 24) 0%, rgb(247, 244, 68) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.right-poke-creation{
+    background: red;
+    position: absolute;
+    right: -35px;
+}
+
+.plus{
+    font-weight:bolder;
+    color:white;
+}
+
+.plus:hover{
+    color:rgb(194, 194, 194);
+    border-style: groove;
+    border-color: gray;
+    background-color: rgba(123, 136, 138, 0.541);
 }

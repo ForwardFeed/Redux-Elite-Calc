@@ -350,7 +350,11 @@ class Panel{
                 //pokemon name
                 this.pokemon = structuredClone(pokedex[this.pokemonName])
                 this.pokemon.species = this.pokemonName
-                // i won't change the trainer however
+                // i won't change the trainer however i'll add this pokemon to the current trainer
+                // also don't append to the player
+                if (!this.trainer || this.trainerID == 0) return
+                this.trainer.mons.push(this.pokemon)
+                this.box.addBoxed(this.pokemon, this.trainer.mons.length)
                 return
             } else {
                 //trainer id
