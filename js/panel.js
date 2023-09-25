@@ -381,6 +381,7 @@ class Panel{
             // rematch or alt set
             var setID = +parsed[4]
             this.switchSet = {[parsed[3]] : setID}
+            console.log(this.switchSet)
         }
         
     }
@@ -401,10 +402,13 @@ class Panel{
                 var setID = this.switchSet.rem //ev.target.dataset.id
                 this.box.selected = this.box.field_rematch.children().eq(setID + 1)
                 this.box.trainerTeamChange('rem', setID)
-            } else{
+            } else if(this.switchSet.alt){
                 var setID = this.switchSet.alt
                 this.box.selected = this.box.field_alternative.children().eq(setID +1)
                 this.box.trainerTeamChange('alt', setID)
+            } else {
+                this.box.selected = this.box.field_alternative.children().eq(1)
+                this.box.trainerTeamChange('insane', 1)
             }
             this.switchSet = false
             this.box.fullRebox()
