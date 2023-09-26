@@ -75,6 +75,9 @@ function getRecovery(gen, attacker, defender, move, damage, notation) {
     }
     if (move.drain) {
         var percentHealed = move.drain[0] / move.drain[1];
+        if (attacker.hasAbility('Absorbant')) {
+            percentHealed = percentHealed * 2;
+        }
         var max = Math.round(defender.curHP() * percentHealed);
         for (var i = 0; i < minD.length; i++) {
             var range = [minD[i], maxD[i]];
@@ -422,6 +425,10 @@ function getEndOfTurn(gen, attacker, defender, move, field) {
     if (defender.hasAbility('Self Sufficient')) {
         damage += Math.floor(defender.maxHP() / 16);
         texts.push('Self Sufficient recovery');
+    }
+    if (defender.hasAbility('Self Repair')) {
+        damage += Math.floor(defender.maxHP() / 16);
+        texts.push('Self Repair recovery');
     }
     if (field.defenderSide.isSeeded) {
         if (!defender.hasAbility('Magic Guard', 'Impenetrable')) {

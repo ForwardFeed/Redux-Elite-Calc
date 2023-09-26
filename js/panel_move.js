@@ -7,9 +7,11 @@ class panelMove{
         this.field_select = div.find('select.move-selector')
         this.field_select_text = div.find('.select2-chosen')
         this.field_basePower = div.find('.move-bp')
+        this.field_acc = div.find('.move-acc')
         this.field_type = div.find('.move-type')
         this.field_category = div.find('.move-cat')
         this.field_isZ = div.find('input.move-z')
+        this.field_prio = div.find('.move-prio')
         this.field_isCrit = div.find('.move-crit')
         this.field_hits = div.find('.move-hits')
         this.field_timesUsed = div.find('.stat-drops')
@@ -24,6 +26,8 @@ class panelMove{
     }
     get basePower(){return +this.field_basePower.val().replace(/\D/g, "")}
     set basePower(val){this.field_basePower.val(val)}
+    get acc(){return +this.field_acc.val().replace(/[^0-9-]/g, "")}
+    set acc(val){this.field_acc.val(val)}
     get type(){return this.field_type.val()}
     set type(val){this.field_type.val(val)}
     get category(){return this.field_category.val()}
@@ -32,6 +36,8 @@ class panelMove{
     set isZ(val){this.field_isZ.prop("checked", val)}
     get isCrit(){return this.field_isCrit.prop("checked")}
     set isCrit(val){this.field_isCrit.prop("checked", val)}
+    get prio(){return +this.field_prio.text().replace(/[^0-9-]/g, "")}
+    set prio(val){this.field_prio.text(val)}
     get hits(){return +this.field_hits.val()}
     set hits(val){this.field_hits.val(val)}
     get timesUsed(){return +this.field_timesUsed.val()}
@@ -56,9 +62,14 @@ class panelMove{
         this.name = moveName
         this.autoCorrectHiddenPower()
         this.basePower = move.bp
+        this.acc = move.acc ? move.acc : '--'
         this.type = move.type
         this.category = move.category
         this.isZ = false
+        this.prio = move.priority || 0
+        if (+this.prio > 0){
+            this.prio = '+' + this.prio
+        }
         if (+localStorage.getItem("rcrits")){
             this.isCrit = move.willCrit || false
         }

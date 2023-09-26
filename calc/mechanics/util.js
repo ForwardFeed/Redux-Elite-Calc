@@ -208,6 +208,15 @@ function checkAirLock(pokemon, field) {
     }
 }
 exports.checkAirLock = checkAirLock;
+function checkClueless(pokemon, field) {
+    if (pokemon.hasAbility('Clueless')) {
+        field.weather = undefined;
+        field.isMagicRoom = false;
+        field.isWonderRoom = false;
+        field.terrain = undefined;
+    }
+}
+exports.checkClueless = checkClueless;
 function checkForecast(pokemon, weather) {
     if (pokemon.hasAbility('Forecast') && pokemon.named('Castform')) {
         switch (weather) {
@@ -247,7 +256,7 @@ function checkIntimidate(gen, source, target) {
     var blocked = target.hasAbility('Clear Body', 'White Smoke', 'Hyper Cutter', 'Full Metal Body', 'Discipline', 'Overwhelm') ||
         (gen.num >= 8 && target.hasAbility('Inner Focus', 'Own Tempo', 'Oblivious', 'Scrappy')) ||
         target.hasItem('Clear Amulet');
-    if (source.hasAbilityActive('Intimidate') && !blocked) {
+    if (source.hasAbilityActive('Intimidate', 'Fearmonger') && !blocked) {
         if (target.hasAbility('Contrary', 'Defiant', 'Guard Dog')) {
             target.boosts.atk = Math.min(6, target.boosts.atk + 2);
         }
@@ -268,7 +277,7 @@ function checkScare(gen, source, target) {
     var blocked = target.hasAbility('Clear Body', 'White Smoke', 'Hyper Cutter', 'Full Metal Body', 'Discipline', 'Overwhelm') ||
         (gen.num >= 8 && target.hasAbility('Inner Focus', 'Own Tempo', 'Oblivious', 'Scrappy')) ||
         target.hasItem('Clear Amulet');
-    if (source.hasAbilityActive('Scare') && !blocked) {
+    if (source.hasAbilityActive('Scare', 'Fearmonger') && !blocked) {
         if (target.hasAbility('Contrary')) {
             target.boosts.spa = Math.min(6, target.boosts.spa + 2);
         }
