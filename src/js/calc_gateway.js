@@ -24,6 +24,14 @@ class CalcGateway{
         try {
             this.launchCalculation()
         } catch(e){
+            this.error = {
+                line: e.lineNumber,
+                col: e.columnNumber,
+                file: e.fileName,
+                msg: e.message,
+                name: e.name,
+                stack: e.stack,
+            }
             console.error('something went wrong in the calculation', e)
         }
         
@@ -177,36 +185,30 @@ class CalcGateway{
         }]
     }
     checkRetribution(gen, attacker, defender, move, field, defenderFriend){
+        var saveMoveName = move
+        var RetribMove
+        var AbilityRetrib = ""
         if (defender.hasAbility('Cold Rebound') && move.flags.contact){
-            var saveMoveName = move
-            move = calc.MOVES[gen]['Icy Wind'] 
-            var overrides = {
-                basePower: move.basePower,
-                type: move.type,
-            };
-            move = new calc.Move(gen, 'Icy Wind', {
-                ability: attacker.ability, innates: attacker.innates, item: attacker.item, useZ: false, species: attacker.species, isCrit: false,
-                hits: 1, timesUsed: 0, timesUsedWithMetronome: 0, overrides: overrides,
-                useMax: false
-            });
-            var retribution = calc.calculate(gen,defender, attacker, move, field, defenderFriend)
-            move = saveMoveName;
-            return "Warning: "  + attacker.name + " May Trigger Cold Rebound for " + retribution.moveDesc(notation) + "   "
+            RetribMove = calc.MOVES[gen]['Icy Wind']
+            AbilityRetrib = 'Cold Rebound'
         } else if (defender.hasAbility('Parry') && move.flags.contact) {
-            var saveMoveName = move
-            move = calc.MOVES[gen]['Mach Punch']
+            RetribMove = calc.MOVES[gen]['Mach Punch']
+            AbilityRetrib = 'Parry'
+        } else if (defender.hasAbility('Retribution Blow') && move.flags.boosting) {
+            RetribMove = calc.MOVES[gen]['Hyper Beam']
+            AbilityRetrib = 'Retribution Blow'
+        }
+        if (RetribMove) {
             var overrides = {
-                basePower: move.basePower,
-                type: move.type,
+                basePower: RetribMove.basePower,
+                type: RetribMove.type,
             };
-            move = new calc.Move(gen, 'Mach Punch', {
+            move = new calc.Move(gen, RetribMove.name, {
                 ability: attacker.ability, innates: attacker.innates, item: attacker.item, useZ: false, species: attacker.species, isCrit: false,
                 hits: 1, timesUsed: 0, timesUsedWithMetronome: 0, overrides: overrides,
                 useMax: false
             });
-            var retribution = calc.calculate(gen,defender, attacker, move, field, defenderFriend)
-            move = saveMoveName;
-            return "Warning: "  + attacker.name + " May Trigger Parry for " + retribution.moveDesc(notation) + "   "
+            return "Warning: "  + attacker.name + " May Trigger " + AbilityRetrib + " for " + retribution.moveDesc(notation) + "   "
         }
         return "";
     }

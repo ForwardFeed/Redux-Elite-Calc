@@ -404,20 +404,24 @@ th {
 select.toxic-counter {
     width: 5.5em;
 }
-.move-selector, .move-bp, .move-type, .move-cat, .move-hits {
+.move-selector, .move-bp, .move-type, .move-cat, .move-hits, .move-acc, .move-prio{
     font-size: 0.9em;
 }
 .move-selector {
     width: 11.5em;
 }
-.poke-info input.move-bp {
+.poke-info input.move-bp, .poke-info input.move-acc{
     width: 2em;
+}
+.poke-info .move-prio{
+    width: 1em;
+    margin-left: -3px;
 }
 .move-type {
     width: 5.5em;
 }
 .move-cat {
-    width: 6em;
+    width: 4em;
 }
 .move-hits {
     width: 4.5em;

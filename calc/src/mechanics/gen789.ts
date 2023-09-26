@@ -17,6 +17,7 @@ import {Result} from '../result';
 import {
   chainMods,
   checkAirLock,
+  checkClueless,
   checkDauntlessShield,
   checkDownload,
   checkForecast,
@@ -70,6 +71,9 @@ export function calculateSMSSSV(
   checkAirLock(attacker, field);
   checkAirLock(defender, field);
   if (defenderFriend) checkAirLock(defenderFriend, field);
+  checkClueless(attacker, field);
+  checkClueless(defender, field);
+  if (defenderFriend) checkClueless(defenderFriend, field);
   checkForecast(attacker, field.weather);
   checkForecast(defender, field.weather);
   checkItem(attacker, field.isMagicRoom);
@@ -102,7 +106,14 @@ export function calculateSMSSSV(
   checkInfiltrator(attacker, field.defenderSide);
   checkInfiltrator(defender, field.attackerSide);
 
-  if (attacker.hasAbility('Deadeye')) move.acc = 100;
+  // accuracy to zero means it can't miss, for sake of simplicity set to 100
+  if (attacker.hasAbility('Deadeye') ||
+    (attacker.hasAbility('Roundhouse') && move.flags.kick) ||
+    (attacker.hasAbility('Gifted Mind') && move.category == 'Status') ||
+    (attacker.hasAbility('Sweeping Edge') && move.flags.slicing) ||
+    (!move.acc)){
+    move.acc = 100;
+  }
 
   const desc: RawDesc = {
     attackerName: attacker.name,
@@ -234,6 +245,10 @@ export function calculateSMSSSV(
   let isFightingSpirit = false;
   let isCrystallize = false;
   let isBurnate = false;
+  let isSpectralize = false;
+  let isDraconize = false;
+  let isMineralize = false;
+
   const noTypeChange = move.named(
     'Revelation Dance',
     'Judgment',
@@ -274,9 +289,16 @@ export function calculateSMSSSV(
       type = 'Ice';
     } else if ((isBurnate = !!attacker.hasAbility('Burnate')) && normal) {
       type = 'Fire';
+    } else if ((isSpectralize = !!attacker.hasAbility('Spectralize')) && normal){
+      type = 'Ghost';
+    } else if ((isDraconize = !!attacker.hasAbility('Draconize')) && normal){
+      type = 'Dragon';
+    } else if ((isMineralize = !!attacker.hasAbility('Mineralize')) && normal){
+      type = 'Rock';
     }
     if (isGalvanize || isPixilate || isRefrigerate || isAerilate || isNormalize || isBuginize ||
-      isPoisonate || isHydrate || isGroundate || isFightingSpirit || isCrystallize || isBurnate) {
+      isPoisonate || isHydrate || isGroundate || isFightingSpirit || isCrystallize || isBurnate ||
+      isSpectralize || isDraconize || isMineralize) {
       desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.ability);
       hasAteAbilityTypeChange = true;
     } else if (isLiquidVoice) {
@@ -549,7 +571,7 @@ export function calculateSMSSSV(
   // #endregion
   // #region Base Power
 
-  const basePower = calculateBasePowerSMSSSV(
+  var basePower = calculateBasePowerSMSSSV(
     gen,
     attacker,
     defender,
@@ -561,7 +583,9 @@ export function calculateSMSSSV(
   if (basePower === 0) {
     return result;
   }
-
+  var bpMods = []
+  if (isDraconize || isMineralize ) bpMods.push(4506);
+  basePower = OF16(Math.max(1, pokeRound((basePower * chainMods(bpMods, 41, 2097152)) / 4096)));
   // #endregion
   // #region (Special) Attack
   const attack = calculateAttackSMSSSV(gen, attacker, defender, move, field, desc, !!isCritical);
@@ -608,6 +632,9 @@ export function calculateSMSSSV(
 
   if (attacker.hasAbility('Parental Bond (Child)', 'Hyper Aggressive 2th', 'Multi Headed 2th')) {
     baseDamage = pokeRound(OF32(baseDamage * 1024) / 4096);
+  }
+  if (attacker.hasAbility('Primal Maw 2th')) {
+    baseDamage = pokeRound(OF32(baseDamage * 2048) / 4096);
   }
   if (attacker.hasAbility('Multi Headed last')) {
     baseDamage = pokeRound(OF32(baseDamage * 614) / 4096);
@@ -705,6 +732,15 @@ export function calculateSMSSSV(
     protect = true;
     desc.isProtected = true;
   }
+  if (defender.hasAbilityActive('Cheating Death')){
+    if (move.hits <= 2) {
+      protect = true
+      desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.ability);
+    } else {
+      desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.ability);
+      move.hits -= 2
+    }
+  }
 
   const finalMod = chainMods(finalMods, 41, 131072);
 
@@ -716,7 +752,7 @@ export function calculateSMSSSV(
     contributionDamage = calculateSMSSSV(gen, child, defender, move, field).damage as number[];
     desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.ability);
   }
-  const contribution = calcContribution(gen, attacker, move);
+  const contribution = calcContribution(gen, attacker, move, field);
   if (move.hits === 1 && contribution) {
     const child = contribution.child;
     const childMove = contribution.move;
@@ -1437,7 +1473,15 @@ export function calculateAtModsSMSSSV(
     atMods.push(8192);
     desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.ability);
   }
-
+  if ((attacker.hasAbility('Forest Rage') && move.hasType('Grass'))||
+    (attacker.hasAbility('Riptide') && move.hasType('Water')) ||
+    (attacker.hasAbility('Hellblaze') && move.hasType('Fire'))) {
+      if (attacker.curHP() <= attacker.maxHP() / 3 ){
+        atMods.push(7373);
+      } else {
+        atMods.push(5325);
+      }
+  }
   if ((defender.hasAbility('Thick Fat') && move.hasType('Fire', 'Ice')) ||
       (defender.hasAbility('Water Bubble') && move.hasType('Fire')) ||
      (defender.hasAbility('Purifying Salt') && move.hasType('Ghost'))) {
@@ -1672,7 +1716,10 @@ export function calculateFinalModsSMSSSV(
   typeEffectiveness: number
 ) {
   const finalMods = [];
-
+  if (field.hasWeather('Sand') && defender.hasAbility('Dune Terror')) {
+    finalMods.push(2048);
+    desc.weather = field.weather;
+  }
   if (field.defenderSide.isReflect && move.category === 'Physical' &&
       !isCritical && !field.defenderSide.isAuroraVeil) {
     // doesn't stack with Aurora Veil
@@ -1694,6 +1741,15 @@ export function calculateFinalModsSMSSSV(
   if (attacker.hasAbility('Overcharge') && defender.hasType('Electric') &&
     move.type === 'Electric') {
     finalMods.push(8192);
+  }
+  if (attacker.hasAbility('Hydro Circuit')) {
+    if (move.type === 'Electric') {
+      finalMods.push(6144);
+    }
+    if (move.type === 'Water') {
+      move.drain = [1, 4];
+    }
+    
   }
 
   if (attacker.hasAbility('Fatal Precision') && typeEffectiveness > 1) {
@@ -1851,6 +1907,7 @@ function calcContribution(
   gen: Generation,
   attacker: Pokemon,
   move: Move,
+  field: Field,
 ) {
   if (attacker.hasAbility('Pyro Shells') && move.flags.pulse) {
     const child = attacker.clone();
@@ -1910,6 +1967,22 @@ function calcContribution(
       child: child,
       move: childMove,
     };
+  } else if (attacker.hasAbility('Primal Maw') && move.flags.bite) {
+    const child = attacker.clone();
+    child.remplaceAbility('Primal Maw', 'Primal Maw 2th');
+    const childMove: Move = move.clone();
+    return {
+      child: child,
+      move: childMove,
+    };
+  } else if (attacker.hasAbility('Cheap Tactics') && field.attackerSide.isSwitching === 'in'){
+    const child = attacker.clone();
+    child.remplaceAbility('Cheap Tactics', 'Cheap Tactics 2th');
+    const childMove: Move = new Move(gen, 'Scratch');
+    return {
+      child: child,
+      move: childMove,
+    };
   }
   return undefined;
 }
@@ -1939,12 +2012,16 @@ function getPriorityAdditionnal(attacker: Pokemon, move: Move, defender: Pokemon
   if (attacker.hasAbility('Perfectionist') && move.bp < 25) {
     add += 1;
   }
+  if (attacker.hasAbility('Volt Rush') && move.hasType('Electric') && attacker.curHP() == attacker.maxHP()) {
+    add += 1;
+  }
   if (attacker.hasAbility('Blitz Boxer') && move.flags.punch) {
     add += 1;
   }
   if (attacker.hasAbilityActive('Coil Up') && move.flags.bite) {
     add += 1;
   }
+  
   return add;
 }
 

@@ -675,11 +675,14 @@
                 <div class="move1 i-f-move">
                     <select class="move-selector save-trigger small-select"></select>
                     <input class="move-bp calc-trigger" value="50" />
+                    <input class="move-acc calc-trigger" value="--" />
                     <select class="move-type calc-trigger"></select>
                     <select class="move-cat calc-trigger gen-specific g4 g5 g6 g7 g8 g9">
-                        <option value="Physical">Physical</option>
-                        <option value="Special">Special</option>
+                        <option value="Physical">Phy</option>
+                        <option value="Special">Spe</option>
+                        <option value="Status">Sta</option>
                     </select>
+                    <span class="move-prio"></span>
                     <input aria-describedby="criticalHitInstruction" class="move-crit calc-trigger visually-hidden" type="checkbox" id="critL1" />
                     <label class="btn crit-btn" for="critL1" title="Force this attack to be a critical hit?">Crit</label>
                     <input aria-describedby="zMoveInstruction" class="move-z calc-trigger visually-hidden" type="checkbox" id="zL1"/>
@@ -709,11 +712,14 @@
                 <div class="move2 i-f-move"">
                     <select class="move-selector save-trigger small-select"></select>
                     <input class="move-bp calc-trigger" value="0" />
+                    <input class="move-acc calc-trigger" value="--" />
                     <select class="move-type calc-trigger"></select>
                     <select class="move-cat calc-trigger gen-specific g4 g5 g6 g7 g8 g9">
-                        <option value="Physical">Physical</option>
-                        <option value="Special">Special</option>
+                        <option value="Physical">Phy</option>
+                        <option value="Special">Spe</option>
+                        <option value="Status">Sta</option>
                     </select>
+                    <span class="move-prio"></span>
                     <input aria-describedby="criticalHitInstruction" class="move-crit calc-trigger visually-hidden" type="checkbox" id="critL2" />
                     <label class="btn crit-btn" for="critL2" title="Force this attack to be a critical hit?">Crit</label>
                     <input aria-describedby="zMoveInstruction" class="move-z calc-trigger visually-hidden" type="checkbox" id="zL2"/>
@@ -743,11 +749,14 @@
                 <div class="move3 i-f-move">
                     <select class="move-selector save-trigger small-select"></select>
                     <input class="move-bp calc-trigger" value="0" />
+                    <input class="move-acc calc-trigger" value="--" />
                     <select class="move-type calc-trigger"></select>
                     <select class="move-cat calc-trigger gen-specific g4 g5 g6 g7 g8 g9">
-                        <option value="Physical">Physical</option>
-                        <option value="Special">Special</option>
+                        <option value="Physical">Phy</option>
+                        <option value="Special">Spe</option>
+                        <option value="Status">Sta</option>
                     </select>
+                    <span class="move-prio"></span>
                     <input aria-describedby="criticalHitInstruction" class="move-crit calc-trigger visually-hidden" type="checkbox" id="critL3" />
                     <label class="btn crit-btn" for="critL3" title="Force this attack to be a critical hit?">Crit</label>
                     <input aria-describedby="zMoveInstruction" class="move-z calc-trigger visually-hidden" type="checkbox" id="zL3"/>
@@ -777,11 +786,14 @@
                 <div class="move4 i-f-move"">
                     <select class="move-selector save-trigger small-select"></select>
                     <input class="move-bp calc-trigger" value="0" />
+                    <input class="move-acc calc-trigger" value="--" />
                     <select class="move-type calc-trigger"></select>
                     <select class="move-cat calc-trigger gen-specific g4 g5 g6 g7 g8 g9">
-                        <option value="Physical">Physical</option>
-                        <option value="Special">Special</option>
+                        <option value="Physical">Phy</option>
+                        <option value="Special">Spe</option>
+                        <option value="Status">Sta</option>
                     </select>
+                    <span class="move-prio"></span>
                     <input aria-describedby="criticalHitInstruction" class="move-crit calc-trigger visually-hidden" type="checkbox" id="critL4" />
                     <label class="btn crit-btn" for="critL4" title="Force this attack to be a critical hit?">Crit</label>
                     <input aria-describedby="zMoveInstruction" class="move-z calc-trigger visually-hidden" type="checkbox" id="zL4"/>
@@ -1090,15 +1102,15 @@
                             <td><div class="left" title="Is this Pok&eacute;mon protected?/affected by Leech Seed">
                                 <div hidden id="selectProtectInstruction">Is this Pok&eacute;mon protected / affected by Leech Seed??</div>
                                 <input aria-describedby="selectProtectInstruction" class="visually-hidden calc-trigger" type="checkbox" id="protectL" />
-                                <label class="btn btn-ywide" for="protectL">Protect</label>
+                                <label class="btn btn-ywide btn-left" for="protectL">Protect</label>
                                 <input aria-describedby="selectLeechSeedInstruction" class="visually-hidden calc-trigger" type="checkbox" id="leechSeedL" />
-                                <label class="btn btn-ywide" for="leechSeedL">Leech Seed</label>
+                                <label class="btn btn-ywide btn-right" for="leechSeedL">Leech Seed</label>
                             </div></td>
                             <td><div class="right" title="Is this Pok&eacute;mon protected/affected by Leech Seed ?">
                                 <input aria-describedby="selectLeechSeedInstruction" class="visually-hidden calc-trigger" type="checkbox" id="leechSeedR" />
-                                <label class="btn btn-ywide" for="leechSeedR">Leech Seed</label>
+                                <label class="btn btn-ywide btn-left" for="leechSeedR">Leech Seed</label>
                                 <input aria-describedby="selectProtectInstruction" class="visually-hidden calc-trigger" type="checkbox" id="protectR" />
-                                <label class="btn btn-ywide" for="protectR">Protect</label>
+                                <label class="btn btn-ywide btn-right" for="protectR">Protect</label>
                                 
                             </div></td>
                         </tr>
@@ -1106,115 +1118,115 @@
                             <td><div class="left" title="Has this Pok&eacute;mon been revealed with Foresight or Odor Sleuth?">
                                 <div hidden id="selectRevealInstruction">Has this Pok&eacute;mon been revealed with Foresight or Odor Sleuth? / boosted by an ally's Helping Hand?</div>
                                 <input aria-describedby="selectHelpingHandInstruction" class="visually-hidden calc-trigger" type="checkbox" id="helpingHandL" />
-                                <label class="btn btn-ywide" for="helpingHandL">Helping Hand</label>
+                                <label class="btn btn-ywide btn-left" for="helpingHandL">Helping Hand</label>
                                 <input aria-describedby="selectRevealInstruction" class="visually-hidden calc-trigger" type="checkbox" id="foresightL" />
-                                <label class="btn btn-ywide" for="foresightL">Foresight</label>
+                                <label class="btn btn-ywide btn-right" for="foresightL">Foresight</label>
                             </div></td>
                             <td><div class="right" title="Has this Pok&eacute;mon been revealed with Foresight or Odor Sleuth?">
                                 <input aria-describedby="selectRevealInstruction" class="visually-hidden calc-trigger" type="checkbox" id="foresightR" />
-                                <label class="btn btn-ywide" for="foresightR">Foresight</label>
+                                <label class="btn btn-ywide btn-left" for="foresightR">Foresight</label>
                                 <input aria-describedby="selectHelpingHandInstruction" class="visually-hidden calc-trigger" type="checkbox" id="helpingHandR" />
-                                <label class="btn btn-ywide" for="helpingHandR">Helping Hand</label>
+                                <label class="btn btn-ywide btn-right" for="helpingHandR">Helping Hand</label>
                             </div></td>
                         </tr>
                         <tr class="gen-specific g1 g2 g3 ">
                             <td><div class="left" title="Has this Pokémon's power been boosted by 1rst Badge?">
                                 <div hidden="" id="selectAtkBadgeInstruction">Has this Pokémon's power been boosted by 1rst Badge?</div>
                                 <input aria-describedby="selectAtkBadgeInstruction" class="visually-hidden calc-trigger" type="checkbox" id="AtkL">
-                                <label class="btn btn-ywide" for="AtkL">Attack Boost</label>
+                                <label class="btn btn-ywide btn-left" for="AtkL">Attack Boost</label>
                             </div></td>
                             <td><div class="right" title="Has this Pokémon's power been boosted by 1rst Badge?">
                                 <input aria-describedby="selectAtkBadgeInstruction" class="visually-hidden calc-trigger" type="checkbox" id="AtkR">
-                                <label class="btn btn-ywide" for="AtkR">Attack Boost</label>
+                                <label class="btn btn-ywide btn-right" for="AtkR">Attack Boost</label>
                             </div></td>
                         </tr>
                         <tr class="gen-specific g1 g2 g3 ">
                             <td><div class="left" title="Has this Pokémon's power been boosted by 3rd Badge?">
                                 <div hidden="" id="selectSpeedBadgeInstruction">Has this Pokémon's power been boosted by 3rd Badge?</div>
                                 <input aria-describedby="selectSpeedBadgeInstruction" class="visually-hidden calc-trigger" type="checkbox" id="SpeL">
-                                <label class="btn btn-ywide" for="SpeL">Speed Boost</label>
+                                <label class="btn btn-ywide btn-left" for="SpeL">Speed Boost</label>
                             </div></td>
                             <td><div class="right" title="Has this Pokémon's power been boosted by 3rd Badge?">
                                 <input aria-describedby="selectAtkBadgeInstruction" class="visually-hidden calc-trigger" type="checkbox" id="SpeR">
-                                <label class="btn btn-ywide" for="SpeR">Speed Boost</label>
+                                <label class="btn btn-ywide btn-right" for="SpeR">Speed Boost</label>
                             </div></td>
                         </tr>
                         <tr class="gen-specific g1 g2 g3 ">
                             <td><div class="left" title="Has this Pokémon's power been boosted by 5th Badge?">
                                 <div hidden="" id="SelectSpecBadgeInstruction">Has this Pokémon's power been boosted by 5th Badge?</div>
                                 <input aria-describedby="SelectDefBadgeInstruction" class="visually-hidden calc-trigger" type="checkbox" id="DefL">
-                                <label class="btn btn-ywide" for="DefL">Defense Boost</label>
+                                <label class="btn btn-ywide btn-left" for="DefL">Defense Boost</label>
                             </div></td>
                             <td><div class="right" title="Has this Pokémon's power been boosted by 5th Badge?">
                                 <input aria-describedby="SelectDefBadgeInstruction" class="visually-hidden calc-trigger" type="checkbox" id="DefR">
-                                <label class="btn btn-ywide" for="DefR">Defense Boost</label>
+                                <label class="btn btn-ywide btn-right" for="DefR">Defense Boost</label>
                             </div></td>
                         </tr>
                         <tr class="gen-specific g1 g2 g3 ">
                             <td><div class="left" title="Has this Pokémon's power been boosted by 7th Badge?">
                                 <div hidden="" id="SelectSpecBadgeInstruction">Has this Pokémon's power been boosted by 7th Badge?</div>
                                 <input aria-describedby="SelectSpecBadgeInstruction" class="visually-hidden calc-trigger" type="checkbox" id="SpecL">
-                                <label class="btn btn-ywide" for="SpecL">Special Boost</label>
+                                <label class="btn btn-ywide btn-left" for="SpecL">Special Boost</label>
                             </div></td>
                             <td><div class="right" title="Has this Pokémon's power been boosted by 7th Badge?">
                                 <input aria-describedby="SelectSpecBadgeInstruction" class="visually-hidden calc-trigger" type="checkbox" id="SpecR">
-                                <label class="btn btn-ywide" for="SpecR">Special Boost</label>
+                                <label class="btn btn-ywide btn-right" for="SpecR">Special Boost</label>
                             </div></td>
                         </tr>
                         <tr class="gen-specific g4 g5 g6 g7 g8 g9">
                             <td><div class="left" title="Has this Pok&eacute;mon's speed been boosted by Tailwind?">
                                 <div hidden id="selectTailwindInstruction">Has this Pok&eacute;mon's power been boosted by an ally's Helping Hand / Flower Gift?</div>
                                 <input aria-describedby="selectTailwindInstruction" class="visually-hidden calc-trigger" type="checkbox" id="tailwindL" />
-                                <label class="btn btn-ywide" for="tailwindL">Tailwind</label>
+                                <label class="btn btn-ywide btn-left" for="tailwindL">Tailwind</label>
                                 <input aria-describedby="selectFlowerGiftInstruction" class="visually-hidden calc-trigger" type="checkbox" id="flowerGiftL" />
-                                <label class="btn btn-ywide" for="flowerGiftL">Flower Gift</label>
+                                <label class="btn btn-ywide btn-right" for="flowerGiftL">Flower Gift</label>
                             </div></td>
                             <td><div class="right" title="Has this Pok&eacute;mon's speed been boosted by Tailwind?">
                                 <input aria-describedby="selectFlowerGiftInstruction" class="visually-hidden calc-trigger" type="checkbox" id="flowerGiftR" />
-                                <label class="btn btn-ywide" for="flowerGiftR">Flower Gift</label>
+                                <label class="btn btn-ywide btn-left" for="flowerGiftR">Flower Gift</label>
                                 <input aria-describedby="selectTailwindInstruction" class="visually-hidden calc-trigger" type="checkbox" id="tailwindR" />
-                                <label class="btn btn-ywide" for="tailwindR">Tailwind</label>
+                                <label class="btn btn-ywide btn-right" for="tailwindR">Tailwind</label>
                             </div></td>
                         </tr>
                         <tr class="gen-specific g5 g6 g7 g8 g9">
                             <td><div class="left" title="Is the Pok&eacute;mon protected by an ally's Friend Guard?">
                                 <div hidden id="selectFriendGuardInstruction">Is the Pok&eacute;mon protected by an ally's Friend Guard/ Aurora Veil?</div>
                                 <input aria-describedby="selectFriendGuardInstruction" class="visually-hidden calc-trigger" type="checkbox" id="friendGuardL" />
-                                <label class="btn btn-ywide" for="friendGuardL">Friend Guard</label>
+                                <label class="btn btn-ywide btn-left" for="friendGuardL">Friend Guard</label>
                                 <input aria-describedby="selectAuroraVeilInstruction" class="visually-hidden calc-trigger" type="checkbox" id="auroraVeilL" />
-                                <label class="btn btn-ywide" for="auroraVeilL">Aurora Veil</label>
+                                <label class="btn btn-ywide btn-right" for="auroraVeilL">Aurora Veil</label>
                             </div></td>
                             <td><div class="right" title="Is the Pok&eacute;mon protected by an ally's Friend Guard?">
                                 <input aria-describedby="selectAuroraVeilInstruction" class="visually-hidden calc-trigger" type="checkbox" id="auroraVeilR" />
-                                <label class="btn btn-ywide" for="auroraVeilR">Aurora Veil</label>
+                                <label class="btn btn-ywide btn-left" for="auroraVeilR">Aurora Veil</label>
                                 <input aria-describedby="selectFriendGuardInstruction" class="visually-hidden calc-trigger" type="checkbox" id="friendGuardR" />
-                                <label class="btn btn-ywide" for="friendGuardR">Friend Guard</label>
+                                <label class="btn btn-ywide btn-right" for="friendGuardR">Friend Guard</label>
                             </div></td>
                         </tr>
                         <tr class="gen-specific g7">
                           <td><div class="left" title="Has the Pok&eacute;mon boosted all its stats one stage?">
                               <div hidden id="selectStatBoostInstruction">Has the Pok&eacute;mon boosted all its stats one stage?</div>
                                 <input aria-describedby="selectStatBoostInstruction" class="visually-hidden calc-trigger" type="checkbox" id="StatBoostL" />
-                                <label class="btn btn-ywide" for="StatBoostL">+1 All Stats</label>
+                                <label class="btn btn-ywide btn-left" for="StatBoostL">+1 All Stats</label>
                               </div></td>
                             <td><div class="right" title="Has the Pok&eacute;mon boosted all its stats one stage?">
                                 <input aria-describedby="selectStatBoostInstruction" class="visually-hidden calc-trigger" type="checkbox" id="StatBoostR" />
-                                <label class="btn btn-ywide" for="StatBoostR">+1 All Stats</label>
+                                <label class="btn btn-ywide btn-right" for="StatBoostR">+1 All Stats</label>
                             </div></td>
                         </tr>
                         <tr class="gen-specific g7 g8 g9">
                           <td><div class="left" title="Is the Pok&eacute;mon boosted by an ally's Battery ability?">
                               <div hidden id="selectBatteryInstruction">Is the Pok&eacute;mon boosted by an ally's Battery/Power Spot ability?</div>
                                 <input aria-describedby="selectBatteryInstruction" class="visually-hidden calc-trigger" type="checkbox" id="batteryL" />
-                                <label class="btn btn-ywide" for="batteryL">Battery</label>
+                                <label class="btn btn-ywide btn-left" for="batteryL">Battery</label>
                                 <input aria-describedby="selectPowerSpotInstruction" class="visually-hidden calc-trigger" type="checkbox" id="powerSpotL" />
-                                  <label class="btn btn-ywide" for="powerSpotL">Power Spot</label>
+                                  <label class="btn btn-ywide btn-right" for="powerSpotL">Power Spot</label>
                               </div></td>
                             <td><div class="right" title="Is the Pok&eacute;mon boosted by an ally's Battery ability?">
                                 <input aria-describedby="selectPowerSpotInstruction" class="visually-hidden calc-trigger" type="checkbox" id="powerSpotR" />
-                                <label class="btn btn-ywide" for="powerSpotR">Power Spot</label>
+                                <label class="btn btn-ywide btn-left" for="powerSpotR">Power Spot</label>
                                 <input aria-describedby="selectBatteryInstruction" class="visually-hidden calc-trigger" type="checkbox" id="batteryR" />
-                                <label class="btn btn-ywide" for="batteryR">Battery</label>
+                                <label class="btn btn-ywide btn-right" for="batteryR">Battery</label>
                                 
                             </div></td>
                         </tr>
@@ -1230,14 +1242,18 @@
                               </div></td>
                           </tr>
                         <tr class="gen-specific g2 g3 g4 g5 g6 g7 g8 g9">
-                            <td><div class="left" title="Is the defending Pok&eacute;mon switching out?">
+                            <td><div class="left" title="Is the defending Pok&eacute;mon switching In/Out?">
                               <div hidden id="selectSwitchingInstruction">Is the defending Pok&eacute;mon switching out?</div>
-                                <input aria-describedby="selectSwitchingInstruction" class="visually-hidden calc-trigger" type="checkbox" id="switchingL" />
-                                <label class="btn btn-xxwide" for="switchingL">Switching Out</label>
+                                <input aria-describedby="selectSwitchingInInstruction" class="visually-hidden calc-trigger" name='switchingL' type="radio" id="switchingInL" />
+                                <label class="btn btn-ywide btn-left" for="switchingInL">Switching In</label>
+                                <input aria-describedby="selectSwitchingInstruction" class="visually-hidden calc-trigger" name='switchingL' type="radio" id="switchingL" />
+                                <label class="btn btn-ywide btn-right" for="switchingL">Switching Out</label>
                               </div></td>
                             <td><div class="right" title="Is the defending Pok&eacute;mon switching out?">
-                                <input aria-describedby="selectSwitchingInstruction" class="visually-hidden calc-trigger" type="checkbox" id="switchingR" />
-                                <label class="btn btn-xxwide" for="switchingR">Switching Out</label>
+                                <input aria-describedby="selectSwitchingInInstruction" class="visually-hidden calc-trigger" name='switchingR' type="radio" id="switchingInR" />
+                                <label class="btn btn-ywide btn-left" for="switchingInR">Switching In</label>
+                                <input aria-describedby="selectSwitchingInstruction" class="visually-hidden calc-trigger" name='switchingR' type="radio" id="switchingR" />
+                                <label class="btn btn-ywide btn-right" for="switchingR">Switching Out</label>
                             </div></td>
                         </tr>
                         <tr>
@@ -1673,11 +1689,14 @@
                 <div class="move1 i-f-o-move">
                     <select class="move-selector small-select"></select>
                     <input class="move-bp calc-trigger" value="50" />
+                    <input class="move-acc calc-trigger" value="--" />
                     <select class="move-type calc-trigger"></select>
                     <select class="move-cat calc-trigger gen-specific g4 g5 g6 g7 g8 g9">
-                        <option value="Physical">Physical</option>
-                        <option value="Special">Special</option>
+                        <option value="Physical">Phy</option>
+                        <option value="Special">Spe</option>
+                        <option value="Status">Sta</option>
                     </select>
+                    <span class="move-prio"></span>
                     <input aria-describedby="criticalHitInstruction" class="move-crit calc-trigger visually-hidden" type="checkbox" id="critR1" />
                     <label class="btn crit-btn" for="critR1" title="Force this attack to be a critical hit?">Crit</label>
                     <input aria-describedby="zMoveInstruction" class="move-z calc-trigger visually-hidden" type="checkbox" id="zR1"/>
@@ -1707,11 +1726,14 @@
                 <div class="move2 i-f-o-move">
                     <select class="move-selector small-select"></select>
                     <input class="move-bp calc-trigger" value="0" />
+                    <input class="move-acc calc-trigger" value="--" />
                     <select class="move-type calc-trigger"></select>
                     <select class="move-cat calc-trigger gen-specific g4 g5 g6 g7 g8 g9">
-                        <option value="Physical">Physical</option>
-                        <option value="Special">Special</option>
+                        <option value="Physical">Phy</option>
+                        <option value="Special">Spe</option>
+                        <option value="Status">Sta</option>
                     </select>
+                    <span class="move-prio"></span>
                     <input aria-describedby="criticalHitInstruction" class="move-crit calc-trigger visually-hidden" type="checkbox" id="critR2" />
                     <label class="btn crit-btn" for="critR2" title="Force this attack to be a critical hit?">Crit</label>
                     <input aria-describedby="zMoveInstruction" class="move-z calc-trigger visually-hidden" type="checkbox" id="zR2"/>
@@ -1741,11 +1763,14 @@
                 <div class="move3 i-f-o-move">
                     <select class="move-selector small-select"></select>
                     <input class="move-bp calc-trigger" value="0" />
+                    <input class="move-acc calc-trigger" value="--" />
                     <select class="move-type calc-trigger"></select>
                     <select class="move-cat calc-trigger gen-specific g4 g5 g6 g7 g8 g9">
-                        <option value="Physical">Physical</option>
-                        <option value="Special">Special</option>
+                        <option value="Physical">Phy</option>
+                        <option value="Special">Spe</option>
+                        <option value="Status">Sta</option>
                     </select>
+                    <span class="move-prio"></span>
                     <input aria-describedby="criticalHitInstruction" class="move-crit calc-trigger visually-hidden" type="checkbox" id="critR3" />
                     <label class="btn crit-btn" for="critR3" title="Force this attack to be a critical hit?">Crit</label>
                     <input aria-describedby="zMoveInstruction" class="move-z calc-trigger visually-hidden" type="checkbox" id="zR3"/>
@@ -1775,11 +1800,14 @@
                 <div class="move4 i-f-o-move">
                     <select class="move-selector small-select"></select>
                     <input class="move-bp calc-trigger" value="0" />
+                    <input class="move-acc calc-trigger" value="--" />
                     <select class="move-type calc-trigger"></select>
                     <select class="move-cat calc-trigger gen-specific g4 g5 g6 g7 g8 g9">
-                        <option value="Physical">Physical</option>
-                        <option value="Special">Special</option>
+                        <option value="Physical">Phy</option>
+                        <option value="Special">Spe</option>
+                        <option value="Status">Sta</option>
                     </select>
+                    <span class="move-prio"></span>
                     <input aria-describedby="criticalHitInstruction" class="move-crit calc-trigger visually-hidden" type="checkbox" id="critR4" />
                     <label class="btn crit-btn" for="critR4" title="Force this attack to be a critical hit?">Crit</label>
                     <input aria-describedby="zMoveInstruction" class="move-z calc-trigger visually-hidden" type="checkbox" id="zR4"/>
@@ -1980,7 +2008,8 @@
         <li><a href="https://github.com/smogon/damage-calc/" class="links-lighten" target="_blank">Original Smogon Calc</a></li>
     </ul>
     <button id="open-settings-box">Open Settings Panel</button>
-    <button title="If the calculation feels off, explain it to the dev with this report" id="report" hidden>Download Report</button>
+    <button title="If there is a bug, please describe it and give this to the dev" id="report">Download Report</button>
+    <a href="" id="a" hidden>click here to download the trainer file</a>
     <div id="sets">
         <span>version 0.3.3 "Carefullness"</span>
     </div>

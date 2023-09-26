@@ -66,8 +66,8 @@ function createField() {
 	var isBattery = [$("#batteryL").prop("checked"), $("#batteryR").prop("checked")];
 	var isPowerSpot = [$("#powerSpotL").prop("checked"), $("#powerSpotR").prop("checked")];
 	var isDefenseCurl = [$("#defCurlL").prop("checked"), $("#defCurlR").prop("checked")];
-	// TODO: support switching in as well!
 	var isSwitchingOut = [$("#switchingL").prop("checked"), $("#switchingR").prop("checked")];
+	var isSwitchingIn = [$("#switchingInL").prop("checked"), $("#switchingInR").prop("checked")];
 
 	var createSide = function (i) {
 		return new calc.Side({
@@ -77,7 +77,7 @@ function createField() {
 			isProtected: isProtected[i], isSeeded: isSeeded[i], isForesight: isForesight[i],
 			isTailwind: isTailwind[i], isHelpingHand: isHelpingHand[i], isFlowerGift: isFlowerGift[i], isFriendGuard: isFriendGuard[i], isBadgeAtk: isBadgeAtk[i], isBadgeSpec: isBadgeSpec[i], isBadgeDef: isBadgeDef[i], isBadgeSpeed: isBadgeSpeed[i],
 			isAuroraVeil: isAuroraVeil[i], isBattery: isBattery[i], isPowerSpot: isPowerSpot[i], isDefenseCurl: isDefenseCurl[i],
-			isSwitching: isSwitchingOut[i] ? 'out' : undefined
+			isSwitching: isSwitchingOut[i] ? 'out' : isSwitchingIn[i] ? 'in' : undefined
 		});
 	};
 	return new calc.Field({
@@ -132,6 +132,10 @@ function clearField() {
 	$("#batteryR").prop("checked", false);
 	$("#switchingL").prop("checked", false);
 	$("#switchingR").prop("checked", false);
+	$("#switchingInL").prop("checked", false);
+	$("#switchingInR").prop("checked", false);
+	$("#defCurlL").prop("checked", false);
+	$("#defCurlR").prop("checked", false);
 	$("input:checkbox[name='terrain']").prop("checked", false);
 }
 

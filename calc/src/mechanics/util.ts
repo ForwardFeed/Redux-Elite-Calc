@@ -178,6 +178,15 @@ export function checkAirLock(pokemon: Pokemon, field: Field) {
   }
 }
 
+export function checkClueless(pokemon: Pokemon, field: Field) {
+  if (pokemon.hasAbility('Clueless')) {
+    field.weather = undefined;
+    field.isMagicRoom = false;
+    field.isWonderRoom = false;
+    field.terrain = undefined;
+  }
+}
+
 export function checkForecast(pokemon: Pokemon, weather?: Weather) {
   if (pokemon.hasAbility('Forecast') && pokemon.named('Castform')) {
     switch (weather) {
@@ -221,7 +230,7 @@ export function checkIntimidate(gen: Generation, source: Pokemon, target: Pokemo
     // More abilities now block Intimidate in Gen 8+ (DaWoblefet, Cloudy Mistral)
     (gen.num >= 8 && target.hasAbility('Inner Focus', 'Own Tempo', 'Oblivious', 'Scrappy')) ||
     target.hasItem('Clear Amulet');
-  if (source.hasAbilityActive('Intimidate') && !blocked) {
+  if (source.hasAbilityActive('Intimidate', 'Fearmonger') && !blocked) {
     if (target.hasAbility('Contrary', 'Defiant', 'Guard Dog')) {
       target.boosts.atk = Math.min(6, target.boosts.atk + 2);
     }
@@ -244,7 +253,7 @@ export function checkScare(gen: Generation, source: Pokemon, target: Pokemon) {
       'Full Metal Body', 'Discipline', 'Overwhelm') ||
     (gen.num >= 8 && target.hasAbility('Inner Focus', 'Own Tempo', 'Oblivious', 'Scrappy')) ||
     target.hasItem('Clear Amulet');
-  if (source.hasAbilityActive('Scare') && !blocked) {
+  if (source.hasAbilityActive('Scare', 'Fearmonger') && !blocked) {
     if (target.hasAbility('Contrary')) {
       target.boosts.spa = Math.min(6, target.boosts.spa + 2);
     }

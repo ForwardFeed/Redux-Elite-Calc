@@ -283,9 +283,27 @@ $(document).ready(function(){
     $('#report').click( function() {
 		var to_print = {
 			result: calcGateway.result,
-			settings: {
-				
-			}
+			lastCalcError: calcGateway.error,
+			moveSelected: [calcGateway.display.selected.name, calcGateway.display2.selected.name],
+			settings: [
+				localStorage.getItem("doubleLegacy"),
+				localStorage.getItem("sidearrow"),
+				localStorage.getItem("field-reset"),
+				localStorage.getItem("result-color"),
+				localStorage.getItem("p-notes"),
+				localStorage.getItem("p-s-spe"),
+				localStorage.getItem("rcrits"),
+			],	
+			trainerID: P2.trainerID,
+			trainerPokeID: P2.pokeID,
+			trainerFlag: P2.trainer.flagid,
 		}
+		var Filetext = JSON.stringify(to_print);
+		Filetext = Filetext;
+		var a = document.getElementById("a");
+		var file = new Blob([Filetext], {type: "text/javascript"});
+		a.href = URL.createObjectURL(file);
+		a.download = "redux-calc-report.json";
+		a.click()
 	})
 });

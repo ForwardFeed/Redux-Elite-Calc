@@ -138,7 +138,10 @@ export function getRecovery(
     move.drain = [1, 3];
   }
   if (move.drain) {
-    const percentHealed = move.drain[0] / move.drain[1];
+    var percentHealed = move.drain[0] / move.drain[1];
+    if (attacker.hasAbility('Absorbant')) {
+      percentHealed = percentHealed * 2
+    }
     const max = Math.round(defender.curHP() * percentHealed);
     for (let i = 0; i < minD.length; i++) {
       const range = [minD[i], maxD[i]];
@@ -565,6 +568,10 @@ function getEndOfTurn(
   if (defender.hasAbility('Self Sufficient')) {
     damage += Math.floor(defender.maxHP() / 16);
     texts.push('Self Sufficient recovery');
+  }
+  if (defender.hasAbility('Self Repair')) {
+    damage += Math.floor(defender.maxHP() / 16);
+    texts.push('Self Repair recovery');
   }
   if (field.defenderSide.isSeeded) {
     if (!defender.hasAbility('Magic Guard', 'Impenetrable')) {
