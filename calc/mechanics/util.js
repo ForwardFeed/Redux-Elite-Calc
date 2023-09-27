@@ -38,6 +38,7 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
 exports.__esModule = true;
 
 var util_1 = require("../util");
+var pokemon_1 = require("../pokemon");
 var stats_1 = require("../stats");
 var EV_ITEMS = [
     'Macho Brace',
@@ -176,8 +177,11 @@ function getFinalSpeed(gen, pokemon, field, side) {
     return Math.max(0, speed);
 }
 exports.getFinalSpeed = getFinalSpeed;
-function getMoveEffectiveness(gen, move, type, isGhostRevealed, isGravity, isRingTarget) {
-    if ((isRingTarget || isGhostRevealed) && type === 'Ghost' && move.hasType('Normal', 'Fighting')) {
+function getMoveEffectiveness(gen, move, type, target, isGhostRevealed, isGravity, isRingTarget) {
+    if (move.type == 'Psychic' && target.hasAbility('Gifted Mind')) {
+        return 0;
+    }
+    else if ((isRingTarget || isGhostRevealed) && type === 'Ghost' && move.hasType('Normal', 'Fighting')) {
         return 1;
     }
     else if ((isRingTarget || isGravity) && type === 'Flying' && move.hasType('Ground')) {
@@ -270,6 +274,9 @@ function checkIntimidate(gen, source, target) {
         if (target.hasAbility('Fort Knox')) {
             target.boosts.def = Math.min(6, target.boosts.def + 3);
         }
+        if (target.hasAbility('Run Away')) {
+            target.boosts.spe = Math.min(6, target.boosts.spe + 1);
+        }
     }
 }
 exports.checkIntimidate = checkIntimidate;
@@ -293,6 +300,9 @@ function checkScare(gen, source, target) {
         }
         if (target.hasAbility('Fort Knox')) {
             target.boosts.def = Math.min(6, target.boosts.def + 3);
+        }
+        if (target.hasAbility('Run Away')) {
+            target.boosts.spe = Math.min(6, target.boosts.spe + 1);
         }
     }
 }
@@ -565,4 +575,67 @@ function appSpacedStr(a, b) {
     return '';
 }
 exports.appSpacedStr = appSpacedStr;
+function checkLoweredStats(target) {
+    var e_6, _a;
+    var boosts = target.boosts;
+    try {
+        for (var STATS_2 = __values(pokemon_1.STATS), STATS_2_1 = STATS_2.next(); !STATS_2_1.done; STATS_2_1 = STATS_2.next()) {
+            var stat = STATS_2_1.value;
+            var boost = boosts[stat];
+            if (boost < 0)
+                return true;
+        }
+    }
+    catch (e_6_1) { e_6 = { error: e_6_1 }; }
+    finally {
+        try {
+            if (STATS_2_1 && !STATS_2_1.done && (_a = STATS_2["return"])) _a.call(STATS_2);
+        }
+        finally { if (e_6) throw e_6.error; }
+    }
+    return false;
+}
+exports.checkLoweredStats = checkLoweredStats;
+function checkCounterBuffingAbility(defender) {
+    if (defender.hasAbility('Kings Wrath') && checkLoweredStats(defender)) {
+        defender.boosts.atk = Math.min(6, defender.boosts.atk + 1);
+        defender.boosts.def = Math.min(6, defender.boosts.def + 1);
+    }
+    if (defender.hasAbility('Queens Mourning') && checkLoweredStats(defender)) {
+        defender.boosts.spa = Math.min(6, defender.boosts.spa + 1);
+        defender.boosts.spd = Math.min(6, defender.boosts.spd + 1);
+    }
+    defender.types;
+}
+exports.checkCounterBuffingAbility = checkCounterBuffingAbility;
+function colorChangeTyping(type) {
+    switch (type) {
+        case 'Normal':
+            return 'Ghost';
+        case 'Electric':
+            return 'Ground';
+        case 'Fighting':
+            return 'Ghost';
+        case 'Poison':
+            return 'Steel';
+        case 'Ground':
+            return 'Flying';
+        case 'Flying':
+            return 'Electric';
+        case 'Psychic':
+            return 'Dark';
+        case 'Ghost':
+            return 'Normal';
+        case 'Dragon':
+            return 'Fairy';
+        case 'Fairy':
+            return 'Fire';
+        case 'Bug':
+            return 'Fire';
+        case 'Rock':
+            return 'Fighting';
+    }
+    return type;
+}
+exports.colorChangeTyping = colorChangeTyping;
 //# sourceMappingURL=util.js.map

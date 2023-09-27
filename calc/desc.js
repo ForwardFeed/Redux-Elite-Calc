@@ -110,6 +110,9 @@ function getRecoil(gen, attacker, defender, move, damage, notation) {
     var damageOverflow = (minDamage > defender.curHP() ||
         maxDamage > defender.curHP());
     if (move.recoil) {
+        if (attacker.hasAbility('Limber')) {
+            move.recoil = [move.recoil[0] / 2, move.recoil[1] / 2];
+        }
         var mod = (move.recoil[0] / move.recoil[1]) * 100;
         var minRecoilDamage = void 0, maxRecoilDamage = void 0;
         if (damageOverflow) {
@@ -200,7 +203,7 @@ function getKOChance(gen, attacker, defender, move, field, damage, err) {
     if (damage[0] >= defender.maxHP() && move.timesUsed === 1 && move.timesUsedWithMetronome === 1) {
         return { chance: 1, n: 1, text: 'guaranteed OHKO' };
     }
-    var hazards = getHazards(gen, defender, field.defenderSide);
+    var hazards = getHazards(gen, defender, field.defenderSide, attacker);
     var eot = getEndOfTurn(gen, attacker, defender, move, field);
     var toxicCounter = defender.hasStatus('tox') &&
         !defender.hasAbility('Magic Guard', 'Impenetrable') ? defender.toxicCounter : 0;
@@ -316,13 +319,13 @@ var TRAPPING = [
     'Bind', 'Clamp', 'Fire Spin', 'Infestation', 'Magma Storm', 'Sand Tomb',
     'Thunder Cage', 'Whirlpool', 'Wrap', 'G-Max Sandblast', 'G-Max Centiferno',
 ];
-function getHazards(gen, defender, defenderSide) {
+function getHazards(gen, defender, defenderSide, attacker) {
     var damage = 0;
     var texts = [];
     if (defender.hasItem('Heavy-Duty Boots')) {
         return { damage: damage, texts: texts };
     }
-    if (defenderSide.isSR && !defender.hasAbility('Magic Guard', 'Mountaineer', 'Impenetrable')) {
+    if (defenderSide.isSR && !defender.hasAbility('Magic Guard', 'Mountaineer', 'Impenetrable', 'Shield Dust')) {
         var rockType = gen.types.get('rock');
         var effectiveness = rockType.effectiveness[defender.types[0]] *
             (defender.types[1] ? rockType.effectiveness[defender.types[1]] : 1);
@@ -330,7 +333,7 @@ function getHazards(gen, defender, defenderSide) {
         texts.push('Stealth Rock');
     }
     if (defenderSide.steelsurge &&
-        !defender.hasAbility('Magic Guard', 'Impenetrable')) {
+        !defender.hasAbility('Magic Guard', 'Impenetrable', 'Shield Dust')) {
         var steelType = gen.types.get('steel');
         var effectiveness = steelType.effectiveness[defender.types[0]] *
             (defender.types[1] ? steelType.effectiveness[defender.types[1]] : 1);
@@ -338,7 +341,7 @@ function getHazards(gen, defender, defenderSide) {
         texts.push('Steelsurge');
     }
     if (!defender.hasType('Flying') &&
-        !defender.hasAbility('Magic Guard', 'Levitate', 'Dragonfly', 'Impenetrable') &&
+        !defender.hasAbility('Magic Guard', 'Levitate', 'Dragonfly', 'Impenetrable', 'Shield Dust') &&
         !defender.hasItem('Air Balloon')) {
         if (defenderSide.spikes === 1) {
             damage += Math.floor(defender.maxHP() / 8);
@@ -357,6 +360,10 @@ function getHazards(gen, defender, defenderSide) {
             damage += Math.floor(defender.maxHP() / 4);
             texts.push('3 layers of Spikes');
         }
+    }
+    if (attacker.hasAbility('Toxic Spill') && !defender.hasType('Poison')) {
+        damage += Math.floor(defender.maxHP() / 8);
+        texts.push('Toxic Spill');
     }
     if (isNaN(damage)) {
         damage = 0;

@@ -37,6 +37,7 @@ export declare class Move implements State.Move {
     isZ: boolean;
     isMax: boolean;
     acc?: number;
+    typeEffectiveness?: number;
     constructor(gen: I.Generation, name: string, options?: Partial<State.Move> & {
         innates?: string[];
         ability?: I.AbilityName;

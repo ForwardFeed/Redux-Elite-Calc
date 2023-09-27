@@ -85,9 +85,9 @@ function calculateRBYGSC(gen, attacker, defender, move, field) {
         result.damage = lostHP;
         return result;
     }
-    var type1Effectiveness = (0, util_1.getMoveEffectiveness)(gen, move, firstDefenderType, field.defenderSide.isForesight);
+    var type1Effectiveness = (0, util_1.getMoveEffectiveness)(gen, move, firstDefenderType, defender, field.defenderSide.isForesight);
     var type2Effectiveness = secondDefenderType
-        ? (0, util_1.getMoveEffectiveness)(gen, move, secondDefenderType, field.defenderSide.isForesight)
+        ? (0, util_1.getMoveEffectiveness)(gen, move, secondDefenderType, defender, field.defenderSide.isForesight)
         : 1;
     var typeEffectiveness = type1Effectiveness * type2Effectiveness;
     if (typeEffectiveness === 0) {

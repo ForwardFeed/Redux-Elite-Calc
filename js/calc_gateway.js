@@ -16,6 +16,17 @@ class CalcGateway{
         $(".ic").click((ev)=>{this.calcTrigger(ev)});
 	    $(".calc-trigger").bind("change keyup drop", (ev)=>{this.calcTrigger(ev)});
     }
+    feedPannelWithCalcData(panel, data){
+        panel.stats.spFinal = data[0].attacker.stats.spe
+        for (const index in data){
+            const move = data[index].move
+            const moveObj = panel.moves[index]
+            moveObj.acc = move.acc || '--'
+            moveObj.basePower = move.bp
+            moveObj.prio = move.priority
+            moveObj.isCrit = move.isCrit
+        }
+    }
     calcTrigger(){
         // when in 2 v 1 mode, the calculation may trigger an ever ending loop because it changes panel
         // which then cause calc trigger to be called again
@@ -65,8 +76,8 @@ class CalcGateway{
         }
         $('#'+ savedWeather).prop("checked", true);
         const result = this.performCalculations(p1, p2, p3);
-        P1.stats.spFinal = p1.stats.spe
-        P2.stats.spFinal = p2.stats.spe
+        this.feedPannelWithCalcData(P1,result[0].result[0])
+        this.feedPannelWithCalcData(P2,result[0].result[1])
         this.display.display(result[0])
         this.display2.display(result[1])
         this.result=result
@@ -75,8 +86,9 @@ class CalcGateway{
         const p1 = P1.createPokemon()
         const p2 = P2.createPokemon()
         const result = this.performCalculations(p1, p2);
-        P1.stats.spFinal = p1.stats.spe
-        P2.stats.spFinal = p2.stats.spe
+
+        this.feedPannelWithCalcData(P1,result[0].result[0])
+        this.feedPannelWithCalcData(P2,result[0].result[1])
         this.display.display(result[0])
         this.result=result
     }
@@ -197,6 +209,10 @@ class CalcGateway{
         } else if (defender.hasAbility('Retribution Blow') && move.flags.boosting) {
             RetribMove = calc.MOVES[gen]['Hyper Beam']
             AbilityRetrib = 'Retribution Blow'
+        } else if (defender.hasAbility('Atomic Burst') && move.typeEffectiveness > 1) {
+            RetribMove = calc.MOVES[gen]['Hyper Beam']
+            RetribMove.basePower = 50
+            AbilityRetrib = 'Atomic Burst'
         }
         if (RetribMove) {
             var overrides = {

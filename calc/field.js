@@ -104,6 +104,7 @@ var Side = (function () {
         this.isBattery = !!side.isBattery;
         this.isPowerSpot = !!side.isPowerSpot;
         this.isDefenseCurl = !!side.isDefenseCurl;
+        this.isInfatuated = !!side.isInfatuated;
         this.isSwitching = side.isSwitching;
     }
     Side.prototype.clone = function () {
