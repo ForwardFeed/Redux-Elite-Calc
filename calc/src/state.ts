@@ -83,6 +83,7 @@ export namespace State {
     isBattery?: boolean;
     isPowerSpot?: boolean;
     isDefenseCurl?: boolean;
+    isInfatuated?: boolean;
     isSwitching?: 'out' | 'in';
   }
 }

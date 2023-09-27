@@ -140,9 +140,9 @@ export function calculateDPP(
   }
 
   let type1Effectiveness =
-    getMoveEffectiveness(gen, move, firstDefenderType, isGhostRevealed, field.isGravity);
+    getMoveEffectiveness(gen, move, firstDefenderType, defender, isGhostRevealed, field.isGravity);
   let type2Effectiveness = secondDefenderType
-    ? getMoveEffectiveness(gen, move, secondDefenderType, isGhostRevealed, field.isGravity)
+    ? getMoveEffectiveness(gen, move, secondDefenderType, defender, isGhostRevealed, field.isGravity)
     : 1;
 
   let typeEffectiveness = type1Effectiveness * type2Effectiveness;

@@ -71,6 +71,9 @@ class HalfCalcResult{
 
             move.name = result.move.name
             move.damage = result.moveDesc(notation)
+            if (result.move.typeEffectiveness) {
+                move.damage += ' ( x' + result.move.typeEffectiveness + ' )'
+            }
             move.priority = result.move.priority
             if (result.damage) {
                 move.desc = result.fullDesc() 

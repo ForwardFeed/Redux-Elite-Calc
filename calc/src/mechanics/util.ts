@@ -16,6 +16,7 @@ import {Move} from '../move';
 import {Pokemon, STATS} from '../pokemon';
 import {Stats} from '../stats';
 import {RawDesc} from '../desc';
+import { Type } from '@pkmn/dex';
 
 const EV_ITEMS = [
   'Macho Brace',
@@ -145,11 +146,14 @@ export function getMoveEffectiveness(
   gen: Generation,
   move: Move,
   type: TypeName,
+  target: Pokemon,
   isGhostRevealed?: boolean,
   isGravity?: boolean,
   isRingTarget?: boolean,
 ) {
-  if ((isRingTarget || isGhostRevealed) && type === 'Ghost' && move.hasType('Normal', 'Fighting')) {
+  if (move.type == 'Psychic' && target.hasAbility('Gifted Mind')) {
+    return 0
+  } else if ((isRingTarget || isGhostRevealed) && type === 'Ghost' && move.hasType('Normal', 'Fighting')) {
     return 1;
   } else if ((isRingTarget || isGravity) && type === 'Flying' && move.hasType('Ground')) {
     return 1;
@@ -244,6 +248,9 @@ export function checkIntimidate(gen: Generation, source: Pokemon, target: Pokemo
     if (target.hasAbility('Fort Knox')) {
       target.boosts.def = Math.min(6, target.boosts.def + 3);
     }
+    if (target.hasAbility('Run Away')) {
+      target.boosts.spe = Math.min(6, target.boosts.spe + 1);
+    }
   }
 }
 
@@ -270,6 +277,9 @@ export function checkScare(gen: Generation, source: Pokemon, target: Pokemon) {
     }
     if (target.hasAbility('Fort Knox')) {
       target.boosts.def = Math.min(6, target.boosts.def + 3);
+    }
+    if (target.hasAbility('Run Away')) {
+      target.boosts.spe = Math.min(6, target.boosts.spe + 1);
     }
   }
 }
@@ -566,4 +576,55 @@ export function appSpacedStr(a: string | undefined, b: string | undefined) {
     return a ? a + ' ' + b : b;
   }
   return '';
+}
+
+export function checkLoweredStats(target: Pokemon) {
+  const boosts = target.boosts
+  for (const stat of STATS) {
+    const boost = boosts[stat];
+    if (boost < 0) return true
+  }
+  return false
+}
+
+export function checkCounterBuffingAbility(defender: Pokemon) {
+  if (defender.hasAbility('Kings Wrath') && checkLoweredStats(defender)) {
+    defender.boosts.atk = Math.min(6, defender.boosts.atk + 1);
+    defender.boosts.def = Math.min(6, defender.boosts.def + 1);
+  }
+  if (defender.hasAbility('Queens Mourning') && checkLoweredStats(defender)) {
+    defender.boosts.spa = Math.min(6, defender.boosts.spa + 1);
+    defender.boosts.spd = Math.min(6, defender.boosts.spd + 1);
+  }
+  defender.types
+}
+
+export function colorChangeTyping(type: TypeName){
+  switch(type){
+    case 'Normal':
+      return 'Ghost'
+    case 'Electric':
+      return 'Ground'
+    case 'Fighting':
+      return 'Ghost'
+    case 'Poison':
+      return 'Steel'
+    case 'Ground':
+      return 'Flying'
+    case 'Flying':
+      return 'Electric'
+    case 'Psychic':
+      return 'Dark'
+    case 'Ghost':
+      return 'Normal'
+    case 'Dragon':
+      return 'Fairy'
+    case 'Fairy':
+      return 'Fire'
+    case 'Bug':
+      return 'Fire'
+    case 'Rock':
+      return 'Fighting' 
+  }
+  return type
 }

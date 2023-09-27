@@ -24,6 +24,7 @@ import {
   checkInfiltrator,
   checkIntimidate,
   checkScare,
+  checkCounterBuffingAbility,
   checkIntrepidSword,
   checkItem,
   checkMultihitBoost,
@@ -44,6 +45,8 @@ import {
   OF16, OF32,
   pokeRound,
   appSpacedStr,
+  checkLoweredStats,
+  colorChangeTyping,
 } from './util';
 
 export function calculateSMSSSV(
@@ -94,6 +97,8 @@ export function calculateSMSSSV(
   checkScare(gen, attacker, defender);
   checkScare(gen, defender, attacker);
   if (defenderFriend) checkScare(gen, defenderFriend, attacker);
+  checkCounterBuffingAbility(attacker);
+  checkCounterBuffingAbility(attacker);
   checkDownload(attacker, defender, field.isWonderRoom);
   checkDownload(defender, attacker, field.isWonderRoom);
   checkIntrepidSword(attacker, gen);
@@ -105,16 +110,24 @@ export function calculateSMSSSV(
   if (defenderFriend?.hasAbility('Weather Control')) defender.innates?.push('Weather Control');
   checkInfiltrator(attacker, field.defenderSide);
   checkInfiltrator(defender, field.attackerSide);
-
-  // accuracy to zero means it can't miss, for sake of simplicity set to 100
   if (attacker.hasAbility('Deadeye') ||
     (attacker.hasAbility('Roundhouse') && move.flags.kick) ||
     (attacker.hasAbility('Gifted Mind') && move.category == 'Status') ||
-    (attacker.hasAbility('Sweeping Edge') && move.flags.slicing) ||
-    (!move.acc)){
+    (attacker.hasAbility('Sweeping Edge') && move.flags.slicing)) {
     move.acc = 100;
   }
-
+  if (move.acc){
+    if (attacker.hasAbility('Compound Eyes', 'Illuminate', 'Keen Eye', 'Victory Star')){
+      move.acc = Math.round(move.acc * 1.2) 
+    }
+    if (attacker.hasAbility('Hustle')){
+      move.acc = Math.round(move.acc * 0.9)
+    }
+  }
+  
+  if (attacker.hasAbility('Inner Focus') && move.name === 'Focus Blast'){
+    move.acc = 90
+  }
   const desc: RawDesc = {
     attackerName: attacker.name,
     attackerTera: attacker.teraType,
@@ -172,7 +185,8 @@ export function calculateSMSSSV(
   // Merciless does not ignore Shell Armor, damage dealt to a poisoned Pokemon with Shell Armor
   // will not be a critical hit (UltiMario)
   const isCritical = !defender.hasAbility('Battle Armor', 'Shell Armor', 'Bad Luck') &&
-    (move.isCrit || (attacker.hasAbility('Merciless') && defender.hasStatus('psn', 'tox'))) &&
+    (move.isCrit || (attacker.hasAbility('Merciless') && (defender.hasStatus('psn', 'tox', 'par') ||
+      defender.boosts.spe < 0))) &&
     move.timesUsed === 1;
 
   let type = move.type;
@@ -323,7 +337,9 @@ export function calculateSMSSSV(
     }
     move.acc = 100;
   }
-
+  if (attacker.hasAbility('Stall')) {
+    move.priority = -7;
+  }
   if (attacker.hasAbility('Phantom')) {
     attacker.types.push('Ghost');
   } else if (defender.hasAbility('Phantom')) {
@@ -354,6 +370,16 @@ export function calculateSMSSSV(
   } else if (defender.hasAbility('Aquatic')) {
     defender.types.push('Water');
   }
+  if (attacker.hasAbility('Turboblaze')) {
+    attacker.types.push('Fire');
+  } else if (defender.hasAbility('Turboblaze')) {
+    defender.types.push('Fire');
+  }
+  if (attacker.hasAbility('Teravolt')) {
+    attacker.types.push('Electric');
+  } else if (defender.hasAbility('Teravolt')) {
+    defender.types.push('Electric');
+  }
   const isGhostRevealed =
     !!attacker.hasAbility('Scrappy') || field.defenderSide.isForesight;
   const isRingTarget =
@@ -362,6 +388,7 @@ export function calculateSMSSSV(
     gen,
     move,
     defender.types[0],
+    defender,
     isGhostRevealed,
     field.isGravity,
     isRingTarget
@@ -371,18 +398,20 @@ export function calculateSMSSSV(
       gen,
       move,
       defender.types[1],
+      defender,
       isGhostRevealed,
       field.isGravity,
       isRingTarget
     )
     : 1;
   let typeEffectiveness = type1Effectiveness * type2Effectiveness;
-  if (defender.types.length === 3) { // because of Phamtom
+  if (defender.types.length === 3) { // because of Phamtom and other things like that
     const type3Effectiveness = defender.types[1]
       ? getMoveEffectiveness(
         gen,
         move,
         defender.types[1],
+        defender,
         isGhostRevealed,
         field.isGravity,
         isRingTarget
@@ -395,6 +424,7 @@ export function calculateSMSSSV(
       gen,
       move,
       defender.teraType,
+      defender,
       isGhostRevealed,
       field.isGravity,
       isRingTarget
@@ -448,7 +478,7 @@ export function calculateSMSSSV(
   if (typeEffectiveness === 0 && move.named('Thousand Arrows')) {
     typeEffectiveness = 1;
   }
-
+  move.typeEffectiveness = typeEffectiveness
   if (typeEffectiveness === 0) {
     return result;
   }
@@ -516,6 +546,9 @@ export function calculateSMSSSV(
     return result;
   }
 
+  if (defender.hasAbility('Color Change')){
+    defender.types = [colorChangeTyping(move.type)]
+  }
   desc.HPEVs = `${defender.evs.hp} HP`;
 
   const fixedDamage = handleFixedDamageMoves(attacker, move);
@@ -583,9 +616,7 @@ export function calculateSMSSSV(
   if (basePower === 0) {
     return result;
   }
-  var bpMods = []
-  if (isDraconize || isMineralize ) bpMods.push(4506);
-  basePower = OF16(Math.max(1, pokeRound((basePower * chainMods(bpMods, 41, 2097152)) / 4096)));
+  move.bp = basePower;
   // #endregion
   // #region (Special) Attack
   const attack = calculateAttackSMSSSV(gen, attacker, defender, move, field, desc, !!isCritical);
@@ -1060,7 +1091,7 @@ export function calculateBPModsSMSSSV(
   hasAteAbilityTypeChange: boolean,
   turnOrder: string
 ) {
-  const bpMods = [];
+  var bpMods = [];
 
   // Move effects
 
@@ -1122,6 +1153,7 @@ export function calculateBPModsSMSSSV(
       gen,
       move,
       types[0],
+      defender,
       isGhostRevealed,
       field.isGravity,
       isRingTarget
@@ -1130,6 +1162,7 @@ export function calculateBPModsSMSSSV(
       gen,
       move,
       types[1],
+      defender,
       isGhostRevealed,
       field.isGravity,
       isRingTarget
@@ -1139,6 +1172,7 @@ export function calculateBPModsSMSSSV(
         gen,
         move,
         types[2],
+        defender,
         isGhostRevealed,
         field.isGravity,
         isRingTarget
@@ -1177,8 +1211,10 @@ export function calculateBPModsSMSSSV(
   }
 
   // Abilities
-  bpMods.concat(abilityBoosts(attacker, move, basePower));
-
+  bpMods = bpMods.concat(abilityBoosts(attacker, move, basePower));
+  if (field.attackerSide.isInfatuated){
+    bpMods.push(2048);
+  }
   const aura = `${move.type} Aura`;
   const isAttackerAura = attacker.hasAbility(aura);
   const isDefenderAura = defender.hasAbility(aura);
@@ -1361,7 +1397,11 @@ export function calculateAttackSMSSSV(
     attack = pokeRound((attack * 3) / 2);
     desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.ability);
   }
-
+  if (attacker.hasAbility('Roundhouse') && move.flags.kick) {
+    if (defender.stats.def > defender.stats.spd){
+      defender.stats.def = defender.stats.spd
+    }
+  }
   if (attacker.hasAbility('Momentum') && move.flags.contact) {
     attack = attacker.stats.spe;
   }
@@ -1629,6 +1669,13 @@ export function calculateDfModsSMSSSV(
   hitsPhysical = false
 ) {
   const dfMods = [];
+  if (defender.hasAbility('Overcoat') && move.category == 'Special'){
+    dfMods.push(4505);
+  }
+  if ((defender.hasAbility('Immunity') && move.type == 'Poison')||
+  (defender.hasAbility('Water Compaction') && move.type == 'Water')) {
+    dfMods.push(8192);
+  }
   if (defender.hasAbility('Marvel Scale') && defender.status && hitsPhysical) {
     dfMods.push(6144);
     desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.ability);
@@ -1702,6 +1749,11 @@ export function calculateDfModsSMSSSV(
     dfMods.push(8192);
     desc.defenderItem = defender.item;
   }
+
+  if (defender.hasAbility('Battle Armor')){
+    dfMods.push(4915);
+    desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.ability);
+  }
   return dfMods;
 }
 
@@ -1748,21 +1800,22 @@ export function calculateFinalModsSMSSSV(
     }
     if (move.type === 'Water') {
       move.drain = [1, 4];
-    }
-    
+    } 
+  }
+  if (attacker.hasAbility('Pretty Princess') && checkLoweredStats(defender)) {
+    finalMods.push(6144);
   }
 
   if (attacker.hasAbility('Fatal Precision') && typeEffectiveness > 1) {
     finalMods.push(4915);
   }
-
   if (attacker.hasAbility('Psychic Mind') && move.hasType('Psychic')) {
     finalMods.push(5120);
   }
-
   if (defender.hasAbility('Raw Wood') && move.hasType('Grass')) {
     finalMods.push(2048);
   }
+
 
   if (attacker.hasAbility('Neuroforce') && typeEffectiveness > 1) {
     finalMods.push(5120);
@@ -1880,7 +1933,7 @@ export function calculateFinalModsSMSSSV(
 
   if (move.hasType(getBerryResistType(defender.item)) &&
       (typeEffectiveness > 1 || move.hasType('Normal')) &&
-      !attacker.hasAbility('Unnerve', 'As One', 'As One (Glastrier)', 'As One (Spectrier)')) {
+      !attacker.hasAbility('Unnerve', 'As One', 'As One Ice Rider', 'As One Shadow Rider')) {
     if (defender.hasAbility('Ripen')) {
       finalMods.push(1024);
     } else {
@@ -2029,7 +2082,10 @@ function getPriorityAdditionnal(attacker: Pokemon, move: Move, defender: Pokemon
 function abilityBoosts(attacker: Pokemon, move: Move, basePower: number) {
   const bpMods: number[] = [];
   // Use BasePower after moves with custom BP to determine if Technician should boost
-  if (attacker.hasAbility('Technician') && basePower <= 60) bpMods.push(6144);
+  
+  if (attacker.hasAbility('Technician') && basePower <= 60) {
+    bpMods.push(6144);
+  }
   if (attacker.hasAbility('Flare Boost') &&
    attacker.hasStatus('brn') && move.category === 'Special') bpMods.push(6144);
   if (attacker.hasAbility('Toxic Boost') &&

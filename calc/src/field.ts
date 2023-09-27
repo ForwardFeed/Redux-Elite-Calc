@@ -96,6 +96,7 @@ export class Side implements State.Side {
   isBattery: boolean;
   isPowerSpot: boolean;
   isDefenseCurl: boolean;
+  isInfatuated: boolean;
   isSwitching?: 'out' | 'in';
 
   constructor(side: State.Side = {}) {
@@ -123,6 +124,7 @@ export class Side implements State.Side {
     this.isBattery = !!side.isBattery;
     this.isPowerSpot = !!side.isPowerSpot;
     this.isDefenseCurl = !!side.isDefenseCurl;
+    this.isInfatuated = !!side.isInfatuated;
     this.isSwitching = side.isSwitching;
   }
 

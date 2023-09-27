@@ -182,6 +182,9 @@ export function getRecoil(
   const damageOverflow = (minDamage as number > defender.curHP() ||
    maxDamage as number > defender.curHP());
   if (move.recoil) {
+    if (attacker.hasAbility('Limber')){
+      move.recoil = [move.recoil[0] / 2,  move.recoil[1]/2]
+    }
     const mod = (move.recoil[0] / move.recoil[1]) * 100;
     let minRecoilDamage, maxRecoilDamage;
     if (damageOverflow) {
@@ -197,6 +200,7 @@ export function getRecoil(
         notation, Math.min(max, defender.curHP()) * mod, attacker.maxHP(), 100
       );
     }
+
     if (!attacker.hasAbility('Rock Head', 'Steel Barrel')) {
       recoil = [minRecoilDamage, maxRecoilDamage];
       text = `${minRecoilDamage} - ${maxRecoilDamage}${notation} recoil damage`;
@@ -275,7 +279,6 @@ export function getKOChance(
     error(err, 'damage[damage.length - 1] === 0.');
     return {chance: 0, n: 0, text: ''};
   }
-
   // Code doesn't really work if these aren't set.
   if (move.timesUsed === undefined) move.timesUsed = 1;
   if (move.timesUsedWithMetronome === undefined) move.timesUsedWithMetronome = 1;
@@ -283,8 +286,7 @@ export function getKOChance(
   if (damage[0] >= defender.maxHP() && move.timesUsed === 1 && move.timesUsedWithMetronome === 1) {
     return {chance: 1, n: 1, text: 'guaranteed OHKO'};
   }
-
-  const hazards = getHazards(gen, defender, field.defenderSide);
+  const hazards = getHazards(gen, defender, field.defenderSide, attacker);
   const eot = getEndOfTurn(gen, attacker, defender, move, field);
   const toxicCounter =
     defender.hasStatus('tox') &&
@@ -449,14 +451,14 @@ const TRAPPING = [
   'Thunder Cage', 'Whirlpool', 'Wrap', 'G-Max Sandblast', 'G-Max Centiferno',
 ];
 
-function getHazards(gen: Generation, defender: Pokemon, defenderSide: Side) {
+function getHazards(gen: Generation, defender: Pokemon, defenderSide: Side, attacker: Pokemon) {
   let damage = 0;
   const texts: string[] = [];
 
   if (defender.hasItem('Heavy-Duty Boots')) {
     return {damage, texts};
   }
-  if (defenderSide.isSR && !defender.hasAbility('Magic Guard', 'Mountaineer', 'Impenetrable')) {
+  if (defenderSide.isSR && !defender.hasAbility('Magic Guard', 'Mountaineer', 'Impenetrable', 'Shield Dust')) {
     const rockType = gen.types.get('rock' as ID)!;
     const effectiveness =
       rockType.effectiveness[defender.types[0]]! *
@@ -465,7 +467,7 @@ function getHazards(gen: Generation, defender: Pokemon, defenderSide: Side) {
     texts.push('Stealth Rock');
   }
   if (defenderSide.steelsurge &&
-     !defender.hasAbility('Magic Guard', 'Impenetrable')) {
+     !defender.hasAbility('Magic Guard', 'Impenetrable', 'Shield Dust')) {
     const steelType = gen.types.get('steel' as ID)!;
     const effectiveness =
       steelType.effectiveness[defender.types[0]]! *
@@ -475,7 +477,7 @@ function getHazards(gen: Generation, defender: Pokemon, defenderSide: Side) {
   }
 
   if (!defender.hasType('Flying') &&
-      !defender.hasAbility('Magic Guard', 'Levitate', 'Dragonfly', 'Impenetrable') &&
+      !defender.hasAbility('Magic Guard', 'Levitate', 'Dragonfly', 'Impenetrable', 'Shield Dust') &&
       !defender.hasItem('Air Balloon')
   ) {
     if (defenderSide.spikes === 1) {
@@ -492,6 +494,10 @@ function getHazards(gen: Generation, defender: Pokemon, defenderSide: Side) {
       damage += Math.floor(defender.maxHP() / 4);
       texts.push('3 layers of Spikes');
     }
+  }
+  if (attacker.hasAbility('Toxic Spill') && !defender.hasType('Poison')) {
+    damage += Math.floor(defender.maxHP() / 8);
+    texts.push('Toxic Spill');
   }
 
   if (isNaN(damage)) {
