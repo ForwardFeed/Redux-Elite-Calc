@@ -26,8 +26,8 @@ class panelMove{
     }
     get basePower(){return +this.field_basePower.val().replace(/\D/g, "")}
     set basePower(val){this.field_basePower.val(val)}
-    get acc(){return +this.field_acc.val().replace(/[^0-9-]/g, "")}
-    set acc(val){this.field_acc.val(val)}
+    get acc(){return +this.field_acc.text().replace(/[^0-9-]/g, "")}
+    set acc(val){this.field_acc.text(val)}
     get type(){return this.field_type.val()}
     set type(val){this.field_type.val(val)}
     get category(){return this.field_category.val()}

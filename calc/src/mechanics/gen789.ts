@@ -124,7 +124,6 @@ export function calculateSMSSSV(
       move.acc = Math.round(move.acc * 0.9)
     }
   }
-  
   if (attacker.hasAbility('Inner Focus') && move.name === 'Focus Blast'){
     move.acc = 90
   }
