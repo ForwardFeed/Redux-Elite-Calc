@@ -93,6 +93,7 @@ var Move = (function () {
         this.breaksProtect = !!data.breaksProtect;
         this.isZ = !!data.isZ;
         this.isMax = !!data.isMax;
+        this.acc = data.acc;
         if (!this.bp) {
             if (['return', 'frustration', 'pikapapow', 'veeveevolley'].includes(data.id)) {
                 this.bp = 102;

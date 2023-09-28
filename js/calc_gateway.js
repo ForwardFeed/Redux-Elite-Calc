@@ -22,7 +22,6 @@ class CalcGateway{
             const move = data[index].move
             const moveObj = panel.moves[index]
             moveObj.acc = move.acc || '--'
-            moveObj.basePower = move.bp
             moveObj.prio = move.priority
             moveObj.isCrit = move.isCrit
         }

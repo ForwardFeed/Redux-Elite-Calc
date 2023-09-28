@@ -168,6 +168,7 @@ class TrainerBox extends BasicBox{
         this.field_reset = panel.find('#reset-trainer')
         this.field_rematch = panel.find('#rematches')
         this.field_alternative = panel.find('#alternatives')
+        this.field_doubles = panel.find('#opt-doubles')
         this.field_selected;
         //this.field_notes = 
 
@@ -204,6 +205,7 @@ class TrainerBox extends BasicBox{
     changeTrainer() {
         this.fullRebox()
         this.rematchAlternativeShow()
+        this.doubleShow()
     }
     selectTrainer(id) {
         this.props.select = id
@@ -274,6 +276,29 @@ class TrainerBox extends BasicBox{
                     delete trn.flagid;
                 }
                 break;
+            case "doubles":
+                if (id == -1){
+                    trn.mons = trn.swp;
+                    delete trn.swp;
+                    $('#singles-format').prop('checked', true)
+                    $('#singles-format').click()
+                } else {
+                    if (!trn.swp){
+                        trn.swp = structuredClone(trn.mons);
+                    }
+                    const next_trn = setdex[this.props.trainerID + (id?1:-1)]
+                    if (trn.mons.length > 3){
+                        trn.mons.splice(3)
+                    }
+                    if (next_trn.mons.length > 3){
+                        next_trn.mons.splice(3)
+                    }
+                    trn.mons = trn.mons.concat(next_trn.mons)
+                    $('#doubles-format').prop('checked', true)
+                    $('#doubles-format').click()
+                }
+                break;
+                
             default:
                 return
         }
@@ -329,6 +354,36 @@ class TrainerBox extends BasicBox{
                 this.field_alternative.append(this.generateButton(this.props.trainer.alt[i].trn, "alt", i))
             }
             
+        }
+    }
+    doubleShow(){
+        const trainer = this.props.trainer
+        if (!trainer) return
+        //double trainer
+        if (trainer.double || trainer.forc_double){
+            $('#doubles-format').prop('checked', true)
+            $('#doubles-format').click()
+        }
+        //as far i know, you can't be in doublemode and having optionnal double
+        //optionnal double
+        if (trainer.opt_double) {
+            this.field_doubles.show()
+            // double with previous
+            this.field_doubles.text("Opt. Doubles :")
+            const baseBtn = this.generateButton("None", "doubles", -1)
+            this.field_doubles.append(baseBtn)
+            this.selected = $(baseBtn);
+            if (trainer.opt_double[0]){
+                const opt_double = this.generateButton("With " + setdex[this.props.trainerID - 1].trn, "doubles", 0)
+                this.field_doubles.append(opt_double)
+            }
+            // double with next
+            if(trainer.opt_double[1]){
+                const opt_double = this.generateButton("With " + setdex[this.props.trainerID - 1].trn, "doubles", 1)
+                this.field_doubles.append(opt_double)
+            }
+        } else {
+            this.field_doubles.hide()
         }
     }
 }
