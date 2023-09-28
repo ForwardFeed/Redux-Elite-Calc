@@ -10,6 +10,7 @@ function themeSelection(theme){
 	document.getElementById('light-theme-styles').disabled = true;
 	document.getElementById('forest-theme-styles').disabled = true;
 	document.getElementById('blahaj-theme-styles').disabled = true;
+	document.getElementById('sepia-theme-styles').disabled = true;
 	document.getElementById(theme + '-styles').disabled = false;
 	localStorage.setItem("theme", theme)
 	

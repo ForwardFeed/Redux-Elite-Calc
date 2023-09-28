@@ -63,6 +63,7 @@ $(document).ready(function () {
         $('#dark-theme').change(themeSelection);
         $('#forest-theme').change(themeSelection);
         $('#blahaj-theme').change(themeSelection);
+        $('#sepia-theme').change(themeSelection);
 
         // radio inpuy
         offOnSettings([
