@@ -171,7 +171,7 @@ function offOnSettings(options){
             for (const slc of opt.selectors){
                 slc[opt.event](opt.func)
             }
-            if (localStorage.getItem(opt.name) != null){
+            if (localStorage.getItem(opt.name) != null || localStorage.getItem(opt.name) != true){
                 opt.selectors[+localStorage.getItem(opt.name)].prop("checked", true).change()
             } else {
                 localStorage.setItem(opt.name, opt.default)
