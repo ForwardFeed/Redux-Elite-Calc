@@ -5244,119 +5244,136 @@ const SS_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     'type': 'Normal',
     'category': 'Special',
     'zp': 120,
-    'maxPower': 110
+    'maxPower': 110,
+    'acc': 100
   },
   'Hidden Power Bug': {
     'bp': 60,
     'type': 'Bug',
     'category': 'Special',
     'zp': 120,
-    'maxPower': 110
+    'maxPower': 110,
+    'acc': 100
   },
   'Hidden Power Dark': {
     'bp': 60,
     'type': 'Dark',
     'category': 'Special',
     'zp': 120,
-    'maxPower': 110
+    'maxPower': 110,
+    'acc': 100
   },
   'Hidden Power Dragon': {
     'bp': 60,
     'type': 'Dragon',
     'category': 'Special',
     'zp': 120,
-    'maxPower': 110
+    'maxPower': 110,
+    'acc': 100
   },
   'Hidden Power Electric': {
     'bp': 60,
     'type': 'Electric',
     'category': 'Special',
     'zp': 120,
-    'maxPower': 110
+    'maxPower': 110,
+    'acc': 100
   },
   'Hidden Power Fighting': {
     'bp': 60,
     'type': 'Fighting',
     'category': 'Special',
     'zp': 120,
-    'maxPower': 80
+    'maxPower': 80,
+    'acc': 100
   },
   'Hidden Power Fire': {
     'bp': 60,
     'type': 'Fire',
     'category': 'Special',
     'zp': 120,
-    'maxPower': 110
+    'maxPower': 110,
+    'acc': 100
   },
   'Hidden Power Flying': {
     'bp': 60,
     'type': 'Flying',
     'category': 'Special',
     'zp': 120,
-    'maxPower': 110
+    'maxPower': 110,
+    'acc': 100
   },
   'Hidden Power Ghost': {
     'bp': 60,
     'type': 'Ghost',
     'category': 'Special',
     'zp': 120,
-    'maxPower': 110
+    'maxPower': 110,
+    'acc': 100
   },
   'Hidden Power Grass': {
     'bp': 60,
     'type': 'Grass',
     'category': 'Special',
     'zp': 120,
-    'maxPower': 110
+    'maxPower': 110,
+    'acc': 100
   },
   'Hidden Power Ground': {
     'bp': 60,
     'type': 'Ground',
     'category': 'Special',
     'zp': 120,
-    'maxPower': 110
+    'maxPower': 110,
+    'acc': 100
   },
   'Hidden Power Ice': {
     'bp': 60,
     'type': 'Ice',
     'category': 'Special',
     'zp': 120,
-    'maxPower': 110
+    'maxPower': 110,
+    'acc': 100
   },
   'Hidden Power Poison': {
     'bp': 60,
     'type': 'Poison',
     'category': 'Special',
     'zp': 120,
-    'maxPower': 80
+    'maxPower': 80,
+    'acc': 100
   },
   'Hidden Power Psychic': {
     'bp': 60,
     'type': 'Psychic',
     'category': 'Special',
     'zp': 120,
-    'maxPower': 110
+    'maxPower': 110,
+    'acc': 100
   },
   'Hidden Power Rock': {
     'bp': 60,
     'type': 'Rock',
     'category': 'Special',
     'zp': 120,
-    'maxPower': 110
+    'maxPower': 110,
+    'acc': 100
   },
   'Hidden Power Steel': {
     'bp': 60,
     'type': 'Steel',
     'category': 'Special',
     'zp': 120,
-    'maxPower': 110
+    'maxPower': 110,
+    'acc': 100
   },
   'Hidden Power Water': {
     'bp': 60,
     'type': 'Water',
     'category': 'Special',
     'zp': 120,
-    'maxPower': 110
+    'maxPower': 110,
+    'acc': 100
   },
   'Perish Song': {
     'bp': 0,
