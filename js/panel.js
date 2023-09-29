@@ -429,7 +429,7 @@ class Panel{
             }  else if (this.constructor.name === 'PlayerPanel') {
                 this.stats[stat + "IV"] = 31
             } else {
-                this.stats[stat + "IV"] = poke.ivs && poke.ivs[stat] || 31
+                this.stats[stat + "IV"] = poke.ivs && poke.ivs[stat] > -1 && poke.ivs[stat] || 31
             }
             this.stats[stat + "EV"] = poke.evs && poke.evs[stat] || 0
             if (stat === "hp") continue
