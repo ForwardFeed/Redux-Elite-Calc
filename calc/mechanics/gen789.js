@@ -337,7 +337,7 @@ function calculateSMSSSV(gen, attacker, defender, move, field, defenderFriend) {
         : 1;
     var typeEffectiveness = type1Effectiveness * type2Effectiveness;
     if (defender.types.length === 3) {
-        var type3Effectiveness = defender.types[1]
+        var type3Effectiveness = defender.types[2]
             ? (0, util_2.getMoveEffectiveness)(gen, move, defender.types[1], defender, isGhostRevealed, field.isGravity, isRingTarget)
             : 1;
         typeEffectiveness = type1Effectiveness * type2Effectiveness * type3Effectiveness;
@@ -1526,7 +1526,7 @@ function calculateFinalModsSMSSSV(gen, attacker, defender, move, field, desc, is
         finalMods.push(3072);
         desc.defenderAbility = (0, util_2.appSpacedStr)(desc.defenderAbility, defender.ability);
     }
-    else if (defender.hasAbility('Primal Armor')) {
+    else if (defender.hasAbility('Primal Armor') && typeEffectiveness > 1) {
         finalMods.push(2048);
         desc.defenderAbility = (0, util_2.appSpacedStr)(desc.defenderAbility, defender.ability);
     }
