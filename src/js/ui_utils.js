@@ -281,8 +281,35 @@ function setHighestLevelMon(){
 
 $(document).ready(function(){
     $('#report').click( function() {
+		var toPrintResult = [null, null];
+		
+		for (const index in calcGateway.result){
+			const rezPannel = calcGateway.result[index]
+			const results = rezPannel.result
+			toPrintResult[index] = {
+				attacker: results,
+				highLowRoll: results.highLowRoll,
+				highestPrio: results.hihighestPrio,
+				fastestSide: results.fastestSide,
+				attacker: results[0][0].attacker,
+				defender: results[0][0].defender,
+				field: results[0][0].field,
+				gen: results[0][0].gen,
+				moves: {
+					damage: [],
+					move: []
+				}
+			}
+			for(const i in results){
+				const half = results[i]
+				for(const moves of half){
+					toPrintResult[index].moves.move.push(moves.move)
+					toPrintResult[index].moves.damage.push(moves.damage)
+				}
+			}
+		}
 		var to_print = {
-			result: calcGateway.result,
+			result: toPrintResult,
 			lastCalcError: calcGateway.error,
 			moveSelected: [calcGateway.display.selected.name, calcGateway.display2.selected.name],
 			settings: [

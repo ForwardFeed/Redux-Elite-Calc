@@ -405,7 +405,7 @@ export function calculateSMSSSV(
     : 1;
   let typeEffectiveness = type1Effectiveness * type2Effectiveness;
   if (defender.types.length === 3) { // because of Phamtom and other things like that
-    const type3Effectiveness = defender.types[1]
+    const type3Effectiveness = defender.types[2]
       ? getMoveEffectiveness(
         gen,
         move,
@@ -1862,7 +1862,7 @@ export function calculateFinalModsSMSSSV(
   typeEffectiveness > 1) {
     finalMods.push(3072);
     desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.ability);
-  } else if (defender.hasAbility('Primal Armor')) {
+  } else if (defender.hasAbility('Primal Armor') && typeEffectiveness > 1) {
     finalMods.push(2048);
     desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.ability);
   }

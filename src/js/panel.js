@@ -381,7 +381,6 @@ class Panel{
             // rematch or alt set
             var setID = +parsed[4]
             this.switchSet = {[parsed[3]] : setID}
-            console.log(this.switchSet)
         }
         
     }
