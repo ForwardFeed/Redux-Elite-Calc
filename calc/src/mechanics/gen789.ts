@@ -1819,10 +1819,12 @@ export function calculateFinalModsSMSSSV(
   if (attacker.hasAbility('Neuroforce') && typeEffectiveness > 1) {
     finalMods.push(5120);
     desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.ability);
-  } else if (attacker.hasAbility('Sniper') && isCritical) {
+  }
+  if (attacker.hasAbility('Sniper') && isCritical) {
     finalMods.push(6144);
     desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.ability);
-  } else if (attacker.hasAbility('Tinted Lens') && typeEffectiveness < 1) {
+  }
+   if (attacker.hasAbility('Tinted Lens') && typeEffectiveness < 1) {
     finalMods.push(8192);
     desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.ability);
   }

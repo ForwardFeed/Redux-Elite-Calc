@@ -299,6 +299,14 @@ class DiscreteFuzzer{
         console.log('Untested Abilities', copyAbi.length,'/', abilities.length,':', copyAbi)
 		console.log('Unexpexted errors', this.unexpected)
     }
+	fuzzAbiDesc(){
+		for(const abi of abilities){
+			if (!ABI_DESC[abi]){
+				this.abi.push(abi)
+			}
+		}
+		console.log('Ability without descriptions', this.abi.length,'/', abilities.length,':', this.abi)
+	}
 }
 //new DiscreteFuzzer().fuzzeAbilitiesMechanicsCalc()
 
