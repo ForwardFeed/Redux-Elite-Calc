@@ -36,4 +36,4 @@ export declare function OF32(n: number): number;
 export declare function appSpacedStr(a: string | undefined, b: string | undefined): string;
 export declare function checkLoweredStats(target: Pokemon): boolean;
 export declare function checkCounterBuffingAbility(defender: Pokemon): void;
-export declare function colorChangeTyping(type: TypeName): "Normal" | "Fire" | "Water" | "Electric" | "Grass" | "Ice" | "Fighting" | "Ground" | "Flying" | "Ghost" | "Dark" | "Steel" | "Fairy" | "???";
+export declare function colorChangeTyping(type: TypeName): "Normal" | "Fighting" | "Flying" | "Ground" | "Ghost" | "Steel" | "Fire" | "Water" | "Grass" | "Electric" | "Ice" | "Dark" | "Fairy" | "???";

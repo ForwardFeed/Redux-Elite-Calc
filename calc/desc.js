@@ -751,6 +751,9 @@ function buildDescription(description, attacker, defender) {
     if (description.isSwitching) {
         output += ' switching boosted ';
     }
+    if (description.isInfatuated) {
+        output += ' Infatuation nerfed ';
+    }
     output += description.moveName + ' ';
     if (description.moveBP && description.moveType) {
         output += '(' + description.moveBP + ' BP ' + description.moveType + ') ';

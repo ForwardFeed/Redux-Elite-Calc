@@ -985,6 +985,7 @@ function calculateBPModsSMSSSV(gen, attacker, defender, move, field, desc, baseP
     }
     bpMods = bpMods.concat(abilityBoosts(attacker, move, basePower));
     if (field.attackerSide.isInfatuated) {
+        desc.isInfatuated = true;
         bpMods.push(2048);
     }
     var aura = "".concat(move.type, " Aura");

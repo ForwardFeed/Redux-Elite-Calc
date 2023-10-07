@@ -40,6 +40,7 @@ export interface RawDesc {
     isBattery?: boolean;
     isPowerSpot?: boolean;
     isWonderRoom?: boolean;
+    isInfatuated?: boolean;
     isSwitching?: 'out' | 'in';
     moveBP?: number;
     moveName: string;
