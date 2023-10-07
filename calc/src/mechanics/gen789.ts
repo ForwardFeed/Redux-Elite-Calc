@@ -48,6 +48,7 @@ import {
   checkLoweredStats,
   colorChangeTyping,
 } from './util';
+import { ItemName } from '@pkmn/dex';
 
 export function calculateSMSSSV(
   gen: Generation,
@@ -846,8 +847,20 @@ export function calculateSMSSSV(
   desc.attackBoost =
     move.named('Foul Play') ? defender.boosts[attackStat] : attacker.boosts[attackStat];
 
-  result.damage = contributionDamage ? [damage, contributionDamage] : damage;
-
+  // result.damage = // contributionDamage ? [damage, contributionDamage] : damage;
+  if (contributionDamage) {
+    if (contributionDamage.length == damage.length) {
+      const tempArray = []
+      for (var i = 0; i < damage.length; i++) {
+        tempArray[i] = contributionDamage[i] + damage[i]
+      }
+      result.damage = tempArray
+    } else {
+      result.damage = [damage, contributionDamage]
+    }
+  } else {
+    result.damage = damage
+  }
   // #endregion
 
   return result;
@@ -1282,7 +1295,7 @@ export function calculateBPModsSMSSSV(
   // The -ate abilities already changed move typing earlier, so most checks are done and desc is set
   // However, Max Moves also don't boost -ate Abilities
   if (!move.isMax && hasAteAbilityTypeChange) {
-    bpMods.push(4915);
+    bpMods.push(4506); // redux nerfed it to 10%
   }
 
   if ((attacker.hasAbility('Reckless') && (move.recoil || move.hasCrashDamage)) ||
@@ -1941,6 +1954,7 @@ export function calculateFinalModsSMSSSV(
       finalMods.push(2048);
     }
     desc.defenderItem = defender.item;
+    defender.item = "" as ItemName;
   }
 
   if (defender.hasAbility('Lethargy') || defender.hasAbility('Arctic Fur')) {
