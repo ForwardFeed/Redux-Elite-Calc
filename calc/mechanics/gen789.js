@@ -645,9 +645,9 @@ function calculateSMSSSV(gen, attacker, defender, move, field, defenderFriend) {
         desc.attackerAbility = (0, util_2.appSpacedStr)(desc.attackerAbility, attacker.ability);
     }
     var damage = [];
-    for (var i = 0; i < 16; i++) {
-        damage[i] =
-            (0, util_2.getFinalDamage)(baseDamage, i, typeEffectiveness, applyBurn, stabMod, finalMod, protect);
+    for (var i_1 = 0; i_1 < 16; i_1++) {
+        damage[i_1] =
+            (0, util_2.getFinalDamage)(baseDamage, i_1, typeEffectiveness, applyBurn, stabMod, finalMod, protect);
     }
     if (move.dropsStats && move.timesUsed > 1) {
         var simpleMultiplier = attacker.hasAbility('Simple') ? 2 : 1;
@@ -689,7 +689,21 @@ function calculateSMSSSV(gen, attacker, defender, move, field, defenderFriend) {
     }
     desc.attackBoost =
         move.named('Foul Play') ? defender.boosts[attackStat] : attacker.boosts[attackStat];
-    result.damage = contributionDamage ? [damage, contributionDamage] : damage;
+    if (contributionDamage) {
+        if (contributionDamage.length == damage.length) {
+            var tempArray = [];
+            for (var i = 0; i < damage.length; i++) {
+                tempArray[i] = contributionDamage[i] + damage[i];
+            }
+            result.damage = tempArray;
+        }
+        else {
+            result.damage = [damage, contributionDamage];
+        }
+    }
+    else {
+        result.damage = damage;
+    }
     return result;
 }
 exports.calculateSMSSSV = calculateSMSSSV;
@@ -1032,7 +1046,7 @@ function calculateBPModsSMSSSV(gen, attacker, defender, move, field, desc, baseP
         desc.attackerAbility = (0, util_2.appSpacedStr)(desc.attackerAbility, attacker.ability);
     }
     if (!move.isMax && hasAteAbilityTypeChange) {
-        bpMods.push(4915);
+        bpMods.push(4506);
     }
     if ((attacker.hasAbility('Reckless') && (move.recoil || move.hasCrashDamage)) ||
         (attacker.hasAbility('Iron Fist') && move.flags.punch)) {
@@ -1603,6 +1617,7 @@ function calculateFinalModsSMSSSV(gen, attacker, defender, move, field, desc, is
             finalMods.push(2048);
         }
         desc.defenderItem = defender.item;
+        defender.item = "";
     }
     if (defender.hasAbility('Lethargy') || defender.hasAbility('Arctic Fur')) {
         finalMods.push(2662);
