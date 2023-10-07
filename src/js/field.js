@@ -66,10 +66,9 @@ function createField() {
 	var isBattery = [$("#batteryL").prop("checked"), $("#batteryR").prop("checked")];
 	var isPowerSpot = [$("#powerSpotL").prop("checked"), $("#powerSpotR").prop("checked")];
 	var isDefenseCurl = [$("#defCurlL").prop("checked"), $("#defCurlR").prop("checked")];
-	var isCuteCharm = [$("#infatuationL").prop("checked"), $("#infatuationR").prop("checked")];
+	var isInfatuated = [$("#infatuationL").prop("checked"), $("#infatuationR").prop("checked")];
 	var isSwitchingOut = [$("#switchingL").prop("checked"), $("#switchingR").prop("checked")];
 	var isSwitchingIn = [$("#switchingInL").prop("checked"), $("#switchingInR").prop("checked")];
-
 	var createSide = function (i) {
 		return new calc.Side({
 			spikes: spikes[i], isSR: isSR[i], steelsurge: steelsurge[i],
@@ -78,7 +77,7 @@ function createField() {
 			isProtected: isProtected[i], isSeeded: isSeeded[i], isForesight: isForesight[i],
 			isTailwind: isTailwind[i], isHelpingHand: isHelpingHand[i], isFlowerGift: isFlowerGift[i], isFriendGuard: isFriendGuard[i], isBadgeAtk: isBadgeAtk[i], isBadgeSpec: isBadgeSpec[i], isBadgeDef: isBadgeDef[i], isBadgeSpeed: isBadgeSpeed[i],
 			isAuroraVeil: isAuroraVeil[i], isBattery: isBattery[i], isPowerSpot: isPowerSpot[i], isDefenseCurl: isDefenseCurl[i],
-			isCuteCharm: isCuteCharm, isSwitching: isSwitchingOut[i] ? 'out' : isSwitchingIn[i] ? 'in' : undefined
+			isInfatuated: isInfatuated[i], isSwitching: isSwitchingOut[i] ? 'out' : isSwitchingIn[i] ? 'in' : undefined
 		});
 	};
 	return new calc.Field({

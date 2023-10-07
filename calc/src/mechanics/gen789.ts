@@ -1225,6 +1225,7 @@ export function calculateBPModsSMSSSV(
   // Abilities
   bpMods = bpMods.concat(abilityBoosts(attacker, move, basePower));
   if (field.attackerSide.isInfatuated){
+    desc.isInfatuated = true;
     bpMods.push(2048);
   }
   const aura = `${move.type} Aura`;
