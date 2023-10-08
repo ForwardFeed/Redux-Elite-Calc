@@ -201,9 +201,6 @@ function autoAdaptFieldPerTrainer() {
 	// rejected , ["spikesR3",/\"Spikes/]
 }
 
-
-
-
 function onFirstTime() {
 	$('.player-box').attr("data-placeholder", "You can drag & drop your pokemons here")
 	$('.box-poke.trashzone').attr("data-placeholder", "drop here and click remove to remove")
@@ -300,6 +297,24 @@ function clearAllNotes() {
 	$('#p-notes-reset').prop("checked", false);
 }
 
+function switchVersion() {
+	var curVersion = $('.calc-version').eq(0).text()
+	if (curVersion === "Vers. Beta"){
+		//github hosting
+		if (document.location.href === "https://forwardfeed.github.io/Redux-Elite-Calc/redux_elite/"){
+			document.location.href = "https://forwardfeed.github.io/Redux-Elite-Calc/redux_elitev152/"
+		} else {
+			document.location.href = document.location.href.match(".*dist/")[0] + "redux_elitev152/index.html"
+		}
+	} else {
+		if (document.location.href === "https://forwardfeed.github.io/Redux-Elite-Calc/redux_elitev152/"){
+			document.location.href = "https://forwardfeed.github.io/Redux-Elite-Calc/redux_elite/"
+		} else {
+			document.location.href = document.location.href.match(".*dist/")[0] + "redux_elite/index.html"
+		}
+	}
+}
+
 var P1, P2; //Panels
 var calcGateway, moveAddition;
 $(document).ready(function () {
@@ -385,6 +400,8 @@ $(document).ready(function () {
 	$('#close-moveset-box').click(moveSetToggling);
 	$('#moveset').click(moveSetToggling);
 
+	$('#change-version').click(switchVersion)
+	
 	var script = document.createElement("script");
 	script.src = "./data/movesets.js";
 	document.head.appendChild(script)

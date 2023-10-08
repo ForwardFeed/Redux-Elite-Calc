@@ -159,19 +159,8 @@ export function calculateSMSSSV(
   );
 
   const attackerIgnoresAbility = attacker.hasAbility('Mold Breaker', 'Teravolt', 'Turboblaze');
-  const moveIgnoresAbility = move.named(
-    'G-Max Drum Solo',
-    'G-Max Fire Ball',
-    'G-Max Hydrosnipe',
-    'Light That Burns the Sky',
-    'Menacing Moonraze Maelstrom',
-    'Moongeist Beam',
-    'Photon Geyser',
-    'Searing Sunraze Smash',
-    'Sunsteel Strike'
-  );
   if (!defenderIgnoresAbility && !defender.hasAbility('Poison Heal') &&
-    (attackerIgnoresAbility || moveIgnoresAbility)) {
+    (attackerIgnoresAbility || move.ignoreAbility)) {
     if (attackerIgnoresAbility) {
       desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.ability);
     }
@@ -1296,7 +1285,7 @@ export function calculateBPModsSMSSSV(
   // The -ate abilities already changed move typing earlier, so most checks are done and desc is set
   // However, Max Moves also don't boost -ate Abilities
   if (!move.isMax && hasAteAbilityTypeChange) {
-    bpMods.push(4506); // redux nerfed it to 10%
+    bpMods.push(4915);
   }
 
   if ((attacker.hasAbility('Reckless') && (move.recoil || move.hasCrashDamage)) ||

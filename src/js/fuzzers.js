@@ -73,7 +73,7 @@ class DiscreteFuzzer{
     // It also corrects some wrong species, or others furthers
 	correctSpecies(specie, list){
 		return specie
-		if (list[specie]) return specie
+		/*if (list[specie]) return specie
 		if (list[specie.replace('Of', 'of')]) return specie.replace('Of', 'of')
 		if (list[specie.replace(' ', '-')]) return specie.replace(' ', '-')
 		if (list[specie.replace('-', ' ')]) return specie.replace('-', ' ')
@@ -84,7 +84,7 @@ class DiscreteFuzzer{
 			case 'Sirfetch’d':
 				return 'Sirfetchd'
 		}
-		return specie
+		return specie*/
 	}
 	correctItemName(itemName, list){
 		if (list[itemName]) return itemName
