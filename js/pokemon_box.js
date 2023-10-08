@@ -95,6 +95,12 @@ class PlayerBox extends BasicBox{
             this.field_explanation.toggle("hidden")
         })
     }
+    iconMonClicked(pokeID, selection){
+        if (this.props.pokeID != pokeID){
+            this.props.select = selection
+            $("#save-change").prop("hidden", true);
+        }
+    }
     trashPokemon() {
         const maybeMultiple = this.field_trash.children();
         if (maybeMultiple.length == 0) {
