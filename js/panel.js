@@ -82,6 +82,7 @@ class Panel{
         // Setups the event listeners
         this.setup()
     }
+    // note with the setters and getters, they aren't activated when interacting throught mousesclicks on the UI
     // #region salades de getter & setters
     // Type
     get select(){return this.field_select.val()}
@@ -118,6 +119,7 @@ class Panel{
     get ability(){return this.field_ability.val()}
     set ability(val){
         this.field_ability.val(val)
+        this.abilityThatModifiesStats()
         if (ABI_DESC) {
             this.field_ability.attr('title', ABI_DESC[val]) 
         }
@@ -175,6 +177,12 @@ class Panel{
         this.field_ability.change(()=>{
             // -1 to differentiates ability to innates
             this.changeAbilityInnates(this, -1)
+        })
+        for (let i in this.field_innatesOn){
+            this.abilityThatModifiesStats()
+        }
+        this.field_abilityOn.change(()=>{
+            this.abilityThatModifiesStats()
         })
         this.field_item.change(()=>{
             this.itemChange()
@@ -251,6 +259,7 @@ class Panel{
         return 0;
     }
     changeAbilityInnates(panel, id){
+        this.ability = this.ability // just to trigger the setter and getter
         var ability, ActiveDiv
         if (id < 0) {
             // ability
@@ -299,30 +308,36 @@ class Panel{
         }
     }
     abilityThatModifiesStats(){
-        // Wait for Pre boosted stats to be installed
-        if (this.hasAbilityActive('Violent Rush')) {
-            this.stats.at = Math.floor(this.stats.PBSat * 1.2);
-            this.stats.sp = Math.floor(this.stats.PBSsp * 1.5);
-            //modify final speed too
-        } else {
-            this.stats.at = this.stats.PBSat;
-            this.stats.sp = this.stats.PBSsp;
-             //modify final speed too
+        if (this.hasAbilityActive('Violent Rush') && !this.pokemon.violentRush) {
+            this.stats.rawAT = this.stats.at;
+            this.stats.at = Math.floor(this.stats.at * 1.2);
+            this.stats.rawSP = this.stats.sp;
+            this.stats.sp = Math.floor(this.stats.sp * 1.5);
+            this.pokemon.violentRush = true
+        } else if (this.pokemon.violentRush){
+            this.stats.at = this.stats.rawAT;
+            this.stats.sp = this.stats.rawSP;
+            this.pokemon.violentRush = false;
         }
 
-        if (this.hasAbility('Feline Prowess')) {
-            this.stats.sa = Math.floor(this.stats.PBSsa * 2);
-        } else {
-            this.stats.sa = this.stats.PBSsa;
+        if (this.hasAbility('Feline Prowess') && !this.pokemon.felineProwess) {
+            this.stats.rawSA = this.stats.sa;
+            this.stats.sa = Math.floor(this.stats.sa * 2);
+            this.pokemon.felineProwess = true;
+        } else if (this.pokemon.felineProwess){
+            this.pokemon.felineProwess = false;
+            this.stats.sa = this.stats.rawSA;
         }
-        if (this.hasAbility('Lead Coat')) {
-            this.stats.df = Math.floor(this.stats.PBSdf * 1.3);
-            this.stats.sp = Math.floor(this.stats.PBSsp * 0.9);
-            //modify final speed too
-        } else {
-            this.stats.df = this.stats.PBSat;
-            this.stats.sp = this.stats.PBSsp;
-             //modify final speed too
+        if (this.hasAbility('Lead Coat') && !this.pokemon.leadCoat) {
+            this.stats.rawDF = this.stats.df;
+            this.stats.df = Math.floor(this.stats.df * 1.4);
+            this.stats.rawSP = this.stats.sp;
+            this.stats.sp = Math.floor(this.stats.sp * 0.9);
+            this.pokemon.leadCoat = true;
+        } else if (this.pokemon.leadCoat){
+            this.stats.df = this.stats.rawDF;
+            this.stats.sp = this.stats.rawSP;
+            this.pokemon.leadCoat = false;
         }
     }
     resetTrainerToDefault(){
