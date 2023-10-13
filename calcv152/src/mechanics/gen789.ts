@@ -316,9 +316,10 @@ export function calculateSMSSSV(
   }
 
   move.type = type;
-  move.priority += getPriorityAdditionnal(attacker, move, defender);
+  const additionnalPriority = getPriorityAdditionnal(attacker, move, defender);
+  move.priority += additionnalPriority
   move.priority = Math.min(move.priority, 5);
-  desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.ability);
+  if (additionnalPriority) desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.ability);
 
   if (attacker.hasAbility('Sighting System')) {
     if (move.acc ? move.acc : 100 < 80) {

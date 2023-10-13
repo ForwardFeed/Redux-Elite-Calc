@@ -259,15 +259,15 @@ class Panel{
         return 0;
     }
     changeAbilityInnates(panel, id){
-        this.ability = this.ability // just to trigger the setter and getter
         var ability, ActiveDiv
-        if (id < 0) {
-            // ability
+        if (id < 0) { // ability
+            this.ability = this.ability // just to trigger the setter and getter
             ability = panel.ability
             ActiveDiv = panel.field_abilityOn
         } else {
             // innates
-            ability = panel.innates[id]
+            this.innates[id] = this.innates[id] 
+            ability = panel.innates[id] // just to trigger the setter and getter
             ActiveDiv = panel.field_innatesOn[id]
         }
         var TOGGLE_ABILITIES = ['Flash Fire', 'Intimidate', 'Minus', 'Plus', 'Slow Start', 'Scare', 'Violent Rush',

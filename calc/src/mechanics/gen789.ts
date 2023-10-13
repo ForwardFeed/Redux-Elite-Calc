@@ -244,7 +244,6 @@ export function calculateSMSSSV(
       type = 'Water';
     }
   }
-
   let hasAteAbilityTypeChange = false;
   let isAerilate = false;
   let isPixilate = false;
@@ -262,7 +261,6 @@ export function calculateSMSSSV(
   let isSpectralize = false;
   let isDraconize = false;
   let isMineralize = false;
-
   const noTypeChange = move.named(
     'Revelation Dance',
     'Judgment',
@@ -327,10 +325,11 @@ export function calculateSMSSSV(
   }
 
   move.type = type;
-  move.priority += getPriorityAdditionnal(attacker, move, defender);
+  const additionnalPriority = getPriorityAdditionnal(attacker, move, defender);
+  move.priority += additionnalPriority
   move.priority = Math.min(move.priority, 5);
-  desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.ability);
-
+  if (additionnalPriority) desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.ability);
+  
   if (attacker.hasAbility('Sighting System')) {
     if (move.acc ? move.acc : 100 < 80) {
       move.priority = -7;
@@ -1238,6 +1237,7 @@ export function calculateBPModsSMSSSV(
   const auraActive = isAttackerAura || isDefenderAura || isFieldFairyAura || isFieldDarkAura;
   const auraBreak = isFieldAuraBreak || isUserAuraBreak;
   if (auraActive) {
+    
     if (auraBreak) {
       bpMods.push(3072);
       desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.ability);

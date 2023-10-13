@@ -19,7 +19,7 @@ class BasicBox{
         this.field_row2.text("")
 
         if (pokeList.constructor.name !== "Array") {
-            this.addBoxed(pokeList)
+            this.addBoxed(pokeList, 0)
             return
         }
         
@@ -28,15 +28,16 @@ class BasicBox{
             this.addBoxed(poke, index)
         }
     }
-    addBoxed(poke2box, id) {
+    addBoxed(poke2box, id, optBox) {
         if (!poke2box) return
+        if (!optBox) optBox = this.mainBox;
         var newPoke = document.createElement("img");
         newPoke.src = getSrcImgPokemon(poke2box.species);
         newPoke.dataset.title = poke2box.species + " : " + this.props.trainerName;
         newPoke.dataset.id = poke2box.species + ";" + this.props.trainerName + ";" + id;
         newPoke.addEventListener("dragstart", dragstart_handler);
         newPoke.addEventListener("click", ()=>{this.iconMonClicked(id, newPoke.dataset.id)});
-        this.mainBox.append(newPoke);
+        optBox.append(newPoke);
         this.idToNode.push(newPoke)
         return newPoke
     }
