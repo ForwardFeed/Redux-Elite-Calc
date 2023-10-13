@@ -16,7 +16,7 @@ function setupLiveCalc(){
                 return // no change
             }
             const partyList = decodePartyPokemon(data)
-            const playerMons = setdex[0].mons
+            const playerMons = P1.trainer.mons
             const box = P1.box
             box.reboxToMain()
             partyList.map((pokeParty) => {

@@ -136,6 +136,15 @@ $(document).ready(function () {
                     localStorage.setItem("rcrits", +$('#rcrits-on').prop("checked"))
                 },
             },
+            {
+                selectors: [$('#all-abis-off'),$('#all-abis-on')],
+                event: "change",
+                default: 1,
+                name: "all-abis",
+                func: function(){
+                    localStorage.setItem("all-abis", +$('#all-abis-on').prop("checked"))
+                },
+            },
         ])
         // checkboxes
         $('#p-notes-reset').change(clearAllNotes);
