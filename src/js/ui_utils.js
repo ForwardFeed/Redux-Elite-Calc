@@ -158,10 +158,10 @@ function getSetOptions() {
 function getPlayerOptions() {
 	var setOptions = [];
 	if (!document.getElementById('pl-pokemons-only').checked) {
-		if (!P1.trainer.mons) {
+		if (!setdex[0].mons) {
 		} else {
-			for (var i = 0, iLen = P1.trainer.mons.length; i < iLen; i++) {
-				var pokemon = P1.trainer.mons[i];
+			for (var i = 0, iLen = setdex[0].mons.length; i < iLen; i++) {
+				var pokemon = setdex[0].mons[i];
 				setOptions.push({
 					text: pokemon.species + " : Player",
 					id: pokemon.species + ";Player;" + i
@@ -169,7 +169,7 @@ function getPlayerOptions() {
 			}
 		}
 	}
-	if (!document.getElementById('pl-trainer-only').checked || P1.trainer.mons.length == 0) {
+	if (!document.getElementById('pl-trainer-only').checked || setdex[0].mons.length == 0) {
 		var pokeNames = Object.keys(pokedex);
 		pokeNames.sort();
 		for (var i = 0, iLen = pokeNames.length; i < iLen; i++) {

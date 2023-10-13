@@ -150,12 +150,15 @@ class Panel{
 
         })
         this.field_forme.change(()=>{
+            if (this.trainer) this.trainer.mons[this.pokeID]["abi_"+this.pokemon.species] = this.ability
+            // overwrites from pokedex data
+            var pokedexMon =  structuredClone(pokedex[this.forme])
+            Object.keys(pokedexMon).forEach(k => {var x = (k) =>{this.pokemon[k] = pokedexMon[k]};x(k)});
+            this.pokemon.species = this.forme
             if (this.trainer){
-                this.trainer.mons[this.pokeID]["abi_"+this.pokemon.species] = this.ability
-                this.trainer.mons[this.pokeID].species = this.forme
+                this.trainer.mons[this.pokeID] = this.pokemon
                 this.select = this.forme + ";" + this.trainerName + ";" + this.pokeID
                 this.box.idToNode[this.pokeID].src = getSrcImgPokemon(this.forme)
-                console.log()
             } else {
                 this.select = this.forme
             }
@@ -383,7 +386,7 @@ class Panel{
             } else {
                 //trainer id
                 this.trainerID = +this.pokemonName
-                this.trainer = structuredClone(setdex[this.trainerID])
+                this.trainer = setdex[this.trainerID]
                 this.trainerName = this.trainer.trn
                 this.pokeID = 0
                 this.pokemonName = this.trainer.mons[this.pokeID].species
@@ -396,7 +399,7 @@ class Panel{
         // clone this if you don't want bad surprises
         this.pokemon = structuredClone(pokedex[this.pokemonName])
         this.trainerID = +dexset[this.trainerName]
-        this.trainer = structuredClone(setdex[this.trainerID])
+        this.trainer = setdex[this.trainerID]
         this.pokeID  = +parsed[2]
         this.pokemon = Object.assign(this.pokemon, this.trainer.mons[this.pokeID])
         if (parsed.length == 5){
@@ -689,7 +692,7 @@ class PlayerPanel extends Panel{
         super(panel)
         this.trainerID = 0;
         this.trainerName = "Player"
-        this.trainer = structuredClone(setdex[this.trainerID])
+        this.trainer = setdex[this.trainerID]
         this.lastTrainerID = 0
     }
 }

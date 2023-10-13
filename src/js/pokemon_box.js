@@ -156,7 +156,7 @@ class PlayerBox extends BasicBox{
         if (!trainerName) dispatchPlayerMon(poke);
         this.props.trainer.mons[pokeID] = poke[0];
         setHighestLevelMon();
-        localStorage.setItem(GameName + "playerdex", JSON.stringify(window.P1.trainer.mons));
+        localStorage.setItem(GameName + "playerdex", JSON.stringify(window.setdex[0].mons));
     
         $("#save-change").prop("hidden", true);
         if (!trainerName) return;
@@ -191,7 +191,6 @@ class TrainerBox extends BasicBox{
         this.field_reset.click(()=>{
             if (confirm("This will delete all your pokemons and make you going back to the first trainer, this cannot be undone")) {
                 setdex[0].mons = [];
-                P1.trainer.mons = []
                 localStorage.removeItem(GameName + "playerdex")
                 const boxes = this.panel.find(".box-poke")
                 for (var i = 0; i < boxes.length; i++) {
