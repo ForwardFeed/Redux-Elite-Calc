@@ -1053,3 +1053,20 @@ input[type='radio']:checked {
     border-color: gray;
     background-color: rgba(123, 136, 138, 0.541);
 }
+
+#live-calc{
+    position: absolute;
+    left: 0px;
+}
+
+.con-dot {
+    height: 13px;
+    width: 13px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dot-connected {
+    background-color: #40b329;
+}

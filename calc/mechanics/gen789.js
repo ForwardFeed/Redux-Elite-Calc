@@ -269,9 +269,11 @@ function calculateSMSSSV(gen, attacker, defender, move, field, defenderFriend) {
         type = attacker.teraType;
     }
     move.type = type;
-    move.priority += getPriorityAdditionnal(attacker, move, defender);
+    var additionnalPriority = getPriorityAdditionnal(attacker, move, defender);
+    move.priority += additionnalPriority;
     move.priority = Math.min(move.priority, 5);
-    desc.attackerAbility = (0, util_2.appSpacedStr)(desc.attackerAbility, attacker.ability);
+    if (additionnalPriority)
+        desc.attackerAbility = (0, util_2.appSpacedStr)(desc.attackerAbility, attacker.ability);
     if (attacker.hasAbility('Sighting System')) {
         if (move.acc ? move.acc : 100 < 80) {
             move.priority = -7;

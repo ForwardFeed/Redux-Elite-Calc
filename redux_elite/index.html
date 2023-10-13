@@ -128,6 +128,17 @@
         <button id="screen-calc">
             put this calculation in a grabbable window
         </button>
+
+        <div id="live-calc" hidden>
+            Live Calc Connectivity
+            <div id="live-calc-con">
+                Bridge: 
+                <span id="con-bridge" class="con-dot"></span>
+                Emulator:
+                <span id="con-emu" class="con-dot"></span>
+            </div>
+            <button id="live-calc-ret" hidden>Retry</button>
+        </div>
     </div>
     <hr />
     <div aria-label="Move selection" class="move-result-group" role="region" title="Select a move to show detailed results.">
@@ -2009,7 +2020,8 @@
     <script type="text/javascript" src="../js/gen3_loadsave.js"></script>
     <script type="text/javascript" src="./cs_after_load.js"></script>
     <script type="text/javascript" src="./data/ability_descriptions.js"></script>
-    <script type="text/javascript" src="../js/fuzzers.js"></script>
+    <!--script type="text/javascript" src="../js/fuzzers.js"></script-->
+    <!--script type="text/javascript" src="../js/livecalc.js"></script-->
 </div>
 
 <div class="credits">Modifications by ForwardFeed, based on the work of the Smogon calc by Honko
