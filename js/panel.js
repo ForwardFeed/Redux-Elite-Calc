@@ -150,9 +150,13 @@ class Panel{
 
         })
         this.field_forme.change(()=>{
+            if (this.trainer) this.trainer.mons[this.pokeID]["abi_"+this.pokemon.species] = this.ability
+            // overwrites from pokedex data
+            var pokedexMon =  structuredClone(pokedex[this.forme])
+            Object.keys(pokedexMon).forEach(k => {var x = (k) =>{this.pokemon[k] = pokedexMon[k]};x(k)});
+            this.pokemon.species = this.forme
             if (this.trainer){
-                this.trainer.mons[this.pokeID]["abi_"+this.pokemon.species] = this.ability
-                this.trainer.mons[this.pokeID].species = this.forme
+                this.trainer.mons[this.pokeID] = this.pokemon
                 this.select = this.forme + ";" + this.trainerName + ";" + this.pokeID
                 this.box.idToNode[this.pokeID].src = getSrcImgPokemon(this.forme)
             } else {
@@ -199,11 +203,12 @@ class Panel{
         return new TrainerBox(box, this)
     }
     showFormes() {
-        if (this.pokemon.otherFormes){
+        var otherFormes = this.pokemon.otherFormes
+        if (otherFormes){
             // first save the ability of the forme
             this.pokemon.formeAbi
             var formes = [this.pokemon.species]
-            for (const forme of this.pokemon.otherFormes){
+            for (const forme of otherFormes){
                 formes.push(forme)
             }
             var formeOptions = getSelectOptions(formes, false, this.pokemon.species);
@@ -212,8 +217,13 @@ class Panel{
         } else {
             this.field_forme.parent().hide();
         }
- 
-        
+    }
+    showAbilities(){
+        console.log("change abis", this.pokemon.abilities)
+        if (this.pokemon.abilities) {
+            var abilityOptions = getSelectOptions(this.pokemon.abilities, false,);
+            this.field_ability.find("option").remove().end().append(abilityOptions);
+        }
     }
     hasTrainerChanged(){
         const hasChanged = this.lastTrainerID == this.trainerID
@@ -431,6 +441,7 @@ class Panel{
         const poke = correctCompactedIVEV(this.pokemon)
         this.pokeImg = poke.species
         this.showFormes();
+        if (!+$('#all-abis-on').prop("checked")) this.showAbilities()
         this.type1 = poke.types[0]
         this.type2 = poke.types[1]
         this.level = poke.level || highestMonLevel
@@ -681,7 +692,7 @@ class PlayerPanel extends Panel{
         super(panel)
         this.trainerID = 0;
         this.trainerName = "Player"
-        this.trainer = setdex[0]
+        this.trainer = setdex[this.trainerID]
         this.lastTrainerID = 0
     }
 }
