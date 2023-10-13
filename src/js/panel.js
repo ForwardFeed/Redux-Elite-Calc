@@ -219,7 +219,6 @@ class Panel{
         }
     }
     showAbilities(){
-        console.log("change abis", this.pokemon.abilities)
         if (this.pokemon.abilities) {
             var abilityOptions = getSelectOptions(this.pokemon.abilities, false,);
             this.field_ability.find("option").remove().end().append(abilityOptions);

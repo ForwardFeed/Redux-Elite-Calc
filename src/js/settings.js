@@ -142,6 +142,10 @@ $(document).ready(function () {
                 default: 1,
                 name: "all-abis",
                 func: function(){
+                    if (+$('#all-abis-on').prop("checked")) {
+                        var abilityOptions = getSelectOptions(abilities, true);
+                        $("select.ability").find("option").remove().end().append("<option value=\"\">(other)</option>" + abilityOptions);
+                    }
                     localStorage.setItem("all-abis", +$('#all-abis-on').prop("checked"))
                 },
             },
