@@ -149,6 +149,15 @@ $(document).ready(function () {
                     localStorage.setItem("all-abis", +$('#all-abis-on').prop("checked"))
                 },
             },
+            {
+                selectors: [$('#no-ev-off'),$('#no-ev-on')],
+                event: "change",
+                default: 0,
+                name: "no-ev",
+                func: function(){
+                    localStorage.setItem("no-ev", +$('#no-ev-on').prop("checked"))
+                },
+            },
         ])
         // checkboxes
         $('#p-notes-reset').change(clearAllNotes);

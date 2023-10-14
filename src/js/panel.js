@@ -455,7 +455,12 @@ class Panel{
             } else {
                 this.stats[stat + "IV"] = poke.ivs && poke.ivs[stat] > -1 && poke.ivs[stat] || 31
             }
-            this.stats[stat + "EV"] = poke.evs && poke.evs[stat] || 0
+            if (+$('#no-ev-on').prop("checked")) {
+                this.stats[stat + "EV"] = 0
+            } else {
+                this.stats[stat + "EV"] = poke.evs && poke.evs[stat] || 0
+            }
+            
             if (stat === "hp") continue
             this.stats[stat + "Boost"] = 0
         }
