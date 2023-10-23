@@ -1583,15 +1583,16 @@ export function calculateAtModsSMSSSV(
     atMods.push(5461);
     desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.ability);
   }
-
-  if ((attacker.hasItem('Thick Club') &&
+  if (attacker.hasItem('Light Ball') && attacker.named('Pikachu', 'Raichu', 'Raichu Alolan') && !move.isZ) {
+    atMods.push(6144);
+    desc.attackerItem = attacker.item;
+  }
+  else if ((attacker.hasItem('Thick Club') &&
        attacker.named('Cubone', 'Marowak', 'Marowak-Alola', 'Marowak-Alola-Totem') &&
        move.category === 'Physical') ||
       (attacker.hasItem('Deep Sea Tooth') &&
        attacker.named('Clamperl') &&
-       move.category === 'Special') ||
-      (attacker.hasItem('Light Ball') && attacker.name.includes('Pikachu') && !move.isZ)
-  ) {
+       move.category === 'Special')) {
     atMods.push(8192);
     desc.attackerItem = attacker.item;
     // Choice Band/Scarf/Specs move lock and stat boosts are ignored during Dynamax (Anubis)

@@ -225,13 +225,14 @@ function readMonParty(start, bytes){
     //var status = readNbytes(start + 80, 4, bytes);
     mon.level = readNbytes(start + 84, 1, bytes);
     //var pkrs = readNbytes(start + 85, 1, bytes);
-    //var currentHP = readNbytes(start + 86, 2, bytes);
-    /*var totalHP = readNbytes(start + 88, 2, bytes);
-    var atk = readNbytes(start + 90, 2, bytes);
-    var def = readNbytes(start + 92, 2, bytes);
-    var spe = readNbytes(start + 94, 2, bytes);
-    var spa = readNbytes(start + 96, 2, bytes);
-    var spd = readNbytes(start + 98, 2, bytes);*/
+    mon.liveStat = {}
+    mon.liveStat.currentHP = readNbytes(start + 86, 2, bytes);
+    mon.liveStat.totalHP = readNbytes(start + 88, 2, bytes);
+    mon.liveStat.atk = readNbytes(start + 90, 2, bytes);
+    mon.liveStat.def = readNbytes(start + 92, 2, bytes);
+    mon.liveStat.spe = readNbytes(start + 94, 2, bytes);
+    mon.liveStat.spa = readNbytes(start + 96, 2, bytes);
+    mon.liveStat.spd = readNbytes(start + 98, 2, bytes);
     return mon
 }
 function slowCurve(n){
