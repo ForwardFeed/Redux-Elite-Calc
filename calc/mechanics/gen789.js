@@ -1302,8 +1302,13 @@ function calculateAtModsSMSSSV(gen, attacker, defender, move, field, desc) {
         atMods.push(5461);
         desc.attackerAbility = (0, util_2.appSpacedStr)(desc.attackerAbility, attacker.ability);
     }
-    if (attacker.hasItem('Light Ball') && attacker.named('Pikachu', 'Raichu', 'Raichu Alolan') && !move.isZ) {
-        atMods.push(6144);
+    if (attacker.hasItem('Light Ball') && !move.isZ) {
+        if (attacker.named('Raichu', 'Raichu Alolan')) {
+            atMods.push(6144);
+        }
+        else if (attacker.named('Pikachu')) {
+            atMods.push(8192);
+        }
         desc.attackerItem = attacker.item;
     }
     else if ((attacker.hasItem('Thick Club') &&
