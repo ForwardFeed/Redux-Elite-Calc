@@ -269,15 +269,17 @@ function setHighestLevelMon(){
 	for (var i in P1.trainer.mons){
 		var mon = P1.trainer.mons[i]
 		if (mon.level > highestMonLevel){
-			$('#levelR1').val(mon.level);
 			highestMonLevel= mon.level;
-			P2.pokemon.level = highestMonLevel 
-			hasChanged = true;
 		} 
 	}
-	if (hasChanged) P2.stats.calcStats() 
+	if (hasChanged) updateHighestLevelMon() 
 	
 }
+function updateHighestLevelMon(level){
+	P2.level = level || highestMonLevel
+	P2.stats.calcStats()
+}
+
 
 $(document).ready(function(){
     $('#report').click( function() {

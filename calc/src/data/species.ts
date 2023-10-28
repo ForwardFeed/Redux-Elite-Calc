@@ -109,7 +109,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Charizard': {
     id: 6,
     bs: {hp: 78,at: 84,df: 78,sa: 109,sd: 85,sp: 100},
-    abilities: ['Burnate','Aerilate','Tough Claws'],
+    abilities: ['Molten Down','Giant Wings','Tough Claws'],
     innates: ['Blaze','Levitate','Sun Worship'],
     otherFormes: ['Charizard Mega X','Charizard Mega Y'],
     weightkg: 905,
@@ -448,9 +448,9 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   },
   'Wigglytuff': {
     id: 40,
-    bs: {hp: 120,at: 70,df: 45,sa: 105,sd: 60,sp: 45},
+    bs: {hp: 120,at: 70,df: 45,sa: 105,sd: 80,sp: 45},
     abilities: ['Sweet Dreams','Competitive','Magic Guard'],
-    innates: ['Cute Charm','Inflatable','Fluffy'],
+    innates: ['Cute Charm','Inflatable','Fur Coat'],
     weightkg: 120,
     types: ['Normal','Fairy'],
     genderR: 191
@@ -742,7 +742,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Weepinbell': {
     id: 70,
     bs: {hp: 65,at: 90,df: 50,sa: 85,sd: 45,sp: 55},
-    abilities: ['Chloroplast','Harvest','Arena Trap'],
+    abilities: ['Chloroplast','Ambush','Arena Trap'],
     innates: ['Chlorophyll','Gluttony','Corrosion'],
     nfe: true,
     weightkg: 64,
@@ -752,8 +752,8 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Victreebel': {
     id: 71,
     bs: {hp: 80,at: 105,df: 65,sa: 100,sd: 70,sp: 70},
-    abilities: ['Chloroplast','Harvest','Arena Trap'],
-    innates: ['Chlorophyll','Gluttony','Corrosion'],
+    abilities: ['Predator','Ambush','Arena Trap'],
+    innates: ['Big Leaves','Gluttony','Corrosion'],
     weightkg: 155,
     types: ['Grass','Poison'],
     genderR: 127
@@ -802,8 +802,8 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Golem': {
     id: 76,
     bs: {hp: 90,at: 135,df: 130,sa: 55,sd: 65,sp: 45},
-    abilities: ['Rock Head','Sand Force','Fort Knox'],
-    innates: ['Lets Roll','Sturdy','Solid Rock'],
+    abilities: ['Rock Head','Fort Knox','Loose Rocks'],
+    innates: ['Lets Roll','Sturdy','Mineralize'],
     otherFormes: ['Golem Alolan'],
     weightkg: 3000,
     types: ['Rock','Ground'],
@@ -912,8 +912,8 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   },
   'Dewgong': {
     id: 87,
-    bs: {hp: 90,at: 90,df: 60,sa: 95,sd: 95,sp: 90},
-    abilities: ['Fur Coat','Ice Scales','Permafrost'],
+    bs: {hp: 90,at: 90,df: 65,sa: 95,sd: 95,sp: 90},
+    abilities: ['Fur Coat','Ice Scales','Arctic Fur'],
     innates: ['Thick Fat','Water Veil','North Wind'],
     otherFormes: ['Dewgong Mega'],
     weightkg: 1200,
@@ -992,9 +992,9 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   },
   'Onix': {
     id: 95,
-    bs: {hp: 35,at: 45,df: 160,sa: 30,sd: 45,sp: 70},
+    bs: {hp: 65,at: 70,df: 160,sa: 30,sd: 55,sp: 70},
     abilities: ['Rock Head','Stamina','Sand Stream'],
-    innates: ['Solid Rock','Rough Skin','Sturdy'],
+    innates: ['Sturdy','Rough Skin','Loose Rocks'],
     nfe: true,
     weightkg: 2100,
     types: ['Rock','Ground'],
@@ -1102,6 +1102,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     bs: {hp: 80,at: 120,df: 53,sa: 35,sd: 110,sp: 87},
     abilities: ['Unburden','Fatal Precision','Violent Rush'],
     innates: ['Limber','Reckless','Striker'],
+    otherFormes: ['Hitmonlee Mega'],
     weightkg: 498,
     types: ['Fighting'],
     genderR: 0
@@ -1347,6 +1348,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     bs: {hp: 130,at: 85,df: 80,sa: 95,sd: 95,sp: 60},
     abilities: ['Adaptability','Snow Warning','Permafrost'],
     innates: ['Half Drake','Shell Armor','Self Sufficient'],
+    otherFormes: ['Lapras Mega','Lapras Mega X'],
     weightkg: 2200,
     types: ['Water','Ice'],
     genderR: 127
@@ -1373,7 +1375,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Vaporeon': {
     id: 134,
     bs: {hp: 130,at: 65,df: 60,sa: 110,sd: 95,sp: 65},
-    abilities: ['Rain Dish','Liquid Voice','Drizzle'],
+    abilities: ['Rain Dish','Regenerator','Drizzle'],
     innates: ['Water Veil','Water Absorb','Hydration'],
     weightkg: 290,
     types: ['Water'],
@@ -1732,6 +1734,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     bs: {hp: 125,at: 58,df: 58,sa: 86,sd: 86,sp: 67},
     abilities: ['Swift Swim','Illuminate','Drizzle'],
     innates: ['Plus','Water Absorb','Volt Absorb'],
+    otherFormes: ['Lanturn Mega'],
     weightkg: 225,
     types: ['Water','Electric'],
     genderR: 127
@@ -1779,9 +1782,9 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   },
   'Togetic': {
     id: 176,
-    bs: {hp: 55,at: 40,df: 85,sa: 80,sd: 105,sp: 40},
-    abilities: ['Regenerator','Self Sufficient','Soul Heart'],
-    innates: ['Super Luck','Serene Grace','Pixilate'],
+    bs: {hp: 70,at: 40,df: 85,sa: 65,sd: 105,sp: 40},
+    abilities: ['Cute Charm','Regenerator','Serene Grace'],
+    innates: ['Shield Dust','Self Sufficient','Aerodynamics'],
     nfe: true,
     weightkg: 32,
     types: ['Fairy','Flying'],
@@ -2001,7 +2004,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     bs: {hp: 95,at: 75,df: 80,sa: 100,sd: 110,sp: 30},
     abilities: ['Regenerator','Unaware','Twisted Dimension'],
     innates: ['Oblivious','Own Tempo','Battle Armor'],
-    otherFormes: ['Slowking Galarian'],
+    otherFormes: ['Slowking Galarian','Slowking Mega'],
     weightkg: 795,
     types: ['Water','Psychic'],
     genderR: 127
@@ -2067,7 +2070,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     id: 206,
     bs: {hp: 110,at: 80,df: 80,sa: 65,sd: 75,sp: 45},
     abilities: ['Serene Grace','Field Explorer','Unaware'],
-    innates: ['Super Luck','Run Away','Rattled'],
+    innates: ['Super Luck','Run Away','Coward'],
     weightkg: 140,
     types: ['Normal'],
     genderR: 127
@@ -2116,7 +2119,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     id: 211,
     bs: {hp: 65,at: 95,df: 115,sa: 55,sd: 55,sp: 85},
     abilities: ['Innards Out','Poisonate','Intimidate'],
-    innates: ['Swift Swim','Inflatable','Poison Point'],
+    innates: ['Loose Quills','Inflatable','Poison Point'],
     weightkg: 39,
     types: ['Water','Poison'],
     genderR: 127
@@ -2133,8 +2136,8 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   },
   'Shuckle': {
     id: 213,
-    bs: {hp: 20,at: 10,df: 230,sa: 10,sd: 230,sp: 5},
-    abilities: ['Moody','Lets Roll','Contrary'],
+    bs: {hp: 30,at: 10,df: 230,sa: 10,sd: 230,sp: 5},
+    abilities: ['Coward','Lets Roll','Contrary'],
     innates: ['Shell Armor','Fort Knox','Solid Rock'],
     weightkg: 205,
     types: ['Bug','Rock'],
@@ -2279,7 +2282,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     id: 228,
     bs: {hp: 45,at: 60,df: 30,sa: 80,sd: 50,sp: 65},
     abilities: ['Flame Body','Pyromancy','None'],
-    innates: ['Nocturnal','Solenoglyphs'],
+    innates: ['Nocturnal','Fae Hunter','Equinox'],
     nfe: true,
     weightkg: 108,
     types: ['Dark','Fire'],
@@ -2289,7 +2292,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     id: 229,
     bs: {hp: 75,at: 100,df: 50,sa: 110,sd: 80,sp: 105},
     abilities: ['Strong Jaw','Molten Down','Solar Power'],
-    innates: ['Nocturnal','Solenoglyphs','Soul Eater'],
+    innates: ['Nocturnal','Fae Hunter','Equinox'],
     otherFormes: ['Houndoom Mega'],
     weightkg: 350,
     types: ['Dark','Fire'],
@@ -2431,8 +2434,8 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Entei': {
     id: 244,
     bs: {hp: 115,at: 115,df: 85,sa: 90,sd: 75,sp: 100},
-    abilities: ['Avenger','Flaming Soul','Drought'],
-    innates: ['Strong Jaw','Beast Boost','Molten Down'],
+    abilities: ['Strong Jaw','Flaming Soul','Drought'],
+    innates: ['Volcano Rage','Beast Boost','Molten Down'],
     weightkg: 1980,
     types: ['Fire'],
     genderR: 255
@@ -2820,7 +2823,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   },
   'Masquerain': {
     id: 284,
-    bs: {hp: 70,at: 60,df: 72,sa: 75,sd: 82,sp: 80},
+    bs: {hp: 70,at: 60,df: 72,sa: 100,sd: 82,sp: 80},
     abilities: ['Intimidate','Scare','Unnerve'],
     innates: ['Compound Eyes','Majestic Moth','Levitate'],
     weightkg: 36,
@@ -2900,6 +2903,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     bs: {hp: 1,at: 90,df: 45,sa: 70,sd: 30,sp: 40},
     abilities: ['Wonder Guard','Wonder Guard','Wonder Guard'],
     innates: ['Wonder Skin','Levitate','Cursed Body'],
+    otherFormes: ['Shedinja Mega'],
     weightkg: 12,
     types: ['Bug','Ghost'],
     genderR: 255
@@ -3142,6 +3146,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     bs: {hp: 100,at: 83,df: 93,sa: 83,sd: 93,sp: 55},
     abilities: ['Poison Absorb','Regenerator','Gluttony'],
     innates: ['Sticky Hold','Liquified','Unaware'],
+    otherFormes: ['Swalot Mega'],
     weightkg: 800,
     types: ['Poison'],
     genderR: 127
@@ -3160,7 +3165,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     id: 319,
     bs: {hp: 70,at: 120,df: 45,sa: 115,sd: 45,sp: 95},
     abilities: ['Speed Force','Hyper Aggressive','Speed Boost'],
-    innates: ['Strong Jaw','Swift Swim','Predator'],
+    innates: ['Strong Jaw','Swift Swim','Jaws Of Carnage'],
     otherFormes: ['Sharpedo Mega'],
     weightkg: 888,
     types: ['Water','Dark'],
@@ -3416,8 +3421,8 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Cradily': {
     id: 346,
     bs: {hp: 0,at: 81,df: 97,sa: 91,sd: 107,sp: 43},
-    abilities: ['Battle Armor','Regenerator','Storm Drain'],
-    innates: ['Fossilized','Amphibious','Seaweed'],
+    abilities: ['Absorbant','Regenerator','Storm Drain'],
+    innates: ['Battle Armor','Amphibious','Seaweed'],
     weightkg: 604,
     types: ['Rock','Grass'],
     genderR: 30
@@ -3715,7 +3720,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Regirock': {
     id: 377,
     bs: {hp: 80,at: 100,df: 200,sa: 50,sd: 100,sp: 50},
-    abilities: ['Iron Fist','Fort Knox','Sand Stream'],
+    abilities: ['Iron Fist','Loose Rocks','Sand Stream'],
     innates: ['Power Core','Impenetrable','Self Sufficient'],
     weightkg: 2300,
     types: ['Rock'],
@@ -3833,7 +3838,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Torterra': {
     id: 389,
     bs: {hp: 95,at: 119,df: 134,sa: 55,sd: 95,sp: 36},
-    abilities: ['Rough Skin','Stamina','Sheer Force'],
+    abilities: ['Rough Skin','Stamina','Loose Rocks'],
     innates: ['Overgrow','Impenetrable','Big Leaves'],
     weightkg: 3100,
     types: ['Grass','Ground'],
@@ -3957,7 +3962,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   },
   'Kricketune': {
     id: 402,
-    bs: {hp: 77,at: 65,df: 51,sa: 65,sd: 51,sp: 85},
+    bs: {hp: 77,at: 85,df: 51,sa: 65,sd: 51,sp: 85},
     abilities: ['Soundproof','Perfectionist','Drizzle'],
     innates: ['Mountaineer','Technician','Buginize'],
     weightkg: 255,
@@ -4276,9 +4281,9 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   },
   'Skuntank': {
     id: 435,
-    bs: {hp: 103,at: 113,df: 67,sa: 71,sd: 61,sp: 84},
-    abilities: ['Poison Point','Anticipation','Run Away'],
-    innates: ['Aftermath','Stench','Keen Eye'],
+    bs: {hp: 103,at: 51,df: 77,sa: 113,sd: 71,sp: 84},
+    abilities: ['Aftermath','Unburden','Adaptability'],
+    innates: ['Corrosion','Stench','Gluttony'],
     weightkg: 380,
     types: ['Poison','Dark'],
     genderR: 127
@@ -4309,7 +4314,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     innates: ['Raw Wood'],
     nfe: true,
     weightkg: 150,
-    types: ['Rock','Grass'],
+    types: ['Rock'],
     genderR: 127
   },
   'Mime Jr': {
@@ -4343,7 +4348,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   },
   'Spiritomb': {
     id: 442,
-    bs: {hp: 70,at: 108,df: 108,sa: 108,sd: 108,sp: 35},
+    bs: {hp: 50,at: 108,df: 108,sa: 108,sd: 108,sp: 35},
     abilities: ['Hypnotist','Twisted Dimension','Soul Linker'],
     innates: ['Soul Eater','Bad Dreams','Shadow Shield'],
     weightkg: 1080,
@@ -4442,7 +4447,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Drapion': {
     id: 452,
     bs: {hp: 70,at: 100,df: 120,sa: 60,sd: 75,sp: 95},
-    abilities: ['Poison Touch','Fatal Precision','Looter'],
+    abilities: ['Sniper','Fatal Precision','Looter'],
     innates: ['Shell Armor','Grip Pincer','Nocturnal'],
     weightkg: 615,
     types: ['Poison','Dark'],
@@ -4460,9 +4465,9 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   },
   'Toxicroak': {
     id: 454,
-    bs: {hp: 83,at: 106,df: 65,sa: 86,sd: 65,sp: 95},
-    abilities: ['Poison Touch','Hydrate','Fight Spirit'],
-    innates: ['Dry Skin','Amphibious','Opportunist'],
+    bs: {hp: 83,at: 106,df: 65,sa: 106,sd: 65,sp: 105},
+    abilities: ['Technician','Hyper Aggressive','Opportunist'],
+    innates: ['Dry Skin','Poison Touch','Merciless'],
     weightkg: 444,
     types: ['Poison','Fighting'],
     genderR: 127
@@ -4539,6 +4544,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     bs: {hp: 70,at: 70,df: 115,sa: 130,sd: 90,sp: 60},
     abilities: ['Sighting System','Overcharge','Download'],
     innates: ['Galvanize','Multi Headed','Magnet Pull'],
+    otherFormes: ['Magnezone Mega'],
     weightkg: 1800,
     types: ['Electric','Steel'],
     genderR: 255
@@ -5137,7 +5143,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Gigalith': {
     id: 526,
     bs: {hp: 85,at: 60,df: 130,sa: 135,sd: 80,sp: 25},
-    abilities: ['Impenetrable','Sand Stream','Solar Power'],
+    abilities: ['Loose Rocks','Sand Stream','Solar Power'],
     innates: ['Power Core','Sturdy','Sand Force'],
     weightkg: 2600,
     types: ['Rock'],
@@ -5289,9 +5295,9 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   },
   'Leavanny': {
     id: 542,
-    bs: {hp: 75,at: 113,df: 80,sa: 70,sd: 80,sp: 102},
-    abilities: ['Leaf Guard','None','Keen Edge'],
-    innates: ['Swarm','Chlorophyll','Overcoat'],
+    bs: {hp: 75,at: 120,df: 80,sa: 55,sd: 80,sp: 110},
+    abilities: ['Swarm','Compound Eyes','Chlorophyll'],
+    innates: ['Keen Edge','Super Luck','Overcoat'],
     weightkg: 205,
     types: ['Bug','Grass'],
     genderR: 127
@@ -5398,6 +5404,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     bs: {hp: 95,at: 117,df: 80,sa: 65,sd: 70,sp: 92},
     abilities: ['Intimidate','Moxie','Anger Point'],
     innates: ['Hyper Aggressive','Predator','Strong Jaw'],
+    otherFormes: ['Krookodile Mega'],
     weightkg: 963,
     types: ['Ground','Dark'],
     genderR: 127
@@ -5463,7 +5470,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   },
   'Scrafty': {
     id: 560,
-    bs: {hp: 65,at: 90,df: 115,sa: 45,sd: 115,sp: 58},
+    bs: {hp: 73,at: 90,df: 115,sa: 45,sd: 115,sp: 73},
     abilities: ['Iron Fist','Moxie','Intimidate'],
     innates: ['Shed Skin','Rock Head','Reckless'],
     weightkg: 300,
@@ -5540,7 +5547,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Trubbish': {
     id: 568,
     bs: {hp: 50,at: 50,df: 62,sa: 40,sd: 62,sp: 65},
-    abilities: ['Poison Touch','Weak Armor','Aftermath'],
+    abilities: ['Poison Touch','Toxic Debris','Scrapyard'],
     innates: ['Stench','Adaptability','Poison Absorb'],
     nfe: true,
     weightkg: 310,
@@ -5550,8 +5557,8 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Garbodor': {
     id: 569,
     bs: {hp: 80,at: 95,df: 102,sa: 60,sd: 82,sp: 75},
-    abilities: ['Poison Touch','Weak Armor','Aftermath'],
-    innates: ['Stench','Sticky Hold','Poison Absorb'],
+    abilities: ['Poison Touch','Toxic Debris','Scrapyard'],
+    innates: ['Stench','Scavenger','Toxic Spill'],
     weightkg: 1073,
     types: ['Poison','Steel'],
     genderR: 127
@@ -5559,8 +5566,8 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Zorua': {
     id: 570,
     bs: {hp: 40,at: 80,df: 40,sa: 65,sd: 40,sp: 65},
-    abilities: ['Disguise','Disguise','Disguise'],
-    innates: ['Illusion','Cheap Tactics','Opportunist'],
+    abilities: ['Illusion','Illusion','Illusion'],
+    innates: ['Ambush','Insomnia','Opportunist'],
     nfe: true,
     weightkg: 125,
     types: ['Dark'],
@@ -5569,8 +5576,8 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Zoroark': {
     id: 571,
     bs: {hp: 60,at: 120,df: 60,sa: 105,sd: 60,sp: 105},
-    abilities: ['Disguise','Disguise','Disguise'],
-    innates: ['Illusion','Cheap Tactics','Opportunist'],
+    abilities: ['Illusion','Illusion','Illusion'],
+    innates: ['Ambush','Exploit Weakness','Opportunist'],
     weightkg: 811,
     types: ['Dark'],
     genderR: 30
@@ -5714,8 +5721,8 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Sawsbuck': {
     id: 586,
     bs: {hp: 80,at: 100,df: 70,sa: 60,sd: 70,sp: 95},
-    abilities: ['Chlorophyll','None','Serene Grace'],
-    innates: ['Sap Sipper','Violent Rush','Rivalry'],
+    abilities: ['Adaptability','Serene Grace','Chloroplast'],
+    innates: ['Mighty Horn','Violent Rush','Rivalry'],
     otherFormes: ['Sawsbuck Summer','Sawsbuck Autumn','Sawsbuck Winter'],
     weightkg: 925,
     types: ['Normal','Grass'],
@@ -6049,8 +6056,8 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Druddigon': {
     id: 621,
     bs: {hp: 97,at: 120,df: 90,sa: 60,sd: 90,sp: 48},
-    abilities: ['Impenetrable','Strong Jaw','Sheer Force'],
-    innates: ['Rough Skin','Solid Rock','Predator'],
+    abilities: ['Impenetrable','Sun Worship','Tough Claws'],
+    innates: ['Ambush','Solid Rock','Predator'],
     weightkg: 1390,
     types: ['Dragon','Rock'],
     genderR: 127
@@ -6068,7 +6075,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Golurk': {
     id: 623,
     bs: {hp: 89,at: 134,df: 90,sa: 55,sd: 90,sp: 55},
-    abilities: ['Power Fists','No Guard','Haunted Spirit'],
+    abilities: ['Power Fists','No Guard','Self Repair'],
     innates: ['Power Core','Shadow Shield','Iron Fist'],
     weightkg: 3300,
     types: ['Ground','Ghost'],
@@ -6135,7 +6142,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     id: 630,
     bs: {hp: 110,at: 65,df: 105,sa: 55,sd: 95,sp: 80},
     abilities: ['Big Pecks','Giant Wings','Air Blower'],
-    innates: ['Flock','Keen Eye','Scavenger'],
+    innates: ['Overcoat','Stamina','Scavenger'],
     weightkg: 395,
     types: ['Dark','Flying'],
     genderR: 254
@@ -6143,8 +6150,8 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Heatmor': {
     id: 631,
     bs: {hp: 85,at: 97,df: 96,sa: 85,sd: 96,sp: 65},
-    abilities: ['Burnate','White Smoke','Steelworker'],
-    innates: ['Unaware','Tough Claws','Fatal Precision'],
+    abilities: ['Burnate','Unaware','Steelworker'],
+    innates: ['White Smoke','Tough Claws','Fatal Precision'],
     weightkg: 580,
     types: ['Fire','Steel'],
     genderR: 127
@@ -6152,8 +6159,8 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Durant': {
     id: 632,
     bs: {hp: 58,at: 109,df: 112,sa: 48,sd: 78,sp: 109},
-    abilities: ['Hustle','Compound Eyes','Steelworker'],
-    innates: ['Swarm','Strong Jaw','Looter'],
+    abilities: ['Hustle','Looter','Steelworker'],
+    innates: ['Swarm','Strong Jaw','Compound Eyes'],
     weightkg: 330,
     types: ['Bug','Steel'],
     genderR: 127
@@ -6209,8 +6216,8 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Cobalion': {
     id: 638,
     bs: {hp: 91,at: 90,df: 129,sa: 90,sd: 72,sp: 108},
-    abilities: ['Justified','Fight Spirit','Dragonslayer'],
-    innates: ['Inner Focus','Avenger','Full Metal Body'],
+    abilities: ['Justified','Avenger','Dragonslayer'],
+    innates: ['Keen Edge','Sweeping Edge','Mirror Armor'],
     weightkg: 2500,
     types: ['Steel','Fighting'],
     genderR: 255
@@ -6218,8 +6225,8 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Terrakion': {
     id: 639,
     bs: {hp: 91,at: 129,df: 90,sa: 72,sd: 90,sp: 108},
-    abilities: ['Justified','Fight Spirit','Dragonslayer'],
-    innates: ['Inner Focus','Avenger','Solid Rock'],
+    abilities: ['Justified','Avenger','Dragonslayer'],
+    innates: ['Keen Edge','Mold Breaker','Solid Rock'],
     weightkg: 2600,
     types: ['Rock','Fighting'],
     genderR: 255
@@ -6227,8 +6234,8 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Virizion': {
     id: 640,
     bs: {hp: 91,at: 90,df: 72,sa: 90,sd: 129,sp: 108},
-    abilities: ['Justified','Fight Spirit','Dragonslayer'],
-    innates: ['Inner Focus','Avenger','Keen Edge'],
+    abilities: ['Justified','Avenger','Dragonslayer'],
+    innates: ['Mighty Horn','Absorbant','Keen Edge'],
     weightkg: 2000,
     types: ['Grass','Fighting'],
     genderR: 255
@@ -6294,8 +6301,8 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Keldeo': {
     id: 647,
     bs: {hp: 91,at: 72,df: 90,sa: 129,sd: 90,sp: 108},
-    abilities: ['Justified','Fight Spirit','Dragonslayer'],
-    innates: ['Inner Focus','Avenger','Keen Edge'],
+    abilities: ['Justified','Avenger','Dragonslayer'],
+    innates: ['Steadfast','Field Explorer','Keen Edge'],
     otherFormes: ['Keldeo Resolute'],
     weightkg: 485,
     types: ['Water','Fighting'],
@@ -6344,8 +6351,8 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Chesnaught': {
     id: 652,
     bs: {hp: 88,at: 107,df: 122,sa: 74,sd: 75,sp: 64},
-    abilities: ['Lets Roll','Stamina','Iron Barbs'],
-    innates: ['Overgrow','Shell Armor','Bulletproof'],
+    abilities: ['Lets Roll','Stamina','Bulletproof'],
+    innates: ['Overgrow','Shell Armor','Loose Quills'],
     weightkg: 900,
     types: ['Grass','Fighting'],
     genderR: 127
@@ -6532,7 +6539,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     id: 671,
     bs: {hp: 88,at: 55,df: 88,sa: 112,sd: 154,sp: 55},
     abilities: ['Harvest','Misty Surge','Fairy Aura'],
-    innates: ['Natural Cure','Absorbant','Self Sufficient'],
+    innates: ['Natural Cure','Regenerator','Self Sufficient'],
     otherFormes: ['Florges Yellow Flower','Florges Orange Flower','Florges Blue Flower','Florges White Flower'],
     weightkg: 100,
     types: ['Fairy'],
@@ -6580,7 +6587,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     id: 676,
     bs: {hp: 75,at: 80,df: 60,sa: 65,sd: 90,sp: 102},
     abilities: ['Cute Charm','None','None'],
-    innates: ['Fur Coat','Overcoat','Run Away'],
+    innates: ['Fur Coat','Overcoat','Fluffy'],
     otherFormes: ['Furfrou Heart Trim','Furfrou Star Trim','Furfrou Diamond Trim','Furfrou Debutante Trim','Furfrou Matron Trim','Furfrou Dandy Trim','Furfrou La Reine Trim','Furfrou Kabuki Trim','Furfrou Pharaoh Trim'],
     weightkg: 280,
     types: ['Normal'],
@@ -6733,9 +6740,9 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   },
   'Clauncher': {
     id: 692,
-    bs: {hp: 50,at: 53,df: 62,sa: 58,sd: 63,sp: 44},
-    abilities: ['Swift Swim','None','None'],
-    innates: ['Hyper Cutter','Shell Armor'],
+    bs: {hp: 60,at: 53,df: 62,sa: 78,sd: 63,sp: 44},
+    abilities: ['Multiscale','None','None'],
+    innates: ['Swift Swim','Shell Armor','Mega Launcher'],
     nfe: true,
     weightkg: 83,
     types: ['Water'],
@@ -6746,6 +6753,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     bs: {hp: 90,at: 73,df: 98,sa: 130,sd: 89,sp: 50},
     abilities: ['Multiscale','Rampage','Artillery'],
     innates: ['Hydrate','Shell Armor','Mega Launcher'],
+    otherFormes: ['Clawitzer Redux'],
     weightkg: 353,
     types: ['Water'],
     genderR: 127
@@ -6802,7 +6810,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     id: 699,
     bs: {hp: 123,at: 77,df: 72,sa: 119,sd: 92,sp: 58},
     abilities: ['Refrigerate','Solid Rock','Snow Warning'],
-    innates: ['Fossilized','Ice Body','Permafrost'],
+    innates: ['Primal Armor','Ice Body','Permafrost'],
     weightkg: 2250,
     types: ['Rock','Ice'],
     genderR: 30
@@ -6953,7 +6961,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Noivern': {
     id: 715,
     bs: {hp: 85,at: 70,df: 80,sa: 97,sd: 80,sp: 123},
-    abilities: ['Frisk','Infiltrator','Aerodynamics'],
+    abilities: ['Mountaineer','Infiltrator','Aerodynamics'],
     innates: ['Loud Bang','Nocturnal','Hyper Aggressive'],
     weightkg: 850,
     types: ['Flying','Dragon'],
@@ -6972,7 +6980,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Yveltal': {
     id: 717,
     bs: {hp: 126,at: 131,df: 95,sa: 131,sd: 98,sp: 99},
-    abilities: ['Opportunist','Bad Luck','Scare'],
+    abilities: ['Opportunist','Fae Hunter','Scare'],
     innates: ['Dark Aura','Air Blower','Giant Wings'],
     weightkg: 2030,
     types: ['Dark','Flying'],
@@ -7136,8 +7144,8 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Yungoos': {
     id: 734,
     bs: {hp: 48,at: 70,df: 30,sa: 30,sd: 30,sp: 45},
-    abilities: ['Stakeout','None','None'],
-    innates: ['Strong Jaw','Adaptability','Predator'],
+    abilities: ['Ambush','Hustle','Opportunist'],
+    innates: ['Stakeout','Strong Jaw','Predator'],
     nfe: true,
     weightkg: 60,
     types: ['Normal'],
@@ -7146,8 +7154,8 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Gumshoos': {
     id: 735,
     bs: {hp: 88,at: 110,df: 80,sa: 55,sd: 80,sp: 45},
-    abilities: ['Stakeout','None','None'],
-    innates: ['Strong Jaw','Adaptability','Predator'],
+    abilities: ['Ambush','Analytic','Opportunist'],
+    innates: ['Stakeout','Strong Jaw','Predator'],
     weightkg: 142,
     types: ['Normal'],
     genderR: 127
@@ -7417,7 +7425,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     id: 763,
     bs: {hp: 72,at: 120,df: 90,sa: 50,sd: 90,sp: 108},
     abilities: ['Oblivious','Hyper Aggressive','Sweet Veil'],
-    innates: ['Keen Edge','Striker','Queenly Majesty'],
+    innates: ['Looter','Striker','Queenly Majesty'],
     weightkg: 214,
     types: ['Grass','Fighting'],
     genderR: 254
@@ -7453,7 +7461,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     id: 767,
     bs: {hp: 25,at: 35,df: 40,sa: 20,sd: 30,sp: 80},
     abilities: ['Wimp Out','None','Run Away'],
-    innates: ['Shell Armor','Poison Point','Looter'],
+    innates: ['Shell Armor','Coward','Looter'],
     nfe: true,
     weightkg: 120,
     types: ['Bug','Water'],
@@ -7463,7 +7471,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     id: 768,
     bs: {hp: 75,at: 125,df: 140,sa: 60,sd: 90,sp: 40},
     abilities: ['Emergency Exit','Tough Claws','Predator'],
-    innates: ['Shell Armor','Poison Point','Hyper Cutter'],
+    innates: ['Shell Armor','Coward','Hyper Cutter'],
     weightkg: 1080,
     types: ['Bug','Water'],
     genderR: 127
@@ -7520,10 +7528,10 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     id: 774,
     bs: {hp: 60,at: 60,df: 100,sa: 60,sd: 100,sp: 60},
     abilities: ['Shields Down','Shields Down','Shields Down'],
-    innates: ['Levitate','Power Core'],
+    innates: ['Weak Armor','Power Core','Loose Rocks'],
     otherFormes: ['Minior Meteor Orange','Minior Meteor Yellow','Minior Meteor Green','Minior Meteor Blue','Minior Meteor Indigo','Minior Meteor Violet','Minior Core Red','Minior Core Orange','Minior Core Yellow','Minior Core Green','Minior Core Blue','Minior Core Indigo','Minior Core Violet'],
     weightkg: 400,
-    types: ['Rock','Psychic'],
+    types: ['Rock','Flying'],
     genderR: 255
   },
   'Komala': {
@@ -7548,7 +7556,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     id: 777,
     bs: {hp: 65,at: 108,df: 83,sa: 40,sd: 73,sp: 106},
     abilities: ['Sturdy','Lead Coat','Impenetrable'],
-    innates: ['Iron Barbs','Lightning Rod','Electrocytes'],
+    innates: ['Iron Barbs','Lightning Rod','Loose Quills'],
     weightkg: 33,
     types: ['Electric','Steel'],
     genderR: 127
@@ -7750,7 +7758,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Guzzlord': {
     id: 799,
     bs: {hp: 223,at: 101,df: 53,sa: 97,sd: 53,sp: 43},
-    abilities: ['Intimidate','Strong Jaw','Predator'],
+    abilities: ['Intimidate','Strong Jaw','Jaws Of Carnage'],
     innates: ['Beast Boost','Thick Fat','Grip Pincer'],
     weightkg: 8880,
     types: ['Dark','Dragon'],
@@ -8151,7 +8159,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Flapple': {
     id: 1340,
     bs: {hp: 70,at: 120,df: 90,sa: 105,sd: 60,sp: 95},
-    abilities: ['Ripen','Aerodynamics','Unburden'],
+    abilities: ['Hustle','Aerodynamics','Unburden'],
     innates: ['Levitate','Regenerator','Corrosion'],
     weightkg: 10,
     types: ['Grass','Dragon'],
@@ -8160,8 +8168,8 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Appletun': {
     id: 1341,
     bs: {hp: 110,at: 100,df: 110,sa: 100,sd: 90,sp: 30},
-    abilities: ['Ripen','Predator','Solar Flare'],
-    innates: ['Harvest','Unaware','Thick Fat'],
+    abilities: ['Unaware','Predator','Solar Flare'],
+    innates: ['Harvest','Ripen','Thick Fat'],
     weightkg: 130,
     types: ['Grass','Dragon'],
     genderR: 127
@@ -8286,7 +8294,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Polteageist': {
     id: 1354,
     bs: {hp: 60,at: 65,df: 65,sa: 134,sd: 114,sp: 70},
-    abilities: ['Weak Armor','Dancer','Aroma Veil'],
+    abilities: ['Weak Armor','Dancer','Liquified'],
     innates: ['Cursed Body','Self Sufficient','Water Absorb'],
     otherFormes: ['Polteageist Antique'],
     weightkg: 4,
@@ -8345,7 +8353,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Grimmsnarl': {
     id: 1360,
     bs: {hp: 95,at: 120,df: 65,sa: 95,sd: 75,sp: 60},
-    abilities: ['Prankster','Soul Eater','Tangling Hair'],
+    abilities: ['Prankster','Cheap Tactics','Tangling Hair'],
     innates: ['Fur Coat','Intimidate','Scare'],
     weightkg: 610,
     types: ['Dark','Fairy'],
@@ -8355,7 +8363,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     id: 1361,
     bs: {hp: 93,at: 90,df: 101,sa: 60,sd: 81,sp: 95},
     abilities: ['Fight Spirit','Stamina','Poison Heal'],
-    innates: ['Reckless','Guts','Defiant'],
+    innates: ['Pickup','Guts','Defiant'],
     weightkg: 460,
     types: ['Dark','Normal'],
     genderR: 127
@@ -8883,8 +8891,8 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Heracross Mega': {
     id: 917,
     bs: {hp: 80,at: 185,df: 115,sa: 40,sd: 105,sp: 75},
-    abilities: ['Skill Link','Skill Link','Skill Link'],
-    innates: ['Compound Eyes','Battle Armor','Guts'],
+    abilities: ['Mighty Horn','Mighty Horn','Mighty Horn'],
+    innates: ['Fight Spirit','Battle Armor','Shield Dust'],
     otherFormes: ['Heracross'],
     weightkg: 0,
     types: ['Bug','Fighting'],
@@ -8892,9 +8900,9 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   },
   'Houndoom Mega': {
     id: 918,
-    bs: {hp: 75,at: 120,df: 90,sa: 140,sd: 90,sp: 115},
-    abilities: ['Solar Power','Solar Power','Solar Power'],
-    innates: ['Nocturnal','Molten Down','Soul Eater'],
+    bs: {hp: 75,at: 100,df: 90,sa: 140,sd: 90,sp: 125},
+    abilities: ['Infernal Rage','Infernal Rage','Infernal Rage'],
+    innates: ['Solar Power','Molten Down','Hyper Aggressive'],
     otherFormes: ['Houndoom'],
     weightkg: 0,
     types: ['Dark','Fire'],
@@ -8992,9 +9000,9 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   },
   'Manectric Mega': {
     id: 928,
-    bs: {hp: 70,at: 110,df: 90,sa: 135,sd: 90,sp: 135},
+    bs: {hp: 70,at: 110,df: 80,sa: 135,sd: 80,sp: 155},
     abilities: ['Intimidate','Intimidate','Intimidate'],
-    innates: ['Short Circuit','Ground Shock','Overcharge'],
+    innates: ['Volt Rush','Ground Shock','Overcharge'],
     otherFormes: ['Manectric'],
     weightkg: 0,
     types: ['Electric'],
@@ -9004,7 +9012,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     id: 929,
     bs: {hp: 70,at: 150,df: 70,sa: 120,sd: 65,sp: 115},
     abilities: ['Hyper Aggressive','Hyper Aggressive','Hyper Aggressive'],
-    innates: ['Strong Jaw','Swift Swim','Predator'],
+    innates: ['Strong Jaw','Swift Swim','Jaws Of Carnage'],
     otherFormes: ['Sharpedo'],
     weightkg: 0,
     types: ['Water','Dark'],
@@ -9214,7 +9222,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Raticate Alolan': {
     id: 950,
     bs: {hp: 75,at: 86,df: 80,sa: 40,sd: 80,sp: 77},
-    abilities: ['Hustle','Cheek Pouch','Looter'],
+    abilities: ['Hustle','Cheek Pouch','Cheap Tactics'],
     innates: ['Thick Fat','Gluttony','Growing Tooth'],
     otherFormes: ['Raticate'],
     weightkg: 0,
@@ -9308,8 +9316,8 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Persian Alolan': {
     id: 959,
     bs: {hp: 65,at: 75,df: 70,sa: 105,sd: 65,sp: 115},
-    abilities: ['Sniper','Opportunist','Prankster'],
-    innates: ['Perfectionist','Technician','Fur Coat'],
+    abilities: ['Cheap Tactics','Opportunist','Prankster'],
+    innates: ['Perfectionist','Coward','Fur Coat'],
     otherFormes: ['Persian'],
     weightkg: 0,
     types: ['Dark'],
@@ -10104,7 +10112,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     id: 1037,
     bs: {hp: 80,at: 69,df: 105,sa: 69,sd: 105,sp: 36},
     abilities: ['Anticipation','Weak Armor','Overcoat'],
-    innates: ['Swarm','Battle Armor','Corrosion'],
+    innates: ['Swarm','Battle Armor','Scrapyard'],
     otherFormes: ['Wormadam'],
     weightkg: 0,
     types: ['Bug','Steel'],
@@ -10527,8 +10535,8 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Keldeo Resolute': {
     id: 1079,
     bs: {hp: 91,at: 72,df: 90,sa: 129,sd: 90,sp: 108},
-    abilities: ['Justified','Fight Spirit','Dragonslayer'],
-    innates: ['Inner Focus','Avenger','Keen Edge'],
+    abilities: ['Justified','Avenger','Dragonslayer'],
+    innates: ['Steadfast','Field Explorer','Keen Edge'],
     otherFormes: ['Keldeo'],
     weightkg: 0,
     types: ['Water','Fighting'],
@@ -10896,7 +10904,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     id: 1115,
     bs: {hp: 78,at: 65,df: 68,sa: 112,sd: 154,sp: 75},
     abilities: ['Harvest','Misty Surge','Fairy Aura'],
-    innates: ['Natural Cure','Absorbant','Self Sufficient'],
+    innates: ['Natural Cure','Regenerator','Self Sufficient'],
     otherFormes: ['Florges'],
     weightkg: 0,
     types: ['Fairy'],
@@ -10906,7 +10914,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     id: 1116,
     bs: {hp: 78,at: 65,df: 68,sa: 112,sd: 154,sp: 75},
     abilities: ['Harvest','Misty Surge','Fairy Aura'],
-    innates: ['Natural Cure','Absorbant','Self Sufficient'],
+    innates: ['Natural Cure','Regenerator','Self Sufficient'],
     otherFormes: ['Florges'],
     weightkg: 0,
     types: ['Fairy'],
@@ -10916,7 +10924,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     id: 1117,
     bs: {hp: 78,at: 65,df: 68,sa: 112,sd: 154,sp: 75},
     abilities: ['Harvest','Misty Surge','Fairy Aura'],
-    innates: ['Natural Cure','Absorbant','Self Sufficient'],
+    innates: ['Natural Cure','Regenerator','Self Sufficient'],
     otherFormes: ['Florges'],
     weightkg: 0,
     types: ['Fairy'],
@@ -10926,7 +10934,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     id: 1118,
     bs: {hp: 78,at: 65,df: 68,sa: 112,sd: 154,sp: 75},
     abilities: ['Harvest','Misty Surge','Fairy Aura'],
-    innates: ['Natural Cure','Absorbant','Self Sufficient'],
+    innates: ['Natural Cure','Regenerator','Self Sufficient'],
     otherFormes: ['Florges'],
     weightkg: 0,
     types: ['Fairy'],
@@ -10936,7 +10944,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     id: 1119,
     bs: {hp: 75,at: 80,df: 60,sa: 65,sd: 90,sp: 102},
     abilities: ['Cute Charm','None','None'],
-    innates: ['Fur Coat','Overcoat','Run Away'],
+    innates: ['Fur Coat','Overcoat','Fluffy'],
     otherFormes: ['Furfrou'],
     weightkg: 0,
     types: ['Normal'],
@@ -10946,7 +10954,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     id: 1120,
     bs: {hp: 75,at: 80,df: 60,sa: 65,sd: 90,sp: 102},
     abilities: ['Cute Charm','None','None'],
-    innates: ['Fur Coat','Overcoat','Run Away'],
+    innates: ['Fur Coat','Overcoat','Fluffy'],
     otherFormes: ['Furfrou'],
     weightkg: 0,
     types: ['Normal'],
@@ -10956,7 +10964,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     id: 1121,
     bs: {hp: 75,at: 80,df: 60,sa: 65,sd: 90,sp: 102},
     abilities: ['Cute Charm','None','None'],
-    innates: ['Fur Coat','Overcoat','Run Away'],
+    innates: ['Fur Coat','Overcoat'],
     otherFormes: ['Furfrou'],
     weightkg: 0,
     types: ['Normal'],
@@ -10966,7 +10974,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     id: 1122,
     bs: {hp: 75,at: 80,df: 60,sa: 65,sd: 90,sp: 102},
     abilities: ['Cute Charm','None','None'],
-    innates: ['Fur Coat','Overcoat','Run Away'],
+    innates: ['Fur Coat','Overcoat','Fluffy'],
     otherFormes: ['Furfrou'],
     weightkg: 0,
     types: ['Normal'],
@@ -10976,7 +10984,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     id: 1123,
     bs: {hp: 75,at: 80,df: 60,sa: 65,sd: 90,sp: 102},
     abilities: ['Cute Charm','None','None'],
-    innates: ['Fur Coat','Overcoat','Run Away'],
+    innates: ['Fur Coat','Overcoat','Fluffy'],
     otherFormes: ['Furfrou'],
     weightkg: 0,
     types: ['Normal'],
@@ -10986,7 +10994,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     id: 1124,
     bs: {hp: 75,at: 80,df: 60,sa: 65,sd: 90,sp: 102},
     abilities: ['Cute Charm','None','None'],
-    innates: ['Fur Coat','Overcoat','Run Away'],
+    innates: ['Fur Coat','Overcoat','Fluffy'],
     otherFormes: ['Furfrou'],
     weightkg: 0,
     types: ['Normal'],
@@ -10996,7 +11004,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     id: 1125,
     bs: {hp: 75,at: 80,df: 60,sa: 65,sd: 90,sp: 102},
     abilities: ['Cute Charm','None','None'],
-    innates: ['Fur Coat','Overcoat','Run Away'],
+    innates: ['Fur Coat','Overcoat','Fluffy'],
     otherFormes: ['Furfrou'],
     weightkg: 0,
     types: ['Normal'],
@@ -11006,7 +11014,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     id: 1126,
     bs: {hp: 75,at: 80,df: 60,sa: 65,sd: 90,sp: 102},
     abilities: ['Cute Charm','None','None'],
-    innates: ['Fur Coat','Overcoat','Run Away'],
+    innates: ['Fur Coat','Overcoat','Fluffy'],
     otherFormes: ['Furfrou'],
     weightkg: 0,
     types: ['Normal'],
@@ -11016,7 +11024,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     id: 1127,
     bs: {hp: 75,at: 80,df: 60,sa: 65,sd: 90,sp: 102},
     abilities: ['Cute Charm','None','None'],
-    innates: ['Fur Coat','Overcoat','Run Away'],
+    innates: ['Fur Coat','Overcoat','Fluffy'],
     otherFormes: ['Furfrou'],
     weightkg: 0,
     types: ['Normal'],
@@ -11410,130 +11418,130 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     id: 1166,
     bs: {hp: 60,at: 60,df: 100,sa: 60,sd: 100,sp: 60},
     abilities: ['Shields Down','Shields Down','Shields Down'],
-    innates: ['Levitate','Power Core'],
+    innates: ['Weak Armor','Power Core','Loose Rocks'],
     otherFormes: ['Minior'],
     weightkg: 0,
-    types: ['Rock','Psychic'],
+    types: ['Rock','Flying'],
     genderR: 255
   },
   'Minior Meteor Yellow': {
     id: 1167,
     bs: {hp: 60,at: 60,df: 100,sa: 60,sd: 100,sp: 60},
     abilities: ['Shields Down','Shields Down','Shields Down'],
-    innates: ['Levitate','Power Core'],
+    innates: ['Weak Armor','Power Core','Loose Rocks'],
     otherFormes: ['Minior'],
     weightkg: 0,
-    types: ['Rock','Psychic'],
+    types: ['Rock','Flying'],
     genderR: 255
   },
   'Minior Meteor Green': {
     id: 1168,
     bs: {hp: 60,at: 60,df: 100,sa: 60,sd: 100,sp: 60},
     abilities: ['Shields Down','Shields Down','Shields Down'],
-    innates: ['Levitate','Power Core'],
+    innates: ['Weak Armor','Power Core','Loose Rocks'],
     otherFormes: ['Minior'],
     weightkg: 0,
-    types: ['Rock','Psychic'],
+    types: ['Rock','Flying'],
     genderR: 255
   },
   'Minior Meteor Blue': {
     id: 1169,
     bs: {hp: 60,at: 60,df: 100,sa: 60,sd: 100,sp: 60},
     abilities: ['Shields Down','Shields Down','Shields Down'],
-    innates: ['Levitate','Power Core'],
+    innates: ['Weak Armor','Power Core','Loose Rocks'],
     otherFormes: ['Minior'],
     weightkg: 0,
-    types: ['Rock','Psychic'],
+    types: ['Rock','Flying'],
     genderR: 255
   },
   'Minior Meteor Indigo': {
     id: 1170,
     bs: {hp: 60,at: 60,df: 100,sa: 60,sd: 100,sp: 60},
     abilities: ['Shields Down','Shields Down','Shields Down'],
-    innates: ['Levitate','Power Core'],
+    innates: ['Weak Armor','Power Core','Loose Rocks'],
     otherFormes: ['Minior'],
     weightkg: 0,
-    types: ['Rock','Psychic'],
+    types: ['Rock','Flying'],
     genderR: 255
   },
   'Minior Meteor Violet': {
     id: 1171,
     bs: {hp: 60,at: 60,df: 100,sa: 60,sd: 100,sp: 60},
     abilities: ['Shields Down','Shields Down','Shields Down'],
-    innates: ['Levitate','Power Core'],
+    innates: ['Weak Armor','Power Core','Loose Rocks'],
     otherFormes: ['Minior'],
     weightkg: 0,
-    types: ['Rock','Psychic'],
+    types: ['Rock','Flying'],
     genderR: 255
   },
   'Minior Core Red': {
     id: 1172,
     bs: {hp: 60,at: 100,df: 60,sa: 100,sd: 60,sp: 120},
     abilities: ['Shields Down','Shields Down','Shields Down'],
-    innates: ['Levitate','Power Core'],
+    innates: ['Innards Out','Power Core','Equinox'],
     otherFormes: ['Minior'],
     weightkg: 0,
-    types: ['Rock','Psychic'],
+    types: ['Rock','Flying'],
     genderR: 255
   },
   'Minior Core Orange': {
     id: 1173,
     bs: {hp: 60,at: 100,df: 60,sa: 100,sd: 60,sp: 120},
     abilities: ['Shields Down','Shields Down','Shields Down'],
-    innates: ['Levitate','Power Core'],
+    innates: ['Innards Out','Power Core','Equinox'],
     otherFormes: ['Minior'],
     weightkg: 0,
-    types: ['Rock','Psychic'],
+    types: ['Rock','Flying'],
     genderR: 255
   },
   'Minior Core Yellow': {
     id: 1174,
     bs: {hp: 60,at: 100,df: 60,sa: 100,sd: 60,sp: 120},
     abilities: ['Shields Down','Shields Down','Shields Down'],
-    innates: ['Levitate','Power Core'],
+    innates: ['Innards Out','Power Core','Equinox'],
     otherFormes: ['Minior'],
     weightkg: 0,
-    types: ['Rock','Psychic'],
+    types: ['Rock','Flying'],
     genderR: 255
   },
   'Minior Core Green': {
     id: 1175,
     bs: {hp: 60,at: 100,df: 60,sa: 100,sd: 60,sp: 120},
     abilities: ['Shields Down','Shields Down','Shields Down'],
-    innates: ['Levitate','Power Core'],
+    innates: ['Innards Out','Power Core','Equinox'],
     otherFormes: ['Minior'],
     weightkg: 0,
-    types: ['Rock','Psychic'],
+    types: ['Rock','Flying'],
     genderR: 255
   },
   'Minior Core Blue': {
     id: 1176,
     bs: {hp: 60,at: 100,df: 60,sa: 100,sd: 60,sp: 120},
     abilities: ['Shields Down','Shields Down','Shields Down'],
-    innates: ['Levitate','Power Core'],
+    innates: ['Innards Out','Power Core','Equinox'],
     otherFormes: ['Minior'],
     weightkg: 0,
-    types: ['Rock','Psychic'],
+    types: ['Rock','Flying'],
     genderR: 255
   },
   'Minior Core Indigo': {
     id: 1177,
     bs: {hp: 60,at: 100,df: 60,sa: 100,sd: 60,sp: 120},
     abilities: ['Shields Down','Shields Down','Shields Down'],
-    innates: ['Levitate','Power Core'],
+    innates: ['Innards Out','Power Core','Equinox'],
     otherFormes: ['Minior'],
     weightkg: 0,
-    types: ['Rock','Psychic'],
+    types: ['Rock','Flying'],
     genderR: 255
   },
   'Minior Core Violet': {
     id: 1178,
     bs: {hp: 60,at: 100,df: 60,sa: 100,sd: 60,sp: 120},
     abilities: ['Shields Down','Shields Down','Shields Down'],
-    innates: ['Levitate','Power Core'],
+    innates: ['Innards Out','Power Core','Equinox'],
     otherFormes: ['Minior'],
     weightkg: 0,
-    types: ['Rock','Psychic'],
+    types: ['Rock','Flying'],
     genderR: 255
   },
   'Mimikyu Busted': {
@@ -11858,6 +11866,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     bs: {hp: 130,at: 105,df: 110,sa: 125,sd: 125,sp: 50},
     abilities: ['Liquid Voice','Liquid Voice','Liquid Voice'],
     innates: ['Ice Scales','Shell Armor','Self Sufficient'],
+    otherFormes: ['Lapras'],
     weightkg: 0,
     types: ['Water','Ice'],
     genderR: 127
@@ -11883,9 +11892,9 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   },
   'Dewgong Mega': {
     id: 1214,
-    bs: {hp: 90,at: 105,df: 105,sa: 125,sd: 105,sp: 90},
-    abilities: ['Hardened Sheath','Lightning Rod','Cold Rebound'],
-    innates: ['Arctic Fur','Water Veil','Hydrate'],
+    bs: {hp: 90,at: 110,df: 105,sa: 125,sd: 105,sp: 90},
+    abilities: ['Hardened Sheath','Lightning Rod','Arctic Fur'],
+    innates: ['Cold Rebound','Water Veil','Hydrate'],
     otherFormes: ['Dewgong'],
     weightkg: 0,
     types: ['Water','Ice'],
@@ -11906,6 +11915,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     bs: {hp: 80,at: 140,df: 73,sa: 65,sd: 110,sp: 117},
     abilities: ['Roundhouse','Roundhouse','Roundhouse'],
     innates: ['Limber','Mineralize','Striker'],
+    otherFormes: ['Hitmonlee'],
     weightkg: 0,
     types: ['Fighting','Rock'],
     genderR: 0
@@ -11922,8 +11932,8 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Crobat Mega': {
     id: 1218,
     bs: {hp: 85,at: 140,df: 70,sa: 110,sd: 70,sp: 170},
-    abilities: ['Shadow Shield','Nosferatu','Amplifier'],
-    innates: ['Phantom','Spectral Shroud','Scare'],
+    abilities: ['Scare','Nosferatu','Amplifier'],
+    innates: ['Phantom','Spectral Shroud','Shadow Shield'],
     otherFormes: ['Crobat'],
     weightkg: 0,
     types: ['Poison','Flying'],
@@ -11950,18 +11960,18 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   },
   'Torterra Mega': {
     id: 1221,
-    bs: {hp: 95,at: 119,df: 134,sa: 55,sd: 95,sp: 36},
-    abilities: ['Rough Skin','Stamina','Sheer Force'],
-    innates: ['Forest Rage','Impenetrable','Big Leaves'],
+    bs: {hp: 95,at: 149,df: 184,sa: 65,sd: 105,sp: 36},
+    abilities: ['Atlas','Atlas','Atlas'],
+    innates: ['Forest Rage','Solid Rock','Grassy Surge'],
     weightkg: 0,
     types: ['Grass','Ground'],
     genderR: 127
   },
   'Infernape Mega': {
     id: 1222,
-    bs: {hp: 76,at: 145,df: 74,sa: 145,sd: 69,sp: 123},
+    bs: {hp: 76,at: 145,df: 75,sa: 145,sd: 70,sp: 123},
     abilities: ['Equinox','Equinox','Equinox'],
-    innates: ['Hellblaze','Limber','Sturdy'],
+    innates: ['Hellblaze','Limber','Berserk'],
     weightkg: 0,
     types: ['Fire','Fighting'],
     genderR: 127
@@ -11969,7 +11979,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Empoleon Mega': {
     id: 1223,
     bs: {hp: 84,at: 80,df: 118,sa: 131,sd: 121,sp: 96},
-    abilities: ['No Guard','No Guard','Slush Rush'],
+    abilities: ['No Guard','Competitive','Slush Rush'],
     innates: ['Riptide','Antarctic Bird','Battle Armor'],
     weightkg: 0,
     types: ['Water','Steel'],
@@ -11977,7 +11987,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   },
   'Shuckle Mega': {
     id: 1224,
-    bs: {hp: 20,at: 60,df: 255,sa: 10,sd: 255,sp: 5},
+    bs: {hp: 30,at: 60,df: 255,sa: 10,sd: 255,sp: 5},
     abilities: ['Self Sufficient','Self Sufficient','Self Sufficient'],
     innates: ['Multi Headed','Juggernaut','Solid Rock'],
     weightkg: 0,
@@ -12023,17 +12033,17 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Dragonite Mega': {
     id: 1229,
     bs: {hp: 91,at: 159,df: 120,sa: 125,sd: 125,sp: 80},
-    abilities: ['Galvanize','Galvanize','Galvanize'],
-    innates: ['Multiscale','Discipline','Thundercall'],
+    abilities: ['Multiscale','Multiscale','Multiscale'],
+    innates: ['Galvanize','Discipline','Thundercall'],
     weightkg: 0,
     types: ['Dragon','Electric'],
     genderR: 127
   },
   'Breloom Mega': {
     id: 1230,
-    bs: {hp: 60,at: 150,df: 130,sa: 50,sd: 100,sp: 70},
+    bs: {hp: 60,at: 140,df: 130,sa: 50,sd: 110,sp: 70},
     abilities: ['Fungal Infection','Fungal Infection','Fungal Infection'],
-    innates: ['Perfectionist','Technician','Super Luck'],
+    innates: ['Perfectionist','Technician','Effect Spore'],
     weightkg: 0,
     types: ['Grass','Fighting'],
     genderR: 127
@@ -12051,8 +12061,8 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Cascoon Primal': {
     id: 1232,
     bs: {hp: 121,at: 121,df: 121,sa: 121,sd: 121,sp: 121},
-    abilities: ['Shed Skin','Shed Skin','Poison Point'],
-    innates: ['Swarm','Battle Armor','Sap Sipper'],
+    abilities: ['Angels Wrath','Angels Wrath','Angels Wrath'],
+    innates: ['Color Change','Impenetrable','Adaptability'],
     otherFormes: ['Cascoon'],
     weightkg: 0,
     types: ['Bug'],
@@ -12128,30 +12138,58 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     types: ['Grass','Fairy'],
     genderR: 127
   },
-  'Noibat Regional': {
+  'Noibat Redux': {
     id: 1241,
-    bs: {hp: 50,at: 30,df: 45,sa: 75,sd: 50,sp: 95},
-    abilities: ['Mountaineer','Infiltrator','None'],
-    innates: ['Loud Bang','Hyper Aggressive','Nocturnal'],
+    bs: {hp: 50,at: 75,df: 45,sa: 30,sd: 50,sp: 95},
+    abilities: ['Hyper Aggressive','Opportunist','Rock Head'],
+    innates: ['Levitate','Nocturnal','Vengeance'],
     nfe: true,
     weightkg: 0,
-    types: ['Flying','Dragon'],
+    types: ['Rock','Ghost'],
     genderR: 127
   },
-  'Noivern Regional': {
+  'Noivern Redux': {
     id: 1242,
-    bs: {hp: 85,at: 70,df: 80,sa: 97,sd: 80,sp: 123},
-    abilities: ['Frisk','Infiltrator','Aerodynamics'],
-    innates: ['Loud Bang','Nocturnal','Hyper Aggressive'],
+    bs: {hp: 85,at: 97,df: 80,sa: 70,sd: 80,sp: 123},
+    abilities: ['Hyper Aggressive','Opportunist','Rock Head'],
+    innates: ['Levitate','Nocturnal','Vengeance'],
     weightkg: 0,
-    types: ['Flying','Dragon'],
+    types: ['Rock','Ghost'],
+    genderR: 127
+  },
+  'Dewleon': {
+    id: 1243,
+    bs: {hp: 90,at: 90,df: 70,sa: 95,sd: 120,sp: 95},
+    abilities: ['Prismatic Fur','Prismatic Fur','Prismatic Fur'],
+    innates: ['Retribution Blow','Wonder Skin','North Wind'],
+    weightkg: 0,
+    types: ['Ice','Normal'],
+    genderR: 127
+  },
+  'Luxray Redux': {
+    id: 1244,
+    bs: {hp: 90,at: 120,df: 79,sa: 75,sd: 79,sp: 90},
+    abilities: ['Intimidate','Electric Burst','Guts'],
+    innates: ['Short Circuit','Bad Luck','Predator'],
+    weightkg: 0,
+    types: ['Electric','Ice'],
+    genderR: 127
+  },
+  'Clawitzer Redux': {
+    id: 1245,
+    bs: {hp: 80,at: 65,df: 83,sa: 110,sd: 82,sp: 110},
+    abilities: ['Elemental Charge','Elemental Charge','Elemental Charge'],
+    innates: ['Ice Age','Levitate','Dual Wield'],
+    otherFormes: ['Clawitzer'],
+    weightkg: 0,
+    types: ['Fire','Electric'],
     genderR: 127
   },
   'Luxray Mega': {
     id: 1252,
-    bs: {hp: 90,at: 120,df: 79,sa: 75,sd: 79,sp: 90},
-    abilities: ['Intimidate','Electric Burst','Guts'],
-    innates: ['Short Circuit','Bad Luck','Predator'],
+    bs: {hp: 90,at: 143,df: 95,sa: 106,sd: 95,sp: 104},
+    abilities: ['Shocking Jaws','Shocking Jaws','Shocking Jaws'],
+    innates: ['Predator','Fae Hunter','Merciless'],
     otherFormes: ['Luxray'],
     weightkg: 0,
     types: ['Electric','Dark'],
@@ -12195,6 +12233,76 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     otherFormes: ['Typhlosion'],
     weightkg: 0,
     types: ['Fire','Ground'],
+    genderR: 127
+  },
+  'Krookodile Mega': {
+    id: 1257,
+    bs: {hp: 95,at: 147,df: 110,sa: 75,sd: 100,sp: 92},
+    abilities: ['Dune Terror','Dune Terror','Dune Terror'],
+    innates: ['Metallic','Moxie','Jaws Of Carnage'],
+    otherFormes: ['Krookodile'],
+    weightkg: 0,
+    types: ['Ground','Dark'],
+    genderR: 127
+  },
+  'Magnezone Mega': {
+    id: 1258,
+    bs: {hp: 70,at: 70,df: 115,sa: 160,sd: 130,sp: 100},
+    abilities: ['Magnet Pull','Magnet Pull','Magnet Pull'],
+    innates: ['Sturdy','Analytic','Magnet Pull'],
+    otherFormes: ['Magnezone'],
+    weightkg: 0,
+    types: ['Electric','Steel'],
+    genderR: 255
+  },
+  'Shedinja Mega': {
+    id: 1259,
+    bs: {hp: 1,at: 120,df: 45,sa: 70,sd: 30,sp: 110},
+    abilities: ['Cheating Death','Cheating Death','Cheating Death'],
+    innates: ['Tinted Lens','Magic Guard','Adaptability'],
+    otherFormes: ['Shedinja'],
+    weightkg: 0,
+    types: ['Bug','Ghost'],
+    genderR: 255
+  },
+  'Swalot Mega': {
+    id: 1260,
+    bs: {hp: 100,at: 108,df: 118,sa: 108,sd: 118,sp: 55},
+    abilities: ['Toxic Spill','Toxic Spill','Toxic Spill'],
+    innates: ['Poison Touch','Liquified','Corrosion'],
+    otherFormes: ['Swalot'],
+    weightkg: 0,
+    types: ['Poison'],
+    genderR: 127
+  },
+  'Lanturn Mega': {
+    id: 1261,
+    bs: {hp: 125,at: 58,df: 88,sa: 126,sd: 116,sp: 67},
+    abilities: ['Hydro Circuit','Hydro Circuit','Hydro Circuit'],
+    innates: ['Storm Drain','Volt Absorb','Radiance'],
+    otherFormes: ['Lanturn'],
+    weightkg: 0,
+    types: ['Water','Electric'],
+    genderR: 127
+  },
+  'Lapras Mega X': {
+    id: 1262,
+    bs: {hp: 130,at: 135,df: 105,sa: 100,sd: 90,sp: 85},
+    abilities: ['Primal Maw','Primal Maw','Primal Maw'],
+    innates: ['Swift Swim','Shell Armor','Jaws Of Carnage'],
+    otherFormes: ['Lapras'],
+    weightkg: 0,
+    types: ['Water'],
+    genderR: 127
+  },
+  'Slowking Mega': {
+    id: 1263,
+    bs: {hp: 95,at: 85,df: 80,sa: 130,sd: 180,sp: 20},
+    abilities: ['Gifted Mind','Gifted Mind','Gifted Mind'],
+    innates: ['Own Tempo','Psychic Surge','Magical Dust'],
+    otherFormes: ['Slowking'],
+    weightkg: 0,
+    types: ['Psychic'],
     genderR: 127
   }
 };

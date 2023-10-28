@@ -138,6 +138,10 @@ export function getRecovery(
   if (attacker.hasAbility('Nosferatu')) {
     move.drain = [1, 3];
   }
+  if (move.named('Pain Split')){
+    const average = Math.floor((attacker.curHP() + defender.curHP()) / 2);
+    recovery[0] = recovery[1] = average - attacker.curHP()
+  }
   if (move.drain) {
     var percentHealed = move.drain[0] / move.drain[1];
     if (attacker.hasAbility('Absorbant')) {
@@ -153,12 +157,21 @@ export function getRecovery(
       }
     }
   }
+  
+
   if (recovery[1] === 0) return {recovery, text};
+  if (recovery[0] < 0){
+    const minHealthRecovered = toDisplay(notation, recovery[0], attacker.maxHP());
+    const maxHealthRecovered = toDisplay(notation, recovery[1], attacker.maxHP());
+    text = `${minHealthRecovered} - ${maxHealthRecovered}${notation} Lost`;
+  } else {
+    const minHealthRecovered = toDisplay(notation, recovery[0], attacker.maxHP());
+    const maxHealthRecovered = toDisplay(notation, recovery[1], attacker.maxHP());
+    text = `${minHealthRecovered} - ${maxHealthRecovered}${notation} recovered`;
+  }
+  
 
-  const minHealthRecovered = toDisplay(notation, recovery[0], attacker.maxHP());
-  const maxHealthRecovered = toDisplay(notation, recovery[1], attacker.maxHP());
-
-  text = `${minHealthRecovered} - ${maxHealthRecovered}${notation} recovered`;
+  
   return {recovery, text};
 }
 

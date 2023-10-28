@@ -99,7 +99,7 @@ function bxor(a, b, c, ...)
    a = f(a / 2)
    b = f(b / 2)
    end
-   return r
+   return f(r)
 end
 
 function xor_mask(encoded,mask,payload)
@@ -655,7 +655,7 @@ function ST_handshake(id)
       local p, err = sock:receive(1024)
       if p then
          local http_data = p:match("^(.-)%s*$")
-         ---console:log( '[Received ' .. tostring(#http_data) .. ' bytes of data]\n'.. http_data)
+         console:log( '[Received ' .. tostring(#http_data) .. ' bytes of data]\n'.. http_data)
          WS_Handshake(sock, id, http_data)
          sock:remove(ST_sockets[id].idOfCallback)
          sock:add("received", function() ST_received(id) end)
@@ -669,37 +669,62 @@ function ST_handshake(id)
    end
 end
 
-function ST_received(id)
-   local sock = ST_sockets[id]
-   if not sock then return end
-   local message
+function WS_Receive(sock)
+   local first_opcode
+   local frames
+   local bytes = 3
+   local encoded = ''
    while true do
-      local p, err = sock:receive(1024)
-      if p then
-         --- console:log('[Received ' .. tostring(#p) .. ' bytes of data]\n')
-         local fin, opcode, _, masked
-         message, fin, opcode, _, masked  = unframe(p)
-         if message then
-            --console:log(message .. ' is fin?' .. tostring(fin) .. ' opcode: '.. tostring(opcode))
-            if opcode == CLOSE then
-               --- connection close
-               ST_sockets[id] = nil
-               return 
-            end
-            break
-         end
-         return
-      else
+      local chunk, err = sock:receive(bytes)
+      ---console:log('chunk ..' .. chunk)
+      if err then
          if err ~= socket.ERRORS.AGAIN then
             console:error(ST_format(id, err, true))
             ST_stop(id)
          end
          return
       end
+      if chunk then
+         ---console:log('[Received ' .. tostring(#chunk) .. ' bytes of data]\n')
+         encoded = encoded..chunk
+         local decoded, fin, opcode, _, masked = unframe(encoded)
+         if decoded then
+            if opcode == CLOSE then
+               --- connection close
+               ST_sockets[id] = nil
+               return 
+            end
+            if not first_opcode then
+               first_opcode = opcode
+            end
+            if not fin then
+               if not frames then
+                  frames = {}
+               end
+               bytes = 3
+               encoded = ''
+               tinsert(frames,decoded)
+            elseif not frames then
+               return decoded
+            else
+               tinsert(frames,decoded)
+               return tconcat(frames),first_opcode
+            end
+         else 
+            bytes = fin
+         end
+      end
    end
-   local messages = parseAllMessage(message)
-   for _, msg in ipairs(messages) do
-      --- console:log('reading message: ' ..msg)
+end
+
+function ST_received(id)
+   local sock = ST_sockets[id]
+   if not sock then return end
+   local message = WS_Receive(sock)
+   if not message then return end
+   local splitedMsgs = splitMessages(message)
+   for _, msg in ipairs(splitedMsgs) do
+      ---console:log('reading message: ' ..msg)
       local answer, opscode = readMessage(msg)
       --- console:log('answering: ' ..answer)
       if answer then
@@ -714,6 +739,7 @@ function ST_received(id)
 end
 
 function ST_accept()
+   console:log('accept')
    local sock, err = server:accept()
    if err then
       console:error(ST_format("Accept", err, true))
@@ -757,30 +783,36 @@ end
 
 --- data extraction
 --- offset of variable i need:
---- EWRAM_DATA u8 gMaxPartyLevel = 1;
---- u8 opponentFaintCounter;  // 0x1 --- gBattleResults
---- gBattleOutcome
 --- tons of stuff in battle.h
+
 local offsets = {
 	partyCount = 0x2025445, --- gPlayerPartyCount
 	party = 0x2025448, --- gPlayerParty
 	storage = 0x202a270, --- gPokemonStorage
 	enemy = 0x20256a0, --- gEnemyParty
 	trainerList = 0x83d4ab0, --- gTrainers
-	trainerA = 0x2039b3a,--- gTrainerBattleOpponent_A
-	trainerB = 0x2039b3c,--- gTrainerBattleOpponent_B
+	trainerA = 0x2039b3a,--- gTrainerBattleOpponent_A u16
+	trainerB = 0x2039b3c,--- gTrainerBattleOpponent_B u16
 	main = 0x3002c00,--- gMain
 	battleType = 0x2024e58, --- gBattleTypeFlags
 	terrain = 0x2024e5c, --- gBattleTerrain
-	save1 = 0x3004b6c, --- gSaveBlock1Ptr
-	save2 = 0x3004b70, --- gSaveBlock2Ptr
+	save1 = 0x20269b8, --- gSaveBlock1Ptr
+	save2 = 0x2025a04, --- gSaveBlock2Ptr
 	facing = 0x203be58, --- gPlayerFacingPosition
+   battleResults = 0x3004ae0, --- gBattleResults
+   battleOutcome = 0x202522a, --- gBattleOutcome
+   maxPartyLevel = 0x2025440, --- gMaxPartyLevel u8
+   takenDmg = 0x2025094, --- gTakenDmg
+   battleMons = 0x2024ef0, --- gBattleMons
+   activeBattler = 0x2024ed0 , --- gActiveBattler
+
 }
 local gameData = {
    team = {},
    storage = {},
+   state = nil,
 }
-function getTeam()
+function getTeam(data)
 	local curPartyCount = emu:read8(offsets.partyCount)
 	if (curPartyCount > 6 or curPartyCount < 0) then
 		ScriptOffsetWrong()
@@ -790,6 +822,7 @@ function getTeam()
 		return nil
 	end
    local hasChanged = false
+   if data == '1' then hasChanged = true end
 	for i=1,curPartyCount do
 		local address = offsets.party + (100 * (i - 1))
       local pokeData = emu:readRange(address, 100)
@@ -812,13 +845,17 @@ function getTeam()
 end
 
 --- read only the first 60 pokemons in the box
-function getStorage()
+function getStorage(data)
    local nbMonsToRead = 60
 	local nbMons = 1 --- send only if there is a pokemon
    local hasChanged = false
+   if data == '1' then hasChanged = true end
+   ---console:log('Current box :' .. tostring(emu:read32(offsets.storage)))
  	for i=1,nbMonsToRead do 
-		local address = offsets.storage + (80 * (i-1))
+		local address = offsets.storage + 4 + (80 * (i-1))
+      --- console:log(tostring(address))
 		if (emu:read32(address + 0) ~=0) then
+         ---console:log(tostring(i).. ' i')
 			local pokeData = emu:readRange(address, 80)
          if pokeData ~= gameData.storage[nbMons] then
             hasChanged = true
@@ -827,6 +864,7 @@ function getStorage()
          nbMons = nbMons + 1
 		end
 	end
+   console:log(tostring(nbMons).. ' nbMons')
    if hasChanged then
       local data = ""
       for i=1, nbMons -1 do
@@ -840,42 +878,71 @@ function getStorage()
 	return nil
 end
 
+function getTrainerId()
+   return emu:read16(offsets.trainerA)
+end
+
+function getEncryptionKey()
+   return emu:read32(offsets.save2 + 0xAC)
+end
+
+--- in theory you have to xor it with the Enc key
+--- but confusion hits me when xoring don't do anything
+function getMoney()
+   return emu:read32(offsets.save1 + 0x490)
+end
+
 function ScriptOffsetWrong()
    return "0:1"
 end
 --- end of data extraction
 
 --- function that parse and act from the websocket data
-function parseAllMessage(message)
+function splitMessages(message)
    local messages={}
    for msg in string.gmatch(message, "([^;]+)") do
          tinsert(messages, msg)
    end
    return messages
 end
+
 function readMessage(message)
    local funcall, data = parseMessage(message)
+   console:log('function call :' .. funcall .. ' data: ' .. data) 
    if funcall == '1' then
       local state = emu:read8(offsets.main + 0x439) -- inBattle flag
       if state ~= 0 then
-         return '1:' .. tostring(emu:read32(offsets.battleType))
+         state = emu:read32(offsets.battleType)
+         if gameData.state ~= state then
+            gameData.state = state
+            return '1:' .. tostring(state)
+         end
+         return nil
       end
-      return '1:'
+      console:log(tostring(gameData.state))
+      if gameData.state ~= -1 then
+         gameData.state = -1
+         return '1:'
+      end
    elseif funcall == '2' then
-      local data = getTeam()
-      if not data then
+      local answer = getTeam(data)
+      if not answer then
          return nil
       end
-      return '2:' .. data
+      return '2:' .. answer
    elseif funcall == '3' then
-      local data = getStorage()
-      if not data then
+      local answer = getStorage(data)
+      if not answer then
          return nil
       end
-      return '3:' .. data
+      return '3:' .. answer
+   elseif funcall == '4' then
+      return '4:' .. tostring(getTrainerId())
+   elseif funcall == '5' then
+      return '5:' ..tostring(emu:read8(offsets.maxPartyLevel))
+   else
+      console:log('unsupported function call: ' .. funcall)
    end
-   --- console:log('type: ' .. funcall)
-   console:log('unsupported function call: ' .. funcall)
    return nil
 end
 
