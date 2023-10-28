@@ -15,7 +15,6 @@ function readNbytes(bof, nBytes, bytes){
 
 function readTeamSize(teamOffset, bytes){
     var oft = teamOffset + 564;
-    // i have no clue why it's a 32 bits integers, like WOUAILLE?
     var sizeTeam = readNbytes(oft,4,bytes);
     return sizeTeam; 
 }

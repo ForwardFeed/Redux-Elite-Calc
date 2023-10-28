@@ -49,8 +49,9 @@ function initializeUICalc() {
 			continue;
 		}
 		if (trn.alt){
-			for(const alt of trn.alt){
-				dexset[alt.trn] = a
+			for(const altIndex in trn.alt){
+				const alt = trn.alt[altIndex]
+				dexset[alt.trn] = a + ":" + altIndex
 			}
 		}
 		dexset[name] = a;

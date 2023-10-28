@@ -197,6 +197,7 @@ class PanelStats{
             const width = this.field_hpBar.width()
             this.percentHP = ~~(x / width * 100)
             this.calcCurrentHP()
+            calcGateway.calcTrigger()
         })
     }
     setStats(stats){

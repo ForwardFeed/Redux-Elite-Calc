@@ -91,13 +91,16 @@ function calculateSMSSSV(gen, attacker, defender, move, field, defenderFriend) {
         isWonderRoom: field.isWonderRoom
     };
     var result = new result_1.Result(gen, attacker, defender, move, field, 0, desc);
-    if (move.category === 'Status' && !move.named('Nature Power')) {
-        return result;
-    }
     var breaksProtect = move.breaksProtect || move.isZ || attacker.isDynamaxed ||
         (attacker.hasAbility('Unseen Fist') && move.flags.contact);
     if (field.defenderSide.isProtected && !breaksProtect) {
         desc.isProtected = true;
+        return result;
+    }
+    if (move.name === 'Pain Split') {
+        var average = Math.floor((attacker.curHP() + defender.curHP()) / 2);
+        var damage_1 = defender.curHP() - average;
+        result.damage = damage_1;
         return result;
     }
     var defenderIgnoresAbility = defender.hasAbility('Full Metal Body', 'Neutralizing Gas', 'Prism Armor', 'Shadow Shield');
