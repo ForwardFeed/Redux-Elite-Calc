@@ -1,6 +1,6 @@
 var FIELD_TABLE = [
-    ["", ""], ["", ""], //PlaceHolder for spikes
-    ["", ""], // PlaceHolder for weather
+    ["input:radio[name='spikesL']:checked", "val"], ["input:radio[name='spikesR']:checked", "val"],
+    ["input:radio[name='weather']", "find"],
     ["input:checkbox[name='terrain']", "find"],
     ["input:radio[name='format']", "find"],
 	["#beads","checked"],
@@ -36,9 +36,9 @@ var FIELD_TABLE = [
 	["#infatuationL","checked"], ["#infatuationR","checked"],
 	["#switchingL","checked"], ["#switchingR","checked"],
 	["#switchingInL","checked"], ["#switchingInR","checked"],
-    ["#p1 .gender","val"], ["#p2 .gender","checked"],
-    ["#p1 .level","val"], ["#p2 .level","checked"],
-    ["#p1 .teraType","val"], ["#p2 .teraType","checked"],
+    ["#p1 .gender","val"], ["#p2 .gender","val"],
+    ["#p1 .level","val"], ["#p2 .level","val"],
+    ["#p1 .teraType","val"], ["#p2 .teraType","val"],
     ["#p1 .hp .ivs","val"], ["#p2 .hp .ivs","val"],
     ["#p1 .hp .evs","val"], ["#p2 .hp .evs","val"],
     ["#p1 .at .ivs","val"], ["#p2 .at .ivs","val"],
@@ -56,20 +56,20 @@ var FIELD_TABLE = [
     ["#p1 .sp .ivs","val"], ["#p2 .sp .ivs","val"],
     ["#p1 .sp .evs","val"], ["#p2 .sp .evs","val"],
     ["#p1 .sp .boost","val"], ["#p2 .sp .boost","val"],
-    ["#p1 .nature","keyid", "NATURES_BY_ID"], ["#p2 .nature","keyid", "NATURES_BY_ID"],
-    ["#p1 .ability","genkeyid", "ABILITIES_BY_ID"], ["#p2 .ability","genkeyid", "ABILITIES_BY_ID"],
-    ["#p1 .item","genkeyid", "ITEMS_BY_ID"], ["#p2 .item","genkeyid", "ITEMS_BY_ID"],
-    ["#p1 .status","val"], ["#p2 .status","val"],
+    ["#p1 .nature","keyidTI", "NATURES_BY_ID"], ["#p2 .nature","keyidTI", "NATURES_BY_ID"],
+    ["#p1 .ability","index", "abilities"], ["#p2 .ability","index", "abilities"],
+    ["#p1 .item","index", "items"], ["#p2 .item","index", "items"],
+    ["#p1 .status","keyid", "CALC_STATUS"], ["#p2 .status","keyid", "CALC_STATUS"],
     ["#p1 .cureR","checked"], ["#p2 .cureR","checked"],
     ["#p1 .current-hp","val"], ["#p2 .current-hp","val"],
-    ["#p1 .move1 .select2-offscreen.move-selector","val"], ["#p2 .move1 .select2-offscreen.move-selector","val"],
-    ["#p1 .move2 .select2-offscreen.move-selector","val"], ["#p2 .move2 .select2-offscreen.move-selector","val"],
-    ["#p1 .move3 .select2-offscreen.move-selector","val"], ["#p2 .move3 .select2-offscreen.move-selector","val"],
-    ["#p1 .move4 .select2-offscreen.move-selector","val"], ["#p2 .move4 .select2-offscreen.move-selector","val"],
-    ["#p1 .move1 .move-bp","val"], ["#p2 .move1 .move-bp","val"],
-    ["#p1 .move2 .move-bp","val"], ["#p2 .move2 .move-bp","val"],
-    ["#p1 .move3 .move-bp","val"], ["#p2 .move3 .move-bp","val"],
-    ["#p1 .move4 .move-bp","val"], ["#p2 .move4 .move-bp","val"],
+    ["#p1 .move1 .select2-offscreen.move-selector","indexid", "moves"], 
+    ["#p2 .move1 .select2-offscreen.move-selector","indexid", "moves"],
+    ["#p1 .move2 .select2-offscreen.move-selector","indexid", "moves"], 
+    ["#p2 .move2 .select2-offscreen.move-selector","indexid", "moves"],
+    ["#p1 .move3 .select2-offscreen.move-selector","indexid", "moves"], 
+    ["#p2 .move3 .select2-offscreen.move-selector","indexid", "moves"],
+    ["#p1 .move4 .select2-offscreen.move-selector","indexid", "moves"], 
+    ["#p2 .move4 .select2-offscreen.move-selector","indexid", "moves"],
     ["#critL1", "checked"], ["#critR1", "checked"],
     ["#critL2", "checked"], ["#critR2", "checked"],
     ["#critL3", "checked"], ["#critR3", "checked"],
@@ -93,25 +93,12 @@ function exportCalculation(){
         return "_"
     }
     //Object.keys(pokedex).indexOf("Aron") => "keyid"
-    //$("input:radio[name='gen']")
-    //gender
-    //level
-    //tera type gen (9)
-    //IV;EV;BOOST (except for HP)
-    //nature Object.keys(NATURES_BY_ID).indexOf("timid") 
-    //Ability  => genkeyid
-    //item
-    //status
     if (gen === 2) {
         FIELD_TABLE[0] = ["gscSpikesL", "checked"]
         FIELD_TABLE[1] = ["gscSpikesR", "checked"]
         FIELD_TABLE[2] = ["input:radio[name='gscWeather']", "find"]
-	} else {
-        FIELD_TABLE[0] = ["input:radio[name='spikesL']:checked", "val"]
-        FIELD_TABLE[1] = ["input:radio[name='spikesR']:checked", "val"]
-        FIELD_TABLE[2] = ["input:radio[name='weather']", "find"]
 	}
-    fieldComposition = gen
+    fieldComposition = gen + ","
     for (var i = 0, iLen = FIELD_TABLE.length; i < iLen; i++){
         var field = FIELD_TABLE[i];
         var locator = field[0];
@@ -123,16 +110,23 @@ function exportCalculation(){
             data = $(locator).val();
         } else if (extractor === "find"){
             data = findChecked(locator) 
+        } else if (extractor === "index"){
+            var obj = window[field[2]]
+            data = obj.indexOf($(locator).val())
+        } else if (extractor === "keyidTI"){
+            var obj = window[field[2]]
+            var value = toID($(locator).val())
+            data = Object.keys(obj).indexOf(value)
         } else if (extractor === "keyid"){
-            var obj = field[2]
+            var obj = window[field[2]]
             data = Object.keys(obj).indexOf($(locator).val())
-        } else if (extractor === "keygenid"){
-            var obj = field[2]
-            data = Object.keys(obj[gen]).indexOf($(locator).val())
+        } else if (extractor === "indexid"){
+            var obj = window[field[2]]
+            data = Object.keys(obj).indexOf($(locator).val())
         }
         fieldComposition += data + ",";
     }
-    return fieldComposition
+    return fieldComposition.replace(/,$/,"")
     
 }
 
@@ -171,6 +165,25 @@ function importCalculation(data){
             if (field_data !== "_"){
                 $(locator).eq(field_data).prop("checked", true)
             }
+        } else if (extractor === "index"){
+            if (field_data){
+                var obj = window[field[2]]
+                $(locator).val(obj[field_data])
+            }
+        } else if (extractor === "keyidTI"){
+            if (field_data){
+                var obj = window[field[2]]
+                var field_data = obj[Object.keys(obj)[field_data]].name
+                $(locator).val(field_data)
+            }
+        } else if (extractor === "keyid"){
+            var obj = window[field[2]]
+            var field_data = obj[Object.keys(obj)[field_data]]
+            $(locator).val(field_data)
+        } else if (extractor === "indexid"){
+            var obj = window[field[2]]
+            var field_data = Object.keys(obj)[0]
+            $(locator).val(field_data)
         }
     }
 }
