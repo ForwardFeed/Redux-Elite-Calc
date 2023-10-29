@@ -3420,7 +3420,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   },
   'Cradily': {
     id: 346,
-    bs: {hp: 0,at: 81,df: 97,sa: 91,sd: 107,sp: 43},
+    bs: {hp: 96,at: 81,df: 97,sa: 91,sd: 107,sp: 43},
     abilities: ['Absorbant','Regenerator','Storm Drain'],
     innates: ['Battle Armor','Amphibious','Seaweed'],
     weightkg: 604,

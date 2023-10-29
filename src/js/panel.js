@@ -150,12 +150,12 @@ class Panel{
 
         })
         this.field_forme.change(()=>{
-            if (this.trainer) this.trainer.mons[this.pokeID]["abi_"+this.pokemon.species] = this.ability
+            if (this.trainer.mons[this.pokeID]) this.trainer.mons[this.pokeID]["abi_"+this.pokemon.species] = this.ability
             // overwrites from pokedex data
             var pokedexMon =  structuredClone(pokedex[this.forme])
             Object.keys(pokedexMon).forEach(k => {var x = (k) =>{this.pokemon[k] = pokedexMon[k]};x(k)});
             this.pokemon.species = this.forme
-            if (this.trainer){
+            if (this.trainer.mons[this.pokeID]){
                 this.trainer.mons[this.pokeID] = this.pokemon
                 this.select = this.forme + ";" + this.trainerName + ";" + this.pokeID
                 this.box.idToNode[this.pokeID].src = getSrcImgPokemon(this.forme)

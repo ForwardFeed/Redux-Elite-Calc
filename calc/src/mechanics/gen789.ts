@@ -146,7 +146,7 @@ export function calculateSMSSSV(
     desc.isProtected = true;
     return result;
   }
-  
+
   if (move.name === 'Pain Split') {
     const average = Math.floor((attacker.curHP() + defender.curHP()) / 2);
     const damage = defender.curHP() - average;
