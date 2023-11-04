@@ -343,7 +343,7 @@ function calculateSMSSSV(gen, attacker, defender, move, field, defenderFriend) {
     var typeEffectiveness = type1Effectiveness * type2Effectiveness;
     if (defender.types.length === 3) {
         var type3Effectiveness = defender.types[2]
-            ? (0, util_2.getMoveEffectiveness)(gen, move, defender.types[1], defender, isGhostRevealed, field.isGravity, isRingTarget)
+            ? (0, util_2.getMoveEffectiveness)(gen, move, defender.types[2], defender, isGhostRevealed, field.isGravity, isRingTarget)
             : 1;
         typeEffectiveness = type1Effectiveness * type2Effectiveness * type3Effectiveness;
     }
