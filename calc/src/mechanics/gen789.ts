@@ -412,7 +412,7 @@ export function calculateSMSSSV(
       ? getMoveEffectiveness(
         gen,
         move,
-        defender.types[1],
+        defender.types[2],
         defender,
         isGhostRevealed,
         field.isGravity,
