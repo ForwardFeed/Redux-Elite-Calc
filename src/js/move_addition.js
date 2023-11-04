@@ -41,10 +41,10 @@ class MoveAddition{
     }
     add(){
         const selected = calcGateway.display.selected
-        this.low += selected.lowDamPercent
-        this.high += selected.highDamPercent
+        this.low += selected.lowDamPercent;
+        this.high += selected.highDamPercent;
         this.textDiv.innerHTML += (this.textDiv.innerText ? " <em>Into</em> <b>" : "<b>") + ( selected.props.attacker.name + "</b>: " + 
-            selected.props.move.name );
-        this.rsltDiv.innerText = this.low + " - " + this.high + " %";
+            selected.name );
+        this.rsltDiv.innerText = this.low.toFixed(2) + " - " + this.high.toFixed(2) + " %";
     }
 }
