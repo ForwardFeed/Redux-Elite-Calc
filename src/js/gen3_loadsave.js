@@ -34,12 +34,7 @@ function readBox(ofs ,bytes, missedBytes, remainingUnread, maxOfs) {
     }
     for (; (ofs + 80) <= maxOfs; ofs+=80){
         var mon = readMonBox(ofs, bytes);
-        try {
-            if (mon) monList.push(createGEN3mon(mon))
-        } catch (e){
-            console.log(bytes.slice(ofs - 8, ofs + 88))
-        }
-        
+        if (mon) monList.push(createGEN3mon(mon))
         if (! remainingUnread--) return {list: monList, mof: null, remainingUnread: 0};
     }
     if (ofs != maxOfs) {
@@ -55,8 +50,7 @@ function getFooterData(startOffset, endOffset, bytes) {
     var TI, //TEAM / ITEM
         SI, //Save index
         PC = [], // PC
-        PCA, //PC A
-        PCB; //PC B
+        GS = [] // Game Sector testing purpose
         
     for (var ofs = startOffset; ofs < endOffset; ofs += SIZE_SECTOR){
         var off = ofs + 4084 //offset footer
@@ -65,14 +59,8 @@ function getFooterData(startOffset, endOffset, bytes) {
             TI = ofs
         } else if (sID >= 5){
             PC[sID - 5] = ofs
-        }
-        switch(sID){
-            case 1:
-                TI = ofs; break;
-            case 5:
-                PCA = ofs; break;
-            case 6:
-                PCB = ofs; break;
+        } else {
+            GS[sID] = ofs
         }
         var CS = readNbytes(off +2 ,2,bytes); //Checksum
         var SG = readNbytes(off +4 ,2,bytes); //Signature
@@ -82,9 +70,8 @@ function getFooterData(startOffset, endOffset, bytes) {
     return {
         SI: SI,
         TI: TI,
-        PCA: PCA,
-        PCB: PCB,
         PC: PC,
+        GS: GS,
     }
 }
 var comp = []
@@ -293,6 +280,13 @@ function getGEN3level(exp, species){
 }
 
 function getGEN3Ability(mon){
+    if (window.randomAbi){
+        //u16 randomizedAbility = (ability + species + personality) % ABILITIES_COUNT;
+        var randomizedAbility = (mon.altAbility + mon.species + mon.personality) % abilities.length
+        //console.log(randomizedAbility)
+        return abilities[randomizedAbility]
+    }
+    //console.log(mon.altAbility)
     var current = pokedex[GEN3_MONS[mon.species]].abilities[mon.altAbility]
     return current
 }
@@ -406,6 +400,19 @@ function parseFileGen3(file){
         var GameA = getFooterData(0, 57344, bytes);
         var GameB = getFooterData(57344, 114688, bytes)
         var RSave = GameA.SI > GameB.SI ? GameA : GameB; //recent Save
+        //GS[0] = SaveBlock2
+        //var gameSets = RSave.GS[0] + 0x97
+        //gameSets = readNbytes(gameSets, 2, bytes)
+        //(gameSets & 1 ? "Autorun" : "Manual run")
+        //gameSets & 2 ? "Permanent repel" : "Manual Repel")
+        //(gameSets & 64 ? "Enable EV" : "Disable EV") 
+        //(gameSets & 128 ? "Player AI" : "Player Human") 
+        var randomSets = bytes[RSave.GS[0] + 0xF30]
+        var randomAbi = randomSets & 4
+        if (randomAbi) {
+            console.log("Random ability")
+            window.randomAbi = true
+        }
         try {
             var teamsize = readTeamSize(RSave.TI, bytes)
             var teamOffset = RSave.TI + 568;
@@ -437,28 +444,6 @@ function parseFileGen3(file){
                 if (remainingUnread == 0) break;
             }
             dispatchPlayerMon(monList);
-            /*
-            var currentBox = readNbytes(RSave.PCA, 4, bytes) + 1
-            var boxA = readBox(RSave.PCA + 4, bytes)
-            var mof = boxA.mof
-            var missedBytes = bytes.slice(RSave.PCA + 3968 - mof, RSave.PCA + 3968)
-            var boxB = readBox(RSave.PCB, bytes, missedBytes)
-            var mof = boxB.mof
-            var boxedMonsList = boxA.list.concat(boxB.list)*/
-            /*var currentBox = readNbytes(RSave.PCA, 4, bytes) + 1
-            var boxA = readBox(RSave.PCA + 4, bytes)
-            var mof = boxA.mof
-            var missedBytes = bytes.slice(RSave.PCA + 3968 - mof, RSave.PCA + 3968)
-            var boxB = readBox(RSave.PCB + 4, bytes, missedBytes)
-            var mof = boxB.mof
-            var missedBytes = bytes.slice(RSave.PCB + 3968 - mof, RSave.PCB + 3968)
-            var boxedMonsList = boxA.list.concat(boxB.list)
-            var boxC = RSave.PC[2]
-            var boxC = readBox(RSave.PCB + 8, bytes, missedBytes)
-            var mof = boxC.mof
-            boxedMonsList = boxedMonsList.concat(boxC.list)
-            dispatchPlayerMon(boxedMonsList)*/
-                  
         } catch (e) {
             console.warn(e)
         }

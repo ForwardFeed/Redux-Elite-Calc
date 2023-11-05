@@ -398,6 +398,9 @@ class Panel{
         // clone this if you don't want bad surprises
         this.pokemon = structuredClone(pokedex[this.pokemonName])
         this.trainerID = +dexset[this.trainerName]
+        if (isNaN(this.trainerID)){
+            this.trainerID = dexset[this.trainerName].split(":")[0]
+        }
         this.trainer = setdex[this.trainerID]
         this.pokeID  = +parsed[2]
         this.pokemon = Object.assign(this.pokemon, this.trainer.mons[this.pokeID])
