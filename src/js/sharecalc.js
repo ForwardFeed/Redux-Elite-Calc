@@ -246,6 +246,7 @@ function exportCalculation() {
 	fieldComposition += Object.keys(pokedex).indexOf(
 		pokeR) + ":";
     // need to setup trainerID
+	// need to transmit which version of the calc you're in
 	fieldComposition += tableCompaction(
 		SHARE_SET_TABLE.concat(SHARE_GS_SET_TABLE), "#p1 ");
 	fieldComposition += tableCompaction(
