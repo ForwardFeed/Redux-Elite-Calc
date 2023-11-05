@@ -18,38 +18,54 @@ function readTeamSize(teamOffset, bytes){
     var sizeTeam = readNbytes(oft,4,bytes);
     return sizeTeam; 
 }
-// note for box 1, the bof starts at 4
-function readBox(bof, bytes, missedBytes){
-    var ofs = bof
+
+function readBox(ofs ,bytes, missedBytes, remainingUnread, maxOfs) {
     var monList = []
     if (missedBytes){
-        var missingBytes = bytes.slice(bof, bof + 80 - missedBytes.length)
-        var mergedBytes = new Uint8Array(missedBytes.length + missingBytes.length)
+        var nbToFill = 80 - missedBytes.length
+        var bytesFilling = bytes.slice(ofs, ofs + nbToFill)
+        var mergedBytes = new Uint8Array(80)
         mergedBytes.set(missedBytes);
-        mergedBytes.set(missingBytes, missedBytes.length);
-        ofs -= missingBytes.length ;
+        mergedBytes.set(bytesFilling, missedBytes.length);
+        ofs += nbToFill;
         var mon = readMonBox(0, mergedBytes);
         if (mon) monList.push(createGEN3mon(mon))
-        
+        if (! remainingUnread--) return {list: monList, mof: null, remainingUnread: 0};
     }
-    for (; ofs< bof + 3968; ofs+=80){
+    for (; (ofs + 80) <= maxOfs; ofs+=80){
         var mon = readMonBox(ofs, bytes);
-        if (mon) monList.push(createGEN3mon(mon))
+        try {
+            if (mon) monList.push(createGEN3mon(mon))
+        } catch (e){
+            console.log(bytes.slice(ofs - 8, ofs + 88))
+        }
+        
+        if (! remainingUnread--) return {list: monList, mof: null, remainingUnread: 0};
     }
-    var mof =  ofs - (bof + 3968);//missed offset
-    return { list: monList, mof: mof}
+    if (ofs != maxOfs) {
+        missedBytes = bytes.slice(ofs, maxOfs)
+    } else {
+        missedBytes = null
+    }
+    return { list: monList, mof: missedBytes, remainingUnread: remainingUnread}
 }
 
 function getFooterData(startOffset, endOffset, bytes) {
     var SIZE_SECTOR = 4096;
     var TI, //TEAM / ITEM
         SI, //Save index
+        PC = [], // PC
         PCA, //PC A
         PCB; //PC B
         
     for (var ofs = startOffset; ofs < endOffset; ofs += SIZE_SECTOR){
         var off = ofs + 4084 //offset footer
         var sID = readNbytes(off,2,bytes)//Sector ID
+        if (sID == 1){
+            TI = ofs
+        } else if (sID >= 5){
+            PC[sID - 5] = ofs
+        }
         switch(sID){
             case 1:
                 TI = ofs; break;
@@ -68,6 +84,7 @@ function getFooterData(startOffset, endOffset, bytes) {
         TI: TI,
         PCA: PCA,
         PCB: PCB,
+        PC: PC,
     }
 }
 var comp = []
@@ -398,15 +415,50 @@ function parseFileGen3(file){
                 teamList.push(createGEN3mon(mon));
             }
             dispatchPlayerMon(teamList);
-
+            
+           
+            // get the numbers of pokemon to read from the settings
+            var remainingUnread = +$('#sv-nb-pkm').val();
+            var missedBytes = null
+            var monList = [];
+            for (var boxI = 0; boxI < RSave.PC.length; boxI++){
+                var boxOfs = RSave.PC[boxI];
+                var maxOfs = RSave.PC[boxI] + 3968;
+                if (boxI == 0) {
+                    boxOfs += 4
+                }
+                if (boxI == 8) {
+                    maxOfs = RSave.PC[boxI] + 2000;
+                }
+                var box = readBox(boxOfs, bytes, missedBytes, remainingUnread, maxOfs)
+                missedBytes = box.mof
+                monList = monList.concat(box.list)
+                remainingUnread = box.remainingUnread
+                if (remainingUnread == 0) break;
+            }
+            dispatchPlayerMon(monList);
+            /*
             var currentBox = readNbytes(RSave.PCA, 4, bytes) + 1
+            var boxA = readBox(RSave.PCA + 4, bytes)
+            var mof = boxA.mof
+            var missedBytes = bytes.slice(RSave.PCA + 3968 - mof, RSave.PCA + 3968)
+            var boxB = readBox(RSave.PCB, bytes, missedBytes)
+            var mof = boxB.mof
+            var boxedMonsList = boxA.list.concat(boxB.list)*/
+            /*var currentBox = readNbytes(RSave.PCA, 4, bytes) + 1
             var boxA = readBox(RSave.PCA + 4, bytes)
             var mof = boxA.mof
             var missedBytes = bytes.slice(RSave.PCA + 3968 - mof, RSave.PCA + 3968)
             var boxB = readBox(RSave.PCB + 4, bytes, missedBytes)
             var mof = boxB.mof
+            var missedBytes = bytes.slice(RSave.PCB + 3968 - mof, RSave.PCB + 3968)
             var boxedMonsList = boxA.list.concat(boxB.list)
-            dispatchPlayerMon(boxedMonsList);          
+            var boxC = RSave.PC[2]
+            var boxC = readBox(RSave.PCB + 8, bytes, missedBytes)
+            var mof = boxC.mof
+            boxedMonsList = boxedMonsList.concat(boxC.list)
+            dispatchPlayerMon(boxedMonsList)*/
+                  
         } catch (e) {
             console.warn(e)
         }

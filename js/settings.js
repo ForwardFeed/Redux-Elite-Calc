@@ -53,6 +53,38 @@ function deserializeColorCodingSets(){
     $('#cc-spe-width').val(serie[4])
 }
 
+/*
+    this util function, is just a glorified wrapper for settings that are just on/off radio buttons
+    althought it might not be as readable, its aim is to force me to be standard
+    @options : [
+        selectors: [jquery node,],
+        event: @string of any jquery event",
+        default: @number of the jquery node to be default, 
+        name: @string of the localstorage string,
+        func: @callback that at least change the local storage string
+    ]
+*/
+function offOnSettings(options){
+    for (const opt of options){
+        try{
+            // the order is based on the principle that ON is at the right
+            for (const slc of opt.selectors){
+                slc[opt.event](opt.func)
+            }
+            if (localStorage.getItem(opt.name) != null || localStorage.getItem(opt.name) != true){
+                opt.selectors[+localStorage.getItem(opt.name)].prop("checked", true).change()
+            } else {
+                localStorage.setItem(opt.name, opt.default)
+                opt.selectors[opt.default].prop("checked", true).change()
+            }
+            
+        } catch(e){
+            console.warn(e)
+        }
+    }
+     
+}
+
 $(document).ready(function () {
     try{
         // button for opening / closing the settings
@@ -159,6 +191,15 @@ $(document).ready(function () {
                 },
             },
         ])
+        //input value
+        $('#sv-nb-pkm').val(localStorage.getItem("sv-nb-pkm") || 150);
+        $('#sv-nb-pkm').bind('change keyup', function(){
+            var value = $(this).val().replace(/\D/g, "");
+            if (value > 420) {
+                value = 420
+            }
+            $(this).val(value);
+        });
         // checkboxes
         $('#p-notes-reset').change(clearAllNotes);
         //color coding
@@ -175,34 +216,4 @@ $(document).ready(function () {
     }
 
 });
-/*
-    this util function, is just a glorified wrapper for settings that are just on/off radio buttons
-    althought it might not be as readable, its aim is to force me to be standard
-    @options : [
-        selectors: [jquery node,],
-        event: @string of any jquery event",
-        default: @number of the jquery node to be default, 
-        name: @string of the localstorage string,
-        func: @callback that at least change the local storage string
-    ]
-*/
-function offOnSettings(options){
-    for (const opt of options){
-        try{
-            // the order is based on the principle that ON is at the right
-            for (const slc of opt.selectors){
-                slc[opt.event](opt.func)
-            }
-            if (localStorage.getItem(opt.name) != null || localStorage.getItem(opt.name) != true){
-                opt.selectors[+localStorage.getItem(opt.name)].prop("checked", true).change()
-            } else {
-                localStorage.setItem(opt.name, opt.default)
-                opt.selectors[opt.default].prop("checked", true).change()
-            }
-            
-        } catch(e){
-            console.warn(e)
-        }
-    }
-     
-}
+
