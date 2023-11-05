@@ -198,6 +198,7 @@ $(document).ready(function () {
             if (value > 420) {
                 value = 420
             }
+            localStorage.setItem("sv-nb-pkm", value)
             $(this).val(value);
         });
         // checkboxes
