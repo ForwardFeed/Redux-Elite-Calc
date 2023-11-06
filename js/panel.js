@@ -234,6 +234,9 @@ class Panel{
         if (!poke.ability){
             return poke.abilities[0] //default
         }
+        if (typeof poke.ability === "string") {
+            return poke.ability
+        }
         if (poke["abi_"+poke.species]) {
             return poke["abi_"+poke.species]
         }
@@ -472,6 +475,7 @@ class Panel{
         this.innates[0] = poke.innates[0]
         this.innates[1] = poke.innates[1]
         this.innates[2] = poke.innates[2]
+        
         this.innatesOn['all'] = false
         this.ability = this.getAbility()
         this.abilityOn = false
