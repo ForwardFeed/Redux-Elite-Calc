@@ -268,9 +268,11 @@ function calculateSMSSSV(gen, attacker, defender, move, field, defenderFriend) {
         type = attacker.teraType;
     }
     move.type = type;
-    move.priority += getPriorityAdditionnal(attacker, move, defender);
+    var additionnalPriority = getPriorityAdditionnal(attacker, move, defender);
+    move.priority += additionnalPriority;
     move.priority = Math.min(move.priority, 5);
-    desc.attackerAbility = (0, util_2.appSpacedStr)(desc.attackerAbility, attacker.ability);
+    if (additionnalPriority)
+        desc.attackerAbility = (0, util_2.appSpacedStr)(desc.attackerAbility, attacker.ability);
     if (attacker.hasAbility('Sighting System')) {
         if (move.acc ? move.acc : 100 < 80) {
             move.priority = -7;
@@ -337,7 +339,7 @@ function calculateSMSSSV(gen, attacker, defender, move, field, defenderFriend) {
     var typeEffectiveness = type1Effectiveness * type2Effectiveness;
     if (defender.types.length === 3) {
         var type3Effectiveness = defender.types[2]
-            ? (0, util_2.getMoveEffectiveness)(gen, move, defender.types[1], defender, isGhostRevealed, field.isGravity, isRingTarget)
+            ? (0, util_2.getMoveEffectiveness)(gen, move, defender.types[2], defender, isGhostRevealed, field.isGravity, isRingTarget)
             : 1;
         typeEffectiveness = type1Effectiveness * type2Effectiveness * type3Effectiveness;
     }

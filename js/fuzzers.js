@@ -218,6 +218,13 @@ class DiscreteFuzzer{
 		}
 		if (poke.weightkg == undefined) this.hasOrLog([], pokeName, this.weightkg)
 		if (poke.bs == undefined) this.hasOrLog([], pokeName, this.bs)
+		for (var statN of Object.keys(poke.bs)){
+			var stat = pokemon.bs[statN]
+			if (stat == 0){
+				console.log("missing " + statN + " Stat in pokemon: " + pokemon.species)
+			}
+			
+		}
 		if (poke.id == undefined) this.hasOrLog([], pokeName, this.id)
 	}
 	FuzzPokedex(){

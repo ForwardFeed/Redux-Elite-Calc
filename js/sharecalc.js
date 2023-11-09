@@ -248,7 +248,6 @@ function exportCalculation() {
 	fieldComposition += +$('#all-abis-on').prop("checked") ? "1:" : ":";
 	fieldComposition += selectToData(P1);
 	fieldComposition += selectToData(P2);
-	
 
 	// need to transmit which version of the calc you're in
 	fieldComposition += tableCompaction(
@@ -294,7 +293,7 @@ function exportCalculation() {
 	};
 	for (var i = 0, iLen = data.length; i < iLen; i++) {
 		var row = data[i];
-		if (row === "") {
+		if (row === "" && i != 0) {
 			skip++;
 			continue;
 		}
@@ -326,7 +325,6 @@ function importCalculation(compactedData) {
 		row = ":".repeat(+skip) + row;
 		data += row;
 	}
-	
 	data = data.split(":");
 	adaptFieldsToGen();
 	// function to uncompact the second layer
