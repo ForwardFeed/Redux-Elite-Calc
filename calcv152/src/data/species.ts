@@ -3184,7 +3184,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   },
   'Camerupt': {
     id: 323,
-    bs: {hp: 0,at: 100,df: 80,sa: 105,sd: 85,sp: 40},
+    bs: {hp: 90,at: 100,df: 80,sa: 105,sd: 85,sp: 40},
     abilities: ['Stamina','Anger Point','Sheer Force'],
     innates: ['Magma Armor','Solid Rock','Molten Down'],
     otherFormes: ['Camerupt Mega'],
@@ -3383,7 +3383,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   },
   'Claydol': {
     id: 344,
-    bs: {hp: 0,at: 70,df: 105,sa: 90,sd: 120,sp: 75},
+    bs: {hp: 70,at: 70,df: 105,sa: 90,sd: 120,sp: 75},
     abilities: ['Mystic Power','Soul Linker','Twisted Dimension'],
     innates: ['Levitate','Ancient Idol','Sand Force'],
     weightkg: 1080,
@@ -3402,7 +3402,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   },
   'Cradily': {
     id: 346,
-    bs: {hp: 0,at: 81,df: 97,sa: 91,sd: 107,sp: 43},
+    bs: {hp: 96,at: 81,df: 97,sa: 91,sd: 107,sp: 43},
     abilities: ['Battle Armor','Regenerator','Storm Drain'],
     innates: ['Fossilized','Amphibious','Seaweed'],
     weightkg: 604,
@@ -3459,7 +3459,7 @@ const REDUX_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   },
   'Kecleon': {
     id: 352,
-    bs: {hp: 0,at: 90,df: 70,sa: 90,sd: 120,sp: 40},
+    bs: {hp: 60,at: 90,df: 70,sa: 90,sd: 120,sp: 40},
     abilities: ['Limber','None','None'],
     innates: ['Color Change','Protean'],
     weightkg: 220,
