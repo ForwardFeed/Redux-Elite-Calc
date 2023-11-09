@@ -345,7 +345,7 @@ $(document).ready(function () {
 	calcGateway = new CalcGateway()
 	P1 = new PlayerPanel($('#p1'))
 	P2 = new TrainerPanel($('#p2'))
-	P1.select = getPlayerOptions()[~~(Math.random() * 100)].id
+	P1.select = getPlayerOptions()[~~(Math.random() * Object.keys(pokedex).length)].id
 	$('#close-item-box, #ball-item').click(openCloseItemBox);
 	$('#close-note-box, #open-note').click(openCloseNoteBox);
 	$('#screen-calc').click(onClickScreenCalc)

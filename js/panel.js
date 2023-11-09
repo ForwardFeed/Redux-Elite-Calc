@@ -24,7 +24,7 @@ class Panel{
         this.field_innates = [this.field_innates.eq(0),this.field_innates.eq(1),this.field_innates.eq(2)]
         this.innates = new Proxy(this.field_innates, {
             get: function(target, index){
-                if (index == -1 || index === "all") {
+                if (index === "all") {
                     return [target[0].val(), target[1].val(), target[2].val()]
                 } else if (index === 'length'){
                     return target.length
@@ -43,7 +43,7 @@ class Panel{
         this.field_innatesOn = [this.field_innatesOn.eq(0),this.field_innatesOn.eq(1),this.field_innatesOn.eq(2)]
         this.innatesOn = new Proxy(this.field_innatesOn, {
             get: function(target, index){
-                if (index == -1 || index === "all") {
+                if (index === "all") {
                     return [target[0].prop("checked"), target[1].prop("checked"), target[2].prop("checked")]
                 } else if (index === 'length'){
                     return target.length
@@ -51,7 +51,7 @@ class Panel{
                 return target[index].prop("checked")  
             },
             set: function(target, index, val){
-                if (index == -1 || index === "all") {
+                if (index === "all") {
                     for (const tar in target){
                         target[tar].val(val)
                     }
@@ -391,6 +391,7 @@ class Panel{
                 this.trainer = setdex[this.trainerID]
                 this.trainerName = this.trainer.trn
                 this.pokeID = 0
+                if (!this.trainer.mons.length) return
                 this.pokemonName = this.trainer.mons[this.pokeID].species
                 this.pokemon = Object.assign(structuredClone(pokedex[this.pokemonName]), this.trainer.mons[this.pokeID])
                 this.select = this.pokemonName + ";" + this.trainerName + ";" + this.pokeID
@@ -417,7 +418,7 @@ class Panel{
     setPanel(){
         this.parseSelector()
         this.selectTitle = this.trainerName + " : " + this.pokemonName
-        if (!this.pokemon) return
+        if (!this.pokemon || !this.pokemon.species) return
         if(this.hasTrainerChanged()) {
             this.resetTrainerToDefault()
             if ($('#field-reset-on').prop("checked")) clearField();
@@ -441,7 +442,6 @@ class Panel{
             }
             this.switchSet = false
             this.box.fullRebox()
-            return
         }
         const poke = correctCompactedIVEV(this.pokemon)
         this.pokeImg = poke.species
@@ -570,9 +570,9 @@ class Panel{
     }
     getTerrainEffects() {
         const terrain = $("input:checkbox[name='terrain']:checked").val()
+        const isGrounded = this.isPokeGrounded()
         switch (terrain){
             case "Electric":
-                const isGrounded = this.isPokeGrounded()
                 if (!this.status === "Asleep" && isGrounded){
                     this.field_status.prop("disabled", true)
                 } else {
