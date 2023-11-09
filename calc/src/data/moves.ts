@@ -9322,7 +9322,7 @@ const SS_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     'secondaries': true,
     'isPulse': true
   }
-}
+};
 const SS: {[name: string]: MoveData} = extend(true, {}, SM, SS_PATCH);
 
 const LGPE_MOVES = [
