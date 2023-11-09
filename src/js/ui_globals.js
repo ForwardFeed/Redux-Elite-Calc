@@ -41,6 +41,10 @@ function initializeUICalc() {
 		dexpoke.push([pokeName])
 	}
 	setdex = TRAINER_DEX;
+	setdex.push({
+		trn: "Shared Team",
+		mons: [],
+	}); //last one is shared trainer.
 	dexset = [];
 	for (var a in setdex) {
 		var trn = setdex[a];

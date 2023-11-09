@@ -1,12 +1,3 @@
-/*	["#AtkL","checked"], ["#AtkR","checked"],
-	["#SpecL","checked"], ["#SpecR","checked"],
-	["#DefL","checked"], ["#DefR","checked"],
-	["#SpeL","checked"], ["#SpeR","checked"],
-    ["#defCurlL","checked"], ["#defCurlR","checked"],
-    ["#infatuationL","checked"], ["#infatuationR","checked"],
-	["#switchingL","checked"], ["#switchingR","checked"],
-*/
-
 /*
 	Quick Explanation.
 	This is to share with someone your calculation at a given time.
@@ -84,6 +75,9 @@ var SHARE_FIELD_TABLE = [
 	["#zL2", "checked"], ["#zR2", "checked"],
 	["#zL3", "checked"], ["#zR3", "checked"],
 	["#zL4", "checked"], ["#zR4", "checked"],
+	["#innatesL1", "index", "abilities"], ["#innatesR1", "index", "abilities"],
+	["#innatesL2", "index", "abilities"], ["#innatesR2", "index", "abilities"],
+	["#innatesL3", "index", "abilities"], ["#innatesR3", "index", "abilities"],
 ];
 
 var SHARE_PANNEL_TABLE = [
@@ -109,6 +103,7 @@ var SHARE_SET_TABLE = [
 	[".move2 .select2-offscreen.move-selector", "indexid", "moves"],
 	[".move3 .select2-offscreen.move-selector", "indexid", "moves"],
 	[".move4 .select2-offscreen.move-selector", "indexid", "moves"],
+
 	//evs   // in function of generation
 	//ivs   // --
 	//dvs   // --
@@ -233,19 +228,28 @@ function exportCalculation() {
 		}
 		return fieldComposition;
 	};
-	// directly share the form as the pokemon
-	var pokeL = $('#p1 .set-selector.select2-offscreen').val().replace(/ \(.*/, "");
-	var forme = $('#p1 .forme').val();
-	if (pokedex[pokeL].otherFormes && pokedex[pokeL].otherFormes.includes(forme)) pokeL = forme;
-	var pokeR = $('#p2 .set-selector.select2-offscreen').val().replace(/ \(.*/, "");
-	forme = $('#p2 .forme').val();
-	if (pokedex[pokeR].otherFormes && pokedex[pokeR].otherFormes.includes(forme)) pokeR = forme;
+
+	var selectToData = function(panel){
+		var select = panel.select.split(";");
+		var data = ""
+		data += Object.keys(pokedex).indexOf(select[0]);
+		if (select.length < 2){
+			// just a pokemon alone
+			return data + ":"
+		}
+		data += ";" + +dexset[select[1]].split(":")[0];
+		data += ";" + select[2];
+		if (panel.trainer.flagid){
+			data += ";" + panel.trainer.flagid
+		}
+		return data + ":"
+	}
 	var fieldComposition = "";
-	fieldComposition += Object.keys(pokedex).indexOf(
-		pokeL) + ":";
-	fieldComposition += Object.keys(pokedex).indexOf(
-		pokeR) + ":";
-    // need to setup trainerID
+	fieldComposition += +$('#all-abis-on').prop("checked") ? "1:" : ":";
+	fieldComposition += selectToData(P1);
+	fieldComposition += selectToData(P2);
+	
+
 	// need to transmit which version of the calc you're in
 	fieldComposition += tableCompaction(
 		SHARE_SET_TABLE.concat(SHARE_GS_SET_TABLE), "#p1 ");
@@ -259,7 +263,6 @@ function exportCalculation() {
 		SHARE_FIELD_TABLE.concat(SHARE_GS_FIELD_TABLE));
 	// trim the last separator
 	fieldComposition = fieldComposition.replace(RegExp(":$"), "");
-
 	/* further compaction alg
 		if there is 3 or more default values in a row
 		(care to make the tables in a way that all default value sensitive
@@ -285,7 +288,7 @@ function exportCalculation() {
 			data = data.slice(0, -1) + "_";
 		} else if (skip > 3) {
 			data = data.slice(0, -1);
-			data += ";" + skip + ":";
+			data += "," + skip + ":";
 		}
 		return data;
 	};
@@ -314,7 +317,7 @@ function importCalculation(compactedData) {
 	compactedData = compactedData.replaceAll("!", "::");
 	compactedData = compactedData.replaceAll("~", ":::");
 	compactedData = compactedData.replaceAll("_", "::::");
-	compactedData = compactedData.split(";");
+	compactedData = compactedData.split(",");
 	var data = compactedData[0];
 	for (var i = 1; i < compactedData.length; i++) {
 		var row = compactedData[i];
@@ -323,6 +326,7 @@ function importCalculation(compactedData) {
 		row = ":".repeat(+skip) + row;
 		data += row;
 	}
+	
 	data = data.split(":");
 	adaptFieldsToGen();
 	// function to uncompact the second layer
@@ -353,6 +357,7 @@ function importCalculation(compactedData) {
 			} else if (extractor === "index") {
 				if (field_data) {
 					var obj = window[field[2]];
+					
 					locator.val(obj[field_data]);
 				}
 			} else if (extractor === "keyidTI") {
@@ -362,6 +367,7 @@ function importCalculation(compactedData) {
 					locator.val(field_data);
 				}
 			} else if (extractor === "keyid") {
+				if (!field_data) field_data = "0"
 				var obj = window[field[2]];
 				field_data = obj[Object.keys(obj)[field_data]];
 				locator.val(field_data);
@@ -369,54 +375,68 @@ function importCalculation(compactedData) {
 				var obj = window[field[2]];
 				field_data = Object.keys(obj)[field_data];
 				locator.val(field_data);
+				locator.change();
 			} else if (extractor === "text") {
 				locator.text(field_data);
 			}
 		}
 	};
-	var pokeL = Object.keys(pokedex)[data.splice(0, 1)[0]];
-	var pokeR = Object.keys(pokedex)[data.splice(0, 1)[0]];
-	pokeL = pokeL + " (Shared Set L)";
-	pokeR = pokeR + " (Shared Set R)";
-	$('#p1 input.set-selector').val(pokeL);
-	$('#p2 input.set-selector').val(pokeR);
+	var dataToSelect = function(panel, data){
+		var select = data.split(";");
+		var pokeName = Object.keys(pokedex)[select[0]];
+		if (select.length < 2) {
+			// just a pokemon alone
+			panel.select =pokeName
+			return
+		}
+		var trainerName = setdex[select[1]].trn
+		if (panel.constructor.name === "PlayerPanel") {
+			trainerName = setdex[setdex.length -1].trn
+			select[2] = 0
+			setdex[setdex.length -1].mons.push({species: pokeName})
+		}
+		var newSelect = pokeName + ";" + trainerName + ";" + select[2]
+		if (select.length > 4) {
+			newSelect += ";" + select[3] + ";" + select[4]
+		}
+		panel.select =newSelect
+	}
+	//need to import the all abilities settings first.
+	if (data.splice(0,1)){
+		$('#all-abis-on').prop("checked", true)
+		$('#all-abis-on').change()
+	} else {
+		$('#all-abis-off').prop("checked", true)
+		$('#all-abis-off').change()
+	}
+	dataToSelect(P1, data.splice(0,1)[0])
+	dataToSelect(P2, data.splice(0,1)[0])
+	P1.setPanel()
+	P2.setPanel()
+	//issue to fix btw
+	//pannel don't refresh when switching alternate set, also goes for the little image on top.
+	
 	tableUncompaction(
 		SHARE_SET_TABLE.concat(SHARE_GS_SET_TABLE), "#p1 ");
 	tableUncompaction(
 		SHARE_SET_TABLE.concat(SHARE_GS_SET_TABLE), "#p2 ");
-
-	// by doing all of this, i don't overwrite any existing set
-	// with a newly created set it's overall easier to interact with
-	window.ExportPokemon($('#p1'));
-	document.getElementsByClassName("import-name-text")[0].value = "Shared Set L";
-	$("#import.bs-btn").click();
-	window.ExportPokemon($('#p2'));
-	document.getElementsByClassName("import-name-text")[0].value = "Shared Set R";
-	$("#import.bs-btn").click();
-	$('#p1 input.set-selector').val(pokeL);
-	$('#p2 input.set-selector').val(pokeR);
-	// then actualizing it set all default value to initial
-	$('input.set-selector').change();
-	$('#p1 .set-selector .select2-chosen').text(pokeL);
-	$('#p2 .set-selector .select2-chosen').text(pokeR);
-	// just replace all the field by the once shared.
+		
 	tableUncompaction(
 		SHARE_PANNEL_TABLE.concat(SHARE_GS_PANNEL_TABLE), "#p1 ");
 	tableUncompaction(
 		SHARE_PANNEL_TABLE.concat(SHARE_GS_PANNEL_TABLE), "#p2 ");
 	tableUncompaction(
 		SHARE_FIELD_TABLE.concat(SHARE_GS_FIELD_TABLE));
-
-	//for some reason i had to clean this
-	document.getElementsByClassName("import-team-text")[0].value = "";
-	document.getElementsByClassName("import-name-text")[0].value = "Custom Set";
+	P1.box.saveTrainerPokemon()
+	P1.stats.calcCurrentHP() 
+	P2.stats.calcCurrentHP() 
 }
 
 $(document).ready(function () {
 	$('#share-calc').click(function () {
 		var baseLink = (window.location + "").replace(RegExp("(?<=html).*"), "");
 		var data = exportCalculation();
-		navigator.clipboard.writeText(baseLink + gen + data).then(function () {
+		navigator.clipboard.writeText(baseLink + "?" + data).then(function () {
 			$('#share-calc').text("Copied to clipboard");
 			setTimeout(function () {
 				$('#share-calc').text("Share Calculation");

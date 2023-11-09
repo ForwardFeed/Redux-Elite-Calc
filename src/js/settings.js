@@ -178,6 +178,8 @@ $(document).ready(function () {
                         var abilityOptions = getSelectOptions(abilities, true);
                         $("select.ability").find("option").remove().end().append("<option value=\"\">(other)</option>" + abilityOptions);
                     }
+                    P1.setPanel() //refreshing because it cause a small bug
+                    P2.setPanel()
                     localStorage.setItem("all-abis", +$('#all-abis-on').prop("checked"))
                 },
             },
