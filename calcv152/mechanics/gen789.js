@@ -136,7 +136,7 @@ function calculateSMSSSV(gen, attacker, defender, move, field, defenderFriend) {
     else if (move.named('Techno Blast') && attacker.item && attacker.item.includes('Drive')) {
         type = (0, items_1.getTechnoBlast)(attacker.item);
     }
-    else if (move.named('Multi-Attack') && attacker.item && attacker.item.includes('Memory')) {
+    else if (move.named('Multi Attack') && attacker.item && attacker.item.includes('Memory')) {
         type = (0, items_1.getMultiAttack)(attacker.item);
     }
     else if (move.named('Natural Gift') && attacker.item && attacker.item.includes('Berry')) {
@@ -168,18 +168,18 @@ function calculateSMSSSV(gen, attacker, defender, move, field, defenderFriend) {
         if (attacker.named('Morpeko')) {
             type = 'Electric';
         }
-        else if (attacker.named('Morpeko-Hangry')) {
+        else if (attacker.named('Morpeko Hangry')) {
             type = 'Dark';
         }
     }
     else if (move.named('Raging Bull')) {
-        if (attacker.named('Tauros-Paldea-Combat')) {
+        if (attacker.named('Tauros Paldea-Combat')) {
             type = 'Fighting';
         }
-        else if (attacker.named('Tauros-Paldea-Blaze')) {
+        else if (attacker.named('Tauros Paldea-Blaze')) {
             type = 'Fire';
         }
-        else if (attacker.named('Tauros-Paldea-Aqua')) {
+        else if (attacker.named('Tauros Paldea-Aqua')) {
             type = 'Water';
         }
     }
@@ -868,7 +868,7 @@ function calculateBasePowerSMSSSV(gen, attacker, defender, move, field, hasAteAb
             }
             break;
         case 'Water Shuriken':
-            basePower = attacker.named('Greninja-Ash') && attacker.hasAbility('Battle Bond') ? 20 : 15;
+            basePower = attacker.named('Greninja Ash') && attacker.hasAbility('Battle Bond') ? 20 : 15;
             desc.moveBP = basePower;
             break;
         case 'Triple Axel':
@@ -909,9 +909,9 @@ exports.calculateBasePowerSMSSSV = calculateBasePowerSMSSSV;
 function calculateBPModsSMSSSV(gen, attacker, defender, move, field, desc, basePower, hasAteAbilityTypeChange, turnOrder) {
     var bpMods = [];
     var resistedKnockOffDamage = !defender.item ||
-        (defender.named('Dialga-Origin') && defender.hasItem('Adamant Crystal')) ||
-        (defender.named('Palkia-Origin') && defender.hasItem('Lustrous Globe')) ||
-        (defender.name.includes('Giratina-Origin') && defender.item.includes('Griseous')) ||
+        (defender.named('Dialga Origin') && defender.hasItem('Adamant Crystal')) ||
+        (defender.named('Palkia Origin') && defender.hasItem('Lustrous Globe')) ||
+        (defender.name.includes('Giratina Origin') && defender.item.includes('Griseous')) ||
         (defender.name.includes('Arceus') && defender.item.includes('Plate')) ||
         (defender.name.includes('Genesect') && defender.item.includes('Drive')) ||
         (defender.named('Groudon', 'Groudon-Primal') && defender.hasItem('Red Orb')) ||
@@ -920,7 +920,7 @@ function calculateBPModsSMSSSV(gen, attacker, defender, move, field, desc, baseP
         defender.item.includes(' Z') ||
         (defender.named('Zacian') && defender.hasItem('Rusted Sword')) ||
         (defender.named('Zamazenta') && defender.hasItem('Rusted Shield') ||
-            (defender.named('Venomicon-Epilogue') && defender.hasItem('Vile Vial')));
+            (defender.named('Venomicon Epilogue') && defender.hasItem('Vile Vial')));
     if (!resistedKnockOffDamage && defender.item) {
         var item = gen.items.get((0, util_1.toID)(defender.item));
         resistedKnockOffDamage = !!item.megaEvolves && defender.name.includes(item.megaEvolves);
@@ -1080,18 +1080,18 @@ function calculateBPModsSMSSSV(gen, attacker, defender, move, field, desc, baseP
         bpMods.push(5325);
         desc.attackerItem = attacker.item;
     }
-    else if ((((attacker.hasItem('Adamant Crystal') && attacker.named('Dialga-Origin')) ||
+    else if ((((attacker.hasItem('Adamant Crystal') && attacker.named('Dialga Origin')) ||
         (attacker.hasItem('Adamant Orb') && attacker.named('Dialga'))) &&
         move.hasType('Steel', 'Dragon')) ||
         (((attacker.hasItem('Lustrous Orb') &&
             attacker.named('Palkia')) ||
-            (attacker.hasItem('Lustrous Globe') && attacker.named('Palkia-Origin'))) &&
+            (attacker.hasItem('Lustrous Globe') && attacker.named('Palkia Origin'))) &&
             move.hasType('Water', 'Dragon')) ||
         (((attacker.hasItem('Griseous Orb') || attacker.hasItem('Griseous Core')) &&
-            (attacker.named('Giratina-Origin') || attacker.named('Giratina'))) &&
+            (attacker.named('Giratina Origin') || attacker.named('Giratina'))) &&
             move.hasType('Ghost', 'Dragon')) ||
         (attacker.hasItem('Vile Vial') &&
-            attacker.named('Venomicon-Epilogue') &&
+            attacker.named('Venomicon Epilogue') &&
             move.hasType('Poison', 'Flying')) ||
         (attacker.hasItem('Soul Dew') &&
             attacker.named('Latios', 'Latias', 'Latios-Mega', 'Latias-Mega') &&
