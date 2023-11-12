@@ -163,9 +163,9 @@ export function calculateSMSSSV(
 
   const attackerIgnoresAbility = attacker.hasAbility('Mold Breaker', 'Teravolt', 'Turboblaze');
   const moveIgnoresAbility = move.named(
-    'G-Max Drum Solo',
-    'G-Max Fire Ball',
-    'G-Max Hydrosnipe',
+    'G Max Drum Solo',
+    'G Max Fire Ball',
+    'G Max Hydrosnipe',
     'Light That Burns the Sky',
     'Menacing Moonraze Maelstrom',
     'Moongeist Beam',
@@ -207,7 +207,7 @@ export function calculateSMSSSV(
     type = getItemBoostType(attacker.item)!;
   } else if (move.named('Techno Blast') && attacker.item && attacker.item.includes('Drive')) {
     type = getTechnoBlast(attacker.item)!;
-  } else if (move.named('Multi-Attack') && attacker.item && attacker.item.includes('Memory')) {
+  } else if (move.named('Multi Attack') && attacker.item && attacker.item.includes('Memory')) {
     type = getMultiAttack(attacker.item)!;
   } else if (move.named('Natural Gift') && attacker.item && attacker.item.includes('Berry')) {
     const gift = getNaturalGift(gen, attacker.item)!;
@@ -235,15 +235,15 @@ export function calculateSMSSSV(
   } else if (move.named('Aura Wheel')) {
     if (attacker.named('Morpeko')) {
       type = 'Electric';
-    } else if (attacker.named('Morpeko-Hangry')) {
+    } else if (attacker.named('Morpeko Hangry')) {
       type = 'Dark';
     }
   } else if (move.named('Raging Bull')) {
-    if (attacker.named('Tauros-Paldea-Combat')) {
+    if (attacker.named('Tauros Paldea Combat')) {
       type = 'Fighting';
-    } else if (attacker.named('Tauros-Paldea-Blaze')) {
+    } else if (attacker.named('Tauros Paldea Blaze')) {
       type = 'Fire';
-    } else if (attacker.named('Tauros-Paldea-Aqua')) {
+    } else if (attacker.named('Tauros Paldea Aqua')) {
       type = 'Water';
     }
   }
@@ -514,7 +514,7 @@ export function calculateSMSSSV(
   if ((defender.hasAbility('Wonder Guard') && typeEffectiveness <= 1) ||
       (move.hasType('Ice') && defender.hasAbility('Ice Dew')) ||
       (move.hasType('Grass') && defender.hasAbility('Sap Sipper')) ||
-      (move.hasType('Fire') && defender.hasAbility('Flash Fire', 'Well-Baked Body')) ||
+      (move.hasType('Fire') && defender.hasAbility('Flash Fire', 'Well Baked Body')) ||
       (move.hasType('Water') && defender.hasAbility('Dry Skin', 'Storm Drain', 'Water Absorb')) ||
       (move.hasType('Poison') && defender.hasAbility('Poison Absorb')) ||
       (move.hasType('Electric') &&
@@ -953,7 +953,7 @@ export function calculateBasePowerSMSSSV(
     basePower = move.bp * (defender.hasAbility('Parental Bond (Child)') ? 2 : 1);
     // NOTE: desc.attackerAbility = 'Parental Bond' will already reflect this boost
     break;
-  case 'Wake-Up Slap':
+  case 'Wake Up Slap':
     // Wake-Up Slap deals double damage to Pokemon with Comatose (ih8ih8sn0w)
     basePower = move.bp * (defender.hasStatus('slp') || defender.hasAbility('Comatose') ? 2 : 1);
     desc.moveBP = basePower;
@@ -1036,7 +1036,7 @@ export function calculateBasePowerSMSSSV(
     }
     break;
   case 'Water Shuriken':
-    basePower = attacker.named('Greninja-Ash') && attacker.hasAbility('Battle Bond') ? 20 : 15;
+    basePower = attacker.named('Greninja Ash') && attacker.hasAbility('Battle Bond') ? 20 : 15;
     desc.moveBP = basePower;
     break;
   // Triple Axel's damage doubles after each consecutive hit (20, 40, 60), this is a hack
@@ -1063,8 +1063,8 @@ export function calculateBasePowerSMSSSV(
   }
   if (move.named(
     'Breakneck Blitz', 'Bloom Doom', 'Inferno Overdrive', 'Hydro Vortex', 'Gigavolt Havoc',
-    'Subzero Slammer', 'Supersonic Skystrike', 'Savage Spin-Out', 'Acid Downpour', 'Tectonic Rage',
-    'Continental Crush', 'All-Out Pummeling', 'Shattered Psyche', 'Never-Ending Nightmare',
+    'Subzero Slammer', 'Supersonic Skystrike', 'Savage Spin Out', 'Acid Downpour', 'Tectonic Rage',
+    'Continental Crush', 'All Out Pummeling', 'Shattered Psyche', 'Never Ending Nightmare',
     'Devastating Drake', 'Black Hole Eclipse', 'Corkscrew Crash', 'Twinkle Tackle'
   )) {
     // show z-move power in description
@@ -1111,19 +1111,19 @@ export function calculateBPModsSMSSSV(
 
   let resistedKnockOffDamage =
     !defender.item ||
-    (defender.named('Dialga-Origin') && defender.hasItem('Adamant Crystal')) ||
-    (defender.named('Palkia-Origin') && defender.hasItem('Lustrous Globe')) ||
+    (defender.named('Dialga Origin') && defender.hasItem('Adamant Crystal')) ||
+    (defender.named('Palkia Origin') && defender.hasItem('Lustrous Globe')) ||
     // Griseous Core for gen 9, Griseous Orb otherwise
-    (defender.name.includes('Giratina-Origin') && defender.item.includes('Griseous')) ||
+    (defender.name.includes('Giratina Origin') && defender.item.includes('Griseous')) ||
     (defender.name.includes('Arceus') && defender.item.includes('Plate')) ||
     (defender.name.includes('Genesect') && defender.item.includes('Drive')) ||
-    (defender.named('Groudon', 'Groudon-Primal') && defender.hasItem('Red Orb')) ||
-    (defender.named('Kyogre', 'Kyogre-Primal') && defender.hasItem('Blue Orb')) ||
+    (defender.named('Groudon', 'Groudon Primal') && defender.hasItem('Red Orb')) ||
+    (defender.named('Kyogre', 'Kyogre Primal') && defender.hasItem('Blue Orb')) ||
     (defender.name.includes('Silvally') && defender.item.includes('Memory')) ||
     defender.item.includes(' Z') ||
     (defender.named('Zacian') && defender.hasItem('Rusted Sword')) ||
     (defender.named('Zamazenta') && defender.hasItem('Rusted Shield') ||
-    (defender.named('Venomicon-Epilogue') && defender.hasItem('Vile Vial')));
+    (defender.named('Venomicon Epilogue') && defender.hasItem('Vile Vial')));
 
   // The last case only applies when the Pokemon has the Mega Stone that matches its species
   // (or when it's already a Mega-Evolution)
@@ -1338,21 +1338,21 @@ export function calculateBPModsSMSSSV(
     bpMods.push(5325);
     desc.attackerItem = attacker.item;
   } else if (
-    (((attacker.hasItem('Adamant Crystal') && attacker.named('Dialga-Origin')) ||
+    (((attacker.hasItem('Adamant Crystal') && attacker.named('Dialga Origin')) ||
       (attacker.hasItem('Adamant Orb') && attacker.named('Dialga'))) &&
      move.hasType('Steel', 'Dragon')) ||
     (((attacker.hasItem('Lustrous Orb') &&
      attacker.named('Palkia')) ||
-      (attacker.hasItem('Lustrous Globe') && attacker.named('Palkia-Origin'))) &&
+      (attacker.hasItem('Lustrous Globe') && attacker.named('Palkia Origin'))) &&
      move.hasType('Water', 'Dragon')) ||
     (((attacker.hasItem('Griseous Orb') || attacker.hasItem('Griseous Core')) &&
-     (attacker.named('Giratina-Origin') || attacker.named('Giratina'))) &&
+     (attacker.named('Giratina Origin') || attacker.named('Giratina'))) &&
      move.hasType('Ghost', 'Dragon')) ||
     (attacker.hasItem('Vile Vial') &&
-     attacker.named('Venomicon-Epilogue') &&
+     attacker.named('Venomicon Epilogue') &&
      move.hasType('Poison', 'Flying')) ||
     (attacker.hasItem('Soul Dew') &&
-     attacker.named('Latios', 'Latias', 'Latios-Mega', 'Latias-Mega') &&
+     attacker.named('Latios', 'Latias', 'Latios Mega', 'Latias Mega') &&
      move.hasType('Psychic', 'Dragon')) ||
      attacker.item && move.hasType(getItemBoostType(attacker.item))
   ) {
@@ -1467,7 +1467,7 @@ export function calculateAtModsSMSSSV(
   if (attacker.hasAbility('Exploit Weakness') && defender.hasStatus()) {
     atMods.push(5120);
   }
-  // Slow Start also halves damage with special Z-moves
+  // Slow Start also halves damage with special Z moves
   if ((attacker.hasAbilityActive('Slow Start') &&
        (move.category === 'Physical' || (move.category === 'Special' && move.isZ))) ||
       (attacker.hasAbility('Defeatist') && attacker.curHP() <= attacker.maxHP() / 2)
@@ -1544,7 +1544,7 @@ export function calculateAtModsSMSSSV(
     atMods.push(2048);
     desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.ability);
   }
-  // Pokemon with "-of Ruin" Ability are immune to the opposing "-of Ruin" ability
+  // Pokemon with " of Ruin" Ability are immune to the opposing "-of Ruin" ability
   const isTabletsOfRuinActive = (defender.hasAbility('Tablets of Ruin') || field.isTabletsOfRuin) &&
     !attacker.hasAbility('Tablets of Ruin');
   const isVesselOfRuinActive = (defender.hasAbility('Vessel of Ruin') || field.isVesselOfRuin) &&
@@ -1595,7 +1595,7 @@ export function calculateAtModsSMSSSV(
     desc.attackerItem = attacker.item;
   }
   else if ((attacker.hasItem('Thick Club') &&
-       attacker.named('Cubone', 'Marowak', 'Marowak-Alola', 'Marowak-Alola-Totem') &&
+       attacker.named('Cubone', 'Marowak', 'Marowak Alola', 'Marowak Alola Totem') &&
        move.category === 'Physical') ||
       (attacker.hasItem('Deep Sea Tooth') &&
        attacker.named('Clamperl') &&

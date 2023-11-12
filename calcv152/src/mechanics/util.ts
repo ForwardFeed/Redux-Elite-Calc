@@ -159,7 +159,7 @@ export function getMoveEffectiveness(
     return 1;
   } else if (move.named('Excalibur') && type === 'Dragon') {
     return 2;
-  } else if (move.named('Freeze-Dry') && type === 'Water') {
+  } else if (move.named('Freeze Dry') && type === 'Water') {
     return 2;
   } else if (move.named('Flying Press')) {
     return (
@@ -361,7 +361,7 @@ export function checkMultihitBoost(
     }
     // BUG: Technically Sitrus/Figy Berry + Unburden can also affect the defender's speed, but
     // this goes far beyond what we care to implement (especially once Gluttony is considered) now
-  } else if (move.named('Power-Up Punch')) {
+  } else if (move.named('Power Up Punch')) {
     attacker.boosts.atk = Math.min(attacker.boosts.atk + 1, 6);
     attacker.stats.atk = getModifiedStat(attacker.rawStats.atk, attacker.boosts.atk, gen);
   }
