@@ -805,12 +805,26 @@ local offsets = {
    takenDmg = 0x2025094, --- gTakenDmg
    battleMons = 0x2024ef0, --- gBattleMons
    activeBattler = 0x2024ed0 , --- gActiveBattler
-
+   battlerFainted = 0x202509e , --- gBattlerFainted u8
+   battlerTarget = 0x202509d , --- gBattlerTarget u8
+   battlerAttacker = 0x202509c, --- gBattlerAttacker u8
+   battlersCount = 0x2024ed8, --- gBattlersCount u8
+   moveResult = 0x202510a, --- gMoveResultFlags u16
+   battleMoves = 0x , --- gBattleMoves
+   currentMove = 0x, --- 
+   gLastHitBy = 0x , ---
+   gBattlescriptCurrInstr = 0x , ---gBattlescriptCurrInstr u8*, index used: 0,1,2,3,4,5,6,9,13 
 }
+
 local gameData = {
    team = {},
    storage = {},
    state = nil,
+   fainted = nil,
+   target = nil,
+   attacker = nil,
+   battlersCount = nil,
+   moveResult = nil,
 }
 function getTeam(data)
 	local curPartyCount = emu:read8(offsets.partyCount)
@@ -892,6 +906,38 @@ function getMoney()
    return emu:read32(offsets.save1 + 0x490)
 end
 
+function getStatusFainted()
+   -- 
+   --[[ checks only if your pokemon has fainted
+   local fainted = emu:read8(offsets.battlerFainted)
+   if gameData.fainted ~= fainted then
+      console:log("fainted " .. tostring(fainted))
+      console:log("Pokemon " .. tostring(gameData.attacker) .. " Killed " .. tostring(gameData.target))
+      gameData.fainted = fainted
+   end
+   --]]
+   local moveResult = emu:read16(offsets.moveResult)
+   if gameData.moveResult ~= moveResult then
+      console:log("move results " .. tostring(moveResult))
+      gameData.moveResult = moveResult
+   end
+   local target = emu:read8(offsets.battlerTarget)
+   if gameData.target ~= target then
+      console:log("target " .. tostring(target))
+      gameData.target = target
+   end
+   local attacker = emu:read8(offsets.battlerAttacker)
+   if gameData.attacker ~= attacker then
+      console:log("attacker " .. tostring(attacker))
+      gameData.attacker = attacker
+   end
+   local count = emu:read8(offsets.battlersCount)
+   if gameData.battlersCount ~= count then
+      console:log("battlersCount " .. tostring(count))
+      gameData.battlersCount = count
+   end
+end
+
 function ScriptOffsetWrong()
    return "0:1"
 end
@@ -958,5 +1004,7 @@ function parseMessage(message)
 end
 --- end
 
+callbacks:add("frame", getStatusFainted)
 ---- start of the program
+
 start_server()

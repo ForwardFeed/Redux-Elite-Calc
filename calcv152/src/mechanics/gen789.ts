@@ -128,6 +128,10 @@ export function calculateSMSSSV(
   if (attacker.hasAbility('Inner Focus') && move.name === 'Focus Blast'){
     move.acc = 90
   }
+
+  //moves never makes contact with long reach
+  if (attacker.hasAbility('Long Reach')) move.flags.contact = 0
+
   const desc: RawDesc = {
     attackerName: attacker.name,
     attackerTera: attacker.teraType,
@@ -1882,6 +1886,9 @@ export function calculateFinalModsSMSSSV(
   }
   if (attacker.hasAbility('Nocturnal') && move.hasType('Dark')) {
     finalMods.push(5120);
+  }
+  if (attacker.hasAbility('Long Reach') && !move.flags.contact) {
+    finalMods.push(4915);
   }
   if (defender.hasAbility('Whiteout') && field.hasWeather('Hail') &&
   move.hasType('Ice')) {
