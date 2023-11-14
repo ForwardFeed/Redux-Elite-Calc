@@ -81,6 +81,8 @@ function calculateSMSSSV(gen, attacker, defender, move, field, defenderFriend) {
     if (attacker.hasAbility('Inner Focus') && move.name === 'Focus Blast') {
         move.acc = 90;
     }
+    if (attacker.hasAbility('Long Reach'))
+        move.flags.contact = 0;
     var desc = {
         attackerName: attacker.name,
         attackerTera: attacker.teraType,
@@ -1569,6 +1571,9 @@ function calculateFinalModsSMSSSV(gen, attacker, defender, move, field, desc, is
     }
     if (attacker.hasAbility('Nocturnal') && move.hasType('Dark')) {
         finalMods.push(5120);
+    }
+    if (attacker.hasAbility('Long Reach') && !move.flags.contact) {
+        finalMods.push(4915);
     }
     if (defender.hasAbility('Whiteout') && field.hasWeather('Hail') &&
         move.hasType('Ice')) {
