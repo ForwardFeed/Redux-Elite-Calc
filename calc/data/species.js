@@ -659,9 +659,9 @@ var REDUX_PATCH = {
     },
     'Arcanine': {
         id: 59,
-        bs: { hp: 90, at: 125, df: 65, sa: 85, sd: 80, sp: 110 },
-        abilities: ['Intimidate', 'Strong Jaw', 'Immolate'],
-        innates: ['Fur Coat', 'Discipline', 'Predator'],
+        bs: { hp: 90, at: 125, df: 80, sa: 115, sd: 80, sp: 110 },
+        abilities: ['Intimidate', 'Discipline', 'Immolate'],
+        innates: ['Fur Coat', 'Flash Fire', 'Predator'],
         weightkg: 1550,
         types: ['Fire'],
         genderR: 63
@@ -7884,7 +7884,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Grookey': {
-        id: 1309,
+        id: 1310,
         bs: { hp: 50, at: 65, df: 50, sa: 40, sd: 40, sp: 65 },
         abilities: ['Grassy Surge', 'Intimidate', 'None'],
         innates: ['Overgrow', 'Soundproof', 'Violent Rush'],
@@ -7894,7 +7894,7 @@ var REDUX_PATCH = {
         genderR: 30
     },
     'Thwackey': {
-        id: 1310,
+        id: 1311,
         bs: { hp: 70, at: 85, df: 70, sa: 55, sd: 60, sp: 80 },
         abilities: ['Grassy Surge', 'Intimidate', 'None'],
         innates: ['Overgrow', 'Soundproof', 'Violent Rush'],
@@ -7904,7 +7904,7 @@ var REDUX_PATCH = {
         genderR: 30
     },
     'Rillaboom': {
-        id: 1311,
+        id: 1312,
         bs: { hp: 100, at: 125, df: 90, sa: 60, sd: 70, sp: 85 },
         abilities: ['Violent Rush', 'Intimidate', 'Grass Pelt'],
         innates: ['Overgrow', 'Soundproof', 'Grassy Surge'],
@@ -7913,7 +7913,7 @@ var REDUX_PATCH = {
         genderR: 30
     },
     'Scorbunny': {
-        id: 1312,
+        id: 1313,
         bs: { hp: 50, at: 71, df: 40, sa: 40, sd: 40, sp: 69 },
         abilities: ['Keen Eye', 'Libero', 'None'],
         innates: ['Blaze', 'Striker', 'Limber'],
@@ -7923,7 +7923,7 @@ var REDUX_PATCH = {
         genderR: 30
     },
     'Raboot': {
-        id: 1313,
+        id: 1314,
         bs: { hp: 65, at: 86, df: 60, sa: 55, sd: 60, sp: 94 },
         abilities: ['Keen Eye', 'Libero', 'None'],
         innates: ['Blaze', 'Striker', 'Limber'],
@@ -7933,7 +7933,7 @@ var REDUX_PATCH = {
         genderR: 30
     },
     'Cinderace': {
-        id: 1314,
+        id: 1315,
         bs: { hp: 80, at: 116, df: 75, sa: 65, sd: 75, sp: 119 },
         abilities: ['Keen Eye', 'Libero', 'Pyromancy'],
         innates: ['Blaze', 'Striker', 'Limber'],
@@ -7942,7 +7942,7 @@ var REDUX_PATCH = {
         genderR: 30
     },
     'Sobble': {
-        id: 1315,
+        id: 1316,
         bs: { hp: 50, at: 40, df: 40, sa: 70, sd: 40, sp: 70 },
         abilities: ['Sniper', 'Rattled', 'None'],
         innates: ['Torrent', 'Immunity', 'Run Away'],
@@ -7952,7 +7952,7 @@ var REDUX_PATCH = {
         genderR: 30
     },
     'Drizzile': {
-        id: 1316,
+        id: 1317,
         bs: { hp: 65, at: 60, df: 55, sa: 95, sd: 55, sp: 90 },
         abilities: ['Sniper', 'Opportunist', 'None'],
         innates: ['Torrent', 'Immunity', 'Deadeye'],
@@ -7962,7 +7962,7 @@ var REDUX_PATCH = {
         genderR: 30
     },
     'Inteleon': {
-        id: 1317,
+        id: 1318,
         bs: { hp: 70, at: 85, df: 65, sa: 125, sd: 65, sp: 120 },
         abilities: ['Sniper', 'Opportunist', 'Overcharge'],
         innates: ['Torrent', 'Momentum', 'Deadeye'],
@@ -7971,7 +7971,7 @@ var REDUX_PATCH = {
         genderR: 30
     },
     'Skwovet': {
-        id: 1318,
+        id: 1319,
         bs: { hp: 70, at: 55, df: 55, sa: 35, sd: 35, sp: 25 },
         abilities: ['Cheek Pouch', 'None', 'Gluttony'],
         innates: [''],
@@ -7981,7 +7981,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Greedent': {
-        id: 1319,
+        id: 1320,
         bs: { hp: 120, at: 95, df: 95, sa: 55, sd: 75, sp: 20 },
         abilities: ['Cheek Pouch', 'None', 'Gluttony'],
         innates: [''],
@@ -7990,7 +7990,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Rookidee': {
-        id: 1320,
+        id: 1321,
         bs: { hp: 38, at: 47, df: 35, sa: 33, sd: 35, sp: 57 },
         abilities: ['Keen Eye', 'Reckless', 'Field Explorer'],
         innates: ['Intimidate', 'Flock'],
@@ -8000,7 +8000,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Corvisquire': {
-        id: 1321,
+        id: 1322,
         bs: { hp: 68, at: 67, df: 55, sa: 43, sd: 55, sp: 77 },
         abilities: ['Keen Eye', 'Reckless', 'Field Explorer'],
         innates: ['Intimidate', 'Flock'],
@@ -8010,7 +8010,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Corviknight': {
-        id: 1322,
+        id: 1323,
         bs: { hp: 98, at: 87, df: 105, sa: 53, sd: 85, sp: 67 },
         abilities: ['Stakeout', 'Reckless', 'Field Explorer'],
         innates: ['Intimidate', 'Unnerve', 'Mirror Armor'],
@@ -8019,36 +8019,36 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Blipbug': {
-        id: 1323,
+        id: 1324,
         bs: { hp: 25, at: 20, df: 20, sa: 25, sd: 45, sp: 45 },
-        abilities: ['Swarm', 'Compound Eyes', 'Telepathy'],
-        innates: [''],
+        abilities: ['Swarm', 'Telepathy', 'None'],
+        innates: ['Compound Eyes', 'Simple'],
         nfe: true,
         weightkg: 80,
         types: ['Bug'],
         genderR: 127
     },
     'Dottler': {
-        id: 1324,
+        id: 1325,
         bs: { hp: 50, at: 35, df: 80, sa: 50, sd: 90, sp: 30 },
-        abilities: ['Swarm', 'Compound Eyes', 'Telepathy'],
-        innates: [''],
+        abilities: ['Tinted Lens', 'Psychic Surge', 'None'],
+        innates: ['Compound Eyes', 'Shell Armor', 'Magic Bounce'],
         nfe: true,
         weightkg: 195,
         types: ['Bug', 'Psychic'],
         genderR: 127
     },
     'Orbeetle': {
-        id: 1325,
-        bs: { hp: 60, at: 45, df: 110, sa: 80, sd: 120, sp: 90 },
-        abilities: ['Swarm', 'Frisk', 'Telepathy'],
-        innates: [''],
+        id: 1326,
+        bs: { hp: 60, at: 45, df: 110, sa: 90, sd: 130, sp: 90 },
+        abilities: ['Power Spot', 'Psychic Surge', 'Gifted Mind'],
+        innates: ['Analytic', 'Gravity Well', 'Magic Bounce'],
         weightkg: 408,
         types: ['Bug', 'Psychic'],
         genderR: 127
     },
     'Nickit': {
-        id: 1326,
+        id: 1327,
         bs: { hp: 40, at: 28, df: 28, sa: 47, sd: 52, sp: 50 },
         abilities: ['Run Away', 'Unburden', 'Stakeout'],
         innates: [''],
@@ -8058,7 +8058,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Thievul': {
-        id: 1327,
+        id: 1328,
         bs: { hp: 70, at: 58, df: 58, sa: 87, sd: 92, sp: 90 },
         abilities: ['Run Away', 'Unburden', 'Stakeout'],
         innates: [''],
@@ -8067,7 +8067,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Gossifleur': {
-        id: 1328,
+        id: 1329,
         bs: { hp: 40, at: 40, df: 60, sa: 40, sd: 60, sp: 10 },
         abilities: ['Cotton Down', 'Regenerator', 'Effect Spore'],
         innates: [''],
@@ -8077,7 +8077,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Eldegoss': {
-        id: 1329,
+        id: 1330,
         bs: { hp: 60, at: 50, df: 90, sa: 80, sd: 120, sp: 60 },
         abilities: ['Cotton Down', 'Regenerator', 'Effect Spore'],
         innates: [''],
@@ -8086,7 +8086,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Wooloo': {
-        id: 1330,
+        id: 1331,
         bs: { hp: 42, at: 40, df: 55, sa: 40, sd: 45, sp: 48 },
         abilities: ['Fluffy', 'Run Away', 'Bulletproof'],
         innates: [''],
@@ -8096,7 +8096,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Dubwool': {
-        id: 1331,
+        id: 1332,
         bs: { hp: 72, at: 80, df: 100, sa: 60, sd: 90, sp: 88 },
         abilities: ['Fluffy', 'Steadfast', 'Bulletproof'],
         innates: [''],
@@ -8105,7 +8105,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Chewtle': {
-        id: 1332,
+        id: 1333,
         bs: { hp: 50, at: 64, df: 50, sa: 38, sd: 38, sp: 44 },
         abilities: ['Looter', 'Solid Rock', 'Swift Swim'],
         innates: ['Strong Jaw', 'Shell Armor', 'Growing Tooth'],
@@ -8115,16 +8115,16 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Drednaw': {
-        id: 1333,
+        id: 1334,
         bs: { hp: 90, at: 115, df: 90, sa: 48, sd: 68, sp: 74 },
         abilities: ['Predator', 'Solid Rock', 'Rock Head'],
-        innates: ['Strong Jaw', 'Shell Armor', 'Primal Maw'],
+        innates: ['Long Reach', 'Shell Armor', 'Primal Maw'],
         weightkg: 1155,
         types: ['Water', 'Rock'],
         genderR: 127
     },
     'Yamper': {
-        id: 1334,
+        id: 1335,
         bs: { hp: 59, at: 45, df: 50, sa: 40, sd: 50, sp: 26 },
         abilities: ['Rattled', 'None', 'None'],
         innates: ['Run Away', 'Electrocytes'],
@@ -8134,7 +8134,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Boltund': {
-        id: 1335,
+        id: 1336,
         bs: { hp: 69, at: 90, df: 60, sa: 90, sd: 60, sp: 121 },
         abilities: ['Short Circuit', 'Scare', 'Overcoat'],
         innates: ['Strong Jaw', 'Speed Boost', 'Defiant'],
@@ -8143,7 +8143,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Rolycoly': {
-        id: 1336,
+        id: 1337,
         bs: { hp: 30, at: 40, df: 50, sa: 40, sd: 50, sp: 30 },
         abilities: ['Flame Body', 'Solid Rock', 'Mountaineer'],
         innates: ['Steam Engine', 'Juggernaut', 'Magma Armor'],
@@ -8153,7 +8153,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Carkol': {
-        id: 1337,
+        id: 1338,
         bs: { hp: 80, at: 60, df: 90, sa: 60, sd: 70, sp: 50 },
         abilities: ['Flame Body', 'Solid Rock', 'Mountaineer'],
         innates: ['Steam Engine', 'Juggernaut', 'Magma Armor'],
@@ -8163,7 +8163,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Coalossal': {
-        id: 1338,
+        id: 1339,
         bs: { hp: 110, at: 80, df: 120, sa: 80, sd: 90, sp: 30 },
         abilities: ['Flame Body', 'Galvanize', 'Mountaineer'],
         innates: ['Steam Engine', 'Juggernaut', 'Magma Armor'],
@@ -8172,7 +8172,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Applin': {
-        id: 1339,
+        id: 1340,
         bs: { hp: 40, at: 40, df: 80, sa: 40, sd: 40, sp: 20 },
         abilities: ['Ripen', 'Hustle', 'Bulletproof'],
         innates: ['Gluttony', 'Shell Armor'],
@@ -8182,7 +8182,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Flapple': {
-        id: 1340,
+        id: 1341,
         bs: { hp: 70, at: 120, df: 90, sa: 105, sd: 60, sp: 95 },
         abilities: ['Hustle', 'Aerodynamics', 'Unburden'],
         innates: ['Levitate', 'Regenerator', 'Corrosion'],
@@ -8191,7 +8191,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Appletun': {
-        id: 1341,
+        id: 1342,
         bs: { hp: 110, at: 100, df: 110, sa: 100, sd: 90, sp: 30 },
         abilities: ['Unaware', 'Predator', 'Solar Flare'],
         innates: ['Harvest', 'Ripen', 'Thick Fat'],
@@ -8200,7 +8200,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Silicobra': {
-        id: 1342,
+        id: 1343,
         bs: { hp: 52, at: 57, df: 75, sa: 35, sd: 50, sp: 46 },
         abilities: ['Sand Spit', 'Shed Skin', 'Sand Veil'],
         innates: [''],
@@ -8210,7 +8210,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Sandaconda': {
-        id: 1343,
+        id: 1344,
         bs: { hp: 72, at: 107, df: 125, sa: 65, sd: 70, sp: 71 },
         abilities: ['Sand Spit', 'Shed Skin', 'Sand Veil'],
         innates: [''],
@@ -8219,7 +8219,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Cramorant': {
-        id: 1344,
+        id: 1345,
         bs: { hp: 70, at: 85, df: 55, sa: 85, sd: 95, sp: 85 },
         abilities: ['Gulp Missile', 'None'],
         innates: [''],
@@ -8229,7 +8229,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Arrokuda': {
-        id: 1345,
+        id: 1346,
         bs: { hp: 41, at: 63, df: 40, sa: 40, sd: 30, sp: 66 },
         abilities: ['Swift Swim', 'None', 'Propeller Tail'],
         innates: [''],
@@ -8239,7 +8239,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Barraskewda': {
-        id: 1346,
+        id: 1347,
         bs: { hp: 61, at: 123, df: 60, sa: 60, sd: 50, sp: 136 },
         abilities: ['Swift Swim', 'None', 'Propeller Tail'],
         innates: [''],
@@ -8248,7 +8248,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Toxel': {
-        id: 1347,
+        id: 1348,
         bs: { hp: 40, at: 38, df: 35, sa: 54, sd: 35, sp: 40 },
         abilities: ['Rattled', 'Static', 'Klutz'],
         innates: ['Plus', 'Water Absorb', 'Poison Touch'],
@@ -8258,7 +8258,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Toxtricity': {
-        id: 1348,
+        id: 1349,
         bs: { hp: 75, at: 98, df: 70, sa: 114, sd: 70, sp: 75 },
         abilities: ['Punk Rock', 'Amplifier', 'Technician'],
         innates: ['Plus', 'Water Absorb', 'Merciless'],
@@ -8268,7 +8268,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Sizzlipede': {
-        id: 1349,
+        id: 1350,
         bs: { hp: 50, at: 65, df: 45, sa: 50, sd: 50, sp: 45 },
         abilities: ['Magma Armor', 'Coil Up', 'Solar Power'],
         innates: ['Flash Fire', 'White Smoke'],
@@ -8278,7 +8278,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Centiskorch': {
-        id: 1350,
+        id: 1351,
         bs: { hp: 100, at: 115, df: 65, sa: 90, sd: 90, sp: 65 },
         abilities: ['Magma Armor', 'Coil Up', 'Solar Power'],
         innates: ['Flash Fire', 'White Smoke', 'Molten Down'],
@@ -8287,7 +8287,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Clobbopus': {
-        id: 1351,
+        id: 1352,
         bs: { hp: 50, at: 68, df: 60, sa: 50, sd: 50, sp: 32 },
         abilities: ['Limber', 'None', 'Technician'],
         innates: [''],
@@ -8297,7 +8297,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Grapploct': {
-        id: 1352,
+        id: 1353,
         bs: { hp: 80, at: 118, df: 90, sa: 70, sd: 80, sp: 42 },
         abilities: ['Limber', 'None', 'Technician'],
         innates: [''],
@@ -8306,7 +8306,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Sinistea': {
-        id: 1353,
+        id: 1354,
         bs: { hp: 40, at: 45, df: 45, sa: 74, sd: 54, sp: 50 },
         abilities: ['Weak Armor', 'Dancer', 'Aroma Veil'],
         innates: ['Cursed Body', 'Self Sufficient', 'Water Absorb'],
@@ -8317,7 +8317,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Polteageist': {
-        id: 1354,
+        id: 1355,
         bs: { hp: 60, at: 65, df: 65, sa: 134, sd: 114, sp: 70 },
         abilities: ['Weak Armor', 'Dancer', 'Liquified'],
         innates: ['Cursed Body', 'Self Sufficient', 'Water Absorb'],
@@ -8327,7 +8327,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Hatenna': {
-        id: 1355,
+        id: 1356,
         bs: { hp: 42, at: 30, df: 45, sa: 56, sd: 53, sp: 39 },
         abilities: ['Healer', 'Anticipation', 'Magic Bounce'],
         innates: ['Pixilate'],
@@ -8337,7 +8337,7 @@ var REDUX_PATCH = {
         genderR: 254
     },
     'Hattrem': {
-        id: 1356,
+        id: 1357,
         bs: { hp: 57, at: 40, df: 65, sa: 86, sd: 73, sp: 49 },
         abilities: ['Healer', 'Anticipation', 'Magic Bounce'],
         innates: ['Pixilate', 'Hyper Aggressive'],
@@ -8347,7 +8347,7 @@ var REDUX_PATCH = {
         genderR: 254
     },
     'Hatterene': {
-        id: 1357,
+        id: 1358,
         bs: { hp: 57, at: 90, df: 95, sa: 136, sd: 103, sp: 29 },
         abilities: ['Healer', 'Twisted Dimension', 'Rampage'],
         innates: ['Pixilate', 'Magic Bounce', 'Hyper Aggressive'],
@@ -8356,7 +8356,7 @@ var REDUX_PATCH = {
         genderR: 254
     },
     'Impidimp': {
-        id: 1358,
+        id: 1359,
         bs: { hp: 45, at: 45, df: 30, sa: 55, sd: 40, sp: 50 },
         abilities: ['Prankster', 'Pickpocket', 'Frisk'],
         innates: ['Scare'],
@@ -8366,7 +8366,7 @@ var REDUX_PATCH = {
         genderR: 0
     },
     'Morgrem': {
-        id: 1359,
+        id: 1360,
         bs: { hp: 65, at: 60, df: 45, sa: 75, sd: 55, sp: 70 },
         abilities: ['Prankster', 'Pickpocket', 'Tangling Hair'],
         innates: ['Scare'],
@@ -8376,7 +8376,7 @@ var REDUX_PATCH = {
         genderR: 0
     },
     'Grimmsnarl': {
-        id: 1360,
+        id: 1361,
         bs: { hp: 95, at: 120, df: 65, sa: 95, sd: 75, sp: 60 },
         abilities: ['Prankster', 'Cheap Tactics', 'Tangling Hair'],
         innates: ['Fur Coat', 'Intimidate', 'Scare'],
@@ -8385,7 +8385,7 @@ var REDUX_PATCH = {
         genderR: 0
     },
     'Obstagoon': {
-        id: 1361,
+        id: 1362,
         bs: { hp: 93, at: 90, df: 101, sa: 60, sd: 81, sp: 95 },
         abilities: ['Fight Spirit', 'Stamina', 'Poison Heal'],
         innates: ['Pickup', 'Guts', 'Defiant'],
@@ -8394,7 +8394,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Perrserker': {
-        id: 1362,
+        id: 1363,
         bs: { hp: 70, at: 110, df: 100, sa: 50, sd: 60, sp: 50 },
         abilities: ['Fur Coat', 'Looter', 'Iron Barbs'],
         innates: ['Battle Armor', 'Tough Claws', 'Steely Spirit'],
@@ -8403,7 +8403,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Cursola': {
-        id: 1363,
+        id: 1364,
         bs: { hp: 60, at: 95, df: 50, sa: 145, sd: 130, sp: 30 },
         abilities: ['Weak Armor', 'None', 'Perish Body'],
         innates: [''],
@@ -8412,7 +8412,7 @@ var REDUX_PATCH = {
         genderR: 191
     },
     'Sirfetchd': {
-        id: 1364,
+        id: 1365,
         bs: { hp: 92, at: 125, df: 95, sa: 68, sd: 92, sp: 65 },
         abilities: ['Hyper Cutter', 'Dauntless Shield', 'Chlorophyll'],
         innates: ['Scrappy', 'Keen Edge', 'Rampage'],
@@ -8421,7 +8421,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Mr Rime': {
-        id: 1365,
+        id: 1366,
         bs: { hp: 80, at: 85, df: 75, sa: 110, sd: 100, sp: 70 },
         abilities: ['Tangled Feet', 'Screen Cleaner', 'Ice Body'],
         innates: [''],
@@ -8430,7 +8430,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Runerigus': {
-        id: 1366,
+        id: 1367,
         bs: { hp: 58, at: 95, df: 145, sa: 50, sd: 105, sp: 30 },
         abilities: ['Wandering Spirit', 'Shadow Shield', 'Ancient Idol'],
         innates: ['Haunted Spirit', 'Cursed Body', 'Solid Rock'],
@@ -8439,7 +8439,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Milcery': {
-        id: 1367,
+        id: 1368,
         bs: { hp: 45, at: 40, df: 40, sa: 50, sd: 61, sp: 34 },
         abilities: ['Sweet Veil', 'Sweet Veil', 'Aroma Veil'],
         innates: [''],
@@ -8449,7 +8449,7 @@ var REDUX_PATCH = {
         genderR: 254
     },
     'Alcremie': {
-        id: 1368,
+        id: 1369,
         bs: { hp: 65, at: 60, df: 75, sa: 110, sd: 121, sp: 64 },
         abilities: ['Sweet Veil', 'Sweet Veil', 'Aroma Veil'],
         innates: [''],
@@ -8459,7 +8459,7 @@ var REDUX_PATCH = {
         genderR: 254
     },
     'Falinks': {
-        id: 1369,
+        id: 1370,
         bs: { hp: 65, at: 100, df: 100, sa: 70, sd: 60, sp: 75 },
         abilities: ['Battle Armor', 'None', 'Defiant'],
         innates: [''],
@@ -8468,7 +8468,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Pincurchin': {
-        id: 1370,
+        id: 1371,
         bs: { hp: 48, at: 101, df: 95, sa: 91, sd: 85, sp: 15 },
         abilities: ['Lightning Rod', 'None', 'Electric Surge'],
         innates: [''],
@@ -8477,7 +8477,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Snom': {
-        id: 1371,
+        id: 1372,
         bs: { hp: 30, at: 25, df: 35, sa: 45, sd: 30, sp: 20 },
         abilities: ['Shield Dust', 'None', 'Ice Scales'],
         innates: [''],
@@ -8487,7 +8487,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Frosmoth': {
-        id: 1372,
+        id: 1373,
         bs: { hp: 70, at: 65, df: 60, sa: 125, sd: 90, sp: 65 },
         abilities: ['Shield Dust', 'None', 'Ice Scales'],
         innates: [''],
@@ -8496,7 +8496,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Stonjourner': {
-        id: 1373,
+        id: 1374,
         bs: { hp: 100, at: 125, df: 135, sa: 20, sd: 20, sp: 70 },
         abilities: ['Power Spot', 'None'],
         innates: [''],
@@ -8505,7 +8505,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Eiscue': {
-        id: 1374,
+        id: 1375,
         bs: { hp: 75, at: 80, df: 110, sa: 65, sd: 90, sp: 50 },
         abilities: ['Ice Face', 'None'],
         innates: [''],
@@ -8515,7 +8515,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Indeedee': {
-        id: 1375,
+        id: 1376,
         bs: { hp: 60, at: 65, df: 55, sa: 105, sd: 95, sp: 95 },
         abilities: ['Inner Focus', 'Synchronize', 'Psychic Surge'],
         innates: [''],
@@ -8525,7 +8525,7 @@ var REDUX_PATCH = {
         genderR: 0
     },
     'Morpeko': {
-        id: 1376,
+        id: 1377,
         bs: { hp: 58, at: 95, df: 58, sa: 70, sd: 58, sp: 97 },
         abilities: ['Hunger Switch', 'None'],
         innates: [''],
@@ -8535,7 +8535,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Cufant': {
-        id: 1377,
+        id: 1378,
         bs: { hp: 72, at: 80, df: 49, sa: 40, sd: 49, sp: 40 },
         abilities: ['Sheer Force', 'None', 'Heavy Metal'],
         innates: [''],
@@ -8545,7 +8545,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Copperajah': {
-        id: 1378,
+        id: 1379,
         bs: { hp: 122, at: 130, df: 69, sa: 80, sd: 69, sp: 30 },
         abilities: ['Sheer Force', 'None', 'Heavy Metal'],
         innates: [''],
@@ -8554,7 +8554,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Dracozolt': {
-        id: 1379,
+        id: 1380,
         bs: { hp: 90, at: 100, df: 90, sa: 80, sd: 70, sp: 75 },
         abilities: ['Strong Jaw', 'Surge Surfer', 'Sand Rush'],
         innates: ['Fossilized', 'Dragons Maw', 'Volt Absorb'],
@@ -8563,7 +8563,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Arctozolt': {
-        id: 1380,
+        id: 1381,
         bs: { hp: 90, at: 100, df: 90, sa: 90, sd: 80, sp: 55 },
         abilities: ['Strong Jaw', 'Surge Surfer', 'Slush Rush'],
         innates: ['Fossilized', 'Volt Absorb', 'Ice Body'],
@@ -8572,7 +8572,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Dracovish': {
-        id: 1381,
+        id: 1382,
         bs: { hp: 90, at: 90, df: 100, sa: 70, sd: 80, sp: 75 },
         abilities: ['Strong Jaw', 'Swift Swim', 'Sand Rush'],
         innates: ['Fossilized', 'Dragons Maw', 'Water Absorb'],
@@ -8581,7 +8581,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Arctovish': {
-        id: 1382,
+        id: 1383,
         bs: { hp: 90, at: 90, df: 100, sa: 80, sd: 90, sp: 55 },
         abilities: ['Strong Jaw', 'Swift Swim', 'Slush Rush'],
         innates: ['Fossilized', 'Water Absorb', 'Ice Body'],
@@ -8590,7 +8590,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Duraludon': {
-        id: 1383,
+        id: 1384,
         bs: { hp: 70, at: 95, df: 115, sa: 120, sd: 50, sp: 85 },
         abilities: ['Light Metal', 'Heavy Metal', 'Stalwart'],
         innates: [''],
@@ -8599,7 +8599,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Dreepy': {
-        id: 1384,
+        id: 1385,
         bs: { hp: 28, at: 60, df: 30, sa: 40, sd: 30, sp: 82 },
         abilities: ['Keen Eye', 'Infiltrator', 'None'],
         innates: ['Levitate', 'Clear Body', 'Cursed Body'],
@@ -8609,7 +8609,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Drakloak': {
-        id: 1385,
+        id: 1386,
         bs: { hp: 68, at: 80, df: 50, sa: 60, sd: 50, sp: 102 },
         abilities: ['Keen Eye', 'Infiltrator', 'Parental Bond'],
         innates: ['Levitate', 'Clear Body', 'Cursed Body'],
@@ -8619,7 +8619,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Dragapult': {
-        id: 1386,
+        id: 1387,
         bs: { hp: 88, at: 120, df: 75, sa: 100, sd: 75, sp: 142 },
         abilities: ['Artillery', 'Speed Boost', 'Parental Bond'],
         innates: ['Levitate', 'Clear Body', 'Haunted Spirit'],
@@ -8628,7 +8628,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Zacian': {
-        id: 1387,
+        id: 1388,
         bs: { hp: 92, at: 130, df: 115, sa: 80, sd: 115, sp: 138 },
         abilities: ['Intrepid Sword', 'None'],
         innates: [''],
@@ -8638,7 +8638,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Zamazenta': {
-        id: 1388,
+        id: 1389,
         bs: { hp: 92, at: 130, df: 115, sa: 80, sd: 115, sp: 138 },
         abilities: ['Dauntless Shield', 'None'],
         innates: [''],
@@ -8648,7 +8648,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Eternatus': {
-        id: 1389,
+        id: 1390,
         bs: { hp: 140, at: 85, df: 95, sa: 145, sd: 95, sp: 130 },
         abilities: ['Pressure', 'None'],
         innates: [''],
@@ -8658,7 +8658,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Kubfu': {
-        id: 1390,
+        id: 1391,
         bs: { hp: 60, at: 90, df: 60, sa: 53, sd: 50, sp: 72 },
         abilities: ['Inner Focus', 'None'],
         innates: [''],
@@ -8668,7 +8668,7 @@ var REDUX_PATCH = {
         genderR: 30
     },
     'Urshifu': {
-        id: 1391,
+        id: 1392,
         bs: { hp: 100, at: 130, df: 100, sa: 63, sd: 60, sp: 97 },
         abilities: ['Unseen Fist', 'None'],
         innates: [''],
@@ -8678,7 +8678,7 @@ var REDUX_PATCH = {
         genderR: 30
     },
     'Zarude': {
-        id: 1392,
+        id: 1393,
         bs: { hp: 105, at: 120, df: 105, sa: 70, sd: 95, sp: 105 },
         abilities: ['Leaf Guard', 'None'],
         innates: [''],
@@ -8688,7 +8688,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Regieleki': {
-        id: 1393,
+        id: 1394,
         bs: { hp: 80, at: 100, df: 50, sa: 100, sd: 50, sp: 200 },
         abilities: ['Transistor', 'None'],
         innates: [''],
@@ -8697,7 +8697,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Regidrago': {
-        id: 1394,
+        id: 1395,
         bs: { hp: 200, at: 100, df: 50, sa: 100, sd: 50, sp: 80 },
         abilities: ['Dragons Maw', 'None'],
         innates: [''],
@@ -8724,7 +8724,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Calyrex': {
-        id: 1395,
+        id: 1396,
         bs: { hp: 100, at: 80, df: 80, sa: 80, sd: 80, sp: 80 },
         abilities: ['Unnerve', 'Unnerve', 'Unnerve'],
         innates: [''],
@@ -8733,8 +8733,19 @@ var REDUX_PATCH = {
         types: ['Psychic', 'Grass'],
         genderR: 255
     },
-    'Venusaur Mega': {
+    'Potato': {
         id: 899,
+        bs: { hp: 50, at: 60, df: 70, sa: 80, sd: 90, sp: 100 },
+        abilities: ['Chlorophyll', 'None', 'Ripen'],
+        innates: ['Chlorophyll'],
+        otherFormes: ['Abomasnow Mega'],
+        nfe: true,
+        weightkg: 100,
+        types: ['Grass', 'Ground'],
+        genderR: 127
+    },
+    'Venusaur Mega': {
+        id: 900,
         bs: { hp: 80, at: 100, df: 123, sa: 122, sd: 120, sp: 80 },
         abilities: ['Big Leaves', 'Big Leaves', 'Big Leaves'],
         innates: ['Forest Rage', 'Thick Fat', 'Poison Touch'],
@@ -8744,7 +8755,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Charizard Mega X': {
-        id: 900,
+        id: 901,
         bs: { hp: 78, at: 150, df: 111, sa: 110, sd: 85, sp: 100 },
         abilities: ['Tough Claws', 'Tough Claws', 'Tough Claws'],
         innates: ['Hellblaze', 'Levitate', 'Discipline'],
@@ -8754,7 +8765,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Charizard Mega Y': {
-        id: 901,
+        id: 902,
         bs: { hp: 78, at: 104, df: 78, sa: 159, sd: 115, sp: 100 },
         abilities: ['Drought', 'Drought', 'Drought'],
         innates: ['Hellblaze', 'Levitate', 'Solar Power'],
@@ -8764,7 +8775,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Blastoise Mega': {
-        id: 902,
+        id: 903,
         bs: { hp: 79, at: 103, df: 120, sa: 135, sd: 115, sp: 78 },
         abilities: ['Artillery', 'Artillery', 'Artillery'],
         innates: ['Riptide', 'Shell Armor', 'Mega Launcher'],
@@ -8774,7 +8785,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Beedrill Mega': {
-        id: 903,
+        id: 904,
         bs: { hp: 65, at: 150, df: 60, sa: 45, sd: 80, sp: 175 },
         abilities: ['Adaptability', 'Adaptability', 'Adaptability'],
         innates: ['Hyper Aggressive', 'Merciless', 'Levitate'],
@@ -8784,7 +8795,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Pidgeot Mega': {
-        id: 904,
+        id: 905,
         bs: { hp: 83, at: 115, df: 95, sa: 115, sd: 80, sp: 121 },
         abilities: ['No Guard', 'Majestic Bird', 'Big Pecks'],
         innates: ['Flock', 'Keen Eye', 'Giant Wings'],
@@ -8794,7 +8805,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Alakazam Mega': {
-        id: 905,
+        id: 906,
         bs: { hp: 55, at: 50, df: 65, sa: 175, sd: 105, sp: 150 },
         abilities: ['Mystic Power', 'Mystic Power', 'Mystic Power'],
         innates: ['Psychic Mind', 'Inner Focus', 'Magic Guard'],
@@ -8804,7 +8815,7 @@ var REDUX_PATCH = {
         genderR: 63
     },
     'Slowbro Mega': {
-        id: 906,
+        id: 907,
         bs: { hp: 95, at: 75, df: 180, sa: 130, sd: 80, sp: 30 },
         abilities: ['Unaware', 'Unaware', 'Unaware'],
         innates: ['Regenerator', 'Fort Knox', 'Shell Armor'],
@@ -8814,7 +8825,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Gengar Mega': {
-        id: 907,
+        id: 908,
         bs: { hp: 60, at: 115, df: 80, sa: 170, sd: 95, sp: 130 },
         abilities: ['Shadow Tag', 'Shadow Tag', 'Shadow Tag'],
         innates: ['Vengeance', 'Soul Eater', 'Haunted Spirit'],
@@ -8824,7 +8835,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Kangaskhan Mega': {
-        id: 908,
+        id: 909,
         bs: { hp: 105, at: 125, df: 100, sa: 60, sd: 100, sp: 100 },
         abilities: ['Tough Claws', 'Tough Claws', 'Tough Claws'],
         innates: ['Parental Bond', 'Scrappy', 'Avenger'],
@@ -8834,7 +8845,7 @@ var REDUX_PATCH = {
         genderR: 254
     },
     'Pinsir Mega': {
-        id: 909,
+        id: 910,
         bs: { hp: 65, at: 155, df: 120, sa: 65, sd: 90, sp: 105 },
         abilities: ['Hyper Aggressive', 'Hyper Aggressive', 'Hyper Aggressive'],
         innates: ['Hyper Cutter', 'Grip Pincer', 'Aerilate'],
@@ -8844,7 +8855,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Gyarados Mega': {
-        id: 910,
+        id: 911,
         bs: { hp: 95, at: 155, df: 109, sa: 70, sd: 130, sp: 81 },
         abilities: ['Hyper Aggressive', 'Hyper Aggressive', 'Hyper Aggressive'],
         innates: ['Mold Breaker', 'Beast Boost', 'Levitate'],
@@ -8854,7 +8865,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Aerodactyl Mega': {
-        id: 911,
+        id: 912,
         bs: { hp: 80, at: 135, df: 85, sa: 70, sd: 95, sp: 150 },
         abilities: ['Speed Force', 'Predator', 'Fatal Precision'],
         innates: ['Fossilized', 'Rock Head', 'Tough Claws'],
@@ -8864,7 +8875,7 @@ var REDUX_PATCH = {
         genderR: 30
     },
     'Mewtwo Mega X': {
-        id: 912,
+        id: 913,
         bs: { hp: 106, at: 190, df: 100, sa: 154, sd: 100, sp: 130 },
         abilities: ['Opportunist', 'Opportunist', 'Opportunist'],
         innates: ['Psychic Mind', 'Raging Boxer', 'Fatal Precision'],
@@ -8874,7 +8885,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Mewtwo Mega Y': {
-        id: 913,
+        id: 914,
         bs: { hp: 106, at: 150, df: 70, sa: 194, sd: 120, sp: 140 },
         abilities: ['Mystic Power', 'Mystic Power', 'Mystic Power'],
         innates: ['Psychic Mind', 'Levitate', 'Fatal Precision'],
@@ -8884,7 +8895,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Ampharos Mega': {
-        id: 914,
+        id: 915,
         bs: { hp: 110, at: 95, df: 105, sa: 165, sd: 110, sp: 45 },
         abilities: ['Transistor', 'Transistor', 'Transistor'],
         innates: ['Fluffy', 'Illuminate', 'Overwhelm'],
@@ -8894,7 +8905,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Steelix Mega': {
-        id: 915,
+        id: 916,
         bs: { hp: 75, at: 145, df: 230, sa: 55, sd: 105, sp: 20 },
         abilities: ['Primal Armor', 'Primal Armor', 'Primal Armor'],
         innates: ['Lead Coat', 'Impenetrable', 'Strong Jaw'],
@@ -8904,7 +8915,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Scizor Mega': {
-        id: 916,
+        id: 917,
         bs: { hp: 70, at: 150, df: 140, sa: 65, sd: 100, sp: 75 },
         abilities: ['Technician', 'Technician', 'Technician'],
         innates: ['Pollinate', 'Tough Claws', 'Levitate'],
@@ -8914,7 +8925,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Heracross Mega': {
-        id: 917,
+        id: 918,
         bs: { hp: 80, at: 185, df: 115, sa: 40, sd: 105, sp: 75 },
         abilities: ['Mighty Horn', 'Mighty Horn', 'Mighty Horn'],
         innates: ['Fight Spirit', 'Battle Armor', 'Shield Dust'],
@@ -8924,7 +8935,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Houndoom Mega': {
-        id: 918,
+        id: 919,
         bs: { hp: 75, at: 100, df: 90, sa: 140, sd: 90, sp: 125 },
         abilities: ['Infernal Rage', 'Infernal Rage', 'Infernal Rage'],
         innates: ['Solar Power', 'Molten Down', 'Hyper Aggressive'],
@@ -8934,7 +8945,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Tyranitar Mega': {
-        id: 919,
+        id: 920,
         bs: { hp: 100, at: 164, df: 150, sa: 95, sd: 120, sp: 71 },
         abilities: ['Primal Armor', 'Primal Armor', 'Primal Armor'],
         innates: ['Impenetrable', 'Juggernaut', 'Rough Skin'],
@@ -8944,7 +8955,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Sceptile Mega': {
-        id: 920,
+        id: 921,
         bs: { hp: 70, at: 145, df: 75, sa: 110, sd: 85, sp: 145 },
         abilities: ['Big Leaves', 'Big Leaves', 'Big Leaves'],
         innates: ['Forest Rage', 'Speed Force', 'Keen Edge'],
@@ -8954,7 +8965,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Blaziken Mega': {
-        id: 921,
+        id: 922,
         bs: { hp: 80, at: 160, df: 80, sa: 130, sd: 80, sp: 100 },
         abilities: ['Speed Boost', 'Speed Boost', 'Speed Boost'],
         innates: ['Hellblaze', 'Iron Fist', 'Striker'],
@@ -8964,7 +8975,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Swampert Mega': {
-        id: 922,
+        id: 923,
         bs: { hp: 100, at: 150, df: 110, sa: 95, sd: 110, sp: 70 },
         abilities: ['Swift Swim', 'Swift Swim', 'Swift Swim'],
         innates: ['Riptide', 'Stamina', 'Regenerator'],
@@ -8974,7 +8985,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Gardevoir Mega': {
-        id: 923,
+        id: 924,
         bs: { hp: 68, at: 85, df: 80, sa: 165, sd: 135, sp: 100 },
         abilities: ['Pixilate', 'Pixilate', 'Pixilate'],
         innates: ['Serene Grace', 'Magic Guard', 'Soul Heart'],
@@ -8984,7 +8995,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Sableye Mega': {
-        id: 924,
+        id: 925,
         bs: { hp: 70, at: 85, df: 130, sa: 85, sd: 120, sp: 20 },
         abilities: ['Magic Bounce', 'Magic Bounce', 'Magic Bounce'],
         innates: ['Analytic', 'Prankster', 'Nocturnal'],
@@ -8994,7 +9005,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Mawile Mega': {
-        id: 925,
+        id: 926,
         bs: { hp: 70, at: 105, df: 130, sa: 55, sd: 100, sp: 50 },
         abilities: ['Huge Power', 'Huge Power', 'Huge Power'],
         innates: ['Multi Headed', 'Strong Jaw', 'Grip Pincer'],
@@ -9004,7 +9015,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Aggron Mega': {
-        id: 926,
+        id: 927,
         bs: { hp: 70, at: 140, df: 230, sa: 60, sd: 80, sp: 50 },
         abilities: ['Juggernaut', 'Heatproof', 'Iron Barbs'],
         innates: ['Lead Coat', 'Primal Armor', 'Impenetrable'],
@@ -9014,7 +9025,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Medicham Mega': {
-        id: 927,
+        id: 928,
         bs: { hp: 60, at: 100, df: 85, sa: 80, sd: 85, sp: 100 },
         abilities: ['Pure Power', 'Pure Power', 'Pure Power'],
         innates: ['Psychic Mind', 'Striker', 'Technician'],
@@ -9024,7 +9035,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Manectric Mega': {
-        id: 928,
+        id: 929,
         bs: { hp: 70, at: 110, df: 80, sa: 135, sd: 80, sp: 155 },
         abilities: ['Intimidate', 'Intimidate', 'Intimidate'],
         innates: ['Volt Rush', 'Ground Shock', 'Overcharge'],
@@ -9034,7 +9045,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Sharpedo Mega': {
-        id: 929,
+        id: 930,
         bs: { hp: 70, at: 150, df: 70, sa: 120, sd: 65, sp: 115 },
         abilities: ['Hyper Aggressive', 'Hyper Aggressive', 'Hyper Aggressive'],
         innates: ['Strong Jaw', 'Swift Swim', 'Jaws Of Carnage'],
@@ -9044,7 +9055,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Camerupt Mega': {
-        id: 930,
+        id: 931,
         bs: { hp: 90, at: 120, df: 110, sa: 145, sd: 115, sp: 20 },
         abilities: ['Drought', 'Drought', 'Drought'],
         innates: ['Magma Armor', 'Artillery', 'Molten Down'],
@@ -9054,7 +9065,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Altaria Mega': {
-        id: 931,
+        id: 932,
         bs: { hp: 75, at: 110, df: 110, sa: 110, sd: 105, sp: 100 },
         abilities: ['Pixilate', 'Pixilate', 'Pixilate'],
         innates: ['Natural Cure', 'Fluffy', 'Levitate'],
@@ -9064,7 +9075,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Banette Mega': {
-        id: 932,
+        id: 933,
         bs: { hp: 84, at: 165, df: 105, sa: 75, sd: 103, sp: 103 },
         abilities: ['Prankster', 'Prankster', 'Prankster'],
         innates: ['Intimidate', 'Magic Guard', 'Soul Eater'],
@@ -9074,7 +9085,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Absol Mega': {
-        id: 933,
+        id: 934,
         bs: { hp: 65, at: 175, df: 60, sa: 100, sd: 60, sp: 125 },
         abilities: ['Dark Aura', 'Dark Aura', 'Dark Aura'],
         innates: ['Super Luck', 'Keen Edge', 'Magic Guard'],
@@ -9084,7 +9095,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Glalie Mega': {
-        id: 934,
+        id: 935,
         bs: { hp: 80, at: 130, df: 80, sa: 120, sd: 80, sp: 110 },
         abilities: ['Moody', 'Rock Head', 'Whiteout'],
         innates: ['Snow Warning', 'Refrigerate', 'Levitate'],
@@ -9094,7 +9105,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Salamence Mega': {
-        id: 935,
+        id: 936,
         bs: { hp: 95, at: 145, df: 130, sa: 120, sd: 90, sp: 120 },
         abilities: ['Beast Boost', 'Beast Boost', 'Beast Boost'],
         innates: ['Overwhelm', 'Aerilate', 'Predator'],
@@ -9104,7 +9115,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Metagross Mega': {
-        id: 936,
+        id: 937,
         bs: { hp: 80, at: 145, df: 150, sa: 105, sd: 110, sp: 110 },
         abilities: ['Tough Claws', 'Tough Claws', 'Tough Claws'],
         innates: ['Predator', 'Full Metal Body', 'Levitate'],
@@ -9114,7 +9125,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Latias Mega': {
-        id: 937,
+        id: 938,
         bs: { hp: 80, at: 100, df: 120, sa: 140, sd: 150, sp: 110 },
         abilities: ['Mirror Armor', 'Mirror Armor', 'Mirror Armor'],
         innates: ['Levitate', 'Prism Armor', 'Mystic Power'],
@@ -9124,7 +9135,7 @@ var REDUX_PATCH = {
         genderR: 254
     },
     'Latios Mega': {
-        id: 938,
+        id: 939,
         bs: { hp: 80, at: 130, df: 100, sa: 160, sd: 120, sp: 110 },
         abilities: ['Speed Boost', 'Speed Boost', 'Speed Boost'],
         innates: ['Levitate', 'Multiscale', 'Mystic Power'],
@@ -9134,7 +9145,7 @@ var REDUX_PATCH = {
         genderR: 0
     },
     'Lopunny Mega': {
-        id: 939,
+        id: 940,
         bs: { hp: 65, at: 136, df: 74, sa: 64, sd: 96, sp: 135 },
         abilities: ['Scrappy', 'Scrappy', 'Scrappy'],
         innates: ['Limber', 'Fur Coat', 'Striker'],
@@ -9144,7 +9155,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Garchomp Mega': {
-        id: 940,
+        id: 941,
         bs: { hp: 108, at: 170, df: 110, sa: 120, sd: 90, sp: 102 },
         abilities: ['Keen Edge', 'Keen Edge', 'Keen Edge'],
         innates: ['Hyper Aggressive', 'Predator', 'Rough Skin'],
@@ -9154,7 +9165,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Lucario Mega': {
-        id: 941,
+        id: 942,
         bs: { hp: 70, at: 145, df: 88, sa: 140, sd: 70, sp: 112 },
         abilities: ['Adaptability', 'Adaptability', 'Adaptability'],
         innates: ['Inner Focus', 'Fatal Precision', 'Fight Spirit'],
@@ -9164,17 +9175,17 @@ var REDUX_PATCH = {
         genderR: 30
     },
     'Abomasnow Mega': {
-        id: 942,
+        id: 943,
         bs: { hp: 90, at: 142, df: 105, sa: 142, sd: 105, sp: 30 },
         abilities: ['Snow Warning', 'Snow Warning', 'Snow Warning'],
         innates: ['Ice Body', 'Whiteout', 'Permafrost'],
-        otherFormes: ['Abomasnow'],
+        otherFormes: ['Abomasnow', 'Potato'],
         weightkg: 0,
         types: ['Grass', 'Ice'],
         genderR: 127
     },
     'Gallade Mega': {
-        id: 943,
+        id: 944,
         bs: { hp: 68, at: 135, df: 95, sa: 95, sd: 125, sp: 115 },
         abilities: ['Intrepid Sword', 'Intrepid Sword', 'Intrepid Sword'],
         innates: ['Keen Edge', 'Fatal Precision', 'Inner Focus'],
@@ -9184,7 +9195,7 @@ var REDUX_PATCH = {
         genderR: 0
     },
     'Audino Mega': {
-        id: 944,
+        id: 945,
         bs: { hp: 103, at: 60, df: 126, sa: 120, sd: 126, sp: 50 },
         abilities: ['Healer', 'Healer', 'Healer'],
         innates: ['Natural Cure', 'Regenerator', 'Serene Grace'],
@@ -9194,7 +9205,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Diancie Mega': {
-        id: 945,
+        id: 946,
         bs: { hp: 50, at: 160, df: 110, sa: 160, sd: 110, sp: 110 },
         abilities: ['Magic Bounce', 'Magic Bounce', 'Magic Bounce'],
         innates: ['Clear Body', 'Levitate', 'Magic Guard'],
@@ -9204,7 +9215,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Rayquaza Mega': {
-        id: 946,
+        id: 947,
         bs: { hp: 105, at: 180, df: 100, sa: 180, sd: 100, sp: 115 },
         abilities: ['Dragons Maw', 'Deadeye', 'Mold Breaker'],
         innates: ['Delta Stream', 'Weather Control', 'Aerilate'],
@@ -9214,7 +9225,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Kyogre Primal': {
-        id: 947,
+        id: 948,
         bs: { hp: 100, at: 150, df: 90, sa: 180, sd: 160, sp: 90 },
         abilities: ['Artillery', 'Artillery', 'Artillery'],
         innates: ['Swift Swim', 'Primal Armor', 'Primordial Sea'],
@@ -9224,7 +9235,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Groudon Primal': {
-        id: 948,
+        id: 949,
         bs: { hp: 100, at: 180, df: 160, sa: 150, sd: 90, sp: 90 },
         abilities: ['Tough Claws', 'Tough Claws', 'Tough Claws'],
         innates: ['Molten Down', 'Primal Armor', 'Desolate Land'],
@@ -9234,7 +9245,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Rattata Alolan': {
-        id: 949,
+        id: 950,
         bs: { hp: 30, at: 56, df: 35, sa: 25, sd: 35, sp: 72 },
         abilities: ['Hustle', 'Cheek Pouch', 'Looter'],
         innates: ['Thick Fat', 'Run Away', 'Gluttony'],
@@ -9245,7 +9256,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Raticate Alolan': {
-        id: 950,
+        id: 951,
         bs: { hp: 75, at: 86, df: 80, sa: 40, sd: 80, sp: 77 },
         abilities: ['Hustle', 'Cheek Pouch', 'Cheap Tactics'],
         innates: ['Thick Fat', 'Gluttony', 'Growing Tooth'],
@@ -9255,7 +9266,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Raichu Alolan': {
-        id: 951,
+        id: 952,
         bs: { hp: 60, at: 85, df: 50, sa: 95, sd: 85, sp: 115 },
         abilities: ['Psychic Mind', 'Short Circuit', 'Electric Surge'],
         innates: ['Surge Surfer', 'Levitate', 'Ground Shock'],
@@ -9265,7 +9276,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Sandshrew Alolan': {
-        id: 952,
+        id: 953,
         bs: { hp: 50, at: 75, df: 90, sa: 10, sd: 35, sp: 40 },
         abilities: ['Snow Cloak', 'Stamina', 'Mountaineer'],
         innates: ['Lets Roll', 'Slush Rush', 'Battle Armor'],
@@ -9276,7 +9287,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Sandslash Alolan': {
-        id: 953,
+        id: 954,
         bs: { hp: 95, at: 100, df: 120, sa: 25, sd: 65, sp: 65 },
         abilities: ['Slush Rush', 'Stamina', 'Mountaineer'],
         innates: ['Lets Roll', 'Tough Claws', 'Iron Barbs'],
@@ -9286,7 +9297,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Vulpix Alolan': {
-        id: 954,
+        id: 955,
         bs: { hp: 38, at: 41, df: 40, sa: 50, sd: 65, sp: 65 },
         abilities: ['Ice Dew', 'Ice Body', 'Snow Warning'],
         innates: ['Quick Feet', 'Refrigerate'],
@@ -9297,7 +9308,7 @@ var REDUX_PATCH = {
         genderR: 191
     },
     'Ninetales Alolan': {
-        id: 955,
+        id: 956,
         bs: { hp: 73, at: 67, df: 75, sa: 91, sd: 100, sp: 109 },
         abilities: ['Frozen Soul', 'North Wind', 'Snow Warning'],
         innates: ['Queenly Majesty', 'Refrigerate', 'Ice Dew'],
@@ -9307,7 +9318,7 @@ var REDUX_PATCH = {
         genderR: 191
     },
     'Diglett Alolan': {
-        id: 956,
+        id: 957,
         bs: { hp: 10, at: 55, df: 30, sa: 35, sd: 45, sp: 90 },
         abilities: ['Sand Force', 'Arena Trap', 'Steelworker'],
         innates: ['Tangling Hair', 'Sand Rush'],
@@ -9318,7 +9329,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Dugtrio Alolan': {
-        id: 957,
+        id: 958,
         bs: { hp: 35, at: 100, df: 60, sa: 50, sd: 70, sp: 110 },
         abilities: ['Sand Rush', 'Arena Trap', 'Steelworker'],
         innates: ['Multi Headed', 'Sand Force', 'Speed Force'],
@@ -9328,7 +9339,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Meowth Alolan': {
-        id: 958,
+        id: 959,
         bs: { hp: 40, at: 35, df: 35, sa: 50, sd: 40, sp: 90 },
         abilities: ['Sniper', 'Limber', 'Prankster'],
         innates: ['Perfectionist', 'Technician', 'Opportunist'],
@@ -9339,7 +9350,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Persian Alolan': {
-        id: 959,
+        id: 960,
         bs: { hp: 65, at: 75, df: 70, sa: 105, sd: 65, sp: 115 },
         abilities: ['Cheap Tactics', 'Opportunist', 'Prankster'],
         innates: ['Perfectionist', 'Coward', 'Fur Coat'],
@@ -9349,7 +9360,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Geodude Alolan': {
-        id: 960,
+        id: 961,
         bs: { hp: 40, at: 80, df: 100, sa: 30, sd: 30, sp: 20 },
         abilities: ['Magnet Pull', 'Rock Head', 'Fort Knox'],
         innates: ['Lets Roll', 'Sturdy', 'Galvanize'],
@@ -9360,7 +9371,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Graveler Alolan': {
-        id: 961,
+        id: 962,
         bs: { hp: 55, at: 95, df: 115, sa: 45, sd: 45, sp: 35 },
         abilities: ['Magnet Pull', 'Rock Head', 'Fort Knox'],
         innates: ['Lets Roll', 'Sturdy', 'Galvanize'],
@@ -9371,7 +9382,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Golem Alolan': {
-        id: 962,
+        id: 963,
         bs: { hp: 90, at: 135, df: 130, sa: 55, sd: 65, sp: 45 },
         abilities: ['Magnet Pull', 'Ground Shock', 'Fort Knox'],
         innates: ['Lets Roll', 'Sturdy', 'Galvanize'],
@@ -9381,7 +9392,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Grimer Alolan': {
-        id: 963,
+        id: 964,
         bs: { hp: 80, at: 80, df: 50, sa: 40, sd: 50, sp: 25 },
         abilities: ['Regenerator', 'Sticky Hold', 'Poison Absorb'],
         innates: ['Poison Touch', 'Liquified', 'Gluttony'],
@@ -9392,7 +9403,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Muk Alolan': {
-        id: 964,
+        id: 965,
         bs: { hp: 105, at: 105, df: 75, sa: 65, sd: 100, sp: 50 },
         abilities: ['Regenerator', 'Sticky Hold', 'Self Sufficient'],
         innates: ['Poison Touch', 'Liquified', 'Gluttony'],
@@ -9402,7 +9413,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Exeggutor Alolan': {
-        id: 965,
+        id: 966,
         bs: { hp: 95, at: 105, df: 85, sa: 125, sd: 75, sp: 45 },
         abilities: ['Natural Cure', 'Chloroplast', 'Solar Power'],
         innates: ['Harvest', 'Multi Headed', 'Skill Link'],
@@ -9412,7 +9423,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Marowak Alolan': {
-        id: 966,
+        id: 967,
         bs: { hp: 75, at: 80, df: 110, sa: 50, sd: 80, sp: 60 },
         abilities: ['Flame Body', 'Lightning Rod', 'Skill Link'],
         innates: ['Bone Zone', 'Vengeance', 'Rock Head'],
@@ -9422,7 +9433,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Meowth Galarian': {
-        id: 1269,
+        id: 1270,
         bs: { hp: 50, at: 65, df: 55, sa: 40, sd: 40, sp: 40 },
         abilities: ['Sniper', 'Rough Skin', 'Unnerve'],
         innates: ['Tough Claws', 'Opportunist', 'Perfectionist'],
@@ -9433,7 +9444,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Ponyta Galarian': {
-        id: 1270,
+        id: 1271,
         bs: { hp: 50, at: 85, df: 55, sa: 65, sd: 65, sp: 90 },
         abilities: ['Run Away', 'Pastel Veil', 'Anticipation'],
         innates: ['Quick Feet', 'Psychic Mind', 'Natural Cure'],
@@ -9444,7 +9455,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Rapidash Galarian': {
-        id: 1271,
+        id: 1272,
         bs: { hp: 85, at: 110, df: 70, sa: 75, sd: 80, sp: 120 },
         abilities: ['Dazzling', 'Pastel Veil', 'Keen Edge'],
         innates: ['Pixilate', 'Psychic Mind', 'Striker'],
@@ -9454,7 +9465,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Slowpoke Galarian': {
-        id: 1272,
+        id: 1273,
         bs: { hp: 90, at: 65, df: 65, sa: 40, sd: 40, sp: 15 },
         abilities: ['Gluttony', 'Own Tempo', 'Regenerator'],
         innates: [''],
@@ -9465,7 +9476,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Slowbro Galarian': {
-        id: 1273,
+        id: 1274,
         bs: { hp: 115, at: 100, df: 105, sa: 100, sd: 90, sp: 30 },
         abilities: ['Quick Draw', 'Poison Touch', 'Regenerator'],
         innates: ['Oblivious', 'Own Tempo', 'Unaware'],
@@ -9475,7 +9486,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Farfetchd Galarian': {
-        id: 1274,
+        id: 1275,
         bs: { hp: 52, at: 95, df: 55, sa: 58, sd: 62, sp: 55 },
         abilities: ['Steadfast', 'None', 'None'],
         innates: ['Scrappy', 'Sniper'],
@@ -9486,7 +9497,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Weezing Galarian': {
-        id: 1275,
+        id: 1276,
         bs: { hp: 65, at: 90, df: 120, sa: 85, sd: 70, sp: 60 },
         abilities: ['Levitate', 'Neutralizing Gas', 'Misty Surge'],
         innates: [''],
@@ -9496,7 +9507,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Mr Mime Galarian': {
-        id: 1276,
+        id: 1277,
         bs: { hp: 50, at: 65, df: 65, sa: 90, sd: 90, sp: 100 },
         abilities: ['Vital Spirit', 'Screen Cleaner', 'Ice Body'],
         innates: [''],
@@ -9507,7 +9518,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Articuno Galarian': {
-        id: 1277,
+        id: 1278,
         bs: { hp: 90, at: 85, df: 85, sa: 125, sd: 100, sp: 95 },
         abilities: ['Competitive', 'Intimidate', 'Scare'],
         innates: ['Aurora Borealis', 'Permafrost', 'Refrigerate'],
@@ -9517,7 +9528,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Zapdos Galarian': {
-        id: 1278,
+        id: 1279,
         bs: { hp: 90, at: 125, df: 90, sa: 85, sd: 90, sp: 100 },
         abilities: ['Defiant', 'Aerodynamics', 'Scrappy'],
         innates: ['Striker', 'Lightning Rod', 'Galvanize'],
@@ -9527,7 +9538,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Moltres Galarian': {
-        id: 1279,
+        id: 1280,
         bs: { hp: 90, at: 85, df: 90, sa: 100, sd: 125, sp: 90 },
         abilities: ['Berserk', 'Soul Eater', 'Giant Wings'],
         innates: ['Dark Aura', 'Shadow Shield', 'Immolate'],
@@ -9537,7 +9548,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Slowking Galarian': {
-        id: 1280,
+        id: 1281,
         bs: { hp: 95, at: 65, df: 80, sa: 110, sd: 110, sp: 30 },
         abilities: ['Curious Medicine', 'Own Tempo', 'Regenerator'],
         innates: [''],
@@ -9547,7 +9558,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Corsola Galarian': {
-        id: 1281,
+        id: 1282,
         bs: { hp: 60, at: 55, df: 100, sa: 65, sd: 100, sp: 30 },
         abilities: ['Weak Armor', 'Weak Armor', 'Cursed Body'],
         innates: [''],
@@ -9558,7 +9569,7 @@ var REDUX_PATCH = {
         genderR: 191
     },
     'Zigzagoon Galarian': {
-        id: 1282,
+        id: 1283,
         bs: { hp: 38, at: 30, df: 41, sa: 30, sd: 41, sp: 60 },
         abilities: ['Pickup', 'Gluttony', 'Quick Feet'],
         innates: ['Scrappy'],
@@ -9569,7 +9580,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Linoone Galarian': {
-        id: 1283,
+        id: 1284,
         bs: { hp: 78, at: 100, df: 61, sa: 50, sd: 61, sp: 110 },
         abilities: ['Pickup', 'Gluttony', 'Quick Feet'],
         innates: ['Scrappy', 'Hyper Aggressive'],
@@ -9580,7 +9591,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Darumaka Galarian': {
-        id: 1284,
+        id: 1285,
         bs: { hp: 70, at: 90, df: 45, sa: 15, sd: 45, sp: 50 },
         abilities: ['Hustle', 'Inner Focus', 'None'],
         innates: ['Mold Breaker'],
@@ -9591,7 +9602,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Darmanitan Galarian': {
-        id: 1285,
+        id: 1286,
         bs: { hp: 105, at: 140, df: 55, sa: 30, sd: 55, sp: 95 },
         abilities: ['Gorilla Tactics', 'Sheer Force', 'Zen Mode'],
         innates: ['Mold Breaker', 'Iron Fist', 'Heatproof'],
@@ -9601,7 +9612,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Yamask Galarian': {
-        id: 1286,
+        id: 1287,
         bs: { hp: 38, at: 55, df: 85, sa: 30, sd: 65, sp: 30 },
         abilities: ['Wandering Spirit', 'Wandering Spirit', 'Wandering Spirit'],
         innates: ['Haunted Spirit', 'Cursed Body'],
@@ -9612,7 +9623,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Stunfisk Galarian': {
-        id: 1287,
+        id: 1288,
         bs: { hp: 109, at: 81, df: 99, sa: 66, sd: 84, sp: 32 },
         abilities: ['Mimicry', 'Mimicry', 'Mimicry'],
         innates: [''],
@@ -9622,16 +9633,6 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Pikachu Cosplay': {
-        id: 986,
-        bs: { hp: 35, at: 55, df: 40, sa: 50, sd: 50, sp: 90 },
-        abilities: ['Electrocytes', 'Static', 'Electric Burst'],
-        innates: ['Short Circuit', 'Plus', 'Ground Shock'],
-        otherFormes: ['Pikachu'],
-        weightkg: 0,
-        types: ['Electric'],
-        genderR: 127
-    },
-    'Pikachu Rock Star': {
         id: 987,
         bs: { hp: 35, at: 55, df: 40, sa: 50, sd: 50, sp: 90 },
         abilities: ['Electrocytes', 'Static', 'Electric Burst'],
@@ -9641,7 +9642,7 @@ var REDUX_PATCH = {
         types: ['Electric'],
         genderR: 127
     },
-    'Pikachu Belle': {
+    'Pikachu Rock Star': {
         id: 988,
         bs: { hp: 35, at: 55, df: 40, sa: 50, sd: 50, sp: 90 },
         abilities: ['Electrocytes', 'Static', 'Electric Burst'],
@@ -9651,7 +9652,7 @@ var REDUX_PATCH = {
         types: ['Electric'],
         genderR: 127
     },
-    'Pikachu Pop Star': {
+    'Pikachu Belle': {
         id: 989,
         bs: { hp: 35, at: 55, df: 40, sa: 50, sd: 50, sp: 90 },
         abilities: ['Electrocytes', 'Static', 'Electric Burst'],
@@ -9661,7 +9662,7 @@ var REDUX_PATCH = {
         types: ['Electric'],
         genderR: 127
     },
-    'Pikachu Ph D': {
+    'Pikachu Pop Star': {
         id: 990,
         bs: { hp: 35, at: 55, df: 40, sa: 50, sd: 50, sp: 90 },
         abilities: ['Electrocytes', 'Static', 'Electric Burst'],
@@ -9671,7 +9672,7 @@ var REDUX_PATCH = {
         types: ['Electric'],
         genderR: 127
     },
-    'Pikachu Libre': {
+    'Pikachu Ph D': {
         id: 991,
         bs: { hp: 35, at: 55, df: 40, sa: 50, sd: 50, sp: 90 },
         abilities: ['Electrocytes', 'Static', 'Electric Burst'],
@@ -9681,7 +9682,7 @@ var REDUX_PATCH = {
         types: ['Electric'],
         genderR: 127
     },
-    'Pikachu Original Cap': {
+    'Pikachu Libre': {
         id: 992,
         bs: { hp: 35, at: 55, df: 40, sa: 50, sd: 50, sp: 90 },
         abilities: ['Electrocytes', 'Static', 'Electric Burst'],
@@ -9689,9 +9690,9 @@ var REDUX_PATCH = {
         otherFormes: ['Pikachu'],
         weightkg: 0,
         types: ['Electric'],
-        genderR: 0
+        genderR: 127
     },
-    'Pikachu Hoenn Cap': {
+    'Pikachu Original Cap': {
         id: 993,
         bs: { hp: 35, at: 55, df: 40, sa: 50, sd: 50, sp: 90 },
         abilities: ['Electrocytes', 'Static', 'Electric Burst'],
@@ -9701,7 +9702,7 @@ var REDUX_PATCH = {
         types: ['Electric'],
         genderR: 0
     },
-    'Pikachu Sinnoh Cap': {
+    'Pikachu Hoenn Cap': {
         id: 994,
         bs: { hp: 35, at: 55, df: 40, sa: 50, sd: 50, sp: 90 },
         abilities: ['Electrocytes', 'Static', 'Electric Burst'],
@@ -9711,7 +9712,7 @@ var REDUX_PATCH = {
         types: ['Electric'],
         genderR: 0
     },
-    'Pikachu Unova Cap': {
+    'Pikachu Sinnoh Cap': {
         id: 995,
         bs: { hp: 35, at: 55, df: 40, sa: 50, sd: 50, sp: 90 },
         abilities: ['Electrocytes', 'Static', 'Electric Burst'],
@@ -9721,7 +9722,7 @@ var REDUX_PATCH = {
         types: ['Electric'],
         genderR: 0
     },
-    'Pikachu Kalos Cap': {
+    'Pikachu Unova Cap': {
         id: 996,
         bs: { hp: 35, at: 55, df: 40, sa: 50, sd: 50, sp: 90 },
         abilities: ['Electrocytes', 'Static', 'Electric Burst'],
@@ -9731,7 +9732,7 @@ var REDUX_PATCH = {
         types: ['Electric'],
         genderR: 0
     },
-    'Pikachu Alola Cap': {
+    'Pikachu Kalos Cap': {
         id: 997,
         bs: { hp: 35, at: 55, df: 40, sa: 50, sd: 50, sp: 90 },
         abilities: ['Electrocytes', 'Static', 'Electric Burst'],
@@ -9741,7 +9742,7 @@ var REDUX_PATCH = {
         types: ['Electric'],
         genderR: 0
     },
-    'Pikachu Partner Cap': {
+    'Pikachu Alola Cap': {
         id: 998,
         bs: { hp: 35, at: 55, df: 40, sa: 50, sd: 50, sp: 90 },
         abilities: ['Electrocytes', 'Static', 'Electric Burst'],
@@ -9751,7 +9752,7 @@ var REDUX_PATCH = {
         types: ['Electric'],
         genderR: 0
     },
-    'Pikachu World Cap': {
+    'Pikachu Partner Cap': {
         id: 999,
         bs: { hp: 35, at: 55, df: 40, sa: 50, sd: 50, sp: 90 },
         abilities: ['Electrocytes', 'Static', 'Electric Burst'],
@@ -9761,8 +9762,18 @@ var REDUX_PATCH = {
         types: ['Electric'],
         genderR: 0
     },
-    'Pichu Spiky Eared': {
+    'Pikachu World Cap': {
         id: 1000,
+        bs: { hp: 35, at: 55, df: 40, sa: 50, sd: 50, sp: 90 },
+        abilities: ['Electrocytes', 'Static', 'Electric Burst'],
+        innates: ['Short Circuit', 'Plus', 'Ground Shock'],
+        otherFormes: ['Pikachu'],
+        weightkg: 0,
+        types: ['Electric'],
+        genderR: 0
+    },
+    'Pichu Spiky Eared': {
+        id: 1001,
         bs: { hp: 20, at: 40, df: 15, sa: 35, sd: 35, sp: 60 },
         abilities: ['Electrocytes', 'Static', 'Electric Burst'],
         innates: ['Short Circuit', 'Plus', 'Ground Shock'],
@@ -9772,16 +9783,6 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Unown B': {
-        id: 1001,
-        bs: { hp: 48, at: 72, df: 48, sa: 72, sd: 48, sp: 48 },
-        abilities: ['Mystic Power', 'None', 'None'],
-        innates: ['Levitate'],
-        otherFormes: ['Unown'],
-        weightkg: 0,
-        types: ['Psychic'],
-        genderR: 255
-    },
-    'Unown C': {
         id: 1002,
         bs: { hp: 48, at: 72, df: 48, sa: 72, sd: 48, sp: 48 },
         abilities: ['Mystic Power', 'None', 'None'],
@@ -9791,7 +9792,7 @@ var REDUX_PATCH = {
         types: ['Psychic'],
         genderR: 255
     },
-    'Unown D': {
+    'Unown C': {
         id: 1003,
         bs: { hp: 48, at: 72, df: 48, sa: 72, sd: 48, sp: 48 },
         abilities: ['Mystic Power', 'None', 'None'],
@@ -9801,7 +9802,7 @@ var REDUX_PATCH = {
         types: ['Psychic'],
         genderR: 255
     },
-    'Unown E': {
+    'Unown D': {
         id: 1004,
         bs: { hp: 48, at: 72, df: 48, sa: 72, sd: 48, sp: 48 },
         abilities: ['Mystic Power', 'None', 'None'],
@@ -9811,7 +9812,7 @@ var REDUX_PATCH = {
         types: ['Psychic'],
         genderR: 255
     },
-    'Unown F': {
+    'Unown E': {
         id: 1005,
         bs: { hp: 48, at: 72, df: 48, sa: 72, sd: 48, sp: 48 },
         abilities: ['Mystic Power', 'None', 'None'],
@@ -9821,7 +9822,7 @@ var REDUX_PATCH = {
         types: ['Psychic'],
         genderR: 255
     },
-    'Unown G': {
+    'Unown F': {
         id: 1006,
         bs: { hp: 48, at: 72, df: 48, sa: 72, sd: 48, sp: 48 },
         abilities: ['Mystic Power', 'None', 'None'],
@@ -9831,7 +9832,7 @@ var REDUX_PATCH = {
         types: ['Psychic'],
         genderR: 255
     },
-    'Unown H': {
+    'Unown G': {
         id: 1007,
         bs: { hp: 48, at: 72, df: 48, sa: 72, sd: 48, sp: 48 },
         abilities: ['Mystic Power', 'None', 'None'],
@@ -9841,7 +9842,7 @@ var REDUX_PATCH = {
         types: ['Psychic'],
         genderR: 255
     },
-    'Unown I': {
+    'Unown H': {
         id: 1008,
         bs: { hp: 48, at: 72, df: 48, sa: 72, sd: 48, sp: 48 },
         abilities: ['Mystic Power', 'None', 'None'],
@@ -9851,7 +9852,7 @@ var REDUX_PATCH = {
         types: ['Psychic'],
         genderR: 255
     },
-    'Unown J': {
+    'Unown I': {
         id: 1009,
         bs: { hp: 48, at: 72, df: 48, sa: 72, sd: 48, sp: 48 },
         abilities: ['Mystic Power', 'None', 'None'],
@@ -9861,7 +9862,7 @@ var REDUX_PATCH = {
         types: ['Psychic'],
         genderR: 255
     },
-    'Unown K': {
+    'Unown J': {
         id: 1010,
         bs: { hp: 48, at: 72, df: 48, sa: 72, sd: 48, sp: 48 },
         abilities: ['Mystic Power', 'None', 'None'],
@@ -9871,7 +9872,7 @@ var REDUX_PATCH = {
         types: ['Psychic'],
         genderR: 255
     },
-    'Unown L': {
+    'Unown K': {
         id: 1011,
         bs: { hp: 48, at: 72, df: 48, sa: 72, sd: 48, sp: 48 },
         abilities: ['Mystic Power', 'None', 'None'],
@@ -9881,7 +9882,7 @@ var REDUX_PATCH = {
         types: ['Psychic'],
         genderR: 255
     },
-    'Unown M': {
+    'Unown L': {
         id: 1012,
         bs: { hp: 48, at: 72, df: 48, sa: 72, sd: 48, sp: 48 },
         abilities: ['Mystic Power', 'None', 'None'],
@@ -9891,7 +9892,7 @@ var REDUX_PATCH = {
         types: ['Psychic'],
         genderR: 255
     },
-    'Unown N': {
+    'Unown M': {
         id: 1013,
         bs: { hp: 48, at: 72, df: 48, sa: 72, sd: 48, sp: 48 },
         abilities: ['Mystic Power', 'None', 'None'],
@@ -9901,7 +9902,7 @@ var REDUX_PATCH = {
         types: ['Psychic'],
         genderR: 255
     },
-    'Unown O': {
+    'Unown N': {
         id: 1014,
         bs: { hp: 48, at: 72, df: 48, sa: 72, sd: 48, sp: 48 },
         abilities: ['Mystic Power', 'None', 'None'],
@@ -9911,7 +9912,7 @@ var REDUX_PATCH = {
         types: ['Psychic'],
         genderR: 255
     },
-    'Unown P': {
+    'Unown O': {
         id: 1015,
         bs: { hp: 48, at: 72, df: 48, sa: 72, sd: 48, sp: 48 },
         abilities: ['Mystic Power', 'None', 'None'],
@@ -9921,7 +9922,7 @@ var REDUX_PATCH = {
         types: ['Psychic'],
         genderR: 255
     },
-    'Unown Q': {
+    'Unown P': {
         id: 1016,
         bs: { hp: 48, at: 72, df: 48, sa: 72, sd: 48, sp: 48 },
         abilities: ['Mystic Power', 'None', 'None'],
@@ -9931,7 +9932,7 @@ var REDUX_PATCH = {
         types: ['Psychic'],
         genderR: 255
     },
-    'Unown R': {
+    'Unown Q': {
         id: 1017,
         bs: { hp: 48, at: 72, df: 48, sa: 72, sd: 48, sp: 48 },
         abilities: ['Mystic Power', 'None', 'None'],
@@ -9941,7 +9942,7 @@ var REDUX_PATCH = {
         types: ['Psychic'],
         genderR: 255
     },
-    'Unown S': {
+    'Unown R': {
         id: 1018,
         bs: { hp: 48, at: 72, df: 48, sa: 72, sd: 48, sp: 48 },
         abilities: ['Mystic Power', 'None', 'None'],
@@ -9951,7 +9952,7 @@ var REDUX_PATCH = {
         types: ['Psychic'],
         genderR: 255
     },
-    'Unown T': {
+    'Unown S': {
         id: 1019,
         bs: { hp: 48, at: 72, df: 48, sa: 72, sd: 48, sp: 48 },
         abilities: ['Mystic Power', 'None', 'None'],
@@ -9961,7 +9962,7 @@ var REDUX_PATCH = {
         types: ['Psychic'],
         genderR: 255
     },
-    'Unown U': {
+    'Unown T': {
         id: 1020,
         bs: { hp: 48, at: 72, df: 48, sa: 72, sd: 48, sp: 48 },
         abilities: ['Mystic Power', 'None', 'None'],
@@ -9971,7 +9972,7 @@ var REDUX_PATCH = {
         types: ['Psychic'],
         genderR: 255
     },
-    'Unown V': {
+    'Unown U': {
         id: 1021,
         bs: { hp: 48, at: 72, df: 48, sa: 72, sd: 48, sp: 48 },
         abilities: ['Mystic Power', 'None', 'None'],
@@ -9981,7 +9982,7 @@ var REDUX_PATCH = {
         types: ['Psychic'],
         genderR: 255
     },
-    'Unown W': {
+    'Unown V': {
         id: 1022,
         bs: { hp: 48, at: 72, df: 48, sa: 72, sd: 48, sp: 48 },
         abilities: ['Mystic Power', 'None', 'None'],
@@ -9991,7 +9992,7 @@ var REDUX_PATCH = {
         types: ['Psychic'],
         genderR: 255
     },
-    'Unown X': {
+    'Unown W': {
         id: 1023,
         bs: { hp: 48, at: 72, df: 48, sa: 72, sd: 48, sp: 48 },
         abilities: ['Mystic Power', 'None', 'None'],
@@ -10001,7 +10002,7 @@ var REDUX_PATCH = {
         types: ['Psychic'],
         genderR: 255
     },
-    'Unown Y': {
+    'Unown X': {
         id: 1024,
         bs: { hp: 48, at: 72, df: 48, sa: 72, sd: 48, sp: 48 },
         abilities: ['Mystic Power', 'None', 'None'],
@@ -10011,7 +10012,7 @@ var REDUX_PATCH = {
         types: ['Psychic'],
         genderR: 255
     },
-    'Unown Z': {
+    'Unown Y': {
         id: 1025,
         bs: { hp: 48, at: 72, df: 48, sa: 72, sd: 48, sp: 48 },
         abilities: ['Mystic Power', 'None', 'None'],
@@ -10021,7 +10022,7 @@ var REDUX_PATCH = {
         types: ['Psychic'],
         genderR: 255
     },
-    'Unown Emark': {
+    'Unown Z': {
         id: 1026,
         bs: { hp: 48, at: 72, df: 48, sa: 72, sd: 48, sp: 48 },
         abilities: ['Mystic Power', 'None', 'None'],
@@ -10031,7 +10032,7 @@ var REDUX_PATCH = {
         types: ['Psychic'],
         genderR: 255
     },
-    'Unown Qmark': {
+    'Unown Emark': {
         id: 1027,
         bs: { hp: 48, at: 72, df: 48, sa: 72, sd: 48, sp: 48 },
         abilities: ['Mystic Power', 'None', 'None'],
@@ -10041,8 +10042,18 @@ var REDUX_PATCH = {
         types: ['Psychic'],
         genderR: 255
     },
-    'Castform Sunny': {
+    'Unown Qmark': {
         id: 1028,
+        bs: { hp: 48, at: 72, df: 48, sa: 72, sd: 48, sp: 48 },
+        abilities: ['Mystic Power', 'None', 'None'],
+        innates: ['Levitate'],
+        otherFormes: ['Unown'],
+        weightkg: 0,
+        types: ['Psychic'],
+        genderR: 255
+    },
+    'Castform Sunny': {
+        id: 1029,
         bs: { hp: 70, at: 70, df: 70, sa: 100, sd: 70, sp: 100 },
         abilities: ['Forecast', 'Forecast', 'Forecast'],
         innates: ['Levitate', 'Weather Control', 'Limber'],
@@ -10052,7 +10063,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Castform Rainy': {
-        id: 1029,
+        id: 1030,
         bs: { hp: 70, at: 70, df: 70, sa: 100, sd: 70, sp: 100 },
         abilities: ['Forecast', 'Forecast', 'Forecast'],
         innates: ['Levitate', 'Weather Control', 'Limber'],
@@ -10062,7 +10073,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Castform Snowy': {
-        id: 1030,
+        id: 1031,
         bs: { hp: 70, at: 70, df: 70, sa: 100, sd: 70, sp: 100 },
         abilities: ['Forecast', 'Forecast', 'Forecast'],
         innates: ['Levitate', 'Weather Control', 'Limber'],
@@ -10072,7 +10083,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Deoxys Attack': {
-        id: 1031,
+        id: 1032,
         bs: { hp: 50, at: 180, df: 20, sa: 180, sd: 20, sp: 150 },
         abilities: ['Pressure', 'Levitate', 'Speed Boost'],
         innates: ['Inner Focus', 'Fatal Precision', 'Psychic Mind'],
@@ -10082,7 +10093,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Deoxys Defense': {
-        id: 1032,
+        id: 1033,
         bs: { hp: 50, at: 70, df: 160, sa: 70, sd: 160, sp: 90 },
         abilities: ['Sturdy', 'Levitate', 'Fort Knox'],
         innates: ['Inner Focus', 'Stamina', 'Regenerator'],
@@ -10092,7 +10103,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Deoxys Speed': {
-        id: 1033,
+        id: 1034,
         bs: { hp: 50, at: 95, df: 90, sa: 95, sd: 90, sp: 180 },
         abilities: ['Pressure', 'Inner Focus', 'Speed Boost'],
         innates: ['Levitate', 'Fatal Precision', 'Psychic Mind'],
@@ -10102,17 +10113,6 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Burmy Sandy Cloak': {
-        id: 1034,
-        bs: { hp: 40, at: 29, df: 45, sa: 29, sd: 45, sp: 36 },
-        abilities: ['Shed Skin', 'None', 'Overcoat'],
-        innates: ['Swarm'],
-        otherFormes: ['Burmy'],
-        nfe: true,
-        weightkg: 0,
-        types: ['Bug'],
-        genderR: 127
-    },
-    'Burmy Trash Cloak': {
         id: 1035,
         bs: { hp: 40, at: 29, df: 45, sa: 29, sd: 45, sp: 36 },
         abilities: ['Shed Skin', 'None', 'Overcoat'],
@@ -10123,8 +10123,19 @@ var REDUX_PATCH = {
         types: ['Bug'],
         genderR: 127
     },
-    'Wormadam Sandy Cloak': {
+    'Burmy Trash Cloak': {
         id: 1036,
+        bs: { hp: 40, at: 29, df: 45, sa: 29, sd: 45, sp: 36 },
+        abilities: ['Shed Skin', 'None', 'Overcoat'],
+        innates: ['Swarm'],
+        otherFormes: ['Burmy'],
+        nfe: true,
+        weightkg: 0,
+        types: ['Bug'],
+        genderR: 127
+    },
+    'Wormadam Sandy Cloak': {
+        id: 1037,
         bs: { hp: 80, at: 99, df: 105, sa: 59, sd: 85, sp: 36 },
         abilities: ['Anticipation', 'Rock Head', 'Overcoat'],
         innates: ['Swarm', 'Battle Armor', 'Tectonize'],
@@ -10134,7 +10145,7 @@ var REDUX_PATCH = {
         genderR: 254
     },
     'Wormadam Trash Cloak': {
-        id: 1037,
+        id: 1038,
         bs: { hp: 80, at: 69, df: 105, sa: 69, sd: 105, sp: 36 },
         abilities: ['Anticipation', 'Weak Armor', 'Overcoat'],
         innates: ['Swarm', 'Battle Armor', 'Scrapyard'],
@@ -10144,7 +10155,7 @@ var REDUX_PATCH = {
         genderR: 254
     },
     'Cherrim Sunshine': {
-        id: 1038,
+        id: 1039,
         bs: { hp: 70, at: 100, df: 70, sa: 87, sd: 78, sp: 85 },
         abilities: ['Leaf Guard', 'Flower Gift', 'None'],
         innates: ['Chlorophyll', 'Solar Power', 'Solar Flare'],
@@ -10154,7 +10165,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Shellos East Sea': {
-        id: 1039,
+        id: 1040,
         bs: { hp: 76, at: 48, df: 48, sa: 57, sd: 62, sp: 34 },
         abilities: ['Shell Armor', 'Storm Drain', 'Regenerator'],
         innates: ['Sticky Hold', 'Self Sufficient', 'Limber'],
@@ -10165,7 +10176,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Gastrodon East Sea': {
-        id: 1040,
+        id: 1041,
         bs: { hp: 111, at: 83, df: 68, sa: 92, sd: 82, sp: 39 },
         abilities: ['Shell Armor', 'Storm Drain', 'Regenerator'],
         innates: ['Sticky Hold', 'Self Sufficient', 'Tectonize'],
@@ -10175,7 +10186,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Rotom Heat': {
-        id: 1041,
+        id: 1042,
         bs: { hp: 50, at: 65, df: 107, sa: 115, sd: 107, sp: 86 },
         abilities: ['Flash Fire', 'None', 'Motor Drive'],
         innates: ['Levitate', 'Minus', 'Phantom'],
@@ -10185,7 +10196,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Rotom Wash': {
-        id: 1042,
+        id: 1043,
         bs: { hp: 50, at: 65, df: 107, sa: 115, sd: 107, sp: 86 },
         abilities: ['Water Absorb', 'None', 'Motor Drive'],
         innates: ['Levitate', 'Minus', 'Phantom'],
@@ -10195,7 +10206,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Rotom Frost': {
-        id: 1043,
+        id: 1044,
         bs: { hp: 50, at: 65, df: 107, sa: 115, sd: 107, sp: 86 },
         abilities: ['Ice Dew', 'None', 'Motor Drive'],
         innates: ['Levitate', 'Minus', 'Phantom'],
@@ -10205,7 +10216,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Rotom Fan': {
-        id: 1044,
+        id: 1045,
         bs: { hp: 50, at: 65, df: 107, sa: 115, sd: 107, sp: 86 },
         abilities: ['Volt Absorb', 'None', 'Motor Drive'],
         innates: ['Air Blower', 'Minus', 'Phantom'],
@@ -10215,7 +10226,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Rotom Mow': {
-        id: 1045,
+        id: 1046,
         bs: { hp: 50, at: 65, df: 107, sa: 115, sd: 107, sp: 86 },
         abilities: ['Sap Sipper', 'None', 'Motor Drive'],
         innates: ['Levitate', 'Minus', 'Phantom'],
@@ -10225,7 +10236,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Giratina Origin': {
-        id: 1046,
+        id: 1047,
         bs: { hp: 150, at: 120, df: 100, sa: 120, sd: 100, sp: 90 },
         abilities: ['Intimidate', 'Scare', 'Twisted Dimension'],
         innates: ['Levitate', 'Shadow Tag', 'Soul Eater'],
@@ -10235,7 +10246,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Shaymin Sky': {
-        id: 1047,
+        id: 1048,
         bs: { hp: 100, at: 103, df: 75, sa: 120, sd: 75, sp: 127 },
         abilities: ['Magic Bounce', 'Aerodynamics', 'Pixilate'],
         innates: ['Natural Cure', 'Serene Grace', 'Speed Boost'],
@@ -10245,7 +10256,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Arceus Fighting': {
-        id: 1048,
+        id: 1049,
         bs: { hp: 120, at: 120, df: 120, sa: 120, sd: 120, sp: 120 },
         abilities: ['Multitype', 'Multitype', 'Multitype'],
         innates: ['Power Core', 'Pressure', 'Levitate'],
@@ -10255,7 +10266,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Arceus Flying': {
-        id: 1049,
+        id: 1050,
         bs: { hp: 120, at: 120, df: 120, sa: 120, sd: 120, sp: 120 },
         abilities: ['Multitype', 'Multitype', 'Multitype'],
         innates: ['Power Core', 'Pressure', 'Levitate'],
@@ -10265,7 +10276,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Arceus Poison': {
-        id: 1050,
+        id: 1051,
         bs: { hp: 120, at: 120, df: 120, sa: 120, sd: 120, sp: 120 },
         abilities: ['Multitype', 'Multitype', 'Multitype'],
         innates: ['Power Core', 'Pressure', 'Levitate'],
@@ -10275,7 +10286,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Arceus Ground': {
-        id: 1051,
+        id: 1052,
         bs: { hp: 120, at: 120, df: 120, sa: 120, sd: 120, sp: 120 },
         abilities: ['Multitype', 'Multitype', 'Multitype'],
         innates: ['Power Core', 'Pressure', 'Levitate'],
@@ -10285,7 +10296,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Arceus Rock': {
-        id: 1052,
+        id: 1053,
         bs: { hp: 120, at: 120, df: 120, sa: 120, sd: 120, sp: 120 },
         abilities: ['Multitype', 'Multitype', 'Multitype'],
         innates: ['Power Core', 'Pressure', 'Levitate'],
@@ -10295,7 +10306,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Arceus Bug': {
-        id: 1053,
+        id: 1054,
         bs: { hp: 120, at: 120, df: 120, sa: 120, sd: 120, sp: 120 },
         abilities: ['Multitype', 'Multitype', 'Multitype'],
         innates: ['Power Core', 'Pressure', 'Levitate'],
@@ -10305,7 +10316,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Arceus Ghost': {
-        id: 1054,
+        id: 1055,
         bs: { hp: 120, at: 120, df: 120, sa: 120, sd: 120, sp: 120 },
         abilities: ['Multitype', 'Multitype', 'Multitype'],
         innates: ['Power Core', 'Pressure', 'Levitate'],
@@ -10315,7 +10326,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Arceus Steel': {
-        id: 1055,
+        id: 1056,
         bs: { hp: 120, at: 120, df: 120, sa: 120, sd: 120, sp: 120 },
         abilities: ['Multitype', 'Multitype', 'Multitype'],
         innates: ['Power Core', 'Pressure', 'Levitate'],
@@ -10325,7 +10336,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Arceus Fire': {
-        id: 1056,
+        id: 1057,
         bs: { hp: 120, at: 120, df: 120, sa: 120, sd: 120, sp: 120 },
         abilities: ['Multitype', 'Multitype', 'Multitype'],
         innates: ['Power Core', 'Pressure', 'Levitate'],
@@ -10335,7 +10346,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Arceus Water': {
-        id: 1057,
+        id: 1058,
         bs: { hp: 120, at: 120, df: 120, sa: 120, sd: 120, sp: 120 },
         abilities: ['Multitype', 'Multitype', 'Multitype'],
         innates: ['Power Core', 'Pressure', 'Levitate'],
@@ -10345,7 +10356,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Arceus Grass': {
-        id: 1058,
+        id: 1059,
         bs: { hp: 120, at: 120, df: 120, sa: 120, sd: 120, sp: 120 },
         abilities: ['Multitype', 'Multitype', 'Multitype'],
         innates: ['Power Core', 'Pressure', 'Levitate'],
@@ -10355,7 +10366,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Arceus Electric': {
-        id: 1059,
+        id: 1060,
         bs: { hp: 120, at: 120, df: 120, sa: 120, sd: 120, sp: 120 },
         abilities: ['Multitype', 'Multitype', 'Multitype'],
         innates: ['Power Core', 'Pressure', 'Levitate'],
@@ -10365,7 +10376,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Arceus Psychic': {
-        id: 1060,
+        id: 1061,
         bs: { hp: 120, at: 120, df: 120, sa: 120, sd: 120, sp: 120 },
         abilities: ['Multitype', 'Multitype', 'Multitype'],
         innates: ['Power Core', 'Pressure', 'Levitate'],
@@ -10375,7 +10386,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Arceus Ice': {
-        id: 1061,
+        id: 1062,
         bs: { hp: 120, at: 120, df: 120, sa: 120, sd: 120, sp: 120 },
         abilities: ['Multitype', 'Multitype', 'Multitype'],
         innates: ['Power Core', 'Pressure', 'Levitate'],
@@ -10385,7 +10396,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Arceus Dragon': {
-        id: 1062,
+        id: 1063,
         bs: { hp: 120, at: 120, df: 120, sa: 120, sd: 120, sp: 120 },
         abilities: ['Multitype', 'Multitype', 'Multitype'],
         innates: ['Power Core', 'Pressure', 'Levitate'],
@@ -10395,7 +10406,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Arceus Dark': {
-        id: 1063,
+        id: 1064,
         bs: { hp: 120, at: 120, df: 120, sa: 120, sd: 120, sp: 120 },
         abilities: ['Multitype', 'Multitype', 'Multitype'],
         innates: ['Power Core', 'Pressure', 'Levitate'],
@@ -10405,7 +10416,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Arceus Fairy': {
-        id: 1064,
+        id: 1065,
         bs: { hp: 120, at: 120, df: 120, sa: 120, sd: 120, sp: 120 },
         abilities: ['Multitype', 'Multitype', 'Multitype'],
         innates: ['Power Core', 'Pressure', 'Levitate'],
@@ -10415,7 +10426,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Basculin Blue Striped': {
-        id: 1065,
+        id: 1066,
         bs: { hp: 70, at: 92, df: 65, sa: 80, sd: 55, sp: 118 },
         abilities: ['Mold Breaker', 'Strong Jaw', 'Predator'],
         innates: ['Rock Head', 'Adaptability', 'Hyper Aggressive'],
@@ -10425,7 +10436,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Darmanitan Zen Mode': {
-        id: 1066,
+        id: 1067,
         bs: { hp: 105, at: 30, df: 105, sa: 140, sd: 105, sp: 55 },
         abilities: ['Sheer Force', 'Psychic Mind', 'Zen Mode'],
         innates: ['Inner Focus', 'Impenetrable', 'Clear Body'],
@@ -10435,7 +10446,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Darmanitan Zen Mode Galarian': {
-        id: 1067,
+        id: 1068,
         bs: { hp: 105, at: 160, df: 55, sa: 30, sd: 55, sp: 135 },
         abilities: ['Gorilla Tactics', 'Sheer Force', 'Zen Mode'],
         innates: ['Mold Breaker', 'Power Fists', 'Heatproof'],
@@ -10445,17 +10456,6 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Deerling Summer': {
-        id: 1068,
-        bs: { hp: 60, at: 60, df: 50, sa: 40, sd: 50, sp: 75 },
-        abilities: ['Chlorophyll', 'None', 'Serene Grace'],
-        innates: ['Sap Sipper', 'Violent Rush'],
-        otherFormes: ['Deerling'],
-        nfe: true,
-        weightkg: 0,
-        types: ['Normal', 'Grass'],
-        genderR: 127
-    },
-    'Deerling Autumn': {
         id: 1069,
         bs: { hp: 60, at: 60, df: 50, sa: 40, sd: 50, sp: 75 },
         abilities: ['Chlorophyll', 'None', 'Serene Grace'],
@@ -10466,7 +10466,7 @@ var REDUX_PATCH = {
         types: ['Normal', 'Grass'],
         genderR: 127
     },
-    'Deerling Winter': {
+    'Deerling Autumn': {
         id: 1070,
         bs: { hp: 60, at: 60, df: 50, sa: 40, sd: 50, sp: 75 },
         abilities: ['Chlorophyll', 'None', 'Serene Grace'],
@@ -10477,17 +10477,18 @@ var REDUX_PATCH = {
         types: ['Normal', 'Grass'],
         genderR: 127
     },
-    'Sawsbuck Summer': {
+    'Deerling Winter': {
         id: 1071,
-        bs: { hp: 80, at: 100, df: 70, sa: 60, sd: 70, sp: 95 },
+        bs: { hp: 60, at: 60, df: 50, sa: 40, sd: 50, sp: 75 },
         abilities: ['Chlorophyll', 'None', 'Serene Grace'],
-        innates: ['Sap Sipper', 'Violent Rush', 'Rivalry'],
-        otherFormes: ['Sawsbuck'],
+        innates: ['Sap Sipper', 'Violent Rush'],
+        otherFormes: ['Deerling'],
+        nfe: true,
         weightkg: 0,
         types: ['Normal', 'Grass'],
         genderR: 127
     },
-    'Sawsbuck Autumn': {
+    'Sawsbuck Summer': {
         id: 1072,
         bs: { hp: 80, at: 100, df: 70, sa: 60, sd: 70, sp: 95 },
         abilities: ['Chlorophyll', 'None', 'Serene Grace'],
@@ -10497,7 +10498,7 @@ var REDUX_PATCH = {
         types: ['Normal', 'Grass'],
         genderR: 127
     },
-    'Sawsbuck Winter': {
+    'Sawsbuck Autumn': {
         id: 1073,
         bs: { hp: 80, at: 100, df: 70, sa: 60, sd: 70, sp: 95 },
         abilities: ['Chlorophyll', 'None', 'Serene Grace'],
@@ -10507,8 +10508,18 @@ var REDUX_PATCH = {
         types: ['Normal', 'Grass'],
         genderR: 127
     },
-    'Tornadus Therian': {
+    'Sawsbuck Winter': {
         id: 1074,
+        bs: { hp: 80, at: 100, df: 70, sa: 60, sd: 70, sp: 95 },
+        abilities: ['Chlorophyll', 'None', 'Serene Grace'],
+        innates: ['Sap Sipper', 'Violent Rush', 'Rivalry'],
+        otherFormes: ['Sawsbuck'],
+        weightkg: 0,
+        types: ['Normal', 'Grass'],
+        genderR: 127
+    },
+    'Tornadus Therian': {
+        id: 1075,
         bs: { hp: 79, at: 100, df: 80, sa: 110, sd: 90, sp: 121 },
         abilities: ['Air Blower', 'Cloud Nine', 'Speed Boost'],
         innates: ['Prankster', 'Weather Control', 'Keen Eye'],
@@ -10518,7 +10529,7 @@ var REDUX_PATCH = {
         genderR: 0
     },
     'Thundurus Therian': {
-        id: 1075,
+        id: 1076,
         bs: { hp: 79, at: 105, df: 70, sa: 145, sd: 80, sp: 101 },
         abilities: ['Electrocytes', 'Teravolt', 'Ground Shock'],
         innates: ['Overcharge', 'Weather Control', 'Volt Absorb'],
@@ -10528,7 +10539,7 @@ var REDUX_PATCH = {
         genderR: 0
     },
     'Landorus Therian': {
-        id: 1076,
+        id: 1077,
         bs: { hp: 89, at: 145, df: 90, sa: 105, sd: 80, sp: 91 },
         abilities: ['Sheer Force', 'Aerilate', 'Moxie'],
         innates: ['Sand Force', 'Intimidate', 'Regenerator'],
@@ -10538,7 +10549,7 @@ var REDUX_PATCH = {
         genderR: 0
     },
     'Kyurem White': {
-        id: 1077,
+        id: 1078,
         bs: { hp: 125, at: 120, df: 90, sa: 170, sd: 100, sp: 95 },
         abilities: ['Beast Boost', 'Refrigerate', 'Snow Warning'],
         innates: ['Turboblaze', 'Permafrost', 'Whiteout'],
@@ -10548,7 +10559,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Kyurem Black': {
-        id: 1078,
+        id: 1079,
         bs: { hp: 125, at: 170, df: 100, sa: 120, sd: 90, sp: 95 },
         abilities: ['Beast Boost', 'Refrigerate', 'Snow Warning'],
         innates: ['Teravolt', 'Permafrost', 'Multiscale'],
@@ -10558,7 +10569,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Keldeo Resolute': {
-        id: 1079,
+        id: 1080,
         bs: { hp: 91, at: 72, df: 90, sa: 129, sd: 90, sp: 108 },
         abilities: ['Justified', 'Avenger', 'Dragonslayer'],
         innates: ['Steadfast', 'Field Explorer', 'Keen Edge'],
@@ -10568,7 +10579,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Meloetta Pirouette': {
-        id: 1080,
+        id: 1081,
         bs: { hp: 100, at: 128, df: 90, sa: 77, sd: 77, sp: 128 },
         abilities: ['Fight Spirit', 'Defiant', 'Super Luck'],
         innates: ['Serene Grace', 'Inner Focus', 'Striker'],
@@ -10578,16 +10589,6 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Genesect Douse Drive': {
-        id: 1081,
-        bs: { hp: 71, at: 120, df: 95, sa: 120, sd: 95, sp: 99 },
-        abilities: ['Download', 'Fatal Precision', 'Sighting System'],
-        innates: ['Full Metal Body', 'Predator', 'Mega Launcher'],
-        otherFormes: ['Genesect'],
-        weightkg: 0,
-        types: ['Bug', 'Steel'],
-        genderR: 255
-    },
-    'Genesect Shock Drive': {
         id: 1082,
         bs: { hp: 71, at: 120, df: 95, sa: 120, sd: 95, sp: 99 },
         abilities: ['Download', 'Fatal Precision', 'Sighting System'],
@@ -10597,7 +10598,7 @@ var REDUX_PATCH = {
         types: ['Bug', 'Steel'],
         genderR: 255
     },
-    'Genesect Burn Drive': {
+    'Genesect Shock Drive': {
         id: 1083,
         bs: { hp: 71, at: 120, df: 95, sa: 120, sd: 95, sp: 99 },
         abilities: ['Download', 'Fatal Precision', 'Sighting System'],
@@ -10607,7 +10608,7 @@ var REDUX_PATCH = {
         types: ['Bug', 'Steel'],
         genderR: 255
     },
-    'Genesect Chill Drive': {
+    'Genesect Burn Drive': {
         id: 1084,
         bs: { hp: 71, at: 120, df: 95, sa: 120, sd: 95, sp: 99 },
         abilities: ['Download', 'Fatal Precision', 'Sighting System'],
@@ -10617,8 +10618,18 @@ var REDUX_PATCH = {
         types: ['Bug', 'Steel'],
         genderR: 255
     },
-    'Greninja Battle Bond': {
+    'Genesect Chill Drive': {
         id: 1085,
+        bs: { hp: 71, at: 120, df: 95, sa: 120, sd: 95, sp: 99 },
+        abilities: ['Download', 'Fatal Precision', 'Sighting System'],
+        innates: ['Full Metal Body', 'Predator', 'Mega Launcher'],
+        otherFormes: ['Genesect'],
+        weightkg: 0,
+        types: ['Bug', 'Steel'],
+        genderR: 255
+    },
+    'Greninja Battle Bond': {
+        id: 1086,
         bs: { hp: 72, at: 95, df: 67, sa: 103, sd: 71, sp: 122 },
         abilities: ['Battle Bond', 'Battle Bond', 'Battle Bond'],
         innates: ['Torrent', 'Skill Link', 'Fatal Precision'],
@@ -10628,7 +10639,7 @@ var REDUX_PATCH = {
         genderR: 0
     },
     'Greninja Ash': {
-        id: 1086,
+        id: 1087,
         bs: { hp: 72, at: 145, df: 67, sa: 153, sd: 71, sp: 132 },
         abilities: ['Battle Bond', 'Battle Bond', 'Battle Bond'],
         innates: ['Torrent', 'Skill Link', 'Fatal Precision'],
@@ -10638,16 +10649,6 @@ var REDUX_PATCH = {
         genderR: 0
     },
     'Vivillon Polar': {
-        id: 1087,
-        bs: { hp: 80, at: 52, df: 50, sa: 90, sd: 50, sp: 89 },
-        abilities: ['Swarm', 'Tinted Lens', 'Effect Spore'],
-        innates: ['Shield Dust', 'Compound Eyes', 'Majestic Moth'],
-        otherFormes: ['Vivillon'],
-        weightkg: 0,
-        types: ['Bug', 'Flying'],
-        genderR: 127
-    },
-    'Vivillon Tundra': {
         id: 1088,
         bs: { hp: 80, at: 52, df: 50, sa: 90, sd: 50, sp: 89 },
         abilities: ['Swarm', 'Tinted Lens', 'Effect Spore'],
@@ -10657,7 +10658,7 @@ var REDUX_PATCH = {
         types: ['Bug', 'Flying'],
         genderR: 127
     },
-    'Vivillon Continental': {
+    'Vivillon Tundra': {
         id: 1089,
         bs: { hp: 80, at: 52, df: 50, sa: 90, sd: 50, sp: 89 },
         abilities: ['Swarm', 'Tinted Lens', 'Effect Spore'],
@@ -10667,7 +10668,7 @@ var REDUX_PATCH = {
         types: ['Bug', 'Flying'],
         genderR: 127
     },
-    'Vivillon Garden': {
+    'Vivillon Continental': {
         id: 1090,
         bs: { hp: 80, at: 52, df: 50, sa: 90, sd: 50, sp: 89 },
         abilities: ['Swarm', 'Tinted Lens', 'Effect Spore'],
@@ -10677,7 +10678,7 @@ var REDUX_PATCH = {
         types: ['Bug', 'Flying'],
         genderR: 127
     },
-    'Vivillon Elegant': {
+    'Vivillon Garden': {
         id: 1091,
         bs: { hp: 80, at: 52, df: 50, sa: 90, sd: 50, sp: 89 },
         abilities: ['Swarm', 'Tinted Lens', 'Effect Spore'],
@@ -10687,7 +10688,7 @@ var REDUX_PATCH = {
         types: ['Bug', 'Flying'],
         genderR: 127
     },
-    'Vivillon Meadow': {
+    'Vivillon Elegant': {
         id: 1092,
         bs: { hp: 80, at: 52, df: 50, sa: 90, sd: 50, sp: 89 },
         abilities: ['Swarm', 'Tinted Lens', 'Effect Spore'],
@@ -10697,7 +10698,7 @@ var REDUX_PATCH = {
         types: ['Bug', 'Flying'],
         genderR: 127
     },
-    'Vivillon Modern': {
+    'Vivillon Meadow': {
         id: 1093,
         bs: { hp: 80, at: 52, df: 50, sa: 90, sd: 50, sp: 89 },
         abilities: ['Swarm', 'Tinted Lens', 'Effect Spore'],
@@ -10707,7 +10708,7 @@ var REDUX_PATCH = {
         types: ['Bug', 'Flying'],
         genderR: 127
     },
-    'Vivillon Marine': {
+    'Vivillon Modern': {
         id: 1094,
         bs: { hp: 80, at: 52, df: 50, sa: 90, sd: 50, sp: 89 },
         abilities: ['Swarm', 'Tinted Lens', 'Effect Spore'],
@@ -10717,7 +10718,7 @@ var REDUX_PATCH = {
         types: ['Bug', 'Flying'],
         genderR: 127
     },
-    'Vivillon Archipelago': {
+    'Vivillon Marine': {
         id: 1095,
         bs: { hp: 80, at: 52, df: 50, sa: 90, sd: 50, sp: 89 },
         abilities: ['Swarm', 'Tinted Lens', 'Effect Spore'],
@@ -10727,7 +10728,7 @@ var REDUX_PATCH = {
         types: ['Bug', 'Flying'],
         genderR: 127
     },
-    'Vivillon High Plains': {
+    'Vivillon Archipelago': {
         id: 1096,
         bs: { hp: 80, at: 52, df: 50, sa: 90, sd: 50, sp: 89 },
         abilities: ['Swarm', 'Tinted Lens', 'Effect Spore'],
@@ -10737,7 +10738,7 @@ var REDUX_PATCH = {
         types: ['Bug', 'Flying'],
         genderR: 127
     },
-    'Vivillon Sandstorm': {
+    'Vivillon High Plains': {
         id: 1097,
         bs: { hp: 80, at: 52, df: 50, sa: 90, sd: 50, sp: 89 },
         abilities: ['Swarm', 'Tinted Lens', 'Effect Spore'],
@@ -10747,7 +10748,7 @@ var REDUX_PATCH = {
         types: ['Bug', 'Flying'],
         genderR: 127
     },
-    'Vivillon River': {
+    'Vivillon Sandstorm': {
         id: 1098,
         bs: { hp: 80, at: 52, df: 50, sa: 90, sd: 50, sp: 89 },
         abilities: ['Swarm', 'Tinted Lens', 'Effect Spore'],
@@ -10757,7 +10758,7 @@ var REDUX_PATCH = {
         types: ['Bug', 'Flying'],
         genderR: 127
     },
-    'Vivillon Monsoon': {
+    'Vivillon River': {
         id: 1099,
         bs: { hp: 80, at: 52, df: 50, sa: 90, sd: 50, sp: 89 },
         abilities: ['Swarm', 'Tinted Lens', 'Effect Spore'],
@@ -10767,7 +10768,7 @@ var REDUX_PATCH = {
         types: ['Bug', 'Flying'],
         genderR: 127
     },
-    'Vivillon Savanna': {
+    'Vivillon Monsoon': {
         id: 1100,
         bs: { hp: 80, at: 52, df: 50, sa: 90, sd: 50, sp: 89 },
         abilities: ['Swarm', 'Tinted Lens', 'Effect Spore'],
@@ -10777,7 +10778,7 @@ var REDUX_PATCH = {
         types: ['Bug', 'Flying'],
         genderR: 127
     },
-    'Vivillon Sun': {
+    'Vivillon Savanna': {
         id: 1101,
         bs: { hp: 80, at: 52, df: 50, sa: 90, sd: 50, sp: 89 },
         abilities: ['Swarm', 'Tinted Lens', 'Effect Spore'],
@@ -10787,7 +10788,7 @@ var REDUX_PATCH = {
         types: ['Bug', 'Flying'],
         genderR: 127
     },
-    'Vivillon Ocean': {
+    'Vivillon Sun': {
         id: 1102,
         bs: { hp: 80, at: 52, df: 50, sa: 90, sd: 50, sp: 89 },
         abilities: ['Swarm', 'Tinted Lens', 'Effect Spore'],
@@ -10797,7 +10798,7 @@ var REDUX_PATCH = {
         types: ['Bug', 'Flying'],
         genderR: 127
     },
-    'Vivillon Jungle': {
+    'Vivillon Ocean': {
         id: 1103,
         bs: { hp: 80, at: 52, df: 50, sa: 90, sd: 50, sp: 89 },
         abilities: ['Swarm', 'Tinted Lens', 'Effect Spore'],
@@ -10807,7 +10808,7 @@ var REDUX_PATCH = {
         types: ['Bug', 'Flying'],
         genderR: 127
     },
-    'Vivillon Fancy': {
+    'Vivillon Jungle': {
         id: 1104,
         bs: { hp: 80, at: 52, df: 50, sa: 90, sd: 50, sp: 89 },
         abilities: ['Swarm', 'Tinted Lens', 'Effect Spore'],
@@ -10817,7 +10818,7 @@ var REDUX_PATCH = {
         types: ['Bug', 'Flying'],
         genderR: 127
     },
-    'Vivillon Poke Ball': {
+    'Vivillon Fancy': {
         id: 1105,
         bs: { hp: 80, at: 52, df: 50, sa: 90, sd: 50, sp: 89 },
         abilities: ['Swarm', 'Tinted Lens', 'Effect Spore'],
@@ -10827,18 +10828,17 @@ var REDUX_PATCH = {
         types: ['Bug', 'Flying'],
         genderR: 127
     },
-    'Flabebe Yellow Flower': {
+    'Vivillon Poke Ball': {
         id: 1106,
-        bs: { hp: 44, at: 38, df: 39, sa: 61, sd: 79, sp: 42 },
-        abilities: ['Flower Veil', 'None', 'Symbiosis'],
-        innates: ['Natural Cure', 'Absorbant', 'Self Sufficient'],
-        otherFormes: ['Flabebe'],
-        nfe: true,
+        bs: { hp: 80, at: 52, df: 50, sa: 90, sd: 50, sp: 89 },
+        abilities: ['Swarm', 'Tinted Lens', 'Effect Spore'],
+        innates: ['Shield Dust', 'Compound Eyes', 'Majestic Moth'],
+        otherFormes: ['Vivillon'],
         weightkg: 0,
-        types: ['Fairy'],
-        genderR: 254
+        types: ['Bug', 'Flying'],
+        genderR: 127
     },
-    'Flabebe Orange Flower': {
+    'Flabebe Yellow Flower': {
         id: 1107,
         bs: { hp: 44, at: 38, df: 39, sa: 61, sd: 79, sp: 42 },
         abilities: ['Flower Veil', 'None', 'Symbiosis'],
@@ -10849,7 +10849,7 @@ var REDUX_PATCH = {
         types: ['Fairy'],
         genderR: 254
     },
-    'Flabebe Blue Flower': {
+    'Flabebe Orange Flower': {
         id: 1108,
         bs: { hp: 44, at: 38, df: 39, sa: 61, sd: 79, sp: 42 },
         abilities: ['Flower Veil', 'None', 'Symbiosis'],
@@ -10860,7 +10860,7 @@ var REDUX_PATCH = {
         types: ['Fairy'],
         genderR: 254
     },
-    'Flabebe White Flower': {
+    'Flabebe Blue Flower': {
         id: 1109,
         bs: { hp: 44, at: 38, df: 39, sa: 61, sd: 79, sp: 42 },
         abilities: ['Flower Veil', 'None', 'Symbiosis'],
@@ -10871,18 +10871,18 @@ var REDUX_PATCH = {
         types: ['Fairy'],
         genderR: 254
     },
-    'Floette Yellow Flower': {
+    'Flabebe White Flower': {
         id: 1110,
-        bs: { hp: 54, at: 45, df: 47, sa: 75, sd: 98, sp: 52 },
+        bs: { hp: 44, at: 38, df: 39, sa: 61, sd: 79, sp: 42 },
         abilities: ['Flower Veil', 'None', 'Symbiosis'],
         innates: ['Natural Cure', 'Absorbant', 'Self Sufficient'],
-        otherFormes: ['Floette'],
+        otherFormes: ['Flabebe'],
         nfe: true,
         weightkg: 0,
         types: ['Fairy'],
         genderR: 254
     },
-    'Floette Orange Flower': {
+    'Floette Yellow Flower': {
         id: 1111,
         bs: { hp: 54, at: 45, df: 47, sa: 75, sd: 98, sp: 52 },
         abilities: ['Flower Veil', 'None', 'Symbiosis'],
@@ -10893,7 +10893,7 @@ var REDUX_PATCH = {
         types: ['Fairy'],
         genderR: 254
     },
-    'Floette Blue Flower': {
+    'Floette Orange Flower': {
         id: 1112,
         bs: { hp: 54, at: 45, df: 47, sa: 75, sd: 98, sp: 52 },
         abilities: ['Flower Veil', 'None', 'Symbiosis'],
@@ -10904,7 +10904,7 @@ var REDUX_PATCH = {
         types: ['Fairy'],
         genderR: 254
     },
-    'Floette White Flower': {
+    'Floette Blue Flower': {
         id: 1113,
         bs: { hp: 54, at: 45, df: 47, sa: 75, sd: 98, sp: 52 },
         abilities: ['Flower Veil', 'None', 'Symbiosis'],
@@ -10915,8 +10915,19 @@ var REDUX_PATCH = {
         types: ['Fairy'],
         genderR: 254
     },
-    'Floette Eternal Flower': {
+    'Floette White Flower': {
         id: 1114,
+        bs: { hp: 54, at: 45, df: 47, sa: 75, sd: 98, sp: 52 },
+        abilities: ['Flower Veil', 'None', 'Symbiosis'],
+        innates: ['Natural Cure', 'Absorbant', 'Self Sufficient'],
+        otherFormes: ['Floette'],
+        nfe: true,
+        weightkg: 0,
+        types: ['Fairy'],
+        genderR: 254
+    },
+    'Floette Eternal Flower': {
+        id: 1115,
         bs: { hp: 54, at: 45, df: 47, sa: 75, sd: 98, sp: 52 },
         abilities: ['Flower Veil', 'None', 'Symbiosis'],
         innates: ['Natural Cure', 'Absorbant', 'Self Sufficient'],
@@ -10926,16 +10937,6 @@ var REDUX_PATCH = {
         genderR: 254
     },
     'Florges Yellow Flower': {
-        id: 1115,
-        bs: { hp: 78, at: 65, df: 68, sa: 112, sd: 154, sp: 75 },
-        abilities: ['Harvest', 'Misty Surge', 'Fairy Aura'],
-        innates: ['Natural Cure', 'Regenerator', 'Self Sufficient'],
-        otherFormes: ['Florges'],
-        weightkg: 0,
-        types: ['Fairy'],
-        genderR: 254
-    },
-    'Florges Orange Flower': {
         id: 1116,
         bs: { hp: 78, at: 65, df: 68, sa: 112, sd: 154, sp: 75 },
         abilities: ['Harvest', 'Misty Surge', 'Fairy Aura'],
@@ -10945,7 +10946,7 @@ var REDUX_PATCH = {
         types: ['Fairy'],
         genderR: 254
     },
-    'Florges Blue Flower': {
+    'Florges Orange Flower': {
         id: 1117,
         bs: { hp: 78, at: 65, df: 68, sa: 112, sd: 154, sp: 75 },
         abilities: ['Harvest', 'Misty Surge', 'Fairy Aura'],
@@ -10955,7 +10956,7 @@ var REDUX_PATCH = {
         types: ['Fairy'],
         genderR: 254
     },
-    'Florges White Flower': {
+    'Florges Blue Flower': {
         id: 1118,
         bs: { hp: 78, at: 65, df: 68, sa: 112, sd: 154, sp: 75 },
         abilities: ['Harvest', 'Misty Surge', 'Fairy Aura'],
@@ -10965,17 +10966,17 @@ var REDUX_PATCH = {
         types: ['Fairy'],
         genderR: 254
     },
-    'Furfrou Heart Trim': {
+    'Florges White Flower': {
         id: 1119,
-        bs: { hp: 75, at: 80, df: 60, sa: 65, sd: 90, sp: 102 },
-        abilities: ['Cute Charm', 'None', 'None'],
-        innates: ['Fur Coat', 'Overcoat', 'Fluffy'],
-        otherFormes: ['Furfrou'],
+        bs: { hp: 78, at: 65, df: 68, sa: 112, sd: 154, sp: 75 },
+        abilities: ['Harvest', 'Misty Surge', 'Fairy Aura'],
+        innates: ['Natural Cure', 'Regenerator', 'Self Sufficient'],
+        otherFormes: ['Florges'],
         weightkg: 0,
-        types: ['Normal'],
-        genderR: 127
+        types: ['Fairy'],
+        genderR: 254
     },
-    'Furfrou Star Trim': {
+    'Furfrou Heart Trim': {
         id: 1120,
         bs: { hp: 75, at: 80, df: 60, sa: 65, sd: 90, sp: 102 },
         abilities: ['Cute Charm', 'None', 'None'],
@@ -10985,8 +10986,18 @@ var REDUX_PATCH = {
         types: ['Normal'],
         genderR: 127
     },
-    'Furfrou Diamond Trim': {
+    'Furfrou Star Trim': {
         id: 1121,
+        bs: { hp: 75, at: 80, df: 60, sa: 65, sd: 90, sp: 102 },
+        abilities: ['Cute Charm', 'None', 'None'],
+        innates: ['Fur Coat', 'Overcoat', 'Fluffy'],
+        otherFormes: ['Furfrou'],
+        weightkg: 0,
+        types: ['Normal'],
+        genderR: 127
+    },
+    'Furfrou Diamond Trim': {
+        id: 1122,
         bs: { hp: 75, at: 80, df: 60, sa: 65, sd: 90, sp: 102 },
         abilities: ['Cute Charm', 'None', 'None'],
         innates: ['Fur Coat', 'Overcoat'],
@@ -10996,16 +11007,6 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Furfrou Debutante Trim': {
-        id: 1122,
-        bs: { hp: 75, at: 80, df: 60, sa: 65, sd: 90, sp: 102 },
-        abilities: ['Cute Charm', 'None', 'None'],
-        innates: ['Fur Coat', 'Overcoat', 'Fluffy'],
-        otherFormes: ['Furfrou'],
-        weightkg: 0,
-        types: ['Normal'],
-        genderR: 127
-    },
-    'Furfrou Matron Trim': {
         id: 1123,
         bs: { hp: 75, at: 80, df: 60, sa: 65, sd: 90, sp: 102 },
         abilities: ['Cute Charm', 'None', 'None'],
@@ -11015,7 +11016,7 @@ var REDUX_PATCH = {
         types: ['Normal'],
         genderR: 127
     },
-    'Furfrou Dandy Trim': {
+    'Furfrou Matron Trim': {
         id: 1124,
         bs: { hp: 75, at: 80, df: 60, sa: 65, sd: 90, sp: 102 },
         abilities: ['Cute Charm', 'None', 'None'],
@@ -11025,7 +11026,7 @@ var REDUX_PATCH = {
         types: ['Normal'],
         genderR: 127
     },
-    'Furfrou La Reine Trim': {
+    'Furfrou Dandy Trim': {
         id: 1125,
         bs: { hp: 75, at: 80, df: 60, sa: 65, sd: 90, sp: 102 },
         abilities: ['Cute Charm', 'None', 'None'],
@@ -11035,7 +11036,7 @@ var REDUX_PATCH = {
         types: ['Normal'],
         genderR: 127
     },
-    'Furfrou Kabuki Trim': {
+    'Furfrou La Reine Trim': {
         id: 1126,
         bs: { hp: 75, at: 80, df: 60, sa: 65, sd: 90, sp: 102 },
         abilities: ['Cute Charm', 'None', 'None'],
@@ -11045,7 +11046,7 @@ var REDUX_PATCH = {
         types: ['Normal'],
         genderR: 127
     },
-    'Furfrou Pharaoh Trim': {
+    'Furfrou Kabuki Trim': {
         id: 1127,
         bs: { hp: 75, at: 80, df: 60, sa: 65, sd: 90, sp: 102 },
         abilities: ['Cute Charm', 'None', 'None'],
@@ -11055,8 +11056,18 @@ var REDUX_PATCH = {
         types: ['Normal'],
         genderR: 127
     },
-    'Meowstic Female': {
+    'Furfrou Pharaoh Trim': {
         id: 1128,
+        bs: { hp: 75, at: 80, df: 60, sa: 65, sd: 90, sp: 102 },
+        abilities: ['Cute Charm', 'None', 'None'],
+        innates: ['Fur Coat', 'Overcoat', 'Fluffy'],
+        otherFormes: ['Furfrou'],
+        weightkg: 0,
+        types: ['Normal'],
+        genderR: 127
+    },
+    'Meowstic Female': {
+        id: 1129,
         bs: { hp: 74, at: 48, df: 76, sa: 103, sd: 81, sp: 104 },
         abilities: ['Infiltrator', 'Competitive', 'Sage Power'],
         innates: ['Psychic Mind', 'Psychic Surge', 'Hyper Aggressive'],
@@ -11066,7 +11077,7 @@ var REDUX_PATCH = {
         genderR: 254
     },
     'Aegislash Blade': {
-        id: 1129,
+        id: 1130,
         bs: { hp: 60, at: 140, df: 50, sa: 140, sd: 50, sp: 60 },
         abilities: ['Shadow Shield', 'Dragonslayer', 'Soul Eater'],
         innates: ['Levitate', 'Keen Edge', 'Stance Change'],
@@ -11076,17 +11087,6 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Pumpkaboo Small': {
-        id: 1130,
-        bs: { hp: 49, at: 44, df: 70, sa: 66, sd: 55, sp: 51 },
-        abilities: ['Frisk', 'Flare Boost', 'Moody'],
-        innates: ['Insomnia', 'Cursed Body', 'Haunted Spirit'],
-        otherFormes: ['Pumpkaboo'],
-        nfe: true,
-        weightkg: 0,
-        types: ['Ghost', 'Grass'],
-        genderR: 127
-    },
-    'Pumpkaboo Large': {
         id: 1131,
         bs: { hp: 49, at: 44, df: 70, sa: 66, sd: 55, sp: 51 },
         abilities: ['Frisk', 'Flare Boost', 'Moody'],
@@ -11097,7 +11097,7 @@ var REDUX_PATCH = {
         types: ['Ghost', 'Grass'],
         genderR: 127
     },
-    'Pumpkaboo Super': {
+    'Pumpkaboo Large': {
         id: 1132,
         bs: { hp: 49, at: 44, df: 70, sa: 66, sd: 55, sp: 51 },
         abilities: ['Frisk', 'Flare Boost', 'Moody'],
@@ -11108,8 +11108,19 @@ var REDUX_PATCH = {
         types: ['Ghost', 'Grass'],
         genderR: 127
     },
-    'Gourgeist Small': {
+    'Pumpkaboo Super': {
         id: 1133,
+        bs: { hp: 49, at: 44, df: 70, sa: 66, sd: 55, sp: 51 },
+        abilities: ['Frisk', 'Flare Boost', 'Moody'],
+        innates: ['Insomnia', 'Cursed Body', 'Haunted Spirit'],
+        otherFormes: ['Pumpkaboo'],
+        nfe: true,
+        weightkg: 0,
+        types: ['Ghost', 'Grass'],
+        genderR: 127
+    },
+    'Gourgeist Small': {
+        id: 1134,
         bs: { hp: 55, at: 58, df: 122, sa: 85, sd: 75, sp: 99 },
         abilities: ['Flare Boost', 'Harvest', 'Moody'],
         innates: ['Insomnia', 'Cursed Body', 'Haunted Spirit'],
@@ -11119,7 +11130,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Gourgeist Large': {
-        id: 1134,
+        id: 1135,
         bs: { hp: 75, at: 58, df: 122, sa: 95, sd: 75, sp: 69 },
         abilities: ['Flare Boost', 'Harvest', 'Moody'],
         innates: ['Insomnia', 'Cursed Body', 'Haunted Spirit'],
@@ -11129,7 +11140,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Gourgeist Super': {
-        id: 1135,
+        id: 1136,
         bs: { hp: 85, at: 58, df: 122, sa: 100, sd: 75, sp: 54 },
         abilities: ['Flare Boost', 'Harvest', 'Moody'],
         innates: ['Insomnia', 'Cursed Body', 'Haunted Spirit'],
@@ -11139,7 +11150,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Xerneas Active': {
-        id: 1136,
+        id: 1137,
         bs: { hp: 126, at: 131, df: 95, sa: 131, sd: 98, sp: 99 },
         abilities: ['Pixilate', 'Competitive', 'Self Sufficient'],
         innates: ['Fairy Aura', 'Illuminate', 'Soul Heart'],
@@ -11149,16 +11160,6 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Zygarde 10': {
-        id: 1137,
-        bs: { hp: 54, at: 100, df: 71, sa: 61, sd: 85, sp: 115 },
-        abilities: ['Aura Break', 'Hyper Aggressive', 'Power Construct'],
-        innates: ['Primal Armor', 'Earthbound', 'Power Core'],
-        otherFormes: ['Zygarde'],
-        weightkg: 0,
-        types: ['Dragon', 'Ground'],
-        genderR: 255
-    },
-    'Zygarde 10 Power Construct': {
         id: 1138,
         bs: { hp: 54, at: 100, df: 71, sa: 61, sd: 85, sp: 115 },
         abilities: ['Aura Break', 'Hyper Aggressive', 'Power Construct'],
@@ -11168,8 +11169,18 @@ var REDUX_PATCH = {
         types: ['Dragon', 'Ground'],
         genderR: 255
     },
-    'Zygarde 50 Power Construct': {
+    'Zygarde 10 Power Construct': {
         id: 1139,
+        bs: { hp: 54, at: 100, df: 71, sa: 61, sd: 85, sp: 115 },
+        abilities: ['Aura Break', 'Hyper Aggressive', 'Power Construct'],
+        innates: ['Primal Armor', 'Earthbound', 'Power Core'],
+        otherFormes: ['Zygarde'],
+        weightkg: 0,
+        types: ['Dragon', 'Ground'],
+        genderR: 255
+    },
+    'Zygarde 50 Power Construct': {
+        id: 1140,
         bs: { hp: 108, at: 100, df: 121, sa: 81, sd: 95, sp: 95 },
         abilities: ['Aura Break', 'Regenerator', 'Power Construct'],
         innates: ['Primal Armor', 'Earthbound', 'Power Core'],
@@ -11179,7 +11190,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Zygarde Complete': {
-        id: 1140,
+        id: 1141,
         bs: { hp: 216, at: 100, df: 121, sa: 91, sd: 95, sp: 85 },
         abilities: ['Power Construct', 'Power Construct', 'Power Construct'],
         innates: ['Primal Armor', 'Earthbound', 'Power Core'],
@@ -11189,7 +11200,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Hoopa Unbound': {
-        id: 1141,
+        id: 1142,
         bs: { hp: 80, at: 160, df: 60, sa: 170, sd: 130, sp: 80 },
         abilities: ['Magician', 'Magician', 'Magician'],
         innates: ['Soul Eater', 'Hyper Aggressive', 'Infiltrator'],
@@ -11199,7 +11210,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Oricorio Pom Pom': {
-        id: 1142,
+        id: 1143,
         bs: { hp: 75, at: 70, df: 70, sa: 108, sd: 70, sp: 103 },
         abilities: ['Dancer', 'Dancer', 'Dancer'],
         innates: ['Keen Eye', 'Lightning Rod', 'Flock'],
@@ -11209,7 +11220,7 @@ var REDUX_PATCH = {
         genderR: 191
     },
     'Oricorio Pau': {
-        id: 1143,
+        id: 1144,
         bs: { hp: 75, at: 70, df: 70, sa: 108, sd: 70, sp: 103 },
         abilities: ['Dancer', 'Dancer', 'Dancer'],
         innates: ['Keen Eye', 'Psychic Mind', 'Flock'],
@@ -11219,7 +11230,7 @@ var REDUX_PATCH = {
         genderR: 191
     },
     'Oricorio Sensu': {
-        id: 1144,
+        id: 1145,
         bs: { hp: 75, at: 70, df: 70, sa: 108, sd: 70, sp: 103 },
         abilities: ['Dancer', 'Dancer', 'Dancer'],
         innates: ['Keen Eye', 'Cursed Body', 'Flock'],
@@ -11229,7 +11240,7 @@ var REDUX_PATCH = {
         genderR: 191
     },
     'Rockruff Own Tempo': {
-        id: 1145,
+        id: 1146,
         bs: { hp: 45, at: 65, df: 40, sa: 30, sd: 40, sp: 60 },
         abilities: ['Own Tempo', 'Own Tempo', 'Own Tempo'],
         innates: ['Keen Eye', 'Opportunist', 'Rock Head'],
@@ -11240,7 +11251,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Lycanroc Midnight': {
-        id: 1146,
+        id: 1147,
         bs: { hp: 85, at: 115, df: 75, sa: 55, sd: 75, sp: 82 },
         abilities: ['Tough Claws', 'Lunar Eclipse', 'Predator'],
         innates: ['No Guard', 'Nocturnal', 'Hyper Aggressive'],
@@ -11250,7 +11261,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Lycanroc Dusk': {
-        id: 1147,
+        id: 1148,
         bs: { hp: 75, at: 117, df: 65, sa: 55, sd: 65, sp: 110 },
         abilities: ['Tough Claws', 'Moxie', 'Predator'],
         innates: ['Opportunist', 'Fatal Precision', 'Rock Head'],
@@ -11260,7 +11271,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Wishiwashi School': {
-        id: 1148,
+        id: 1149,
         bs: { hp: 45, at: 140, df: 130, sa: 140, sd: 135, sp: 30 },
         abilities: ['Schooling', 'Schooling', 'Schooling'],
         innates: ['Water Veil', 'Regenerator', 'Multiscale'],
@@ -11270,7 +11281,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Silvally Fighting': {
-        id: 1149,
+        id: 1150,
         bs: { hp: 95, at: 95, df: 95, sa: 95, sd: 95, sp: 95 },
         abilities: ['Rks System', 'Rks System', 'Rks System'],
         innates: ['Adaptability', 'Anger Point', 'Primal Armor'],
@@ -11280,7 +11291,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Silvally Flying': {
-        id: 1150,
+        id: 1151,
         bs: { hp: 95, at: 95, df: 95, sa: 95, sd: 95, sp: 95 },
         abilities: ['Rks System', 'Rks System', 'Rks System'],
         innates: ['Adaptability', 'Anger Point', 'Primal Armor'],
@@ -11290,7 +11301,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Silvally Poison': {
-        id: 1151,
+        id: 1152,
         bs: { hp: 95, at: 95, df: 95, sa: 95, sd: 95, sp: 95 },
         abilities: ['Rks System', 'Rks System', 'Rks System'],
         innates: ['Adaptability', 'Anger Point', 'Primal Armor'],
@@ -11300,7 +11311,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Silvally Ground': {
-        id: 1152,
+        id: 1153,
         bs: { hp: 95, at: 95, df: 95, sa: 95, sd: 95, sp: 95 },
         abilities: ['Rks System', 'Rks System', 'Rks System'],
         innates: ['Adaptability', 'Anger Point', 'Primal Armor'],
@@ -11310,7 +11321,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Silvally Rock': {
-        id: 1153,
+        id: 1154,
         bs: { hp: 95, at: 95, df: 95, sa: 95, sd: 95, sp: 95 },
         abilities: ['Rks System', 'Rks System', 'Rks System'],
         innates: ['Adaptability', 'Anger Point', 'Primal Armor'],
@@ -11320,7 +11331,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Silvally Bug': {
-        id: 1154,
+        id: 1155,
         bs: { hp: 95, at: 95, df: 95, sa: 95, sd: 95, sp: 95 },
         abilities: ['Rks System', 'Rks System', 'Rks System'],
         innates: ['Adaptability', 'Anger Point', 'Primal Armor'],
@@ -11330,7 +11341,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Silvally Ghost': {
-        id: 1155,
+        id: 1156,
         bs: { hp: 95, at: 95, df: 95, sa: 95, sd: 95, sp: 95 },
         abilities: ['Rks System', 'Rks System', 'Rks System'],
         innates: ['Adaptability', 'Anger Point', 'Primal Armor'],
@@ -11340,7 +11351,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Silvally Steel': {
-        id: 1156,
+        id: 1157,
         bs: { hp: 95, at: 95, df: 95, sa: 95, sd: 95, sp: 95 },
         abilities: ['Rks System', 'Rks System', 'Rks System'],
         innates: ['Adaptability', 'Anger Point', 'Primal Armor'],
@@ -11350,7 +11361,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Silvally Fire': {
-        id: 1157,
+        id: 1158,
         bs: { hp: 95, at: 95, df: 95, sa: 95, sd: 95, sp: 95 },
         abilities: ['Rks System', 'Rks System', 'Rks System'],
         innates: ['Adaptability', 'Anger Point', 'Primal Armor'],
@@ -11360,7 +11371,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Silvally Water': {
-        id: 1158,
+        id: 1159,
         bs: { hp: 95, at: 95, df: 95, sa: 95, sd: 95, sp: 95 },
         abilities: ['Rks System', 'Rks System', 'Rks System'],
         innates: ['Adaptability', 'Anger Point', 'Primal Armor'],
@@ -11370,7 +11381,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Silvally Grass': {
-        id: 1159,
+        id: 1160,
         bs: { hp: 95, at: 95, df: 95, sa: 95, sd: 95, sp: 95 },
         abilities: ['Rks System', 'Rks System', 'Rks System'],
         innates: ['Adaptability', 'Anger Point', 'Primal Armor'],
@@ -11380,7 +11391,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Silvally Electric': {
-        id: 1160,
+        id: 1161,
         bs: { hp: 95, at: 95, df: 95, sa: 95, sd: 95, sp: 95 },
         abilities: ['Rks System', 'Rks System', 'Rks System'],
         innates: ['Adaptability', 'Anger Point', 'Primal Armor'],
@@ -11390,7 +11401,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Silvally Psychic': {
-        id: 1161,
+        id: 1162,
         bs: { hp: 95, at: 95, df: 95, sa: 95, sd: 95, sp: 95 },
         abilities: ['Rks System', 'Rks System', 'Rks System'],
         innates: ['Adaptability', 'Anger Point', 'Primal Armor'],
@@ -11400,7 +11411,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Silvally Ice': {
-        id: 1162,
+        id: 1163,
         bs: { hp: 95, at: 95, df: 95, sa: 95, sd: 95, sp: 95 },
         abilities: ['Rks System', 'Rks System', 'Rks System'],
         innates: ['Adaptability', 'Anger Point', 'Primal Armor'],
@@ -11410,7 +11421,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Silvally Dragon': {
-        id: 1163,
+        id: 1164,
         bs: { hp: 95, at: 95, df: 95, sa: 95, sd: 95, sp: 95 },
         abilities: ['Rks System', 'Rks System', 'Rks System'],
         innates: ['Adaptability', 'Anger Point', 'Primal Armor'],
@@ -11420,7 +11431,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Silvally Dark': {
-        id: 1164,
+        id: 1165,
         bs: { hp: 95, at: 95, df: 95, sa: 95, sd: 95, sp: 95 },
         abilities: ['Rks System', 'Rks System', 'Rks System'],
         innates: ['Adaptability', 'Anger Point', 'Primal Armor'],
@@ -11430,7 +11441,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Silvally Fairy': {
-        id: 1165,
+        id: 1166,
         bs: { hp: 95, at: 95, df: 95, sa: 95, sd: 95, sp: 95 },
         abilities: ['Rks System', 'Rks System', 'Rks System'],
         innates: ['Adaptability', 'Anger Point', 'Primal Armor'],
@@ -11440,16 +11451,6 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Minior Meteor Orange': {
-        id: 1166,
-        bs: { hp: 60, at: 60, df: 100, sa: 60, sd: 100, sp: 60 },
-        abilities: ['Shields Down', 'Shields Down', 'Shields Down'],
-        innates: ['Weak Armor', 'Power Core', 'Loose Rocks'],
-        otherFormes: ['Minior'],
-        weightkg: 0,
-        types: ['Rock', 'Flying'],
-        genderR: 255
-    },
-    'Minior Meteor Yellow': {
         id: 1167,
         bs: { hp: 60, at: 60, df: 100, sa: 60, sd: 100, sp: 60 },
         abilities: ['Shields Down', 'Shields Down', 'Shields Down'],
@@ -11459,7 +11460,7 @@ var REDUX_PATCH = {
         types: ['Rock', 'Flying'],
         genderR: 255
     },
-    'Minior Meteor Green': {
+    'Minior Meteor Yellow': {
         id: 1168,
         bs: { hp: 60, at: 60, df: 100, sa: 60, sd: 100, sp: 60 },
         abilities: ['Shields Down', 'Shields Down', 'Shields Down'],
@@ -11469,7 +11470,7 @@ var REDUX_PATCH = {
         types: ['Rock', 'Flying'],
         genderR: 255
     },
-    'Minior Meteor Blue': {
+    'Minior Meteor Green': {
         id: 1169,
         bs: { hp: 60, at: 60, df: 100, sa: 60, sd: 100, sp: 60 },
         abilities: ['Shields Down', 'Shields Down', 'Shields Down'],
@@ -11479,7 +11480,7 @@ var REDUX_PATCH = {
         types: ['Rock', 'Flying'],
         genderR: 255
     },
-    'Minior Meteor Indigo': {
+    'Minior Meteor Blue': {
         id: 1170,
         bs: { hp: 60, at: 60, df: 100, sa: 60, sd: 100, sp: 60 },
         abilities: ['Shields Down', 'Shields Down', 'Shields Down'],
@@ -11489,7 +11490,7 @@ var REDUX_PATCH = {
         types: ['Rock', 'Flying'],
         genderR: 255
     },
-    'Minior Meteor Violet': {
+    'Minior Meteor Indigo': {
         id: 1171,
         bs: { hp: 60, at: 60, df: 100, sa: 60, sd: 100, sp: 60 },
         abilities: ['Shields Down', 'Shields Down', 'Shields Down'],
@@ -11499,17 +11500,17 @@ var REDUX_PATCH = {
         types: ['Rock', 'Flying'],
         genderR: 255
     },
-    'Minior Core Red': {
+    'Minior Meteor Violet': {
         id: 1172,
-        bs: { hp: 60, at: 100, df: 60, sa: 100, sd: 60, sp: 120 },
+        bs: { hp: 60, at: 60, df: 100, sa: 60, sd: 100, sp: 60 },
         abilities: ['Shields Down', 'Shields Down', 'Shields Down'],
-        innates: ['Innards Out', 'Power Core', 'Equinox'],
+        innates: ['Weak Armor', 'Power Core', 'Loose Rocks'],
         otherFormes: ['Minior'],
         weightkg: 0,
         types: ['Rock', 'Flying'],
         genderR: 255
     },
-    'Minior Core Orange': {
+    'Minior Core Red': {
         id: 1173,
         bs: { hp: 60, at: 100, df: 60, sa: 100, sd: 60, sp: 120 },
         abilities: ['Shields Down', 'Shields Down', 'Shields Down'],
@@ -11519,7 +11520,7 @@ var REDUX_PATCH = {
         types: ['Rock', 'Flying'],
         genderR: 255
     },
-    'Minior Core Yellow': {
+    'Minior Core Orange': {
         id: 1174,
         bs: { hp: 60, at: 100, df: 60, sa: 100, sd: 60, sp: 120 },
         abilities: ['Shields Down', 'Shields Down', 'Shields Down'],
@@ -11529,7 +11530,7 @@ var REDUX_PATCH = {
         types: ['Rock', 'Flying'],
         genderR: 255
     },
-    'Minior Core Green': {
+    'Minior Core Yellow': {
         id: 1175,
         bs: { hp: 60, at: 100, df: 60, sa: 100, sd: 60, sp: 120 },
         abilities: ['Shields Down', 'Shields Down', 'Shields Down'],
@@ -11539,7 +11540,7 @@ var REDUX_PATCH = {
         types: ['Rock', 'Flying'],
         genderR: 255
     },
-    'Minior Core Blue': {
+    'Minior Core Green': {
         id: 1176,
         bs: { hp: 60, at: 100, df: 60, sa: 100, sd: 60, sp: 120 },
         abilities: ['Shields Down', 'Shields Down', 'Shields Down'],
@@ -11549,7 +11550,7 @@ var REDUX_PATCH = {
         types: ['Rock', 'Flying'],
         genderR: 255
     },
-    'Minior Core Indigo': {
+    'Minior Core Blue': {
         id: 1177,
         bs: { hp: 60, at: 100, df: 60, sa: 100, sd: 60, sp: 120 },
         abilities: ['Shields Down', 'Shields Down', 'Shields Down'],
@@ -11559,7 +11560,7 @@ var REDUX_PATCH = {
         types: ['Rock', 'Flying'],
         genderR: 255
     },
-    'Minior Core Violet': {
+    'Minior Core Indigo': {
         id: 1178,
         bs: { hp: 60, at: 100, df: 60, sa: 100, sd: 60, sp: 120 },
         abilities: ['Shields Down', 'Shields Down', 'Shields Down'],
@@ -11569,8 +11570,18 @@ var REDUX_PATCH = {
         types: ['Rock', 'Flying'],
         genderR: 255
     },
-    'Mimikyu Busted': {
+    'Minior Core Violet': {
         id: 1179,
+        bs: { hp: 60, at: 100, df: 60, sa: 100, sd: 60, sp: 120 },
+        abilities: ['Shields Down', 'Shields Down', 'Shields Down'],
+        innates: ['Innards Out', 'Power Core', 'Equinox'],
+        otherFormes: ['Minior'],
+        weightkg: 0,
+        types: ['Rock', 'Flying'],
+        genderR: 255
+    },
+    'Mimikyu Busted': {
+        id: 1180,
         bs: { hp: 55, at: 90, df: 80, sa: 50, sd: 105, sp: 96 },
         abilities: ['Disguise', 'Disguise', 'Disguise'],
         innates: ['Vengeance', 'Avenger', 'Haunted Spirit'],
@@ -11580,7 +11591,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Necrozma Dusk Mane': {
-        id: 1180,
+        id: 1181,
         bs: { hp: 97, at: 157, df: 127, sa: 113, sd: 109, sp: 77 },
         abilities: ['Neuroforce', 'Rampage', 'Mega Launcher'],
         innates: ['Solar Flare', 'Impenetrable', 'Prism Armor'],
@@ -11590,7 +11601,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Necrozma Dawn Wings': {
-        id: 1181,
+        id: 1182,
         bs: { hp: 97, at: 113, df: 109, sa: 157, sd: 127, sp: 77 },
         abilities: ['Neuroforce', 'Rampage', 'Mega Launcher'],
         innates: ['Lunar Eclipse', 'Shadow Shield', 'Levitate'],
@@ -11600,7 +11611,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Necrozma Ultra': {
-        id: 1182,
+        id: 1183,
         bs: { hp: 97, at: 167, df: 97, sa: 167, sd: 97, sp: 129 },
         abilities: ['Soul Eater', 'Rampage', 'Mega Launcher'],
         innates: ['Beast Boost', 'Neuroforce', 'Levitate'],
@@ -11610,7 +11621,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Magearna Original Color': {
-        id: 1183,
+        id: 1184,
         bs: { hp: 80, at: 95, df: 115, sa: 130, sd: 115, sp: 65 },
         abilities: ['Steelworker', 'Pixilate', 'Mirror Armor'],
         innates: ['Clear Body', 'Soul Heart', 'Power Core'],
@@ -11620,16 +11631,6 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Cramorant Gulping': {
-        id: 1288,
-        bs: { hp: 70, at: 85, df: 55, sa: 85, sd: 95, sp: 85 },
-        abilities: ['Gulp Missile', 'Gulp Missile', 'Gulp Missile'],
-        innates: [''],
-        otherFormes: ['Cramorant'],
-        weightkg: 0,
-        types: ['Flying', 'Water'],
-        genderR: 127
-    },
-    'Cramorant Gorging': {
         id: 1289,
         bs: { hp: 70, at: 85, df: 55, sa: 85, sd: 95, sp: 85 },
         abilities: ['Gulp Missile', 'Gulp Missile', 'Gulp Missile'],
@@ -11639,8 +11640,18 @@ var REDUX_PATCH = {
         types: ['Flying', 'Water'],
         genderR: 127
     },
-    'Toxtricity Low Key': {
+    'Cramorant Gorging': {
         id: 1290,
+        bs: { hp: 70, at: 85, df: 55, sa: 85, sd: 95, sp: 85 },
+        abilities: ['Gulp Missile', 'Gulp Missile', 'Gulp Missile'],
+        innates: [''],
+        otherFormes: ['Cramorant'],
+        weightkg: 0,
+        types: ['Flying', 'Water'],
+        genderR: 127
+    },
+    'Toxtricity Low Key': {
+        id: 1291,
         bs: { hp: 75, at: 98, df: 70, sa: 114, sd: 70, sp: 75 },
         abilities: ['Punk Rock', 'Amplifier', 'Technician'],
         innates: ['Minus', 'Water Absorb', 'Merciless'],
@@ -11650,7 +11661,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Sinistea Antique': {
-        id: 1291,
+        id: 1292,
         bs: { hp: 40, at: 45, df: 45, sa: 74, sd: 54, sp: 50 },
         abilities: ['Weak Armor', 'Weak Armor', 'Cursed Body'],
         innates: [''],
@@ -11661,7 +11672,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Polteageist Antique': {
-        id: 1292,
+        id: 1293,
         bs: { hp: 60, at: 65, df: 65, sa: 134, sd: 114, sp: 70 },
         abilities: ['Weak Armor', 'Weak Armor', 'Cursed Body'],
         innates: [''],
@@ -11671,16 +11682,6 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Alcremie Ruby Cream': {
-        id: 1293,
-        bs: { hp: 65, at: 60, df: 75, sa: 110, sd: 121, sp: 64 },
-        abilities: ['Sweet Veil', 'Sweet Veil', 'Aroma Veil'],
-        innates: [''],
-        otherFormes: ['Alcremie'],
-        weightkg: 0,
-        types: ['Fairy'],
-        genderR: 254
-    },
-    'Alcremie Matcha Cream': {
         id: 1294,
         bs: { hp: 65, at: 60, df: 75, sa: 110, sd: 121, sp: 64 },
         abilities: ['Sweet Veil', 'Sweet Veil', 'Aroma Veil'],
@@ -11690,7 +11691,7 @@ var REDUX_PATCH = {
         types: ['Fairy'],
         genderR: 254
     },
-    'Alcremie Mint Cream': {
+    'Alcremie Matcha Cream': {
         id: 1295,
         bs: { hp: 65, at: 60, df: 75, sa: 110, sd: 121, sp: 64 },
         abilities: ['Sweet Veil', 'Sweet Veil', 'Aroma Veil'],
@@ -11700,7 +11701,7 @@ var REDUX_PATCH = {
         types: ['Fairy'],
         genderR: 254
     },
-    'Alcremie Lemon Cream': {
+    'Alcremie Mint Cream': {
         id: 1296,
         bs: { hp: 65, at: 60, df: 75, sa: 110, sd: 121, sp: 64 },
         abilities: ['Sweet Veil', 'Sweet Veil', 'Aroma Veil'],
@@ -11710,7 +11711,7 @@ var REDUX_PATCH = {
         types: ['Fairy'],
         genderR: 254
     },
-    'Alcremie Salted Cream': {
+    'Alcremie Lemon Cream': {
         id: 1297,
         bs: { hp: 65, at: 60, df: 75, sa: 110, sd: 121, sp: 64 },
         abilities: ['Sweet Veil', 'Sweet Veil', 'Aroma Veil'],
@@ -11720,7 +11721,7 @@ var REDUX_PATCH = {
         types: ['Fairy'],
         genderR: 254
     },
-    'Alcremie Ruby Swirl': {
+    'Alcremie Salted Cream': {
         id: 1298,
         bs: { hp: 65, at: 60, df: 75, sa: 110, sd: 121, sp: 64 },
         abilities: ['Sweet Veil', 'Sweet Veil', 'Aroma Veil'],
@@ -11730,7 +11731,7 @@ var REDUX_PATCH = {
         types: ['Fairy'],
         genderR: 254
     },
-    'Alcremie Caramel Swirl': {
+    'Alcremie Ruby Swirl': {
         id: 1299,
         bs: { hp: 65, at: 60, df: 75, sa: 110, sd: 121, sp: 64 },
         abilities: ['Sweet Veil', 'Sweet Veil', 'Aroma Veil'],
@@ -11740,7 +11741,7 @@ var REDUX_PATCH = {
         types: ['Fairy'],
         genderR: 254
     },
-    'Alcremie Rainbow Swirl': {
+    'Alcremie Caramel Swirl': {
         id: 1300,
         bs: { hp: 65, at: 60, df: 75, sa: 110, sd: 121, sp: 64 },
         abilities: ['Sweet Veil', 'Sweet Veil', 'Aroma Veil'],
@@ -11750,8 +11751,18 @@ var REDUX_PATCH = {
         types: ['Fairy'],
         genderR: 254
     },
-    'Eiscue Noice Face': {
+    'Alcremie Rainbow Swirl': {
         id: 1301,
+        bs: { hp: 65, at: 60, df: 75, sa: 110, sd: 121, sp: 64 },
+        abilities: ['Sweet Veil', 'Sweet Veil', 'Aroma Veil'],
+        innates: [''],
+        otherFormes: ['Alcremie'],
+        weightkg: 0,
+        types: ['Fairy'],
+        genderR: 254
+    },
+    'Eiscue Noice Face': {
+        id: 1302,
         bs: { hp: 75, at: 80, df: 70, sa: 65, sd: 50, sp: 130 },
         abilities: ['Ice Face', 'Ice Face', 'Ice Face'],
         innates: [''],
@@ -11761,7 +11772,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Indeedee Female': {
-        id: 1302,
+        id: 1303,
         bs: { hp: 70, at: 55, df: 65, sa: 95, sd: 105, sp: 85 },
         abilities: ['Own Tempo', 'Synchronize', 'Psychic Surge'],
         innates: [''],
@@ -11771,7 +11782,7 @@ var REDUX_PATCH = {
         genderR: 254
     },
     'Morpeko Hangry': {
-        id: 1303,
+        id: 1304,
         bs: { hp: 58, at: 95, df: 58, sa: 70, sd: 58, sp: 97 },
         abilities: ['Hunger Switch', 'Hunger Switch', 'Hunger Switch'],
         innates: [''],
@@ -11781,7 +11792,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Zacian Crowned Sword': {
-        id: 1304,
+        id: 1305,
         bs: { hp: 92, at: 170, df: 115, sa: 80, sd: 115, sp: 148 },
         abilities: ['Intrepid Sword', 'Intrepid Sword', 'Intrepid Sword'],
         innates: [''],
@@ -11791,7 +11802,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Zamazenta Crowned Shield': {
-        id: 1305,
+        id: 1306,
         bs: { hp: 92, at: 130, df: 145, sa: 80, sd: 145, sp: 128 },
         abilities: ['Dauntless Shield', 'Dauntless Shield', 'Dauntless Shield'],
         innates: [''],
@@ -11801,7 +11812,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Eternatus Eternamax': {
-        id: 1306,
+        id: 1307,
         bs: { hp: 255, at: 115, df: 250, sa: 125, sd: 250, sp: 130 },
         abilities: ['Pressure', 'Pressure', 'Pressure'],
         innates: [''],
@@ -11811,7 +11822,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Urshifu Rapid Strike Style': {
-        id: 1307,
+        id: 1308,
         bs: { hp: 100, at: 130, df: 100, sa: 63, sd: 60, sp: 97 },
         abilities: ['Unseen Fist', 'Unseen Fist', 'Unseen Fist'],
         innates: [''],
@@ -11821,7 +11832,7 @@ var REDUX_PATCH = {
         genderR: 30
     },
     'Zarude Dada': {
-        id: 1308,
+        id: 1309,
         bs: { hp: 105, at: 120, df: 105, sa: 70, sd: 95, sp: 105 },
         abilities: ['Leaf Guard', 'Leaf Guard', 'Leaf Guard'],
         innates: [''],
@@ -11831,7 +11842,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Calyrex Ice Rider': {
-        id: 1205,
+        id: 1206,
         bs: { hp: 100, at: 165, df: 150, sa: 85, sd: 130, sp: 50 },
         abilities: ['As One Ice Rider', 'As One Ice Rider', 'As One Ice Rider'],
         innates: ['Permafrost', 'Stamina', 'Whiteout'],
@@ -11841,7 +11852,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Calyrex Shadow Rider': {
-        id: 1206,
+        id: 1207,
         bs: { hp: 100, at: 85, df: 80, sa: 165, sd: 100, sp: 150 },
         abilities: ['As One Shadow Rider', 'As One Shadow Rider', 'As One Shadow Rider'],
         innates: ['Shadow Shield', 'Scare', 'Speed Boost'],
@@ -11851,7 +11862,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Milotic Mega': {
-        id: 1207,
+        id: 1208,
         bs: { hp: 95, at: 70, df: 109, sa: 130, sd: 155, sp: 81 },
         abilities: ['Self Sufficient', 'Self Sufficient', 'Self Sufficient'],
         innates: ['Prism Scales', 'Adaptability', 'Sea Guardian'],
@@ -11860,7 +11871,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Butterfree Mega': {
-        id: 1208,
+        id: 1209,
         bs: { hp: 60, at: 15, df: 60, sa: 145, sd: 125, sp: 110 },
         abilities: ['Tinted Lens', 'Tinted Lens', 'Tinted Lens'],
         innates: ['Magical Dust', 'Compound Eyes', 'Levitate'],
@@ -11869,7 +11880,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Machamp Mega': {
-        id: 1209,
+        id: 1210,
         bs: { hp: 90, at: 170, df: 100, sa: 65, sd: 105, sp: 75 },
         abilities: ['Raging Boxer', 'Raging Boxer', 'Raging Boxer'],
         innates: ['No Guard', 'Iron Fist', 'Anger Point'],
@@ -11878,7 +11889,7 @@ var REDUX_PATCH = {
         genderR: 63
     },
     'Kingler Mega': {
-        id: 1210,
+        id: 1211,
         bs: { hp: 80, at: 170, df: 135, sa: 50, sd: 80, sp: 85 },
         abilities: ['Tough Claws', 'Tough Claws', 'Tough Claws'],
         innates: ['Swift Swim', 'Hyper Cutter', 'Grip Pincer'],
@@ -11887,7 +11898,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Lapras Mega': {
-        id: 1211,
+        id: 1212,
         bs: { hp: 130, at: 105, df: 110, sa: 125, sd: 125, sp: 50 },
         abilities: ['Liquid Voice', 'Liquid Voice', 'Liquid Voice'],
         innates: ['Ice Scales', 'Shell Armor', 'Self Sufficient'],
@@ -11897,7 +11908,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Flygon Mega': {
-        id: 1212,
+        id: 1213,
         bs: { hp: 80, at: 130, df: 100, sa: 120, sd: 100, sp: 110 },
         abilities: ['Tinted Lens', 'Tinted Lens', 'Tinted Lens'],
         innates: ['Dragonfly', 'Sand Song', 'Sand Rush'],
@@ -11906,7 +11917,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Kingdra Mega': {
-        id: 1213,
+        id: 1214,
         bs: { hp: 75, at: 105, df: 100, sa: 145, sd: 100, sp: 115 },
         abilities: ['Swift Swim', 'Swift Swim', 'Swift Swim'],
         innates: ['Sea Guardian', 'Mega Launcher', 'Marvel Scale'],
@@ -11916,7 +11927,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Dewgong Mega': {
-        id: 1214,
+        id: 1215,
         bs: { hp: 90, at: 110, df: 105, sa: 125, sd: 105, sp: 90 },
         abilities: ['Hardened Sheath', 'Lightning Rod', 'Arctic Fur'],
         innates: ['Cold Rebound', 'Water Veil', 'Hydrate'],
@@ -11926,17 +11937,17 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Hitmonchan Mega': {
-        id: 1215,
+        id: 1216,
         bs: { hp: 80, at: 145, df: 99, sa: 35, sd: 120, sp: 106 },
         abilities: ['Parry', 'Parry', 'Parry'],
-        innates: ['Raging Boxer', 'Power Fists', 'Earthbound'],
+        innates: ['Raging Boxer', 'Power Fists', 'Blitz Boxer'],
         otherFormes: ['Hitmonchan'],
         weightkg: 0,
         types: ['Fighting', 'Ground'],
         genderR: 0
     },
     'Hitmonlee Mega': {
-        id: 1216,
+        id: 1217,
         bs: { hp: 80, at: 140, df: 73, sa: 65, sd: 110, sp: 117 },
         abilities: ['Roundhouse', 'Roundhouse', 'Roundhouse'],
         innates: ['Limber', 'Mineralize', 'Striker'],
@@ -11946,7 +11957,7 @@ var REDUX_PATCH = {
         genderR: 0
     },
     'Hitmontop Mega': {
-        id: 1217,
+        id: 1218,
         bs: { hp: 80, at: 135, df: 115, sa: 45, sd: 135, sp: 75 },
         abilities: ['Spinning Top', 'Spinning Top', 'Spinning Top'],
         innates: ['Technician', 'Battle Armor', 'Intimidate'],
@@ -11955,7 +11966,7 @@ var REDUX_PATCH = {
         genderR: 0
     },
     'Crobat Mega': {
-        id: 1218,
+        id: 1219,
         bs: { hp: 85, at: 140, df: 70, sa: 110, sd: 70, sp: 170 },
         abilities: ['Scare', 'Nosferatu', 'Amplifier'],
         innates: ['Phantom', 'Spectral Shroud', 'Shadow Shield'],
@@ -11965,7 +11976,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Skarmory Mega': {
-        id: 1219,
+        id: 1220,
         bs: { hp: 65, at: 110, df: 170, sa: 40, sd: 90, sp: 90 },
         abilities: ['Scrapyard', 'Scrapyard', 'Scrapyard'],
         innates: ['Motor Drive', 'Power Core', 'Self Repair'],
@@ -11975,8 +11986,8 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Bruxish Mega': {
-        id: 1220,
-        bs: { hp: 68, at: 105, df: 70, sa: 70, sd: 70, sp: 92 },
+        id: 1221,
+        bs: { hp: 68, at: 105, df: 70, sa: 70, sd: 70, sp: 0 },
         abilities: ['Dazzling', 'Defiant', 'Predator'],
         innates: ['Strong Jaw', 'Wonder Skin', 'Psychic Mind'],
         weightkg: 0,
@@ -11984,7 +11995,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Torterra Mega': {
-        id: 1221,
+        id: 1222,
         bs: { hp: 95, at: 149, df: 184, sa: 65, sd: 105, sp: 36 },
         abilities: ['Atlas', 'Atlas', 'Atlas'],
         innates: ['Forest Rage', 'Solid Rock', 'Grassy Surge'],
@@ -11993,7 +12004,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Infernape Mega': {
-        id: 1222,
+        id: 1223,
         bs: { hp: 76, at: 145, df: 75, sa: 145, sd: 70, sp: 123 },
         abilities: ['Equinox', 'Equinox', 'Equinox'],
         innates: ['Hellblaze', 'Limber', 'Berserk'],
@@ -12002,7 +12013,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Empoleon Mega': {
-        id: 1223,
+        id: 1224,
         bs: { hp: 84, at: 80, df: 118, sa: 131, sd: 121, sp: 96 },
         abilities: ['No Guard', 'Competitive', 'Slush Rush'],
         innates: ['Riptide', 'Antarctic Bird', 'Battle Armor'],
@@ -12011,16 +12022,16 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Shuckle Mega': {
-        id: 1224,
+        id: 1225,
         bs: { hp: 30, at: 60, df: 255, sa: 10, sd: 255, sp: 5 },
         abilities: ['Self Sufficient', 'Self Sufficient', 'Self Sufficient'],
-        innates: ['Multi Headed', 'Juggernaut', 'Solid Rock'],
+        innates: ['Multi Headed', 'Juggernaut', 'Unaware'],
         weightkg: 0,
         types: ['Bug', 'Rock'],
         genderR: 127
     },
     'Relicanth Mega': {
-        id: 1225,
+        id: 1226,
         bs: { hp: 100, at: 160, df: 130, sa: 45, sd: 75, sp: 95 },
         abilities: ['Marine Apex', 'Marine Apex', 'Marine Apex'],
         innates: ['Rock Head', 'Reckless', 'Primal Armor'],
@@ -12029,7 +12040,7 @@ var REDUX_PATCH = {
         genderR: 30
     },
     'Quagsire Mega': {
-        id: 1226,
+        id: 1227,
         bs: { hp: 95, at: 110, df: 130, sa: 110, sd: 130, sp: 35 },
         abilities: ['Clueless', 'Clueless', 'Clueless'],
         innates: ['Unaware', 'Water Veil', 'Oblivious'],
@@ -12038,8 +12049,8 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Jellicent Mega': {
-        id: 1227,
-        bs: { hp: 120, at: 60, df: 70, sa: 85, sd: 105, sp: 60 },
+        id: 1228,
+        bs: { hp: 120, at: 60, df: 70, sa: 85, sd: 105, sp: 0 },
         abilities: ['Cursed Body', 'Clear Body', 'Immunity'],
         innates: ['Water Bubble', 'Soul Eater', 'Poison Touch'],
         weightkg: 0,
@@ -12047,7 +12058,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Toucannon Mega': {
-        id: 1228,
+        id: 1229,
         bs: { hp: 80, at: 120, df: 110, sa: 135, sd: 110, sp: 70 },
         abilities: ['Sturdy', 'Sturdy', 'Sturdy'],
         innates: ['Steel Barrel', 'Iron Barrage', 'Pyro Shells'],
@@ -12056,7 +12067,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Dragonite Mega': {
-        id: 1229,
+        id: 1230,
         bs: { hp: 91, at: 159, df: 120, sa: 125, sd: 125, sp: 80 },
         abilities: ['Multiscale', 'Multiscale', 'Multiscale'],
         innates: ['Galvanize', 'Discipline', 'Thundercall'],
@@ -12065,7 +12076,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Breloom Mega': {
-        id: 1230,
+        id: 1231,
         bs: { hp: 60, at: 140, df: 130, sa: 50, sd: 110, sp: 70 },
         abilities: ['Fungal Infection', 'Fungal Infection', 'Fungal Infection'],
         innates: ['Perfectionist', 'Technician', 'Effect Spore'],
@@ -12074,7 +12085,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Slaking Mega': {
-        id: 1231,
+        id: 1232,
         bs: { hp: 130, at: 210, df: 105, sa: 95, sd: 105, sp: 105 },
         abilities: ['Unseen Fist', 'Unseen Fist', 'Unseen Fist'],
         innates: ['Lethargy', 'Crystallize', 'Rampage'],
@@ -12084,7 +12095,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Cascoon Primal': {
-        id: 1232,
+        id: 1233,
         bs: { hp: 121, at: 121, df: 121, sa: 121, sd: 121, sp: 121 },
         abilities: ['Angels Wrath', 'Angels Wrath', 'Angels Wrath'],
         innates: ['Color Change', 'Impenetrable', 'Adaptability'],
@@ -12094,7 +12105,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Feraligatr Mega X': {
-        id: 1233,
+        id: 1234,
         bs: { hp: 85, at: 140, df: 100, sa: 109, sd: 93, sp: 103 },
         abilities: ['Primal Maw', 'Primal Maw', 'Primal Maw'],
         innates: ['Riptide', 'Dry Skin', 'Predator'],
@@ -12104,7 +12115,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Feraligatr Mega Y': {
-        id: 1234,
+        id: 1235,
         bs: { hp: 85, at: 75, df: 130, sa: 159, sd: 113, sp: 68 },
         abilities: ['Atomic Burst', 'Atomic Burst', 'Atomic Burst'],
         innates: ['Riptide', 'Galvanize', 'Rampage'],
@@ -12114,7 +12125,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Granbull Mega': {
-        id: 1235,
+        id: 1236,
         bs: { hp: 90, at: 160, df: 130, sa: 60, sd: 105, sp: 35 },
         abilities: ['Tough Claws', 'Strong Jaw', 'Friend Guard'],
         innates: ['Pretty Princess', 'Defiant', 'Hyper Aggressive'],
@@ -12124,7 +12135,7 @@ var REDUX_PATCH = {
         genderR: 191
     },
     'Gyarados Mega Y': {
-        id: 1236,
+        id: 1237,
         bs: { hp: 95, at: 95, df: 99, sa: 130, sd: 140, sp: 81 },
         abilities: ['Mystic Power', 'Mystic Power', 'Mystic Power'],
         innates: ['Levitate', 'Prism Scales', 'Draconize'],
@@ -12134,7 +12145,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Haxorus Mega': {
-        id: 1237,
+        id: 1238,
         bs: { hp: 76, at: 180, df: 110, sa: 82, sd: 90, sp: 102 },
         abilities: ['Fearmonger', 'Fearmonger', 'Fearmonger'],
         innates: ['Hyper Cutter', 'Sweeping Edge', 'Merciless'],
@@ -12144,7 +12155,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Kingdra Mega Y': {
-        id: 1238,
+        id: 1239,
         bs: { hp: 75, at: 95, df: 95, sa: 95, sd: 95, sp: 85 },
         abilities: ['Swift Swim', 'Sniper', 'Riptide'],
         innates: ['Prism Scales', 'Mega Launcher', 'Marvel Scale'],
@@ -12154,7 +12165,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Meganium Mega': {
-        id: 1239,
+        id: 1240,
         bs: { hp: 80, at: 97, df: 130, sa: 118, sd: 130, sp: 80 },
         abilities: ['Misty Surge', 'Misty Surge', 'Misty Surge'],
         innates: ['Forest Rage', 'Absorbant', 'Triage'],
@@ -12164,7 +12175,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Noibat Redux': {
-        id: 1241,
+        id: 1242,
         bs: { hp: 50, at: 75, df: 45, sa: 30, sd: 50, sp: 95 },
         abilities: ['Hyper Aggressive', 'Opportunist', 'Rock Head'],
         innates: ['Levitate', 'Nocturnal', 'Vengeance'],
@@ -12174,7 +12185,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Noivern Redux': {
-        id: 1242,
+        id: 1243,
         bs: { hp: 85, at: 97, df: 80, sa: 70, sd: 80, sp: 123 },
         abilities: ['Hyper Aggressive', 'Opportunist', 'Rock Head'],
         innates: ['Levitate', 'Nocturnal', 'Vengeance'],
@@ -12183,7 +12194,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Dewleon': {
-        id: 1243,
+        id: 1244,
         bs: { hp: 90, at: 90, df: 70, sa: 95, sd: 120, sp: 95 },
         abilities: ['Prismatic Fur', 'Prismatic Fur', 'Prismatic Fur'],
         innates: ['Retribution Blow', 'Wonder Skin', 'North Wind'],
@@ -12192,8 +12203,8 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Luxray Redux': {
-        id: 1244,
-        bs: { hp: 90, at: 120, df: 79, sa: 75, sd: 79, sp: 90 },
+        id: 1245,
+        bs: { hp: 90, at: 120, df: 79, sa: 75, sd: 79, sp: 0 },
         abilities: ['Intimidate', 'Electric Burst', 'Guts'],
         innates: ['Short Circuit', 'Bad Luck', 'Predator'],
         weightkg: 0,
@@ -12201,7 +12212,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Clawitzer Redux': {
-        id: 1245,
+        id: 1246,
         bs: { hp: 80, at: 65, df: 83, sa: 110, sd: 82, sp: 110 },
         abilities: ['Elemental Charge', 'Elemental Charge', 'Elemental Charge'],
         innates: ['Ice Age', 'Levitate', 'Dual Wield'],
@@ -12211,7 +12222,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Luxray Mega': {
-        id: 1252,
+        id: 1253,
         bs: { hp: 90, at: 143, df: 95, sa: 106, sd: 95, sp: 104 },
         abilities: ['Shocking Jaws', 'Shocking Jaws', 'Shocking Jaws'],
         innates: ['Predator', 'Fae Hunter', 'Merciless'],
@@ -12221,7 +12232,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Nidoking Mega': {
-        id: 1253,
+        id: 1254,
         bs: { hp: 81, at: 142, df: 92, sa: 85, sd: 95, sp: 110 },
         abilities: ['Sheer Force', 'Sheer Force', 'Sheer Force'],
         innates: ['Kings Wrath', 'Rivalry', 'Mighty Horn'],
@@ -12231,7 +12242,7 @@ var REDUX_PATCH = {
         genderR: 0
     },
     'Nidoqueen Mega': {
-        id: 1254,
+        id: 1255,
         bs: { hp: 90, at: 82, df: 112, sa: 125, sd: 110, sp: 86 },
         abilities: ['Sheer Force', 'Sheer Force', 'Sheer Force'],
         innates: ['Queens Mourning', 'Queenly Majesty', 'Multiscale'],
@@ -12241,7 +12252,7 @@ var REDUX_PATCH = {
         genderR: 254
     },
     'Sandslash Mega': {
-        id: 1255,
+        id: 1256,
         bs: { hp: 95, at: 140, df: 110, sa: 45, sd: 85, sp: 95 },
         abilities: ['Desert Cloak', 'Desert Cloak', 'Desert Cloak'],
         innates: ['Sand Rush', 'Sand Force', 'Tough Claws'],
@@ -12251,7 +12262,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Typhlosion Mega': {
-        id: 1256,
+        id: 1257,
         bs: { hp: 78, at: 94, df: 98, sa: 149, sd: 105, sp: 110 },
         abilities: ['Volcano Rage', 'Volcano Rage', 'Volcano Rage'],
         innates: ['Hellblaze', 'Sand Stream', 'Sand Force'],
@@ -12261,7 +12272,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Krookodile Mega': {
-        id: 1257,
+        id: 1258,
         bs: { hp: 95, at: 147, df: 110, sa: 75, sd: 100, sp: 92 },
         abilities: ['Dune Terror', 'Dune Terror', 'Dune Terror'],
         innates: ['Metallic', 'Moxie', 'Jaws Of Carnage'],
@@ -12271,7 +12282,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Magnezone Mega': {
-        id: 1258,
+        id: 1259,
         bs: { hp: 70, at: 75, df: 135, sa: 165, sd: 125, sp: 65 },
         abilities: ['Electric Surge', 'Electric Surge', 'Electric Surge'],
         innates: ['Electric Burst', 'Multi Headed', 'Magnet Pull'],
@@ -12281,7 +12292,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Shedinja Mega': {
-        id: 1259,
+        id: 1260,
         bs: { hp: 1, at: 120, df: 45, sa: 70, sd: 30, sp: 110 },
         abilities: ['Cheating Death', 'Cheating Death', 'Cheating Death'],
         innates: ['Tinted Lens', 'Magic Guard', 'Adaptability'],
@@ -12291,7 +12302,7 @@ var REDUX_PATCH = {
         genderR: 255
     },
     'Swalot Mega': {
-        id: 1260,
+        id: 1261,
         bs: { hp: 100, at: 108, df: 118, sa: 108, sd: 118, sp: 55 },
         abilities: ['Toxic Spill', 'Toxic Spill', 'Toxic Spill'],
         innates: ['Poison Touch', 'Liquified', 'Corrosion'],
@@ -12301,7 +12312,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Lanturn Mega': {
-        id: 1261,
+        id: 1262,
         bs: { hp: 125, at: 58, df: 88, sa: 126, sd: 116, sp: 67 },
         abilities: ['Hydro Circuit', 'Hydro Circuit', 'Hydro Circuit'],
         innates: ['Storm Drain', 'Volt Absorb', 'Radiance'],
@@ -12311,7 +12322,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Lapras Mega X': {
-        id: 1262,
+        id: 1263,
         bs: { hp: 130, at: 135, df: 105, sa: 100, sd: 90, sp: 85 },
         abilities: ['Primal Maw', 'Primal Maw', 'Primal Maw'],
         innates: ['Swift Swim', 'Shell Armor', 'Jaws Of Carnage'],
@@ -12321,7 +12332,7 @@ var REDUX_PATCH = {
         genderR: 127
     },
     'Slowking Mega': {
-        id: 1263,
+        id: 1264,
         bs: { hp: 95, at: 85, df: 80, sa: 130, sd: 180, sp: 20 },
         abilities: ['Gifted Mind', 'Gifted Mind', 'Gifted Mind'],
         innates: ['Own Tempo', 'Psychic Surge', 'Magical Dust'],

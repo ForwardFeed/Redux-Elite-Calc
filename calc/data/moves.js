@@ -3442,6 +3442,7 @@ var SS_PATCH = {
         'category': 'Physical',
         'acc': 100,
         'priority': 0,
+        'chance': 100,
         'makesContact': true,
         'isField': true
     },

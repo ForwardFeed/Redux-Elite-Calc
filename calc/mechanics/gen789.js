@@ -202,7 +202,7 @@ function calculateSMSSSV(gen, attacker, defender, move, field, defenderFriend) {
     var isGroundate = false;
     var isFightingSpirit = false;
     var isCrystallize = false;
-    var isBurnate = false;
+    var isImmolate = false;
     var isSpectralize = false;
     var isDraconize = false;
     var isMineralize = false;
@@ -245,7 +245,7 @@ function calculateSMSSSV(gen, attacker, defender, move, field, defenderFriend) {
         else if ((isCrystallize = !!attacker.hasAbility('Crystallize')) && move.hasType('Rock')) {
             type = 'Ice';
         }
-        else if ((isBurnate = !!attacker.hasAbility('Burnate')) && normal) {
+        else if ((isImmolate = !!attacker.hasAbility('Immolate')) && normal) {
             type = 'Fire';
         }
         else if ((isSpectralize = !!attacker.hasAbility('Spectralize')) && normal) {
@@ -258,7 +258,7 @@ function calculateSMSSSV(gen, attacker, defender, move, field, defenderFriend) {
             type = 'Rock';
         }
         if (isGalvanize || isPixilate || isRefrigerate || isAerilate || isNormalize || isBuginize ||
-            isPoisonate || isHydrate || isGroundate || isFightingSpirit || isCrystallize || isBurnate ||
+            isPoisonate || isHydrate || isGroundate || isFightingSpirit || isCrystallize || isImmolate ||
             isSpectralize || isDraconize || isMineralize) {
             desc.attackerAbility = (0, util_2.appSpacedStr)(desc.attackerAbility, attacker.ability);
             hasAteAbilityTypeChange = true;
