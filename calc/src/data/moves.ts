@@ -3466,6 +3466,7 @@ const SS_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     'category': 'Physical',
     'acc': 100,
     'priority': 0,
+    'chance': 100,
     'makesContact': true,
     'isField': true
   },
