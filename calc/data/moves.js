@@ -4246,6 +4246,7 @@ var SS_PATCH = {
         'category': 'Physical',
         'acc': 90,
         'priority': 0,
+        'multihit': [1, 3],
         'makesContact': true,
         'isKick': true
     },
@@ -9045,6 +9046,7 @@ var SS_PATCH = {
         'category': 'Physical',
         'acc': 90,
         'priority': 0,
+        'multihit': [1, 3],
         'makesContact': true,
         'isKick': true
     },
@@ -9087,6 +9089,7 @@ var SS_PATCH = {
         'category': 'Physical',
         'acc': 100,
         'priority': 0,
+        'multihit': [1, 3],
         'willCrit': true
     },
     'Thunder Cage': {

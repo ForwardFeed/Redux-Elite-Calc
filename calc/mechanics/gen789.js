@@ -18,7 +18,7 @@ function calculateSMSSSV(gen, attacker, defender, move, field, defenderFriend) {
         (_c = attacker.innates) === null || _c === void 0 ? void 0 : _c.push('Sighting System', 'Mega Launcher');
     }
     if (attacker.hasAbility('Solar Flare')) {
-        (_d = attacker.innates) === null || _d === void 0 ? void 0 : _d.push('Chloroplast', 'Burnate');
+        (_d = attacker.innates) === null || _d === void 0 ? void 0 : _d.push('Chloroplast', 'Immolate');
     }
     (0, util_2.checkAirLock)(attacker, field);
     (0, util_2.checkAirLock)(defender, field);
