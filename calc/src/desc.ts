@@ -531,7 +531,7 @@ function getEndOfTurn(
   let damage = 0;
   const texts = [];
   if (field.hasWeather('Sun', 'Harsh Sunshine')) {
-    if (defender.hasAbility('Dry Skin', 'Solar Power')) {
+    if (defender.hasAbility('Dry Skin')) { //'Solar Power' has been removed
       damage -= Math.floor(defender.maxHP() / 8);
       texts.push(defender.ability + ' damage');
     }
