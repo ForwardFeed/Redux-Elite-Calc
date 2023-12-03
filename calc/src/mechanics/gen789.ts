@@ -69,7 +69,7 @@ export function calculateSMSSSV(
     attacker.innates?.push('Sighting System', 'Mega Launcher');
   }
   if (attacker.hasAbility('Solar Flare')) {
-    attacker.innates?.push('Chloroplast', 'Burnate');
+    attacker.innates?.push('Chloroplast', 'Immolate');
   }
   // #region Initial
   checkAirLock(attacker, field);

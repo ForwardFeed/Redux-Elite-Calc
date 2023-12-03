@@ -530,7 +530,6 @@ function getEndOfTurn(
 ) {
   let damage = 0;
   const texts = [];
-
   if (field.hasWeather('Sun', 'Harsh Sunshine')) {
     if (defender.hasAbility('Dry Skin', 'Solar Power')) {
       damage -= Math.floor(defender.maxHP() / 8);

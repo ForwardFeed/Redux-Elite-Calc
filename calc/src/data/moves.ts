@@ -4270,6 +4270,7 @@ const SS_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     'category': 'Physical',
     'acc': 90,
     'priority': 0,
+    'multihit': [1,3],
     'makesContact': true,
     'isKick': true
   },
@@ -9069,6 +9070,7 @@ const SS_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     'category': 'Physical',
     'acc': 90,
     'priority': 0,
+    'multihit': [1,3],
     'makesContact': true,
     'isKick': true
   },
@@ -9111,6 +9113,7 @@ const SS_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     'category': 'Physical',
     'acc': 100,
     'priority': 0,
+    'multihit': [1,3],
     'willCrit': true
   },
   'Thunder Cage': {
@@ -9324,6 +9327,7 @@ const SS_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     'isPulse': true
   }
 };
+
 const SS: {[name: string]: MoveData} = extend(true, {}, SM, SS_PATCH);
 
 const LGPE_MOVES = [
