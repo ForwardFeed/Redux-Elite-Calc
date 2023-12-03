@@ -385,7 +385,7 @@ function getEndOfTurn(gen, attacker, defender, move, field) {
     var damage = 0;
     var texts = [];
     if (field.hasWeather('Sun', 'Harsh Sunshine')) {
-        if (defender.hasAbility('Dry Skin', 'Solar Power')) {
+        if (defender.hasAbility('Dry Skin')) {
             damage -= Math.floor(defender.maxHP() / 8);
             texts.push(defender.ability + ' damage');
         }
