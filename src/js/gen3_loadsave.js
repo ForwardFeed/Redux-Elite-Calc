@@ -281,6 +281,7 @@ function getGEN3level(exp, species){
 }
 
 function getGEN3Ability(mon){
+    console.log(GEN3_MONS[mon.species])
     var current = pokedex[GEN3_MONS[mon.species]].abilities[mon.altAbility]
     return current
 }

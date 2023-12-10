@@ -5490,7 +5490,7 @@ const SS_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     'isAir': true
   },
   'Overheat': {
-    'bp': 140,
+    'bp': 130,
     'type': 'Fire',
     'category': 'Special',
     'acc': 100,
