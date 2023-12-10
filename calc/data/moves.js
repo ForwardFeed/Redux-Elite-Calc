@@ -5466,7 +5466,7 @@ var SS_PATCH = {
         'isAir': true
     },
     'Overheat': {
-        'bp': 140,
+        'bp': 130,
         'type': 'Fire',
         'category': 'Special',
         'acc': 100,

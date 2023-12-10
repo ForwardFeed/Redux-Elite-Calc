@@ -139,15 +139,15 @@ function getFinalSpeed(gen, pokemon, field, side) {
     }
     if (side.isTailwind)
         speedMods.push(8192);
-    if (pokemon.hasAbilityActive('Unburden') ||
-        (pokemon.hasAbility('Chlorophyll') && weather.includes('Sun')) ||
-        (pokemon.hasAbility('Sand Rush') && weather === 'Sand') ||
-        (pokemon.hasAbility('Swift Swim') && weather.includes('Rain')) ||
-        (pokemon.hasAbility('Slush Rush') && ['Hail', 'Snow'].includes(weather)) ||
-        (pokemon.hasAbility('Surge Surfer') && terrain === 'Electric')) {
+    if (pokemon.hasAbilityActive('Unburden')) {
         speedMods.push(8192);
     }
-    else if (pokemon.hasAbility('Quick Feet') && pokemon.status) {
+    else if (pokemon.hasAbility('Quick Feet') && pokemon.status ||
+        (pokemon.hasAbility('Chlorophyll') && weather.includes('Sun')) ||
+        (pokemon.hasAbility('Swift Swim') && weather.includes('Rain')) ||
+        (pokemon.hasAbility('Slush Rush') && ['Hail', 'Snow'].includes(weather)) ||
+        (pokemon.hasAbility('Surge Surfer') && terrain === 'Electric') ||
+        (pokemon.hasAbility('Sand Rush') && weather === 'Sand')) {
         speedMods.push(6144);
     }
     else if (pokemon.hasAbilityActive('Slow Start')) {
