@@ -16,7 +16,7 @@ function checkCollisionPersonality(person){
 	}
 	return false
 }
-function dispatchPlayerMon(list) {
+function dispatchPlayerMon(list, optBox) {
 	if (list.length <= 0) {
 		return;
 	}
@@ -49,7 +49,7 @@ function dispatchPlayerMon(list) {
 			}
 			poke.person = personality;
 		}
-		P1.box.addBoxed(poke, idOffeseted);
+		P1.box.addBoxed(poke, idOffeseted, optBox);
 		playerMons.push(poke);
 	}
 	localStorage.setItem(GameName + "playerdex", JSON.stringify(P1.trainer.mons));
