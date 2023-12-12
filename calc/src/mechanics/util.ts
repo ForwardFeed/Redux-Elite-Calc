@@ -150,7 +150,7 @@ export function getMoveEffectiveness(
   isGravity?: boolean,
   isRingTarget?: boolean,
 ) {
-  if (move.type == 'Psychic' && target.hasAbility('Gifted Mind')) {
+  if (target.hasAbility('Gifted Mind') && move.hasType('Bug', 'Ghost', 'Dark')) {
     return 0
   } else if ((isRingTarget || isGhostRevealed) && type === 'Ghost' && move.hasType('Normal', 'Fighting')) {
     return 1;
