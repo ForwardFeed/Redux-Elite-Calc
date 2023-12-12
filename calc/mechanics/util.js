@@ -178,7 +178,7 @@ function getFinalSpeed(gen, pokemon, field, side) {
 }
 exports.getFinalSpeed = getFinalSpeed;
 function getMoveEffectiveness(gen, move, type, target, isGhostRevealed, isGravity, isRingTarget) {
-    if (move.type == 'Psychic' && target.hasAbility('Gifted Mind')) {
+    if (target.hasAbility('Gifted Mind') && move.hasType('Bug', 'Ghost', 'Dark')) {
         return 0;
     }
     else if ((isRingTarget || isGhostRevealed) && type === 'Ghost' && move.hasType('Normal', 'Fighting')) {

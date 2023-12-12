@@ -1189,7 +1189,11 @@ function calculateAtModsSMSSSV(gen, attacker, defender, move, field, desc) {
     var atMods = [];
     if ((attacker.hasAbility('Flock') && move.hasType('Flying')) ||
         (attacker.hasAbility('Short Circuit') && move.hasType('Electric')) ||
-        (attacker.hasAbility('Vengeance') && move.hasType('Ghost'))) {
+        (attacker.hasAbility('Vengeance') && move.hasType('Ghost')) ||
+        (attacker.hasAbility('Torrent') && move.hasType('Water')) ||
+        (attacker.hasAbility('Overgrow') && move.hasType('Grass')) ||
+        (attacker.hasAbility('Blaze') && move.hasType('Fire')) ||
+        (attacker.hasAbility('Swarm') && move.hasType('Bug'))) {
         if (attacker.curHP() <= attacker.maxHP() / 3) {
             atMods.push(6144);
         }
@@ -1227,11 +1231,6 @@ function calculateAtModsSMSSSV(gen, attacker, defender, move, field, desc) {
         desc.isFlowerGiftAttacker = true;
     }
     else if ((attacker.hasAbility('Guts') && attacker.status && move.category === 'Physical') ||
-        (attacker.curHP() <= attacker.maxHP() / 3 &&
-            ((attacker.hasAbility('Overgrow') && move.hasType('Grass')) ||
-                (attacker.hasAbility('Blaze') && move.hasType('Fire')) ||
-                (attacker.hasAbility('Torrent') && move.hasType('Water')) ||
-                (attacker.hasAbility('Swarm') && move.hasType('Bug')))) ||
         (move.category === 'Special' && attacker.hasAbilityActive('Plus', 'Minus'))) {
         atMods.push(6144);
         desc.attackerAbility = (0, util_2.appSpacedStr)(desc.attackerAbility, attacker.ability);
@@ -1458,7 +1457,7 @@ function calculateDfModsSMSSSV(gen, attacker, defender, move, field, desc, isCri
         dfMods.push(8192);
         desc.defenderItem = defender.item;
     }
-    if (defender.hasAbility('Battle Armor')) {
+    if (defender.hasAbility('Battle Armor', 'Shell Armor')) {
         dfMods.push(4915);
         desc.defenderAbility = (0, util_2.appSpacedStr)(desc.defenderAbility, defender.ability);
     }
