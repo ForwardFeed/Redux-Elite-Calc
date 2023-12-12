@@ -239,7 +239,7 @@ function calculateSMSSSV(gen, attacker, defender, move, field, defenderFriend) {
         else if ((isGroundate = !!attacker.hasAbility('Groundate')) && normal) {
             type = 'Ground';
         }
-        else if ((isFightingSpirit = !!attacker.hasAbility('Fight Spirit')) && normal) {
+        else if ((isFightingSpirit = !!attacker.hasAbility('Fighting Spirit')) && normal) {
             type = 'Fighting';
         }
         else if ((isCrystallize = !!attacker.hasAbility('Crystallize')) && move.hasType('Rock')) {
@@ -1240,7 +1240,7 @@ function calculateAtModsSMSSSV(gen, attacker, defender, move, field, desc) {
         desc.attackerAbility = (0, util_2.appSpacedStr)(desc.attackerAbility, 'Flash Fire');
     }
     else if ((attacker.hasAbility('Steelworker') && move.hasType('Steel')) ||
-        (attacker.hasAbility('Dragons Maw') && move.hasType('Dragon')) ||
+        (attacker.hasAbility('Dragon\'s Maw') && move.hasType('Dragon')) ||
         (attacker.hasAbility('Rocky Payload') && move.hasType('Rock'))) {
         atMods.push(6144);
         desc.attackerAbility = (0, util_2.appSpacedStr)(desc.attackerAbility, attacker.ability);
@@ -1589,7 +1589,7 @@ function calculateFinalModsSMSSSV(gen, attacker, defender, move, field, desc, is
     if (attacker.hasAbility('Giant Wings') && move.flags.air) {
         finalMods.push(5120);
     }
-    if (attacker.hasAbility('Dragons Maw') && move.hasType('Dragon')) {
+    if (attacker.hasAbility('Dragon\'s Maw') && move.hasType('Dragon')) {
         finalMods.push(5325);
     }
     if (attacker.hasAbility('Transistor') && move.hasType('Electric')) {
