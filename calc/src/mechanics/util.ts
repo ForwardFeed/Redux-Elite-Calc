@@ -587,11 +587,11 @@ export function checkLoweredStats(target: Pokemon) {
 }
 
 export function checkCounterBuffingAbility(defender: Pokemon) {
-  if (defender.hasAbility('Kings Wrath') && checkLoweredStats(defender)) {
+  if (defender.hasAbility('King\'s Wrath') && checkLoweredStats(defender)) {
     defender.boosts.atk = Math.min(6, defender.boosts.atk + 1);
     defender.boosts.def = Math.min(6, defender.boosts.def + 1);
   }
-  if (defender.hasAbility('Queens Mourning') && checkLoweredStats(defender)) {
+  if (defender.hasAbility('Queen\'s Mourning') && checkLoweredStats(defender)) {
     defender.boosts.spa = Math.min(6, defender.boosts.spa + 1);
     defender.boosts.spd = Math.min(6, defender.boosts.spd + 1);
   }

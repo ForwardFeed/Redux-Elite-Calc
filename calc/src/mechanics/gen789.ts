@@ -302,7 +302,7 @@ export function calculateSMSSSV(
       type = 'Water';
     } else if ((isGroundate = !!attacker.hasAbility('Groundate')) && normal) {
       type = 'Ground';
-    } else if ((isFightingSpirit = !!attacker.hasAbility('Fight Spirit')) && normal) {
+    } else if ((isFightingSpirit = !!attacker.hasAbility('Fighting Spirit')) && normal) {
       type = 'Fighting';
     } else if ((isCrystallize = !!attacker.hasAbility('Crystallize')) && move.hasType('Rock')) {
       type = 'Ice';
@@ -1514,7 +1514,7 @@ export function calculateAtModsSMSSSV(
     desc.attackerAbility = appSpacedStr(desc.attackerAbility, 'Flash Fire');
   } else if (
     (attacker.hasAbility('Steelworker') && move.hasType('Steel')) ||
-    (attacker.hasAbility('Dragons Maw') && move.hasType('Dragon')) ||
+    (attacker.hasAbility('Dragon\'s Maw') && move.hasType('Dragon')) ||
     (attacker.hasAbility('Rocky Payload') && move.hasType('Rock'))
   ) {
     atMods.push(6144);
@@ -1923,7 +1923,7 @@ export function calculateFinalModsSMSSSV(
   if (attacker.hasAbility('Giant Wings') && move.flags.air) {
     finalMods.push(5120);
   }
-  if (attacker.hasAbility('Dragons Maw') && move.hasType('Dragon')) {
+  if (attacker.hasAbility('Dragon\'s Maw') && move.hasType('Dragon')) {
     finalMods.push(5325);
   }
   if (attacker.hasAbility('Transistor') && move.hasType('Electric')) {

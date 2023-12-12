@@ -141,6 +141,7 @@ function readSubStructure(OTID, personV, start, bytes){
 	mon.attackEV = (ss2[0] >> 8) & 0xFF
 	mon.defenseEV = (ss2[0] >> 16) & 0xFF
 	mon.speedEV = ss2[0] >> 24
+    console.log(ss2[0])
 	mon.spAttackEV = ss2[1] & 0xFF
 	mon.spDefenseEV = (ss2[1] >> 8) & 0xFF
     
