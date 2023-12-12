@@ -78,7 +78,7 @@ class panelMove{
         if (Array.isArray(move.multihit)) {
             this.field_timesUsed.hide();
             this.field_hits.show();
-            this.hits = (this.props.ability === 'Skill Link') ? 5 : 3;
+            this.hits = this.props.hasAbility('Skill Link') ? 5 : 3;
         } else if (dropsStats) {
             this.field_hits.hide();
             this.field_timesUsed.show();
