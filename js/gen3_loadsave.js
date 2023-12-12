@@ -134,23 +134,22 @@ function readSubStructure(OTID, personV, start, bytes){
 		ss1[2] & 0xFF,
 		(ss1[2] >> 8) & 0xFF,
 		(ss1[2] >> 16) & 0xFF,
-		ss1[2] >> 24
+		(ss1[2] >> 24) & 0xFF
     ]
 
     mon.hpEV = ss2[0] & 0xFF
 	mon.attackEV = (ss2[0] >> 8) & 0xFF
 	mon.defenseEV = (ss2[0] >> 16) & 0xFF
-	mon.speedEV = ss2[0] >> 24
-    console.log(ss2[0])
+	mon.speedEV = (ss2[0] >> 24) & 0xFF
 	mon.spAttackEV = ss2[1] & 0xFF
-	mon.spDefenseEV = (ss2[1] >> 8) & 0xFF
+	mon.spDefenseEV = (ss2[1] >> 8) 
     
 	mon.cool = (ss2[1] >> 16) & 0xFF
-	mon.beauty = ss2[1] >> 24
+	mon.beauty = (ss2[1] >> 24) & 0xFF
 	mon.cute = ss2[2] & 0xFF
 	mon.smart = (ss2[2] >> 8) & 0xFF
 	mon.tough = (ss2[2] >> 16) & 0xFF
-	mon.sheen = ss2[2] >> 24
+	mon.sheen = (ss2[2] >> 24) & 0xFF
 	mon.pokerus = ss3[0] & 0xFF
 	mon.metLocation = (ss3[0] >> 8) & 0xFF
 
