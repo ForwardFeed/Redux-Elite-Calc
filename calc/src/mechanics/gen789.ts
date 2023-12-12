@@ -1774,7 +1774,7 @@ export function calculateDfModsSMSSSV(
     desc.defenderItem = defender.item;
   }
 
-  if (defender.hasAbility('Battle Armor')){
+  if (defender.hasAbility('Battle Armor', 'Shell Armor')){
     dfMods.push(4915);
     desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.ability);
   }
