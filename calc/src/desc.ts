@@ -623,7 +623,7 @@ function getEndOfTurn(
     if (defender.hasAbility('Poison Heal')) {
       damage += Math.floor(defender.maxHP() / 8);
       texts.push('Poison Heal');
-    } else if (!defender.hasAbility('Magic Guard', 'Impenetrable')) {
+    } else if (!defender.hasAbility('Magic Guard', 'Impenetrable', 'Toxic Boost')) {
       damage -= Math.floor(defender.maxHP() / (gen.num === 1 ? 16 : 8));
       texts.push('poison damage');
     }
@@ -631,14 +631,14 @@ function getEndOfTurn(
     if (defender.hasAbility('Poison Heal')) {
       damage += Math.floor(defender.maxHP() / 8);
       texts.push('Poison Heal');
-    } else if (!defender.hasAbility('Magic Guard', 'Impenetrable')) {
+    } else if (!defender.hasAbility('Magic Guard', 'Impenetrable', 'Toxic Boost')) {
       texts.push('toxic damage');
     }
   } else if (defender.hasStatus('brn')) {
     if (defender.hasAbility('Heatproof')) {
       damage -= Math.floor(defender.maxHP() / (gen.num > 6 ? 32 : 16));
       texts.push('reduced burn damage');
-    } else if (!defender.hasAbility('Magic Guard', 'Impenetrable')) {
+    } else if (!defender.hasAbility('Magic Guard', 'Impenetrable', 'Flare Boost')) {
       damage -= Math.floor(defender.maxHP() / (gen.num === 1 || gen.num > 6 ? 16 : 8));
       texts.push('burn damage');
     }

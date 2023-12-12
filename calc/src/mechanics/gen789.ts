@@ -1461,7 +1461,11 @@ export function calculateAtModsSMSSSV(
   const atMods = [];
   if ((attacker.hasAbility('Flock') && move.hasType('Flying')) ||
     (attacker.hasAbility('Short Circuit') && move.hasType('Electric')) ||
-    (attacker.hasAbility('Vengeance') && move.hasType('Ghost'))) {
+    (attacker.hasAbility('Vengeance') && move.hasType('Ghost')) ||
+    (attacker.hasAbility('Torrent') && move.hasType('Water')) ||
+    (attacker.hasAbility('Overgrow') && move.hasType('Grass')) ||
+    (attacker.hasAbility('Blaze') && move.hasType('Fire')) ||
+    (attacker.hasAbility('Swarm') && move.hasType('Bug'))) {
     if (attacker.curHP() <= attacker.maxHP() / 3) {
       atMods.push(6144);
     } else {
@@ -1774,7 +1778,7 @@ export function calculateDfModsSMSSSV(
     desc.defenderItem = defender.item;
   }
 
-  if (defender.hasAbility('Battle Armor')){
+  if (defender.hasAbility('Battle Armor', 'Shell Armor')){
     dfMods.push(4915);
     desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.ability);
   }
