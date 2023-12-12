@@ -1505,11 +1505,6 @@ export function calculateAtModsSMSSSV(
     desc.isFlowerGiftAttacker = true;
   } else if (
     (attacker.hasAbility('Guts') && attacker.status && move.category === 'Physical') ||
-    (attacker.curHP() <= attacker.maxHP() / 3 &&
-      ((attacker.hasAbility('Overgrow') && move.hasType('Grass')) ||
-       (attacker.hasAbility('Blaze') && move.hasType('Fire')) ||
-       (attacker.hasAbility('Torrent') && move.hasType('Water')) ||
-       (attacker.hasAbility('Swarm') && move.hasType('Bug')))) ||
     (move.category === 'Special' && attacker.hasAbilityActive('Plus', 'Minus'))
   ) {
     atMods.push(6144);
