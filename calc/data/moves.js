@@ -2956,6 +2956,9 @@ var SS_PATCH = {
         'category': 'Physical',
         'acc': 100,
         'priority': 0,
+        'makesContact': true,
+        'isSlicing': true,
+        'isField': true,
         'willCrit': true
     },
     'Gust': {
@@ -2972,6 +2975,7 @@ var SS_PATCH = {
         'category': 'Physical',
         'acc': 100,
         'priority': 0,
+        'makesContact': true,
         'isAir': true
     },
     'Whirlwind': {
@@ -3093,6 +3097,7 @@ var SS_PATCH = {
         'category': 'Physical',
         'acc': 100,
         'priority': 0,
+        'makesContact': true,
         'isHorn': true
     },
     'Fury Attack': {
@@ -3101,6 +3106,7 @@ var SS_PATCH = {
         'category': 'Physical',
         'acc': 100,
         'priority': 0,
+        'makesContact': true,
         'isHorn': true
     },
     'Horn Drill': {
@@ -3109,6 +3115,8 @@ var SS_PATCH = {
         'category': 'Physical',
         'acc': 90,
         'priority': 0,
+        'makesContact': true,
+        'ignoreDefensive': true,
         'isHorn': true
     },
     'Tackle': {
@@ -3392,6 +3400,7 @@ var SS_PATCH = {
         'category': 'Physical',
         'acc': 100,
         'priority': 0,
+        'makesContact': true,
         'isHorn': true
     },
     'Drill Peck': {
@@ -3400,6 +3409,7 @@ var SS_PATCH = {
         'category': 'Physical',
         'acc': 100,
         'priority': 0,
+        'makesContact': true,
         'isHorn': true
     },
     'Submission': {
@@ -3936,7 +3946,7 @@ var SS_PATCH = {
     },
     'Spike Cannon': {
         'bp': 25,
-        'type': 'Water',
+        'type': 'Normal',
         'category': 'Physical',
         'acc': 100,
         'priority': 0,
@@ -4491,6 +4501,7 @@ var SS_PATCH = {
         'target': 'allAdjacentFoes',
         'priority': 0,
         'chance': 100,
+        'secondaries': true,
         'isAir': true
     },
     'Detect': {
@@ -4615,6 +4626,8 @@ var SS_PATCH = {
         'acc': 100,
         'priority': 0,
         'chance': 20,
+        'makesContact': true,
+        'secondaries': true,
         'isAir': true
     },
     'Mean Look': {
@@ -4718,6 +4731,8 @@ var SS_PATCH = {
         'category': 'Physical',
         'acc': 85,
         'priority': 0,
+        'makesContact': true,
+        'ignoreDefensive': true,
         'isHorn': true
     },
     'Dragon Breath': {
@@ -4843,6 +4858,7 @@ var SS_PATCH = {
         'target': 'allAdjacentFoes',
         'priority': 0,
         'chance': 20,
+        'secondaries': true,
         'isAir': true
     },
     'Rain Dance': {
@@ -4996,6 +5012,7 @@ var SS_PATCH = {
         'target': 'allAdjacentFoes',
         'priority': 0,
         'chance': 10,
+        'secondaries': true,
         'isAir': true
     },
     'Hail': {
@@ -5439,6 +5456,8 @@ var SS_PATCH = {
         'category': 'Special',
         'acc': 100,
         'priority': 0,
+        'isBullet': true,
+        'isWeather': true,
         'isAir': true
     },
     'Aromatherapy': {
@@ -5466,7 +5485,7 @@ var SS_PATCH = {
         'isAir': true
     },
     'Overheat': {
-        'bp': 130,
+        'bp': 140,
         'type': 'Fire',
         'category': 'Special',
         'acc': 100,
@@ -5496,6 +5515,7 @@ var SS_PATCH = {
         'acc': 100,
         'priority': 0,
         'chance': 10,
+        'secondaries': true,
         'isAir': true
     },
     'Metal Sound': {
@@ -5770,7 +5790,8 @@ var SS_PATCH = {
         'type': 'Rock',
         'category': 'Physical',
         'acc': 100,
-        'priority': 0
+        'priority': 0,
+        'isBullet': true
     },
     'Shock Wave': {
         'bp': 40,
@@ -6156,6 +6177,9 @@ var SS_PATCH = {
         'acc': 100,
         'priority': 0,
         'chance': 30,
+        'makesContact': true,
+        'secondaries': true,
+        'isPunch': true,
         'isHorn': true
     },
     'Dark Pulse': {
@@ -6200,6 +6224,8 @@ var SS_PATCH = {
         'acc': 100,
         'priority': 0,
         'chance': 30,
+        'secondaries': true,
+        'isSlicing': true,
         'isAir': true
     },
     'X Scissor': {
@@ -6758,6 +6784,7 @@ var SS_PATCH = {
         'target': 'allAdjacentFoes',
         'priority': 0,
         'chance': 10,
+        'secondaries': true,
         'isAir': true
     },
     'Shadow Force': {
@@ -6865,6 +6892,7 @@ var SS_PATCH = {
         'category': 'Physical',
         'acc': 100,
         'priority': 0,
+        'makesContact': true,
         'willCrit': true
     },
     'Flame Burst': {
@@ -7261,6 +7289,7 @@ var SS_PATCH = {
         'category': 'Physical',
         'acc': 100,
         'priority': 0,
+        'makesContact': true,
         'isHorn': true
     },
     'Dual Chop': {
@@ -7290,6 +7319,8 @@ var SS_PATCH = {
         'acc': 100,
         'priority': 0,
         'drain': [1, 2],
+        'makesContact': true,
+        'ignoreDefensive': true,
         'isHorn': true
     },
     'Sacred Sword': {
@@ -7378,6 +7409,8 @@ var SS_PATCH = {
         'acc': 75,
         'priority': 0,
         'chance': 30,
+        'secondaries': true,
+        'isWeather': true,
         'isAir': true
     },
     'Head Charge': {
@@ -8260,6 +8293,7 @@ var SS_PATCH = {
         'category': 'Physical',
         'acc': 0,
         'priority': 0,
+        'makesContact': true,
         'isHorn': true
     },
     'Purify': {
@@ -8502,6 +8536,7 @@ var SS_PATCH = {
         'acc': 100,
         'priority': 2,
         'chance': 100,
+        'makesContact': true,
         'willCrit': true
     },
     'Splishy Splash': {
@@ -9056,6 +9091,8 @@ var SS_PATCH = {
         'category': 'Physical',
         'acc': 95,
         'priority': 0,
+        'makesContact': true,
+        'multihit': 2,
         'isAir': true
     },
     'Scorching Sands': {
@@ -9081,6 +9118,8 @@ var SS_PATCH = {
         'category': 'Physical',
         'acc': 100,
         'priority': 0,
+        'makesContact': true,
+        'isPunch': true,
         'willCrit': true
     },
     'Surging Strikes': {
@@ -9090,6 +9129,8 @@ var SS_PATCH = {
         'acc': 100,
         'priority': 0,
         'multihit': [1, 3],
+        'makesContact': true,
+        'isPunch': true,
         'willCrit': true
     },
     'Thunder Cage': {
