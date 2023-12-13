@@ -424,8 +424,9 @@ export function calculateSMSSSV(
       isRingTarget
     );
   }
-  if (defender.hasAbility('Weather Control') || defenderFriend?.hasAbility('Weather Control') &&
+  if ((defender.hasAbility('Weather Control') || defenderFriend?.hasAbility('Weather Control')) &&
   move.flags.weather) {
+    console.log(move.flags)
     typeEffectiveness = 0;
   }
   if (defender.hasAbility('Aerodynamics') && move.hasType('Flying')) {

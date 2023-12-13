@@ -436,7 +436,7 @@ export function calculateSMSSSV(
       isRingTarget
     );
   }
-  if (defender.hasAbility('Weather Control') || defenderFriend?.hasAbility('Weather Control') &&
+  if ((defender.hasAbility('Weather Control') || defenderFriend?.hasAbility('Weather Control')) &&
   move.flags.weather) {
     typeEffectiveness = 0;
   }
