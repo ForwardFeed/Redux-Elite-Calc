@@ -462,17 +462,17 @@ export function calculateSMSSSV(
     }
   } else if (attacker.hasAbility('Molten Down') && defender.hasType('Rock') &&
    move.type === 'Fire') {
-    typeEffectiveness = 2;
+    typeEffectiveness = typeEffectiveness * 4;
   }
-  if (attacker.hasAbility('Seaweed Grass') && move.hasType('Grass') &&
+  if (attacker.hasAbility('Seaweed') && move.hasType('Grass') &&
     defender.hasType('Fire')) {
     typeEffectiveness = typeEffectiveness * 2;
   }
-  if (defender.hasAbility('Seaweed Grass') && move.hasType('Fire') &&
+  if (defender.hasAbility('Seaweed') && move.hasType('Fire') &&
   defender.hasType('Grass')) {
     typeEffectiveness = typeEffectiveness / 2;
   }
-  if (defender.hasAbility('Ground Shock') && move.hasType('Electric') &&
+  if (attacker.hasAbility('Ground Shock') && move.hasType('Electric') &&
   defender.hasType('Ground')) {
     typeEffectiveness = typeEffectiveness ? typeEffectiveness : 2 / 2;
   }
