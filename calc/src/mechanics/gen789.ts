@@ -460,7 +460,8 @@ export function calculateSMSSSV(
     } else if (typeEffectiveness < 0.5) {
       typeEffectiveness *= 2;
     }
-  } else if (attacker.hasAbility('Molten Down') && defender.hasType('Rock') &&
+  } 
+  if (attacker.hasAbility('Molten Down') && defender.hasType('Rock') &&
    move.type === 'Fire') {
     typeEffectiveness = typeEffectiveness * 4;
   }
@@ -474,7 +475,11 @@ export function calculateSMSSSV(
   }
   if (attacker.hasAbility('Ground Shock') && move.hasType('Electric') &&
   defender.hasType('Ground')) {
-    typeEffectiveness = typeEffectiveness ? typeEffectiveness : 2 / 2;
+    typeEffectiveness = typeEffectiveness ? typeEffectiveness : 0.5;
+  }
+  if (attacker.hasAbility('Corrosion') && move.hasType('Poison') && 
+  defender.hasType('Steel')) {
+    typeEffectiveness = typeEffectiveness ? typeEffectiveness : 2;
   }
 
   if (typeEffectiveness === 0 && move.hasType('Ground') &&
