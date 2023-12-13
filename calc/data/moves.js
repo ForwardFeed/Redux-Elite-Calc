@@ -2982,7 +2982,7 @@ var SS_PATCH = {
         'bp': 0,
         'type': 'Normal',
         'category': 'Status',
-        'acc': 100,
+        'acc': 0,
         'priority': 6,
         'isAir': true
     },
@@ -3052,7 +3052,7 @@ var SS_PATCH = {
         'isKick': true
     },
     'Jump Kick': {
-        'bp': 85,
+        'bp': 100,
         'type': 'Fighting',
         'category': 'Physical',
         'acc': 95,
@@ -3120,7 +3120,7 @@ var SS_PATCH = {
         'isHorn': true
     },
     'Tackle': {
-        'bp': 50,
+        'bp': 40,
         'type': 'Normal',
         'category': 'Physical',
         'acc': 100,
@@ -3240,7 +3240,7 @@ var SS_PATCH = {
         'bp': 0,
         'type': 'Normal',
         'category': 'Status',
-        'acc': 100,
+        'acc': 0,
         'priority': 6,
         'isSound': true
     },
@@ -3271,7 +3271,7 @@ var SS_PATCH = {
         'bp': 0,
         'type': 'Normal',
         'category': 'Status',
-        'acc': 80,
+        'acc': 100,
         'priority': 0
     },
     'Acid': {
@@ -3328,7 +3328,7 @@ var SS_PATCH = {
         'isPulse': true
     },
     'Surf': {
-        'bp': 95,
+        'bp': 90,
         'type': 'Water',
         'category': 'Special',
         'acc': 100,
@@ -3987,7 +3987,7 @@ var SS_PATCH = {
         'priority': 0
     },
     'High Jump Kick': {
-        'bp': 100,
+        'bp': 130,
         'type': 'Fighting',
         'category': 'Physical',
         'acc': 90,
@@ -4001,7 +4001,7 @@ var SS_PATCH = {
         'bp': 0,
         'type': 'Normal',
         'category': 'Status',
-        'acc': 90,
+        'acc': 100,
         'priority': 0
     },
     'Dream Eater': {
@@ -4015,7 +4015,7 @@ var SS_PATCH = {
         'bp': 0,
         'type': 'Poison',
         'category': 'Status',
-        'acc': 80,
+        'acc': 90,
         'target': 'allAdjacentFoes',
         'priority': 0
     },
@@ -4123,7 +4123,7 @@ var SS_PATCH = {
         'priority': 0
     },
     'Crabhammer': {
-        'bp': 90,
+        'bp': 100,
         'type': 'Water',
         'category': 'Physical',
         'acc': 90,
@@ -4301,7 +4301,7 @@ var SS_PATCH = {
         'secondaries': true
     },
     'Snore': {
-        'bp': 40,
+        'bp': 50,
         'type': 'Normal',
         'category': 'Special',
         'acc': 100,
@@ -4346,6 +4346,7 @@ var SS_PATCH = {
         'type': 'Grass',
         'category': 'Status',
         'acc': 100,
+        'target': 'allAdjacentFoes',
         'priority': 0
     },
     'Reversal': {
@@ -4545,7 +4546,7 @@ var SS_PATCH = {
         'priority': 0
     },
     'Giga Drain': {
-        'bp': 60,
+        'bp': 75,
         'type': 'Grass',
         'category': 'Special',
         'acc': 100,
@@ -4611,7 +4612,7 @@ var SS_PATCH = {
         'secondaries': true
     },
     'Fury Cutter': {
-        'bp': 20,
+        'bp': 40,
         'type': 'Bug',
         'category': 'Physical',
         'acc': 95,
@@ -4930,7 +4931,7 @@ var SS_PATCH = {
         'isBullet': true
     },
     'Future Sight': {
-        'bp': 100,
+        'bp': 120,
         'type': 'Psychic',
         'category': 'Special',
         'acc': 100,
@@ -4967,7 +4968,7 @@ var SS_PATCH = {
         'type': 'Normal',
         'category': 'Physical',
         'acc': 100,
-        'priority': 1,
+        'priority': 3,
         'chance': 100,
         'makesContact': true,
         'secondaries': true
@@ -5485,7 +5486,7 @@ var SS_PATCH = {
         'isAir': true
     },
     'Overheat': {
-        'bp': 140,
+        'bp': 130,
         'type': 'Fire',
         'category': 'Special',
         'acc': 100,
@@ -5726,7 +5727,7 @@ var SS_PATCH = {
         'secondaries': true
     },
     'Covet': {
-        'bp': 40,
+        'bp': 60,
         'type': 'Normal',
         'category': 'Physical',
         'acc': 100,
@@ -6752,10 +6753,10 @@ var SS_PATCH = {
         'makesContact': true
     },
     'Magma Storm': {
-        'bp': 120,
+        'bp': 100,
         'type': 'Fire',
         'category': 'Special',
-        'acc': 75,
+        'acc': 90,
         'priority': 0,
         'chance': 100
     },
@@ -6792,8 +6793,7 @@ var SS_PATCH = {
         'type': 'Ghost',
         'category': 'Physical',
         'acc': 100,
-        'priority': 0,
-        'makesContact': true
+        'priority': 0
     },
     'Hone Claws': {
         'bp': 0,
@@ -7621,8 +7621,7 @@ var SS_PATCH = {
         'category': 'Physical',
         'acc': 100,
         'priority': 0,
-        'chance': 100,
-        'makesContact': true
+        'chance': 100
     },
     'Trick Or Treat': {
         'bp': 0,
