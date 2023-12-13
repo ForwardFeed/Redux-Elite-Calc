@@ -481,6 +481,14 @@ export function calculateSMSSSV(
       typeEffectiveness = 0.5 * type1Effectiveness;
     }
   }
+  if (attacker.hasAbility('Corrosion') && move.hasType('Poison') &&
+  defender.hasType('Steel')) {
+    if (type1Effectiveness === 0) {
+      typeEffectiveness = 2 * type2Effectiveness;
+    } else if (type2Effectiveness === 0) {
+      typeEffectiveness = 2 * type1Effectiveness;
+    }
+  }
 
   if (typeEffectiveness === 0 && move.hasType('Ground') &&
     defender.hasItem('Iron Ball') && !defender.hasAbility('Klutz')) {
