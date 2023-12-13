@@ -258,10 +258,10 @@ export function calculateSMSSSV(
   let isGalvanize = false;
   let isLiquidVoice = false;
   let isNormalize = false;
-  let isBuginize = false;
-  let isPoisonate = false;
+  let isPollinate = false;
+  let isIntoxicate = false;
   let isHydrate = false;
-  let isGroundate = false;
+  let isTectonize = false;
   let isFightingSpirit = false;
   let isCrystallize = false;
   let isImmolate = false;
@@ -294,13 +294,13 @@ export function calculateSMSSSV(
       type = 'Ice';
     } else if ((isNormalize = !!attacker.hasAbility('Normalize'))) { // Boosts any type
       type = 'Normal';
-    } else if ((isBuginize = !!attacker.hasAbility('Buginize')) && normal) {
+    } else if ((isPollinate = !!attacker.hasAbility('Pollinate')) && normal) {
       type = 'Bug';
-    } else if ((isPoisonate = !!attacker.hasAbility('Poisonate') && normal)) {
+    } else if ((isIntoxicate = !!attacker.hasAbility('Intoxicate') && normal)) {
       type = 'Poison';
     } else if ((isHydrate = !!attacker.hasAbility('Hydrate')) && normal) {
       type = 'Water';
-    } else if ((isGroundate = !!attacker.hasAbility('Groundate')) && normal) {
+    } else if ((isTectonize = !!attacker.hasAbility('Tectonize')) && normal) {
       type = 'Ground';
     } else if ((isFightingSpirit = !!attacker.hasAbility('Fighting Spirit')) && normal) {
       type = 'Fighting';
@@ -315,8 +315,8 @@ export function calculateSMSSSV(
     } else if ((isMineralize = !!attacker.hasAbility('Mineralize')) && normal){
       type = 'Rock';
     }
-    if (isGalvanize || isPixilate || isRefrigerate || isAerilate || isNormalize || isBuginize ||
-      isPoisonate || isHydrate || isGroundate || isFightingSpirit || isCrystallize || isImmolate ||
+    if (isGalvanize || isPixilate || isRefrigerate || isAerilate || isNormalize || isPollinate ||
+      isIntoxicate || isHydrate || isTectonize || isFightingSpirit || isCrystallize || isImmolate ||
       isSpectralize || isDraconize || isMineralize) {
       desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.ability);
       hasAteAbilityTypeChange = true;
