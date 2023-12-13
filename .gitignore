@@ -10,3 +10,4 @@ calc/*
 !calc/package.json
 !calc/production.min.js
 !calc/tsconfig.json
+README.md
