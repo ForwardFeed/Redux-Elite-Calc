@@ -3352,7 +3352,7 @@ const SS_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     'isPulse': true
   },
   'Surf': {
-    'bp': 95,
+    'bp': 90,
     'type': 'Water',
     'category': 'Special',
     'acc': 100,
@@ -3970,7 +3970,7 @@ const SS_PATCH: {[name: string]: DeepPartial<MoveData>} = {
   },
   'Spike Cannon': {
     'bp': 25,
-    'type': 'Normal',
+    'type': 'Water',
     'category': 'Physical',
     'acc': 100,
     'priority': 0,
@@ -5509,7 +5509,7 @@ const SS_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     'isAir': true
   },
   'Overheat': {
-    'bp': 140,
+    'bp': 130,
     'type': 'Fire',
     'category': 'Special',
     'acc': 100,
