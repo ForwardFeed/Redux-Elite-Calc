@@ -294,25 +294,25 @@ export function calculateSMSSSV(
       type = 'Ice';
     } else if ((isNormalize = !!attacker.hasAbility('Normalize'))) { // Boosts any type
       type = 'Normal';
-    } else if ((isPollinate = !!attacker.hasAbility('Pollinate')) && normal) {
+    } else if ((isPollinate = !!attacker.hasAbility('Pollinate') && normal)) {
       type = 'Bug';
     } else if ((isIntoxicate = !!attacker.hasAbility('Intoxicate') && normal)) {
       type = 'Poison';
-    } else if ((isHydrate = !!attacker.hasAbility('Hydrate')) && normal) {
+    } else if ((isHydrate = !!attacker.hasAbility('Hydrate') && normal)) {
       type = 'Water';
-    } else if ((isTectonize = !!attacker.hasAbility('Tectonize')) && normal) {
+    } else if ((isTectonize = !!attacker.hasAbility('Tectonize') && normal)) {
       type = 'Ground';
-    } else if ((isFightingSpirit = !!attacker.hasAbility('Fighting Spirit')) && normal) {
+    } else if ((isFightingSpirit = !!attacker.hasAbility('Fighting Spirit') && normal)) {
       type = 'Fighting';
-    } else if ((isCrystallize = !!attacker.hasAbility('Crystallize')) && move.hasType('Rock')) {
+    } else if ((isCrystallize = !!attacker.hasAbility('Crystallize') && move.hasType('Rock'))) {
       type = 'Ice';
-    } else if ((isImmolate = !!attacker.hasAbility('Immolate')) && normal) {
+    } else if ((isImmolate = !!attacker.hasAbility('Immolate') && normal)) {
       type = 'Fire';
-    } else if ((isSpectralize = !!attacker.hasAbility('Spectralize')) && normal){
+    } else if ((isSpectralize = !!attacker.hasAbility('Spectralize') && normal)) {
       type = 'Ghost';
-    } else if ((isDraconize = !!attacker.hasAbility('Draconize')) && normal){
+    } else if ((isDraconize = !!attacker.hasAbility('Draconize') && normal)) {
       type = 'Dragon';
-    } else if ((isMineralize = !!attacker.hasAbility('Mineralize')) && normal){
+    } else if ((isMineralize = !!attacker.hasAbility('Mineralize') && normal)) {
       type = 'Rock';
     }
     if (isGalvanize || isPixilate || isRefrigerate || isAerilate || isNormalize || isPollinate ||
