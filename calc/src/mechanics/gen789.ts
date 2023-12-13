@@ -475,7 +475,11 @@ export function calculateSMSSSV(
   }
   if (attacker.hasAbility('Ground Shock') && move.hasType('Electric') &&
   defender.hasType('Ground')) {
-    typeEffectiveness = typeEffectiveness ? typeEffectiveness : 2 / 2;
+    if (type1Effectiveness === 0) {
+      typeEffectiveness = 0.5 * type2Effectiveness;
+    } else if (type2Effectiveness === 0) {
+      typeEffectiveness = 0.5 * type1Effectiveness;
+    }
   }
 
   if (typeEffectiveness === 0 && move.hasType('Ground') &&
