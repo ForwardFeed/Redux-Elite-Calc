@@ -3970,7 +3970,7 @@ const SS_PATCH: {[name: string]: DeepPartial<MoveData>} = {
   },
   'Spike Cannon': {
     'bp': 25,
-    'type': 'Water',
+    'type': 'Normal',
     'category': 'Physical',
     'acc': 100,
     'priority': 0,
