@@ -358,7 +358,7 @@ export function calculateSMSSSV(
   }
   if (attacker.hasAbility('Dragonfly', 'Half Drake')) {
     attacker.types.push('Dragon');
-  } else if (defender.hasAbility('Dragonfly')) {
+  } else if (defender.hasAbility('Dragonfly', 'Half Drake')) {
     defender.types.push('Dragon');
   }
   if (attacker.hasAbility('Ice Age')) {
