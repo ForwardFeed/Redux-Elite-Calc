@@ -352,7 +352,7 @@ function calculateSMSSSV(gen, attacker, defender, move, field, defenderFriend) {
     if (defender.teraType) {
         typeEffectiveness = (0, util_2.getMoveEffectiveness)(gen, move, defender.teraType, defender, isGhostRevealed, field.isGravity, isRingTarget);
     }
-    if (defender.hasAbility('Weather Control') || (defenderFriend === null || defenderFriend === void 0 ? void 0 : defenderFriend.hasAbility('Weather Control')) &&
+    if ((defender.hasAbility('Weather Control') || (defenderFriend === null || defenderFriend === void 0 ? void 0 : defenderFriend.hasAbility('Weather Control'))) &&
         move.flags.weather) {
         typeEffectiveness = 0;
     }
