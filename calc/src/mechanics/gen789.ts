@@ -1490,8 +1490,8 @@ export function calculateAttackSMSSSV(
   }
 
   // unlike all other attack modifiers, Hustle gets applied directly
-  if (attacker.hasAbility('Hustle') && move.category === 'Physical') {
-    attack = pokeRound((attack * 3) / 2);
+  if (attacker.hasAbility('Hustle')) {
+    attack = pokeRound((attack * 7) / 5);
     desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.ability);
   }
   if (attacker.hasAbility('Roundhouse') && move.flags.kick) {
