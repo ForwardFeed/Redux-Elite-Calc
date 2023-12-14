@@ -358,7 +358,7 @@ export function calculateSMSSSV(
   }
   if (attacker.hasAbility('Dragonfly', 'Half Drake')) {
     attacker.types.push('Dragon');
-  } else if (defender.hasAbility('Dragonfly')) {
+  } else if (defender.hasAbility('Dragonfly', 'Half Drake')) {
     defender.types.push('Dragon');
   }
   if (attacker.hasAbility('Ice Age')) {
@@ -460,19 +460,20 @@ export function calculateSMSSSV(
     } else if (typeEffectiveness < 0.5) {
       typeEffectiveness *= 2;
     }
-  } else if (attacker.hasAbility('Molten Down') && defender.hasType('Rock') &&
+  } 
+  if (attacker.hasAbility('Molten Down') && defender.hasType('Rock') &&
    move.type === 'Fire') {
-    typeEffectiveness = 2;
+    typeEffectiveness = typeEffectiveness * 4;
   }
-  if (attacker.hasAbility('Seaweed Grass') && move.hasType('Grass') &&
+  if (attacker.hasAbility('Seaweed') && move.hasType('Grass') &&
     defender.hasType('Fire')) {
     typeEffectiveness = typeEffectiveness * 2;
   }
-  if (defender.hasAbility('Seaweed Grass') && move.hasType('Fire') &&
+  if (defender.hasAbility('Seaweed') && move.hasType('Fire') &&
   defender.hasType('Grass')) {
     typeEffectiveness = typeEffectiveness / 2;
   }
-  if (defender.hasAbility('Ground Shock') && move.hasType('Electric') &&
+  if (attacker.hasAbility('Ground Shock') && move.hasType('Electric') &&
   defender.hasType('Ground')) {
     typeEffectiveness = typeEffectiveness ? typeEffectiveness : 2 / 2;
   }
