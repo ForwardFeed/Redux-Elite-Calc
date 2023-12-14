@@ -330,7 +330,7 @@ export function calculateSMSSSV(
   if (move.named('Tera Blast') && attacker.teraType) {
     type = attacker.teraType;
   }
-
+  
   move.type = type;
   const additionnalPriority = getPriorityAdditionnal(attacker, move, defender);
   move.priority += additionnalPriority
@@ -574,6 +574,11 @@ export function calculateSMSSSV(
       (move.named('Tera Blast') && attackSource.teraType)) {
     move.category = attackSource.stats.atk > attackSource.stats.spa ? 'Physical' : 'Special';
   }
+
+  if (attacker.hasAbility('Equinox')) {
+    move.category = attacker.stats.atk > attacker.stats.spa ? 'Physical' : 'Special';
+  }
+  
   if (attacker.hasAbility('Power Fists')) {
     move.category = 'Special';
   }
