@@ -450,14 +450,6 @@ export function calculateSMSSSV(
   if (defender.hasAbility('Mountaineer') && move.hasType('Rock')) {
     typeEffectiveness = 0;
   }
-  if (attacker.hasAbility('Overwhelm') && defender.hasType('Fairy') &&
-  move.hasType('Dragon')) {
-    if (type1Effectiveness === 0) {
-      typeEffectiveness = 1 * type2Effectiveness;
-    } else if (type2Effectiveness === 0) {
-      typeEffectiveness = 1 * type1Effectiveness;
-    }
-  }
   if (attacker.hasAbility('Bone Zone') && move.flags.bone) {
     if (typeEffectiveness === 0) {
       typeEffectiveness = 1;
@@ -476,6 +468,34 @@ export function calculateSMSSSV(
   if (defender.hasAbility('Seaweed') && move.hasType('Fire') &&
   defender.hasType('Grass')) {
     typeEffectiveness = typeEffectiveness / 2;
+  }
+  if (attacker.hasAbility('Overwhelm') && move.hasType('Dragon') &&
+  defender.hasType('Fairy')) {
+    if (defender.types.length === 3) {
+      const type3Effectiveness = defender.types[2]
+        ? getMoveEffectiveness(
+          gen,
+          move,
+          defender.types[2],
+          defender,
+          isGhostRevealed,
+          field.isGravity,
+          isRingTarget
+        )
+        : 1;
+          
+        if (type1Effectiveness === 0) {
+          typeEffectiveness = 1 * type2Effectiveness * type3Effectiveness;
+        } else if (type2Effectiveness === 0) {
+          typeEffectiveness = 1 * type1Effectiveness * type3Effectiveness;
+        } else if (type3Effectiveness === 0) {
+          typeEffectiveness = 1 * type1Effectiveness * type2Effectiveness;
+        }
+    } else if (type1Effectiveness === 0) {
+      typeEffectiveness = 1 * type2Effectiveness;
+    } else if (type2Effectiveness === 0) {
+      typeEffectiveness = 1 * type1Effectiveness;
+    }
   }
   if (attacker.hasAbility('Ground Shock') && move.hasType('Electric') &&
   defender.hasType('Ground')) {
