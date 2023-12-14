@@ -493,6 +493,9 @@ function calculateSMSSSV(gen, attacker, defender, move, field, defenderFriend) {
         (move.named('Tera Blast') && attackSource.teraType)) {
         move.category = attackSource.stats.atk > attackSource.stats.spa ? 'Physical' : 'Special';
     }
+    if (attacker.hasAbility('Equinox')) {
+        move.category = attacker.stats.atk > attacker.stats.spa ? 'Physical' : 'Special';
+    }
     if (attacker.hasAbility('Power Fists')) {
         move.category = 'Special';
     }
