@@ -146,7 +146,7 @@ function getFinalSpeed(gen, pokemon, field, side) {
         (pokemon.hasAbility('Chlorophyll') && weather.includes('Sun')) ||
         (pokemon.hasAbility('Swift Swim') && weather.includes('Rain')) ||
         (pokemon.hasAbility('Slush Rush') && ['Hail', 'Snow'].includes(weather)) ||
-        (pokemon.hasAbility('Surge Surfer') && terrain === 'Electric') ||
+        (pokemon.hasAbility('Surge Surfer') && (terrain === 'Electric') || pokemon.hasAbility('Levitate', 'DragonFly')) ||
         (pokemon.hasAbility('Sand Rush') && weather === 'Sand')) {
         speedMods.push(6144);
     }

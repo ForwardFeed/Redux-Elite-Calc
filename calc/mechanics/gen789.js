@@ -1021,10 +1021,6 @@ function calculateBPModsSMSSSV(gen, attacker, defender, move, field, desc, baseP
             bpMods.push(5120);
             desc.rivalry = 'buffed';
         }
-        else {
-            bpMods.push(3072);
-            desc.rivalry = 'nerfed';
-        }
         desc.attackerAbility = (0, util_2.appSpacedStr)(desc.attackerAbility, attacker.ability);
     }
     if (!move.isMax && hasAteAbilityTypeChange) {
@@ -1120,8 +1116,8 @@ function calculateAttackSMSSSV(gen, attacker, defender, move, field, desc, isCri
         attack = attackSource.stats[attackStat];
         desc.attackBoost = attackSource.boosts[attackStat];
     }
-    if (attacker.hasAbility('Hustle') && move.category === 'Physical') {
-        attack = (0, util_2.pokeRound)((attack * 3) / 2);
+    if (attacker.hasAbility('Hustle')) {
+        attack = (0, util_2.pokeRound)(attack * 1.40);
         desc.attackerAbility = (0, util_2.appSpacedStr)(desc.attackerAbility, attacker.ability);
     }
     if (attacker.hasAbility('Roundhouse') && move.flags.kick) {
@@ -1435,6 +1431,10 @@ function calculateDfModsSMSSSV(gen, attacker, defender, move, field, desc, isCri
         dfMods.push(4915);
         desc.defenderAbility = (0, util_2.appSpacedStr)(desc.defenderAbility, defender.ability);
     }
+    if (defender.hasAbility('Magma Armor')) {
+        dfMods.push(5325);
+        desc.defenderAbility = (0, util_2.appSpacedStr)(desc.defenderAbility, defender.ability);
+    }
     return dfMods;
 }
 exports.calculateDfModsSMSSSV = calculateDfModsSMSSSV;
@@ -1488,7 +1488,7 @@ function calculateFinalModsSMSSSV(gen, attacker, defender, move, field, desc, is
         desc.attackerAbility = (0, util_2.appSpacedStr)(desc.attackerAbility, attacker.ability);
     }
     if (attacker.hasAbility('Sniper') && isCritical) {
-        finalMods.push(6144);
+        finalMods.push(9216);
         desc.attackerAbility = (0, util_2.appSpacedStr)(desc.attackerAbility, attacker.ability);
     }
     if (attacker.hasAbility('Tinted Lens') && typeEffectiveness < 1) {

@@ -385,10 +385,6 @@ function calculateBWXY(gen, attacker, defender, move, field, defenderFriend) {
             bpMods.push(5120);
             desc.rivalry = 'buffed';
         }
-        else {
-            bpMods.push(3072);
-            desc.rivalry = 'nerfed';
-        }
         desc.attackerAbility = attacker.ability;
     }
     if (attacker.item && (0, items_1.getItemBoostType)(attacker.item) === move.type) {
