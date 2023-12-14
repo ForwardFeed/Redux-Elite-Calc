@@ -475,7 +475,27 @@ export function calculateSMSSSV(
   }
   if (attacker.hasAbility('Ground Shock') && move.hasType('Electric') &&
   defender.hasType('Ground')) {
-    if (type1Effectiveness === 0) {
+    if (defender.types.length === 3) {
+      const type3Effectiveness = defender.types[2]
+        ? getMoveEffectiveness(
+          gen,
+          move,
+          defender.types[2],
+          defender,
+          isGhostRevealed,
+          field.isGravity,
+          isRingTarget
+        )
+        : 1;
+          
+        if (type1Effectiveness === 0) {
+          typeEffectiveness = 0.5 * type2Effectiveness * type3Effectiveness;
+        } else if (type2Effectiveness === 0) {
+          typeEffectiveness = 0.5 * type1Effectiveness * type3Effectiveness;
+        } else if (type3Effectiveness === 0) {
+          typeEffectiveness = 0.5 * type1Effectiveness * type2Effectiveness;
+        }
+    } else if (type1Effectiveness === 0) {
       typeEffectiveness = 0.5 * type2Effectiveness;
     } else if (type2Effectiveness === 0) {
       typeEffectiveness = 0.5 * type1Effectiveness;
@@ -483,7 +503,27 @@ export function calculateSMSSSV(
   }
   if (attacker.hasAbility('Corrosion') && move.hasType('Poison') &&
   defender.hasType('Steel')) {
-    if (type1Effectiveness === 0) {
+    if (defender.types.length === 3) {
+      const type3Effectiveness = defender.types[2]
+        ? getMoveEffectiveness(
+          gen,
+          move,
+          defender.types[2],
+          defender,
+          isGhostRevealed,
+          field.isGravity,
+          isRingTarget
+        )
+        : 1;
+          
+        if (type1Effectiveness === 0) {
+          typeEffectiveness = 2 * type2Effectiveness * type3Effectiveness;
+        } else if (type2Effectiveness === 0) {
+          typeEffectiveness = 2 * type1Effectiveness * type3Effectiveness;
+        } else if (type3Effectiveness === 0) {
+          typeEffectiveness = 2 * type1Effectiveness * type2Effectiveness;
+        }
+    } else if (type1Effectiveness === 0) {
       typeEffectiveness = 2 * type2Effectiveness;
     } else if (type2Effectiveness === 0) {
       typeEffectiveness = 2 * type1Effectiveness;
