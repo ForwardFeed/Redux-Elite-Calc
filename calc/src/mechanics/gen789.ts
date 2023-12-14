@@ -331,6 +331,10 @@ export function calculateSMSSSV(
     type = attacker.teraType;
   }
 
+  if (attacker.hasAbility('Equinox')) {
+    move.category = attacker.stats.atk > attacker.stats.spa ? 'Physical' : 'Special';
+  }
+
   move.type = type;
   const additionnalPriority = getPriorityAdditionnal(attacker, move, defender);
   move.priority += additionnalPriority
