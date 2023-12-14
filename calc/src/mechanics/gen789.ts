@@ -331,6 +331,10 @@ export function calculateSMSSSV(
     type = attacker.teraType;
   }
 
+  if (attacker.hasAbility('Equinox')) {
+    move.category = attacker.stats.atk > attacker.stats.spa ? 'Physical' : 'Special';
+  }
+
   move.type = type;
   const additionnalPriority = getPriorityAdditionnal(attacker, move, defender);
   move.priority += additionnalPriority
@@ -475,7 +479,59 @@ export function calculateSMSSSV(
   }
   if (attacker.hasAbility('Ground Shock') && move.hasType('Electric') &&
   defender.hasType('Ground')) {
-    typeEffectiveness = typeEffectiveness ? typeEffectiveness : 2 / 2;
+    if (defender.types.length === 3) {
+      const type3Effectiveness = defender.types[2]
+        ? getMoveEffectiveness(
+          gen,
+          move,
+          defender.types[2],
+          defender,
+          isGhostRevealed,
+          field.isGravity,
+          isRingTarget
+        )
+        : 1;
+          
+        if (type1Effectiveness === 0) {
+          typeEffectiveness = 0.5 * type2Effectiveness * type3Effectiveness;
+        } else if (type2Effectiveness === 0) {
+          typeEffectiveness = 0.5 * type1Effectiveness * type3Effectiveness;
+        } else if (type3Effectiveness === 0) {
+          typeEffectiveness = 0.5 * type1Effectiveness * type2Effectiveness;
+        }
+    } else if (type1Effectiveness === 0) {
+      typeEffectiveness = 0.5 * type2Effectiveness;
+    } else if (type2Effectiveness === 0) {
+      typeEffectiveness = 0.5 * type1Effectiveness;
+    }
+  }
+  if (attacker.hasAbility('Corrosion') && move.hasType('Poison') &&
+  defender.hasType('Steel')) {
+    if (defender.types.length === 3) {
+      const type3Effectiveness = defender.types[2]
+        ? getMoveEffectiveness(
+          gen,
+          move,
+          defender.types[2],
+          defender,
+          isGhostRevealed,
+          field.isGravity,
+          isRingTarget
+        )
+        : 1;
+          
+        if (type1Effectiveness === 0) {
+          typeEffectiveness = 2 * type2Effectiveness * type3Effectiveness;
+        } else if (type2Effectiveness === 0) {
+          typeEffectiveness = 2 * type1Effectiveness * type3Effectiveness;
+        } else if (type3Effectiveness === 0) {
+          typeEffectiveness = 2 * type1Effectiveness * type2Effectiveness;
+        }
+    } else if (type1Effectiveness === 0) {
+      typeEffectiveness = 2 * type2Effectiveness;
+    } else if (type2Effectiveness === 0) {
+      typeEffectiveness = 2 * type1Effectiveness;
+    }
   }
 
   if (typeEffectiveness === 0 && move.hasType('Ground') &&
