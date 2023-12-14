@@ -50,7 +50,7 @@ export interface RawDesc {
   moveName: string;
   moveTurns?: string;
   moveType?: TypeName;
-  rivalry?: 'buffed' | 'nerfed';
+  rivalry?: 'buffed';
   terrain?: Terrain;
   weather?: Weather;
   isDefenderDynamaxed?: boolean;

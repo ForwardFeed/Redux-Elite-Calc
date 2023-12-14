@@ -1239,9 +1239,6 @@ export function calculateBPModsSMSSSV(
     if (attacker.gender === defender.gender) {
       bpMods.push(5120);
       desc.rivalry = 'buffed';
-    } else {
-      bpMods.push(3072);
-      desc.rivalry = 'nerfed';
     }
     desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.ability);
   }
@@ -1359,8 +1356,8 @@ export function calculateAttackSMSSSV(
   }
 
   // unlike all other attack modifiers, Hustle gets applied directly
-  if (attacker.hasAbility('Hustle') && move.category === 'Physical') {
-    attack = pokeRound((attack * 3) / 2);
+  if (attacker.hasAbility('Hustle')) {
+    attack = pokeRound(attack * 1.40);
     desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.ability);
   }
   if (attacker.hasAbility('Roundhouse') && move.flags.kick) {
@@ -1723,6 +1720,10 @@ export function calculateDfModsSMSSSV(
     dfMods.push(4915);
     desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.ability);
   }
+  if (defender.hasAbility('Magma Armor')){
+    dfMods.push(5325);
+    desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.ability);
+  }
   return dfMods;
 }
 
@@ -1791,7 +1792,7 @@ export function calculateFinalModsSMSSSV(
     desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.ability);
   }
   if (attacker.hasAbility('Sniper') && isCritical) {
-    finalMods.push(6144);
+    finalMods.push(9216);
     desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.ability);
   }
    if (attacker.hasAbility('Tinted Lens') && typeEffectiveness < 1) {

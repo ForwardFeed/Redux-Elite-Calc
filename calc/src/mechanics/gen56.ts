@@ -464,9 +464,6 @@ export function calculateBWXY(
     if (attacker.gender === defender.gender) {
       bpMods.push(5120);
       desc.rivalry = 'buffed';
-    } else {
-      bpMods.push(3072);
-      desc.rivalry = 'nerfed';
     }
     desc.attackerAbility = attacker.ability;
   }
