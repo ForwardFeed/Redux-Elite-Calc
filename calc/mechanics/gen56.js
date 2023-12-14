@@ -112,9 +112,9 @@ function calculateBWXY(gen, attacker, defender, move, field, defenderFriend) {
         desc.attackerAbility = attacker.ability;
     }
     var isGhostRevealed = !!attacker.hasAbility('Scrappy') || field.defenderSide.isForesight;
-    var type1Effectiveness = (0, util_2.getMoveEffectiveness)(gen, move, defender.types[0], defender, isGhostRevealed, field.isGravity);
+    var type1Effectiveness = (0, util_2.getMoveEffectiveness)(gen, move, defender.types[0], defender, attacker, isGhostRevealed, field.isGravity);
     var type2Effectiveness = defender.types[1]
-        ? (0, util_2.getMoveEffectiveness)(gen, move, defender.types[1], defender, isGhostRevealed, field.isGravity)
+        ? (0, util_2.getMoveEffectiveness)(gen, move, defender.types[1], defender, attacker, isGhostRevealed, field.isGravity)
         : 1;
     var typeEffectiveness = type1Effectiveness * type2Effectiveness;
     var resistedKnockOffDamage = !defender.item ||
