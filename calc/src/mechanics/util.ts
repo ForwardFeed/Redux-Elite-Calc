@@ -146,11 +146,24 @@ export function getMoveEffectiveness(
   move: Move,
   type: TypeName,
   target: Pokemon,
+  source: Pokemon,
   isGhostRevealed?: boolean,
   isGravity?: boolean,
   isRingTarget?: boolean,
 ) {
-  if (target.hasAbility('Gifted Mind') && move.hasType('Bug', 'Ghost', 'Dark')) {
+  if (source.hasAbility('Overwhelm') && move.hasType('Dragon') && type === 'Fairy'){
+    return 1;
+  } else if (source.hasAbility('Corrosion') && move.hasType('Poison') && type === 'Steel'){
+    return 2;
+  } else if (source.hasAbility('Bone Zone') && move.flags.bone) {
+    return 1;
+  } else if (target.hasAbility('Aerodynamics') && move.hasType('Flying')) {
+    return 0;
+  } else if (target.hasAbility('Mountaineer') && move.hasType('Rock')) {
+    return 0;
+  } else if ((target.hasAbility('Weather Control')) && move.flags.weather) {
+    return 0;
+  } else if (target.hasAbility('Gifted Mind') && move.hasType('Bug', 'Ghost', 'Dark')) {
     return 0
   } else if ((isRingTarget || isGhostRevealed) && type === 'Ghost' && move.hasType('Normal', 'Fighting')) {
     return 1;
@@ -160,6 +173,14 @@ export function getMoveEffectiveness(
     return 2;
   } else if (move.named('Freeze Dry') && type === 'Water') {
     return 2;
+  } else if (source.hasAbility('Molten Down') && type === 'Rock' && move.type === 'Fire') {
+    return 2;
+  } else if (source.hasAbility('Seaweed') && move.hasType('Grass') && type === 'Fire') {
+    return 1;
+  } else if (target.hasAbility('Seaweed') && move.hasType('Fire') && type === 'Grass') {
+    return 1;
+  } else if (source.hasAbility('Ground Shock') && move.hasType('Electric') && type === 'Ground') {
+    return 0.5;
   } else if (move.named('Flying Press')) {
     return (
       gen.types.get('fighting' as ID)!.effectiveness[type]! *

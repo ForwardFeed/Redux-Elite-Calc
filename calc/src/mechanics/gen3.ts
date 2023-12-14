@@ -101,11 +101,12 @@ export function calculateADV(
     gen,
     move,
     firstDefenderType,
-    defender, 
+    defender,
+    attacker,
     field.defenderSide.isForesight
   );
   const type2Effectiveness = secondDefenderType
-    ? getMoveEffectiveness(gen, move, secondDefenderType, defender, field.defenderSide.isForesight)
+    ? getMoveEffectiveness(gen, move, secondDefenderType, defender, attacker, field.defenderSide.isForesight)
     : 1;
   const typeEffectiveness = type1Effectiveness * type2Effectiveness;
 

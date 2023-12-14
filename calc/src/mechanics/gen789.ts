@@ -390,40 +390,20 @@ export function calculateSMSSSV(
     !!attacker.hasAbility('Scrappy') || field.defenderSide.isForesight;
   const isRingTarget =
     defender.hasItem('Ring Target') && !defender.hasAbility('Klutz');
-  const type1Effectiveness = getMoveEffectiveness(
-    gen,
-    move,
-    defender.types[0],
-    defender,
-    isGhostRevealed,
-    field.isGravity,
-    isRingTarget
-  );
-  const type2Effectiveness = defender.types[1]
-    ? getMoveEffectiveness(
+  
+  let typeEffectiveness = 1
+  for (const defenderType of defender.types){
+    if (!defenderType) break
+    typeEffectiveness *= getMoveEffectiveness(
       gen,
       move,
-      defender.types[1],
+      defenderType,
       defender,
+      attacker,
       isGhostRevealed,
       field.isGravity,
       isRingTarget
     )
-    : 1;
-  let typeEffectiveness = type1Effectiveness * type2Effectiveness;
-  if (defender.types.length === 3) { // because of Phamtom and other things like that
-    const type3Effectiveness = defender.types[2]
-      ? getMoveEffectiveness(
-        gen,
-        move,
-        defender.types[2],
-        defender,
-        isGhostRevealed,
-        field.isGravity,
-        isRingTarget
-      )
-      : 1;
-    typeEffectiveness = type1Effectiveness * type2Effectiveness * type3Effectiveness;
   }
   if (defender.teraType) {
     typeEffectiveness = getMoveEffectiveness(
@@ -431,60 +411,22 @@ export function calculateSMSSSV(
       move,
       defender.teraType,
       defender,
+      attacker,
       isGhostRevealed,
       field.isGravity,
       isRingTarget
     );
   }
-  if ((defender.hasAbility('Weather Control') || defenderFriend?.hasAbility('Weather Control')) &&
-  move.flags.weather) {
-    typeEffectiveness = 0;
-  }
-  if (defender.hasAbility('Aerodynamics') && move.hasType('Flying')) {
-    typeEffectiveness = 0;
-  }
-  if (defender.hasAbility('Mountaineer') && move.hasType('Rock')) {
-    typeEffectiveness = 0;
-  }
-  if (attacker.hasAbility('Overwhelm') && defender.hasType('Fairy') &&
-  move.hasType('Dragon')) {
-    if (type1Effectiveness === 0) {
-      typeEffectiveness = 1 * type2Effectiveness;
-    } else if (type2Effectiveness === 0) {
-      typeEffectiveness = 1 * type1Effectiveness;
-    }
-  }
-  if (attacker.hasAbility('Bone Zone') && move.flags.bone) {
-    if (typeEffectiveness === 0) {
-      typeEffectiveness = 1;
-    } else if (typeEffectiveness < 0.5) {
-      typeEffectiveness *= 2;
-    }
-  } 
-  if (attacker.hasAbility('Molten Down') && defender.hasType('Rock') &&
-   move.type === 'Fire') {
-    typeEffectiveness = typeEffectiveness * 4;
-  }
-  if (attacker.hasAbility('Seaweed') && move.hasType('Grass') &&
-    defender.hasType('Fire')) {
-    typeEffectiveness = typeEffectiveness * 2;
-  }
-  if (defender.hasAbility('Seaweed') && move.hasType('Fire') &&
-  defender.hasType('Grass')) {
-    typeEffectiveness = typeEffectiveness / 2;
-  }
-  if (attacker.hasAbility('Ground Shock') && move.hasType('Electric') &&
-  defender.hasType('Ground')) {
-    typeEffectiveness = typeEffectiveness ? typeEffectiveness : 2 / 2;
-  }
 
-  if (typeEffectiveness === 0 && move.hasType('Ground') &&
-    defender.hasItem('Iron Ball') && !defender.hasAbility('Klutz')) {
-    typeEffectiveness = 1;
-  }
   if (typeEffectiveness === 0 && move.named('Thousand Arrows')) {
     typeEffectiveness = 1;
   }
+
+  if (typeEffectiveness === 0 && move.hasType('Ground') &&
+  defender.hasItem('Iron Ball') && !defender.hasAbility('Klutz')) {
+    typeEffectiveness = 1;
+  }
+
   move.typeEffectiveness = typeEffectiveness
   if (typeEffectiveness === 0) {
     return result;
@@ -1173,6 +1115,7 @@ export function calculateBPModsSMSSSV(
       move,
       types[0],
       defender,
+      attacker,
       isGhostRevealed,
       field.isGravity,
       isRingTarget
@@ -1182,6 +1125,7 @@ export function calculateBPModsSMSSSV(
       move,
       types[1],
       defender,
+      attacker,
       isGhostRevealed,
       field.isGravity,
       isRingTarget
@@ -1192,6 +1136,7 @@ export function calculateBPModsSMSSSV(
         move,
         types[2],
         defender,
+        attacker,
         isGhostRevealed,
         field.isGravity,
         isRingTarget
