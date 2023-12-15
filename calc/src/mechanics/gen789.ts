@@ -129,8 +129,6 @@ export function calculateSMSSSV(
     move.acc = 90
   }
 
-  //moves never makes contact with long reach
-  if (attacker.hasAbility('Long Reach')) move.flags.contact = 0
 
   const desc: RawDesc = {
     attackerName: attacker.name,
@@ -1817,6 +1815,11 @@ export function calculateFinalModsSMSSSV(
     finalMods.push(2048);
     desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.ability);
   }
+  if (attacker.hasAbility('Long Reach') && !move.flags.contact) {
+    finalMods.push(4915);
+  } else if (attacker.hasAbility('Long Reach')) {
+    move.flags.contact = 0
+  }
   if (defender.hasAbility('Liquified')) {
     if (move.flags.contact) {
       finalMods.push(2048);
@@ -1826,7 +1829,7 @@ export function calculateFinalModsSMSSSV(
       desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.ability);
     }
   }
-  if (defender.hasAbility('Fluffy') && move.flags.contact && !attacker.hasAbility('Long Reach')) {
+  if (defender.hasAbility('Fluffy') && move.flags.contact) {
     finalMods.push(2048);
     desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.ability);
   } else if (
@@ -1855,9 +1858,6 @@ export function calculateFinalModsSMSSSV(
   }
   if (attacker.hasAbility('Nocturnal') && move.hasType('Dark')) {
     finalMods.push(5120);
-  }
-  if (attacker.hasAbility('Long Reach') && !move.flags.contact) {
-    finalMods.push(4915);
   }
   if (defender.hasAbility('Whiteout') && field.hasWeather('Hail') &&
   move.hasType('Ice')) {
