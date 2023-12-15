@@ -26,7 +26,7 @@ export declare function getBaseDamage(level: number, basePower: number, attack: 
 export declare function getQPBoostedStat(pokemon: Pokemon, gen?: Generation): StatID;
 export declare function getFinalDamage(baseAmount: number, i: number, effectiveness: number, isBurned: boolean, stabMod: number, finalMod: number, protect?: boolean): number;
 export declare function getShellSideArmCategory(source: Pokemon, target: Pokemon): MoveCategory;
-export declare function getWeightFactor(pokemon: Pokemon): 1 | 2 | 0.5;
+export declare function getWeightFactor(pokemon: Pokemon): 1 | 2 | 3 | 0.5;
 export declare function countBoosts(gen: Generation, boosts: StatsTable): number;
 export declare function getEVDescriptionText(gen: Generation, pokemon: Pokemon, stat: 'atk' | 'def' | 'spd' | 'spa', natureName: NatureName): string;
 export declare function handleFixedDamageMoves(attacker: Pokemon, move: Move): number;

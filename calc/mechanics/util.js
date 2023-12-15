@@ -536,7 +536,7 @@ function getShellSideArmCategory(source, target) {
 exports.getShellSideArmCategory = getShellSideArmCategory;
 function getWeightFactor(pokemon) {
     return pokemon.hasAbility('Heavy Metal') ? 2
-        : (pokemon.hasAbility('Light Metal') || pokemon.hasItem('Float Stone')) ? 0.5 : 1;
+        : (pokemon.hasAbility('Light Metal') || pokemon.hasItem('Float Stone')) ? 0.5 : pokemon.hasAbility('Lead Coat') ? 3 : 1;
 }
 exports.getWeightFactor = getWeightFactor;
 function countBoosts(gen, boosts) {
