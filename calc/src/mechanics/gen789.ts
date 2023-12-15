@@ -1407,6 +1407,9 @@ export function calculateAtModsSMSSSV(
   desc: RawDesc
 ) {
   const atMods = [];
+  if (attacker.hasAbilityActive('Violent Rush')){
+    atMods.push(4915);
+  }
   if ((attacker.hasAbility('Flock') && move.hasType('Flying')) ||
     (attacker.hasAbility('Short Circuit') && move.hasType('Electric')) ||
     (attacker.hasAbility('Vengeance') && move.hasType('Ghost')) ||
@@ -1475,7 +1478,8 @@ export function calculateAtModsSMSSSV(
     desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.ability);
   } else if (
     (attacker.hasAbility('Water Bubble') && move.hasType('Water')) ||
-    (attacker.hasAbility('Huge Power', 'Pure Power') && move.category === 'Physical')
+    (attacker.hasAbility('Huge Power', 'Pure Power') && move.category === 'Physical') ||
+    (attacker.hasAbility('Feline Prowess') && move.category === 'Special')
   ) {
     atMods.push(8192);
     desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.ability);
@@ -1721,6 +1725,10 @@ export function calculateDfModsSMSSSV(
     desc.defenderItem = defender.item;
   }
 
+  if (defender.hasAbility('Lead Coat')){
+    dfMods.push(5734);
+    desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.ability);
+  }
   if (defender.hasAbility('Battle Armor', 'Shell Armor')){
     dfMods.push(4915);
     desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.ability);
