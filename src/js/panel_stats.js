@@ -191,6 +191,7 @@ class PanelStats{
         this.field_percentHP.keyup(()=>{
             this.percentHP = Math.max(0, Math.min(100, this.percentHP));
             this.calcCurrentHP()
+            calcGateway.calcTrigger()
         })
         this.field_hpBar.click((ev)=>{
             const x = ev.offsetX
