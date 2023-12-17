@@ -93,8 +93,6 @@ function calculateSMSSSV(gen, attacker, defender, move, field, defenderFriend) {
     if (attacker.hasAbility('Inner Focus') && move.name === 'Focus Blast') {
         move.acc = 90;
     }
-    if (attacker.hasAbility('Long Reach'))
-        move.flags.contact = 0;
     var desc = {
         attackerName: attacker.name,
         attackerTera: attacker.teraType,
@@ -1516,6 +1514,12 @@ function calculateFinalModsSMSSSV(gen, attacker, defender, move, field, desc, is
         finalMods.push(2048);
         desc.defenderAbility = (0, util_2.appSpacedStr)(desc.defenderAbility, defender.ability);
     }
+    if (attacker.hasAbility('Long Reach') && !move.flags.contact) {
+        finalMods.push(4915);
+    }
+    else if (attacker.hasAbility('Long Reach')) {
+        move.flags.contact = 0;
+    }
     if (defender.hasAbility('Liquified')) {
         if (move.flags.contact) {
             finalMods.push(2048);
@@ -1526,7 +1530,7 @@ function calculateFinalModsSMSSSV(gen, attacker, defender, move, field, desc, is
             desc.defenderAbility = (0, util_2.appSpacedStr)(desc.defenderAbility, defender.ability);
         }
     }
-    if (defender.hasAbility('Fluffy') && move.flags.contact && !attacker.hasAbility('Long Reach')) {
+    if (defender.hasAbility('Fluffy') && move.flags.contact) {
         finalMods.push(2048);
         desc.defenderAbility = (0, util_2.appSpacedStr)(desc.defenderAbility, defender.ability);
     }
@@ -1555,9 +1559,6 @@ function calculateFinalModsSMSSSV(gen, attacker, defender, move, field, desc, is
     }
     if (attacker.hasAbility('Nocturnal') && move.hasType('Dark')) {
         finalMods.push(5120);
-    }
-    if (attacker.hasAbility('Long Reach') && !move.flags.contact) {
-        finalMods.push(4915);
     }
     if (defender.hasAbility('Whiteout') && field.hasWeather('Hail') &&
         move.hasType('Ice')) {
