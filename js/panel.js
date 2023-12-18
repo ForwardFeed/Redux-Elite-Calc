@@ -31,11 +31,13 @@ class Panel{
                 }
                 return target[index].val()
             },
-            set: function(target, index, val){
+            set: (target, index, val) => {
+                var shouldUpdate = val != target[index].val()
                 target[index].val(val)
                 if (ABI_DESC) {
                     target[index].attr('title', ABI_DESC[val]) 
                 }
+                if (shouldUpdate) this.changeAbilityInnates(index)
                 return true
             }
         })
@@ -118,11 +120,12 @@ class Panel{
     set nature(val){this.field_nature.val(val)}
     get ability(){return this.field_ability.val()}
     set ability(val){
+        var shouldUpdate = val !=  this.field_ability.val()
         this.field_ability.val(val)
-        this.abilityThatModifiesStats()
         if (ABI_DESC) {
             this.field_ability.attr('title', ABI_DESC[val]) 
         }
+        if (shouldUpdate) this.changeAbilityInnates(-1)
     }
     get abilityOn(){return this.field_abilityOn.prop("checked")}
     set abilityOn(val){this.field_abilityOn.prop("checked", val)}
@@ -175,18 +178,18 @@ class Panel{
         })
         for (let i in this.field_innates){
             this.field_innates[i].change(()=>{
-                this.changeAbilityInnates(this, i)
+                this.changeAbilityInnates(i)
             });
         }
         this.field_ability.change(()=>{
             // -1 to differentiates ability to innates
-            this.changeAbilityInnates(this, -1)
+            this.changeAbilityInnates(-1)
         })
         for (let i in this.field_innatesOn){
-            this.abilityThatModifiesStats()
+            this.changeAbilityInnates(i)
         }
         this.field_abilityOn.change(()=>{
-            this.abilityThatModifiesStats()
+            this.changeAbilityInnates(-1)
         })
         this.field_item.change(()=>{
             this.itemChange()
@@ -270,17 +273,15 @@ class Panel{
         }
         return 0;
     }
-    changeAbilityInnates(panel, id){
+    changeAbilityInnates(id){
         var ability, ActiveDiv
         if (id < 0) { // ability
-            this.ability = this.ability // just to trigger the setter and getter
-            ability = panel.ability
-            ActiveDiv = panel.field_abilityOn
+            ability = this.ability
+            ActiveDiv = this.field_abilityOn
         } else {
             // innates
-            this.innates[id] = this.innates[id] 
-            ability = panel.innates[id] // just to trigger the setter and getter
-            ActiveDiv = panel.field_innatesOn[id]
+            ability = this.innates[id]
+            ActiveDiv = this.field_innatesOn[id]
         }
         var TOGGLE_ABILITIES = ['Flash Fire', 'Intimidate', 'Minus', 'Plus', 'Slow Start', 'Scare', 'Violent Rush',
         'Unburden', 'Stakeout', 'Coil Up', 'Let\'s Roll', 'Grip Pincer', 'Violent Rush', 'Dreamcatcher',];
@@ -317,40 +318,6 @@ class Panel{
             $("#heavy-rain").prop("checked", true);
         } else if (this.hasAbility('Delta Stream')){
             $("#strong-winds").prop("checked", true);
-        }
-    }
-    abilityThatModifiesStats(){
-        if (this.hasAbilityActive('Violent Rush') && !this.pokemon.violentRush) {
-            // this.stats.rawAT = this.stats.at;
-            // this.stats.at = Math.floor(this.stats.at * 1.2);
-            this.stats.rawSP = this.stats.sp;
-            this.stats.sp = Math.floor(this.stats.sp * 1.5);
-            this.pokemon.violentRush = true
-        } else if (this.pokemon.violentRush){
-            //this.stats.at = this.stats.rawAT;
-            this.stats.sp = this.stats.rawSP;
-            this.pokemon.violentRush = false;
-        }
-
-        /*if (this.hasAbility('Feline Prowess') && !this.pokemon.felineProwess) {
-            this.stats.rawSA = this.stats.sa;
-            this.stats.sa = Math.floor(this.stats.sa * 2);
-            this.pokemon.felineProwess = true;
-        } else if (this.pokemon.felineProwess){
-            this.pokemon.felineProwess = false;
-            this.stats.sa = this.stats.rawSA;
-        } */
-
-        if (this.hasAbility('Lead Coat') && !this.pokemon.leadCoat) {
-            // this.stats.rawDF = this.stats.df;
-            // this.stats.df = Math.floor(this.stats.df * 1.4);
-            this.stats.rawSP = this.stats.sp;
-            this.stats.sp = Math.floor(this.stats.sp * 0.9);
-            this.pokemon.leadCoat = true;
-        } else if (this.pokemon.leadCoat){
-            //this.stats.df = this.stats.rawDF;
-            this.stats.sp = this.stats.rawSP;
-            this.pokemon.leadCoat = false;
         }
     }
     resetTrainerToDefault(){
@@ -527,6 +494,7 @@ class Panel{
 		this.stats.calcHP()
 		// FIXME the Pokemon constructor expects non-dynamaxed HP
 		if (this.stats.dynamax) this.stats.currentHP = Math.floor(this.stats.currentHP / 2);
+
 		return new calc.Pokemon(gen, this.pokemonName, {
             heads: this.heads, //this should be working already within the calc but it doesn't?
             weightkg: this.weightkg, //same goes here
