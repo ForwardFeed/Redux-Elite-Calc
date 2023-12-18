@@ -105,7 +105,7 @@
                 <input type="radio" name="no-ev" id="no-ev-on">
             </div>
             <div class="settings-row">
-                <span>Nb of Retrieved pokemon from savefiles</span>
+                <span>Nb of Retrieved pokemon from box (savefile)</span>
                 <input id="sv-nb-pkm" value="60" min="0" max="420" placeholder="60">
             </div>
         </div>
@@ -138,7 +138,7 @@
         <span class="title-text"> 
             <span class="pokemon-gradient">Pok&eacute;mon</span>
             <span class="redux-gradient">Elite Redux</span>
-            <span class="calc-version">ingame Vers. Beta</span>
+            <span class="calc-version">ingame Vers. 1.6.1</span>
             <span>Damage Calculator</span>
         </span>
         
@@ -146,23 +146,6 @@
         <button id="screen-calc">
             put this calculation in a grabbable window
         </button>
-
-        <!--div id="live-calc">
-            <div>
-                Live Calc Connectivity
-                <span id="connectivity-dot" class="con-dot"></span>
-            </div>
-            <div id="live-calc-fields" hidden>
-                <div class="live-calc-gamestate">
-                    GameState:
-                    <span id="live-calc-gamestate"></span>
-                </div>
-                <div id="live-calc-trainer">
-                    Current trainer:
-                </div>
-            </div>
-            <button id="live-calc-ret" hidden>Retry</button>
-        </div-->
     </div>
     <hr />
     <div aria-label="Move selection" class="move-result-group" role="region" title="Select a move to show detailed results.">
@@ -331,7 +314,7 @@
                     </div>
                     <div class="hide">
                         <label>Forme</label>
-                        <select class="forme save-trigger"></select>
+                        <select class="forme save-trigger calc-trigger"></select>
                     </div>
                     <div>
                         <label>Gender</label>
@@ -2001,31 +1984,31 @@
         var calc = exports = {};
         function require() { return exports };
     </script>
-    <script type="text/javascript" src="../calc/util.js"></script>
-    <script type="text/javascript" src="../calc/stats.js"></script>
-    <script type="text/javascript" src="../calc/data/species.js"></script>
+    <script type="text/javascript" src="../calcv161/util.js"></script>
+    <script type="text/javascript" src="../calcv161/stats.js"></script>
+    <script type="text/javascript" src="../calcv161/data/species.js"></script>
 	<script type="text/javascript" src="./data/trainersets.js"></script>
-    <script type="text/javascript" src="../calc/data/types.js"></script>
-    <script type="text/javascript" src="../calc/data/natures.js"></script>
-    <script type="text/javascript" src="../calc/data/abilities.js"></script>
-    <script type="text/javascript" src="../calc/data/moves.js"></script>
-    <script type="text/javascript" src="../calc/data/items.js"></script>
-    <script type="text/javascript" src="../calc/data/index.js"></script>
-    <script type="text/javascript" src="../calc/move.js"></script>
-    <script type="text/javascript" src="../calc/pokemon.js"></script>
-    <script type="text/javascript" src="../calc/field.js"></script>
-    <script type="text/javascript" src="../calc/items.js"></script>
-    <script type="text/javascript" src="../calc/mechanics/util.js"></script>
-    <script type="text/javascript" src="../calc/mechanics/gen789.js"></script>
-    <script type="text/javascript" src="../calc/mechanics/gen56.js"></script>
-    <script type="text/javascript" src="../calc/mechanics/gen4.js"></script>
-    <script type="text/javascript" src="../calc/mechanics/gen3.js"></script>
-    <script type="text/javascript" src="../calc/mechanics/gen12.js"></script>
-    <script type="text/javascript" src="../calc/calc.js"></script>
-    <script type="text/javascript" src="../calc/desc.js"></script>
-    <script type="text/javascript" src="../calc/result.js"></script>
-    <script type="text/javascript" src="../calc/adaptable.js"></script>
-    <script type="text/javascript" src="../calc/index.js"></script>
+    <script type="text/javascript" src="../calcv161/data/types.js"></script>
+    <script type="text/javascript" src="../calcv161/data/natures.js"></script>
+    <script type="text/javascript" src="../calcv161/data/abilities.js"></script>
+    <script type="text/javascript" src="../calcv161/data/moves.js"></script>
+    <script type="text/javascript" src="../calcv161/data/items.js"></script>
+    <script type="text/javascript" src="../calcv161/data/index.js"></script>
+    <script type="text/javascript" src="../calcv161/move.js"></script>
+    <script type="text/javascript" src="../calcv161/pokemon.js"></script>
+    <script type="text/javascript" src="../calcv161/field.js"></script>
+    <script type="text/javascript" src="../calcv161/items.js"></script>
+    <script type="text/javascript" src="../calcv161/mechanics/util.js"></script>
+    <script type="text/javascript" src="../calcv161/mechanics/gen789.js"></script>
+    <script type="text/javascript" src="../calcv161/mechanics/gen56.js"></script>
+    <script type="text/javascript" src="../calcv161/mechanics/gen4.js"></script>
+    <script type="text/javascript" src="../calcv161/mechanics/gen3.js"></script>
+    <script type="text/javascript" src="../calcv161/mechanics/gen12.js"></script>
+    <script type="text/javascript" src="../calcv161/calc.js"></script>
+    <script type="text/javascript" src="../calcv161/desc.js"></script>
+    <script type="text/javascript" src="../calcv161/result.js"></script>
+    <script type="text/javascript" src="../calcv161/adaptable.js"></script>
+    <script type="text/javascript" src="../calcv161/index.js"></script>
     <script type="text/javascript" src="./data/calc_settings.js"></script>
     <script type="text/javascript" src="./cs_pre_load.js"></script>
     <script type="text/javascript" src="../js/ui_globals.js"></script>
@@ -2047,21 +2030,19 @@
     <script type="text/javascript" src="../js/gen3_loadsave.js"></script>
     <script type="text/javascript" src="./cs_after_load.js"></script>
     <script type="text/javascript" src="./data/ability_descriptions.js"></script>
-    <!--script type="text/javascript" src="../js/fuzzers.js"></script-->
     <script type="text/javascript" src="../js/sharecalc.js"></script>
-    <!--script type="text/javascript" src="../js/livecalc.js"></script-->
-    <!--script type="text/javascript" src="./data/trainersidmaps.js"></script-->
+    <!--script type="text/javascript" src="../js/fuzzers.js"></script-->
 </div>
 
 <div class="credits">Modifications by ForwardFeed, based on the work of the Smogon calc by Honko
     <ul>
-        <li><a href="https://github.com/ForwardFeed/Redux-Elite-Calc" class="links-lighten" target="_blank">Github Repository</a></li>
+        <li><a href="https://github.com/ForwardFeed/Redux-Elite-Calc" class="links-lighten" target="_blank">Modification Repository</a></li>
         <li><a href="https://github.com/smogon/damage-calc/" class="links-lighten" target="_blank">Original Smogon Calc</a></li>
     </ul>
     <button id="open-settings-box">Open Settings Panel</button>
     <button title="You may be asked a download report from the devs for bugs" id="report">Download Report</button>
     <a href="" id="a" hidden></a>
-    <button id="change-version">Change to redux version 1.6.1</button>
+    <button id="change-version">Change to redux version Beta</button>
     <div id="sets">
         <span>version 0.4.0 "How many months was this broken already?"</span>
     </div>
