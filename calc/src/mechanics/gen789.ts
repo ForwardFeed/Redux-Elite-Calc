@@ -1723,7 +1723,7 @@ export function calculateDfModsSMSSSV(
     desc.defenderItem = defender.item;
   }
 
-  if (defender.hasAbility('Lead Coat')){
+  if (defender.hasAbility('Lead Coat') && !attacker.hasAbility('Mold Breaker') || !attacker.hasAbility('Teravolt') || !attacker.hasAbility('Turboblaze')){
     dfMods.push(5734);
     desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.ability);
   }
