@@ -161,7 +161,8 @@ export function calculateSMSSSV(
     'Neutralizing Gas',
     'Prism Armor',
     'Shadow Shield',
-    'Lead Coat'
+    'Lead Coat',
+    'Primal Armor' // might be an in-game bug, so this may get removed in a future patch
   );
 
   const attackerIgnoresAbility = attacker.hasAbility('Mold Breaker', 'Teravolt', 'Turboblaze');
