@@ -299,16 +299,16 @@ function clearAllNotes() {
 
 function switchVersion() {
 	var curVersion = $('.calc-version').eq(0).text()
-	console.log(curVersion)
+
 	if (curVersion === "ingame Vers. Beta"){
 		//github hosting
-		if (document.location.href === "https://forwardfeed.github.io/Redux-Elite-Calc/redux_elite/"){
+		if (!document.location.href.match("v161")){
 			document.location.href = "https://forwardfeed.github.io/Redux-Elite-Calc/redux_elitev161/"
 		} else {
 			document.location.href = document.location.href.match(".*dist/")[0] + "redux_elitev161/index.html"
 		}
 	} else {
-		if (document.location.href === "https://forwardfeed.github.io/Redux-Elite-Calc/redux_elitev161/"){
+		if (!document.location.href.match("v161")){
 			document.location.href = "https://forwardfeed.github.io/Redux-Elite-Calc/redux_elite/"
 		} else {
 			document.location.href = document.location.href.match(".*dist/")[0] + "redux_elite/index.html"
