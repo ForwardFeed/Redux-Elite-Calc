@@ -1421,7 +1421,7 @@ export function calculateAtModsSMSSSV(
       atMods.push(4915);
     }
   }
-  if (attacker.hasAbility('Exploit Weakness') && defender.hasStatus()) {
+  if (attacker.hasAbility('Exploit Weakness') && defender.status) {
     atMods.push(5120);
   }
   // Slow Start also halves damage with special Z moves
