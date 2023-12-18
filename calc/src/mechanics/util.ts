@@ -114,6 +114,8 @@ export function getFinalSpeed(gen: Generation, pokemon: Pokemon, field: Field, s
     speedMods.push(6144);
   } else if (pokemon.hasAbilityActive('Slow Start')) {
     speedMods.push(2048);
+  } else if (pokemon.hasAbility('Lead Coat')) {
+    speedMods.push(3686);
   } else if (
     getQPBoostedStat(pokemon, gen) === 'spe' &&
     ((pokemon.hasAbility('Protosynthesis') &&
