@@ -106,6 +106,7 @@ export function getFinalSpeed(gen: Generation, pokemon: Pokemon, field: Field, s
   if (pokemon.hasAbilityActive('Unburden')) {
     speedMods.push(8192);
   } else if (pokemon.hasAbility('Quick Feet') && pokemon.status  ||
+  (pokemon.hasAbilityActive('Violent Rush')) ||
   (pokemon.hasAbility('Chlorophyll') && weather.includes('Sun')) ||
   (pokemon.hasAbility('Swift Swim') && weather.includes('Rain')) ||
   (pokemon.hasAbility('Slush Rush') && ['Hail', 'Snow'].includes(weather)) ||
