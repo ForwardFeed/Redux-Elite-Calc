@@ -1175,7 +1175,7 @@ function calculateAtModsSMSSSV(gen, attacker, defender, move, field, desc) {
             atMods.push(4915);
         }
     }
-    if (attacker.hasAbility('Exploit Weakness') && defender.hasStatus()) {
+    if (attacker.hasAbility('Exploit Weakness') && defender.status) {
         atMods.push(5120);
     }
     if ((attacker.hasAbilityActive('Slow Start') &&
