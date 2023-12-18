@@ -160,7 +160,8 @@ export function calculateSMSSSV(
     'Full Metal Body',
     'Neutralizing Gas',
     'Prism Armor',
-    'Shadow Shield'
+    'Shadow Shield',
+    'Lead Coat'
   );
 
   const attackerIgnoresAbility = attacker.hasAbility('Mold Breaker', 'Teravolt', 'Turboblaze');
@@ -1723,7 +1724,7 @@ export function calculateDfModsSMSSSV(
     desc.defenderItem = defender.item;
   }
 
-  if (defender.hasAbility('Lead Coat') && !attacker.hasAbility('Mold Breaker') || !attacker.hasAbility('Teravolt') || !attacker.hasAbility('Turboblaze')){
+  if (defender.hasAbility('Lead Coat')){
     dfMods.push(5734);
     desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.ability);
   }
