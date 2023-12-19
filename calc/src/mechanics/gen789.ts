@@ -1808,7 +1808,7 @@ export function calculateFinalModsSMSSSV(
     finalMods.push(9216);
     desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.ability);
   }
-   if (attacker.hasAbility('Tinted Lens') && typeEffectiveness < 1) {
+   if (attacker.hasAbility('Tinted Lens', 'Bone Zone') && typeEffectiveness < 1) {
     finalMods.push(8192);
     desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.ability);
   }

@@ -158,7 +158,7 @@ export function getMoveEffectiveness(
     return 1;
   } else if (source.hasAbility('Corrosion') && move.hasType('Poison') && type === 'Steel'){
     return 2;
-  } else if (source.hasAbility('Bone Zone') && move.flags.bone) {
+  } else if (source.hasAbility('Bone Zone') && move.flags.bone && gen.types.get(toID(move.type))!.effectiveness[type]! === 0) {
     return 1;
   } else if (target.hasAbility('Aerodynamics') && move.hasType('Flying')) {
     return 0;
@@ -167,7 +167,7 @@ export function getMoveEffectiveness(
   } else if ((target.hasAbility('Weather Control')) && move.flags.weather) {
     return 0;
   } else if (target.hasAbility('Gifted Mind') && move.hasType('Bug', 'Ghost', 'Dark')) {
-    return 0
+    return 0;
   } else if ((isRingTarget || isGhostRevealed) && type === 'Ghost' && move.hasType('Normal', 'Fighting')) {
     return 1;
   } else if ((isRingTarget || isGravity) && type === 'Flying' && move.hasType('Ground')) {
