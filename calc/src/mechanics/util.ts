@@ -158,7 +158,9 @@ export function getMoveEffectiveness(
     return 1;
   } else if (source.hasAbility('Corrosion') && move.hasType('Poison') && type === 'Steel'){
     return 2;
-  } else if (source.hasAbility('Bone Zone') && move.flags.bone && gen.types.get(toID(move.type))!.effectiveness[type]! === 0) {
+  } else if (source.hasAbility('Bone Zone') && move.flags.bone &&
+    (gen.types.get(toID(move.type))!.effectiveness[type]! === 0 ||
+    target.hasAbility('Dragonfly', 'Levitate'))) {
     return 1;
   } else if (target.hasAbility('Aerodynamics') && move.hasType('Flying')) {
     return 0;
