@@ -467,8 +467,8 @@ export function calculateSMSSSV(
       (move.hasType('Electric') &&
         defender.hasAbility('Lightning Rod', 'Motor Drive', 'Volt Absorb')) ||
       (move.hasType('Ground') &&
-        !field.isGravity && !move.named('Thousand Arrows') &&
-        !defender.hasItem('Iron Ball') && defender.hasAbility('Levitate', 'Dragonfly')) ||
+        !field.isGravity && !move.named('Thousand Arrows') && !defender.hasItem('Iron Ball') && 
+        (defender.hasAbility('Levitate', 'Dragonfly') && !(attacker.hasAbility('Bone Zone') && move.flags.bone))) ||
       (move.flags.bullet && defender.hasAbility('Bulletproof')) ||
       (move.flags.sound && !move.named('Clangorous Soul') && defender.hasAbility('Soundproof')) ||
       (move.priority > 0 && defender.hasAbility('Queenly Majesty', 'Dazzling')) ||
