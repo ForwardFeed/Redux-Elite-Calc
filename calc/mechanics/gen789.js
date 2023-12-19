@@ -115,7 +115,7 @@ function calculateSMSSSV(gen, attacker, defender, move, field, defenderFriend) {
         result.damage = damage_1;
         return result;
     }
-    var defenderIgnoresAbility = defender.hasAbility('Full Metal Body', 'Neutralizing Gas', 'Prism Armor', 'Shadow Shield');
+    var defenderIgnoresAbility = defender.hasAbility('Full Metal Body', 'Neutralizing Gas', 'Prism Armor', 'Shadow Shield', 'Lead Coat', 'Primal Armor');
     var attackerIgnoresAbility = attacker.hasAbility('Mold Breaker', 'Teravolt', 'Turboblaze');
     var moveIgnoresAbility = move.named('G Max Drum Solo', 'G Max Fire Ball', 'G Max Hydrosnipe', 'Light That Burns the Sky', 'Menacing Moonraze Maelstrom', 'Moongeist Beam', 'Photon Geyser', 'Searing Sunraze Smash', 'Sunsteel Strike');
     if (!defenderIgnoresAbility && !defender.hasAbility('Poison Heal') &&
@@ -1500,7 +1500,7 @@ function calculateFinalModsSMSSSV(gen, attacker, defender, move, field, desc, is
         finalMods.push(9216);
         desc.attackerAbility = (0, util_2.appSpacedStr)(desc.attackerAbility, attacker.ability);
     }
-    if (attacker.hasAbility('Tinted Lens') && typeEffectiveness < 1) {
+    if (attacker.hasAbility('Tinted Lens', 'Bone Zone') && typeEffectiveness < 1) {
         finalMods.push(8192);
         desc.attackerAbility = (0, util_2.appSpacedStr)(desc.attackerAbility, attacker.ability);
     }

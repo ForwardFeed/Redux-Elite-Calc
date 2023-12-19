@@ -143,15 +143,19 @@ function getFinalSpeed(gen, pokemon, field, side) {
         speedMods.push(8192);
     }
     else if (pokemon.hasAbility('Quick Feet') && pokemon.status ||
+        (pokemon.hasAbilityActive('Violent Rush')) ||
         (pokemon.hasAbility('Chlorophyll') && weather.includes('Sun')) ||
         (pokemon.hasAbility('Swift Swim') && weather.includes('Rain')) ||
         (pokemon.hasAbility('Slush Rush') && ['Hail', 'Snow'].includes(weather)) ||
-        (pokemon.hasAbility('Surge Surfer') && (terrain === 'Electric') || pokemon.hasAbility('Levitate', 'DragonFly')) ||
+        (pokemon.hasAbility('Surge Surfer') && (terrain === 'Electric')) ||
         (pokemon.hasAbility('Sand Rush') && weather === 'Sand')) {
         speedMods.push(6144);
     }
     else if (pokemon.hasAbilityActive('Slow Start')) {
         speedMods.push(2048);
+    }
+    else if (pokemon.hasAbility('Lead Coat')) {
+        speedMods.push(3686);
     }
     else if (getQPBoostedStat(pokemon, gen) === 'spe' &&
         ((pokemon.hasAbility('Protosynthesis') &&
@@ -184,7 +188,7 @@ function getMoveEffectiveness(gen, move, type, target, source, isGhostRevealed, 
     else if (source.hasAbility('Corrosion') && move.hasType('Poison') && type === 'Steel') {
         return 2;
     }
-    else if (source.hasAbility('Bone Zone') && move.flags.bone) {
+    else if (source.hasAbility('Bone Zone') && move.flags.bone && gen.types.get((0, util_1.toID)(move.type)).effectiveness[type] === 0) {
         return 1;
     }
     else if (target.hasAbility('Aerodynamics') && move.hasType('Flying')) {
