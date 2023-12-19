@@ -160,7 +160,9 @@ export function calculateSMSSSV(
     'Full Metal Body',
     'Neutralizing Gas',
     'Prism Armor',
-    'Shadow Shield'
+    'Shadow Shield',
+    'Lead Coat',
+    'Primal Armor' // might be an in-game bug, so this may get removed in a future patch
   );
 
   const attackerIgnoresAbility = attacker.hasAbility('Mold Breaker', 'Teravolt', 'Turboblaze');
@@ -1806,7 +1808,7 @@ export function calculateFinalModsSMSSSV(
     finalMods.push(9216);
     desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.ability);
   }
-   if (attacker.hasAbility('Tinted Lens') && typeEffectiveness < 1) {
+   if (attacker.hasAbility('Tinted Lens', 'Bone Zone') && typeEffectiveness < 1) {
     finalMods.push(8192);
     desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.ability);
   }
