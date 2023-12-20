@@ -114,17 +114,6 @@ var Pokemon = (function () {
         this.status = options.status || '';
         this.toxicCounter = options.toxicCounter || 0;
         this.moves = options.moves || [];
-        if (this.hasAbilityActive('Violent Rush')) {
-            this.stats.atk = Math.floor(this.stats.atk * 1.2);
-            this.stats.spe = Math.floor(this.stats.spe * 1.5);
-        }
-        if (this.hasAbility('Feline Prowess')) {
-            this.stats.spa = Math.floor(this.stats.spa * 2);
-        }
-        if (this.hasAbility('Lead Coat')) {
-            this.stats.def = Math.floor(this.stats.def * 1.3);
-            this.stats.spe = Math.floor(this.stats.spe * 0.9);
-        }
     }
     Pokemon.prototype.maxHP = function (original) {
         if (original === void 0) { original = false; }
@@ -147,14 +136,14 @@ var Pokemon = (function () {
         }
         var ability = this.hasAbility.apply(this, __spreadArray([], __read(abilities), false));
         switch (ability) {
-            case 0:
-                return false;
-            case 1:
+            case -1:
                 return this.abilityOn;
+            case undefined:
+                return false;
             default:
                 if (!this.innatesOn)
                     return false;
-                return this.innatesOn[ability - 2];
+                return this.innatesOn[ability];
         }
     };
     Pokemon.prototype.hasAbility = function () {
@@ -163,20 +152,20 @@ var Pokemon = (function () {
         for (var _i = 0; _i < arguments.length; _i++) {
             abilities[_i] = arguments[_i];
         }
-        if ((this.ability && abilities.includes(this.ability)))
-            return 1;
+        if (this.ability && abilities.includes(this.ability)) {
+            this.descAbility = this.ability;
+            return -1;
+        }
         if (!this.innates)
-            return 0;
+            return undefined;
         for (var i = 0; i < ((_a = this.innates) === null || _a === void 0 ? void 0 : _a.length); i++) {
             var innate = this.innates[i];
             if (abilities === null || abilities === void 0 ? void 0 : abilities.includes(innate.toString())) {
-                var temp = this.ability;
-                this.ability = innate;
-                this.innates[i] = temp;
-                return i + 2;
+                this.descAbility = innate;
+                return i;
             }
         }
-        return 0;
+        return undefined;
     };
     Pokemon.prototype.removeAllAbilities = function () {
         var _a;

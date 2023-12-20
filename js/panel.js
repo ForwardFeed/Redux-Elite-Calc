@@ -284,7 +284,7 @@ class Panel{
             ActiveDiv = this.field_innatesOn[id]
         }
         var TOGGLE_ABILITIES = ['Flash Fire', 'Intimidate', 'Minus', 'Plus', 'Slow Start', 'Scare', 'Violent Rush',
-        'Unburden', 'Stakeout', 'Coil Up', 'Let\'s Roll', 'Grip Pincer', 'Violent Rush', 'Dreamcatcher',];
+        'Unburden', 'Stakeout', 'Coil Up', 'Let\'s Roll', 'Grip Pincer', 'Violent Rush', 'Dreamcatcher', 'Ambush'];
         if (TOGGLE_ABILITIES.indexOf(ability) >= 0) {
             ActiveDiv.show();
         } else {

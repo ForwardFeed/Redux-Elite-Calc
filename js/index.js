@@ -124,6 +124,9 @@ $(document).keydown(function (event) {
 		if (event.key === "Z") {
 			oppositeAllCrits()
 		}
+		if (event.key === "X") {
+			playerAllCrits()
+		}
 	}
 });
 /* dragging for pokemons in boxes*/

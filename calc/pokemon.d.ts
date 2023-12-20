@@ -15,6 +15,7 @@ export declare class Pokemon implements State.Pokemon {
     innates?: string[];
     abilityOn?: boolean;
     innatesOn?: boolean[];
+    descAbility?: string;
     isDynamaxed?: boolean;
     dynamaxLevel?: number;
     isSaltCure?: boolean;
@@ -47,7 +48,7 @@ export declare class Pokemon implements State.Pokemon {
     maxHP(original?: boolean): number;
     curHP(original?: boolean): number;
     hasAbilityActive(...abilities: string[]): boolean | undefined;
-    hasAbility(...abilities: string[]): number;
+    hasAbility(...abilities: string[]): number | undefined;
     removeAllAbilities(): void;
     remplaceAbility(ability: string, remplacement: string): void;
     hasItem(...items: string[]): boolean;
