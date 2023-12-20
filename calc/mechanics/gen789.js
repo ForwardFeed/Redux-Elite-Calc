@@ -89,9 +89,15 @@ function calculateSMSSSV(gen, attacker, defender, move, field, defenderFriend) {
         if (attacker.hasAbility('Hustle')) {
             move.acc = Math.round(move.acc * 0.9);
         }
+        if (attacker.hasAbility('Radiance')) {
+            move.acc = Math.round(move.acc * 1.2);
+        }
     }
     if (attacker.hasAbility('Inner Focus') && move.name === 'Focus Blast') {
         move.acc = 90;
+    }
+    if (attacker.hasAbility('Infernal Rage') && move.hasType('Fire')) {
+        move.recoil = [1, 200];
     }
     var desc = {
         attackerName: attacker.name,
@@ -374,6 +380,9 @@ function calculateSMSSSV(gen, attacker, defender, move, field, defenderFriend) {
         defender.hasItem('Iron Ball') && !defender.hasAbility('Klutz')) {
         typeEffectiveness = 1;
     }
+    if (move.hasType('Dark') && (defender.hasAbility('Radiance') || (defenderFriend === null || defenderFriend === void 0 ? void 0 : defenderFriend.hasAbility('Radiance')))) {
+        typeEffectiveness = 0;
+    }
     move.typeEffectiveness = typeEffectiveness;
     if (typeEffectiveness === 0) {
         return result;
@@ -401,7 +410,7 @@ function calculateSMSSSV(gen, attacker, defender, move, field, defenderFriend) {
     if ((defender.hasAbility('Wonder Guard') && typeEffectiveness <= 1) ||
         (move.hasType('Ice') && defender.hasAbility('Ice Dew')) ||
         (move.hasType('Grass') && defender.hasAbility('Sap Sipper')) ||
-        (move.hasType('Fire') && defender.hasAbility('Flash Fire', 'Well Baked Body')) ||
+        (move.hasType('Fire') && defender.hasAbility('Flash Fire')) ||
         (move.hasType('Water') && defender.hasAbility('Dry Skin', 'Storm Drain', 'Water Absorb')) ||
         (move.hasType('Poison') && defender.hasAbility('Poison Absorb')) ||
         (move.hasType('Electric') &&
@@ -1439,7 +1448,7 @@ function calculateFinalModsSMSSSV(gen, attacker, defender, move, field, desc, is
     if (isCritical === void 0) { isCritical = false; }
     var finalMods = [];
     if (field.hasWeather('Sand') && defender.hasAbility('Dune Terror')) {
-        finalMods.push(2048);
+        finalMods.push(2662);
         desc.weather = field.weather;
     }
     if (field.defenderSide.isReflect && move.category === 'Physical' &&
@@ -1480,6 +1489,9 @@ function calculateFinalModsSMSSSV(gen, attacker, defender, move, field, desc, is
     if (defender.hasAbility('Raw Wood') && move.hasType('Grass')) {
         finalMods.push(2048);
     }
+    if (attacker.hasAbility('Raw Wood') && move.hasType('Grass')) {
+        finalMods.push(4915);
+    }
     if (attacker.hasAbility('Neuroforce') && typeEffectiveness > 1) {
         finalMods.push(5120);
         desc.attackerAbility = (0, util_2.appSpacedStr)(desc.attackerAbility, attacker.descAbility);
@@ -1518,7 +1530,8 @@ function calculateFinalModsSMSSSV(gen, attacker, defender, move, field, desc, is
             desc.defenderAbility = (0, util_2.appSpacedStr)(desc.defenderAbility, defender.descAbility);
         }
     }
-    if (defender.hasAbility('Fluffy') && move.flags.contact) {
+    if (defender.hasAbility('Fluffy') && move.flags.contact ||
+        (defender.hasAbility('Furnace') && move.hasType('Fire'))) {
         finalMods.push(2048);
         desc.defenderAbility = (0, util_2.appSpacedStr)(desc.defenderAbility, defender.descAbility);
     }
@@ -1560,6 +1573,9 @@ function calculateFinalModsSMSSSV(gen, attacker, defender, move, field, desc, is
     if (attacker.hasAbility('Nocturnal') && move.hasType('Dark')) {
         finalMods.push(5120);
     }
+    if (attacker.hasAbility('Dune Terror') && move.hasType('Ground')) {
+        finalMods.push(4915);
+    }
     if (defender.hasAbility('Whiteout') && field.hasWeather('Hail') &&
         move.hasType('Ice')) {
         finalMods.push(6144);
@@ -1581,7 +1597,8 @@ function calculateFinalModsSMSSSV(gen, attacker, defender, move, field, desc, is
     if (attacker.hasAbility('Transistor') && move.hasType('Electric')) {
         finalMods.push(6144);
     }
-    if (attacker.hasAbility('Electric Burst') && move.hasType('Electric')) {
+    if ((attacker.hasAbility('Electric Burst') && move.hasType('Electric')) ||
+        (attacker.hasAbility('Infernal Rage') && move.hasType('Fire'))) {
         finalMods.push(5530);
     }
     if (attacker.hasAbility('Marine Apex') && (defender.hasAbility('Infiltrator') || defender.hasType('Water'))) {
@@ -1590,7 +1607,8 @@ function calculateFinalModsSMSSSV(gen, attacker, defender, move, field, desc, is
     if (attacker.hasAbility('Nosferatu') && move.flags.contact) {
         finalMods.push(4915);
     }
-    if (attacker.hasAbility('Dragonslayer') && defender.hasType('Dragon')) {
+    if ((attacker.hasAbility('Dragonslayer') && defender.hasType('Dragon')) ||
+        (attacker.hasAbility('Fae Hunter') && defender.hasType('Fairy'))) {
         finalMods.push(6144);
     }
     if (attacker.hasItem('Expert Belt') && typeEffectiveness > 1 && !move.isZ) {
