@@ -186,10 +186,14 @@ class Panel{
             this.changeAbilityInnates(-1)
         })
         for (let i in this.field_innatesOn){
-            this.changeAbilityInnates(i)
+            this.field_innatesOn[i].change(() =>{
+                this.onAbilityActivation(i)
+                calcGateway.calcTrigger()
+            })
         }
         this.field_abilityOn.change(()=>{
-            this.changeAbilityInnates(-1)
+            this.onAbilityActivation(-1)
+            alcGateway.calcTrigger()
         })
         this.field_item.change(()=>{
             this.itemChange()
@@ -273,6 +277,24 @@ class Panel{
         }
         return 0;
     }
+    onAbilityActivation(id){
+        var ability, isOn
+        if (id < 0) { // ability
+            ability = this.ability
+            isOn = this.abilityOn
+        } else {
+            // innates
+            ability = this.innates[id]
+            isOn = this.innatesOn[id]
+        }
+        if (ability === "Ambush"){
+            for (const move of this.moves){
+                move.isCrit = isOn
+            }
+        }
+        
+    }
+
     changeAbilityInnates(id){
         var ability, ActiveDiv
         if (id < 0) { // ability
