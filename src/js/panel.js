@@ -193,7 +193,7 @@ class Panel{
         }
         this.field_abilityOn.change(()=>{
             this.onAbilityActivation(-1)
-            alcGateway.calcTrigger()
+            calcGateway.calcTrigger()
         })
         this.field_item.change(()=>{
             this.itemChange()
