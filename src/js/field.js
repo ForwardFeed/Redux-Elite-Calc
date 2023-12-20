@@ -145,7 +145,12 @@ function oppositeAllCrits() {
 	$('#critR3').prop("checked", !$('#critR3').prop("checked")).change();
 	$('#critR4').prop("checked", !$('#critR4').prop("checked")).change();
 }
-
+function playerAllCrits() {
+	$('#critL1').prop("checked", !$('#critL1').prop("checked")).change();
+	$('#critL2').prop("checked", !$('#critL2').prop("checked")).change();
+	$('#critL3').prop("checked", !$('#critL3').prop("checked")).change();
+	$('#critL4').prop("checked", !$('#critL4').prop("checked")).change();
+}
 
 $('#singles-format, #doubles-format').click( function() {
 	const double = $('#doubles-format').prop("checked")

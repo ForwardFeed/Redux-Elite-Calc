@@ -24,6 +24,7 @@ export class Pokemon implements State.Pokemon {
   innates?: string[];
   abilityOn?: boolean;
   innatesOn?: boolean[];
+  descAbility?: string;
   isDynamaxed?: boolean;
   dynamaxLevel?: number;
   isSaltCure?: boolean;
@@ -44,7 +45,7 @@ export class Pokemon implements State.Pokemon {
   toxicCounter: number;
 
   moves: I.MoveName[];
-
+  
   constructor(
     gen: I.Generation,
     name: string,
@@ -111,20 +112,6 @@ export class Pokemon implements State.Pokemon {
     this.status = options.status || '';
     this.toxicCounter = options.toxicCounter || 0;
     this.moves = options.moves || [];
-
-    // stats changing ability;
-
-    if (this.hasAbilityActive('Violent Rush')) {
-      this.stats.atk = Math.floor(this.stats.atk * 1.2);
-      this.stats.spe = Math.floor(this.stats.spe * 1.5);
-    }
-    if (this.hasAbility('Feline Prowess')) {
-      this.stats.spa = Math.floor(this.stats.spa * 2);
-    }
-    if (this.hasAbility('Lead Coat')) {
-      this.stats.def = Math.floor(this.stats.def * 1.3);
-      this.stats.spe = Math.floor(this.stats.spe * 0.9);
-    }
   }
 
   maxHP(original = false) {
@@ -148,30 +135,31 @@ export class Pokemon implements State.Pokemon {
   hasAbilityActive(...abilities: string[]) {
     const ability = this.hasAbility(...abilities);
     switch (ability) {
-    case 0:
-      return false;
-    case 1:
+    case -1:
       return this.abilityOn;
+    case undefined:
+      return false
     default:
       if (!this.innatesOn) return false;
-      return this.innatesOn[ability - 2];
+      return this.innatesOn[ability];
     }
   }
 
   hasAbility(...abilities: string[]) {
-    if ((this.ability && abilities.includes(this.ability))) return 1;
-    if (!this.innates) return 0;
+    if (this.ability && abilities.includes(this.ability)) {
+      this.descAbility = this.ability
+      return -1;
+    }
+    if (!this.innates) return undefined;
     for (let i = 0; i < this.innates?.length; i++) {
       const innate = this.innates[i];
       if (abilities?.includes(innate.toString())) {
         // swap out the ability with the innate, so the description has the right ability to point
-        const temp = this.ability;
-        this.ability = innate as AbilityName;
-        this.innates[i] = temp as AbilityName;
-        return i + 2;
+        this.descAbility = innate
+        return i;
       }
     }
-    return 0;
+    return undefined;
   }
 
   removeAllAbilities() {
