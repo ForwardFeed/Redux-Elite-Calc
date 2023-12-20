@@ -1394,7 +1394,7 @@ function calculateDfModsSMSSSV(gen, attacker, defender, move, field, desc, isCri
         dfMods.push(6144);
         desc.defenderAbility = (0, util_2.appSpacedStr)(desc.defenderAbility, defender.descAbility);
     }
-    else if (defender.hasAbility('Fur Coat') && hitsPhysical) {
+    if (defender.hasAbility('Fur Coat') && hitsPhysical) {
         dfMods.push(8192);
         desc.defenderAbility = (0, util_2.appSpacedStr)(desc.defenderAbility, defender.descAbility);
     }
@@ -1431,18 +1431,6 @@ function calculateDfModsSMSSSV(gen, attacker, defender, move, field, desc, isCri
         (defender.hasItem('Deep Sea Scale') && defender.named('Clamperl') && !hitsPhysical)) {
         dfMods.push(8192);
         desc.defenderItem = defender.item;
-    }
-    if (defender.hasAbility('Lead Coat')) {
-        dfMods.push(5734);
-        desc.defenderAbility = (0, util_2.appSpacedStr)(desc.defenderAbility, defender.descAbility);
-    }
-    if (defender.hasAbility('Battle Armor', 'Shell Armor')) {
-        dfMods.push(4915);
-        desc.defenderAbility = (0, util_2.appSpacedStr)(desc.defenderAbility, defender.descAbility);
-    }
-    if (defender.hasAbility('Magma Armor')) {
-        dfMods.push(5325);
-        desc.defenderAbility = (0, util_2.appSpacedStr)(desc.defenderAbility, defender.descAbility);
     }
     return dfMods;
 }
@@ -1541,10 +1529,22 @@ function calculateFinalModsSMSSSV(gen, attacker, defender, move, field, desc, is
     }
     if (defender.hasAbility('Solid Rock', 'Filter', 'Prism Armor', 'Permafrost') &&
         typeEffectiveness > 1) {
-        finalMods.push(3072);
+        finalMods.push(2662);
         desc.defenderAbility = (0, util_2.appSpacedStr)(desc.defenderAbility, defender.descAbility);
     }
-    else if (defender.hasAbility('Primal Armor') && typeEffectiveness > 1) {
+    if (defender.hasAbility('Lead Coat')) {
+        finalMods.push(2458);
+        desc.defenderAbility = (0, util_2.appSpacedStr)(desc.defenderAbility, defender.descAbility);
+    }
+    if (defender.hasAbility('Battle Armor', 'Shell Armor')) {
+        finalMods.push(3277);
+        desc.defenderAbility = (0, util_2.appSpacedStr)(desc.defenderAbility, defender.descAbility);
+    }
+    if (defender.hasAbility('Magma Armor') && move.hasType('Water', 'Ice')) {
+        finalMods.push(2867);
+        desc.defenderAbility = (0, util_2.appSpacedStr)(desc.defenderAbility, defender.descAbility);
+    }
+    if (defender.hasAbility('Primal Armor') && typeEffectiveness > 1) {
         finalMods.push(2048);
         desc.defenderAbility = (0, util_2.appSpacedStr)(desc.defenderAbility, defender.descAbility);
     }
