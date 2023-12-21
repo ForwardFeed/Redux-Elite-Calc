@@ -143,11 +143,10 @@ var Pokemon = (function () {
             default:
                 if (!this.innatesOn)
                     return false;
-                return this.innatesOn[ability];
+                return this.innatesOn[ability - 1];
         }
     };
     Pokemon.prototype.hasAbility = function () {
-        var _a;
         var abilities = [];
         for (var _i = 0; _i < arguments.length; _i++) {
             abilities[_i] = arguments[_i];
@@ -158,11 +157,11 @@ var Pokemon = (function () {
         }
         if (!this.innates)
             return undefined;
-        for (var i = 0; i < ((_a = this.innates) === null || _a === void 0 ? void 0 : _a.length); i++) {
+        for (var i = 0; i < this.innates.length; i++) {
             var innate = this.innates[i];
             if (abilities === null || abilities === void 0 ? void 0 : abilities.includes(innate.toString())) {
                 this.descAbility = innate;
-                return i;
+                return i + 1;
             }
         }
         return undefined;
