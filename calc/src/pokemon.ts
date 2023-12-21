@@ -141,7 +141,7 @@ export class Pokemon implements State.Pokemon {
       return false
     default:
       if (!this.innatesOn) return false;
-      return this.innatesOn[ability];
+      return this.innatesOn[ability - 1];
     }
   }
 
@@ -151,12 +151,12 @@ export class Pokemon implements State.Pokemon {
       return -1;
     }
     if (!this.innates) return undefined;
-    for (let i = 0; i < this.innates?.length; i++) {
+    for (let i = 0; i < this.innates.length; i++) {
       const innate = this.innates[i];
       if (abilities?.includes(innate.toString())) {
         // swap out the ability with the innate, so the description has the right ability to point
         this.descAbility = innate
-        return i;
+        return i + 1; // to avoid 0
       }
     }
     return undefined;
