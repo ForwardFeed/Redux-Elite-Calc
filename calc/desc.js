@@ -444,6 +444,10 @@ function getEndOfTurn(gen, attacker, defender, move, field) {
         damage += Math.floor(defender.maxHP() / 16);
         texts.push('Self Sufficient recovery');
     }
+    if (defender.hasAbility('Water Veil')) {
+        damage += Math.floor(defender.maxHP() / 16);
+        texts.push('Water Veil recovery');
+    }
     if (defender.hasAbility('Self Repair')) {
         damage += Math.floor(defender.maxHP() / 16);
         texts.push('Self Repair recovery');

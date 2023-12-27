@@ -4843,6 +4843,118 @@ var SS_PATCH = {
         'acc': 100,
         'priority': 0
     },
+    'Hidden Power Bug': {
+        'bp': 70,
+        'type': 'Bug',
+        'category': 'Special',
+        'acc': 100,
+        'priority': 0
+    },
+    'Hidden Power Dark': {
+        'bp': 70,
+        'type': 'Dark',
+        'category': 'Special',
+        'acc': 100,
+        'priority': 0
+    },
+    'Hidden Power Dragon': {
+        'bp': 70,
+        'type': 'Dragon',
+        'category': 'Special',
+        'acc': 100,
+        'priority': 0
+    },
+    'Hidden Power Electric': {
+        'bp': 70,
+        'type': 'Electric',
+        'category': 'Special',
+        'acc': 100,
+        'priority': 0
+    },
+    'Hidden Power Fighting': {
+        'bp': 70,
+        'type': 'Fighting',
+        'category': 'Special',
+        'acc': 100,
+        'priority': 0
+    },
+    'Hidden Power Fire': {
+        'bp': 70,
+        'type': 'Fire',
+        'category': 'Special',
+        'acc': 100,
+        'priority': 0
+    },
+    'Hidden Power Flying': {
+        'bp': 70,
+        'type': 'Flying',
+        'category': 'Special',
+        'acc': 100,
+        'priority': 0
+    },
+    'Hidden Power Ghost': {
+        'bp': 70,
+        'type': 'Ghost',
+        'category': 'Special',
+        'acc': 100,
+        'priority': 0
+    },
+    'Hidden Power Grass': {
+        'bp': 70,
+        'type': 'Grass',
+        'category': 'Special',
+        'acc': 100,
+        'priority': 0
+    },
+    'Hidden Power Ground': {
+        'bp': 70,
+        'type': 'Ground',
+        'category': 'Special',
+        'acc': 100,
+        'priority': 0
+    },
+    'Hidden Power Ice': {
+        'bp': 70,
+        'type': 'Ice',
+        'category': 'Special',
+        'acc': 100,
+        'priority': 0
+    },
+    'Hidden Power Poison': {
+        'bp': 70,
+        'type': 'Poison',
+        'category': 'Special',
+        'acc': 100,
+        'priority': 0
+    },
+    'Hidden Power Psychic': {
+        'bp': 70,
+        'type': 'Psychic',
+        'category': 'Special',
+        'acc': 100,
+        'priority': 0
+    },
+    'Hidden Power Rock': {
+        'bp': 70,
+        'type': 'Rock',
+        'category': 'Special',
+        'acc': 100,
+        'priority': 0
+    },
+    'Hidden Power Steel': {
+        'bp': 70,
+        'type': 'Steel',
+        'category': 'Special',
+        'acc': 100,
+        'priority': 0
+    },
+    'Hidden Power Water': {
+        'bp': 70,
+        'type': 'Water',
+        'category': 'Special',
+        'acc': 100,
+        'priority': 0
+    },
     'Cross Chop': {
         'bp': 100,
         'type': 'Fighting',

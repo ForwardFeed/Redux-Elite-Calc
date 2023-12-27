@@ -1118,7 +1118,7 @@ function calculateAttackSMSSSV(gen, attacker, defender, move, field, desc, isCri
         (isCritical && attackSource.boosts[attackStat] < 0)) {
         attack = attackSource.rawStats[attackStat];
     }
-    else if (defender.hasAbility('Unaware')) {
+    else if (defender.hasAbility('Unaware') || attacker.hasAbility('Unaware')) {
         attack = attackSource.rawStats[attackStat];
         desc.defenderAbility = (0, util_2.appSpacedStr)(desc.defenderAbility, defender.descAbility);
     }
