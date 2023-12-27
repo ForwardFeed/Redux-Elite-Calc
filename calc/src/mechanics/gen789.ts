@@ -1359,7 +1359,7 @@ export function calculateAttackSMSSSV(
   if (attackSource.boosts[attackStat] === 0 ||
       (isCritical && attackSource.boosts[attackStat] < 0)) {
     attack = attackSource.rawStats[attackStat];
-  } else if (defender.hasAbility('Unaware')) {
+  } else if (defender.hasAbility('Unaware') || attacker.hasAbility('Unaware')) {
     attack = attackSource.rawStats[attackStat];
     desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.descAbility);
   } else {
