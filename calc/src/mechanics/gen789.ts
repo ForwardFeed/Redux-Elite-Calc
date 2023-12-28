@@ -1359,7 +1359,7 @@ export function calculateAttackSMSSSV(
   if (attackSource.boosts[attackStat] === 0 ||
       (isCritical && attackSource.boosts[attackStat] < 0)) {
     attack = attackSource.rawStats[attackStat];
-  } else if (defender.hasAbility('Unaware') || attacker.hasAbility('Unaware')) {
+  } else if (defender.hasAbility('Unaware')) {
     attack = attackSource.rawStats[attackStat];
     desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.descAbility);
   } else {
@@ -1386,7 +1386,13 @@ export function calculateAttackSMSSSV(
   if (attacker.hasAbility('Juggernaut') && move.flags.contact) {
     attack = attacker.stats.atk + pokeRound((attacker.stats.def * 0.20));
   }
-  if (attacker.hasAbility('Power Core')) {
+  if (attacker.hasAbility('Power Core') && defender.hasAbility('Unaware')) {
+    if (move.category === 'Physical') {
+      attack = attackSource.rawStats[attackStat] + pokeRound((attacker.stats.def * 0.25));
+    } else {
+      attack = attackSource.rawStats[attackStat] + pokeRound((attacker.stats.spd * 0.25));
+    }
+  } else if (attacker.hasAbility('Power Core') && !defender.hasAbility('Unaware')) {
     if (move.category === 'Physical') {
       attack = attacker.stats.atk + pokeRound((attacker.stats.def * 0.25));
     } else {
