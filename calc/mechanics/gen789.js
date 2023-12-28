@@ -1118,7 +1118,7 @@ function calculateAttackSMSSSV(gen, attacker, defender, move, field, desc, isCri
         (isCritical && attackSource.boosts[attackStat] < 0)) {
         attack = attackSource.rawStats[attackStat];
     }
-    else if (defender.hasAbility('Unaware') || attacker.hasAbility('Unaware')) {
+    else if (defender.hasAbility('Unaware')) {
         attack = attackSource.rawStats[attackStat];
         desc.defenderAbility = (0, util_2.appSpacedStr)(desc.defenderAbility, defender.descAbility);
     }
@@ -1144,7 +1144,15 @@ function calculateAttackSMSSSV(gen, attacker, defender, move, field, desc, isCri
     if (attacker.hasAbility('Juggernaut') && move.flags.contact) {
         attack = attacker.stats.atk + (0, util_2.pokeRound)((attacker.stats.def * 0.20));
     }
-    if (attacker.hasAbility('Power Core')) {
+    if (attacker.hasAbility('Power Core') && defender.hasAbility('Unaware')) {
+        if (move.category === 'Physical') {
+            attack = attackSource.rawStats[attackStat] + (0, util_2.pokeRound)((attacker.stats.def * 0.25));
+        }
+        else {
+            attack = attackSource.rawStats[attackStat] + (0, util_2.pokeRound)((attacker.stats.spd * 0.25));
+        }
+    }
+    else if (attacker.hasAbility('Power Core') && !defender.hasAbility('Unaware')) {
         if (move.category === 'Physical') {
             attack = attacker.stats.atk + (0, util_2.pokeRound)((attacker.stats.def * 0.25));
         }
