@@ -214,7 +214,7 @@ function getMoveEffectiveness(gen, move, type, target, source, isGhostRevealed, 
     else if (move.named('Excalibur') && type === 'Dragon') {
         return 2;
     }
-    else if (move.named('Freeze Dry') && type === 'Water') {
+    else if (move.named('Freeze Dry', 'Sheer Cold') && type === 'Water') {
         return 2;
     }
     else if (source.hasAbility('Molten Down') && type === 'Rock' && move.type === 'Fire') {
