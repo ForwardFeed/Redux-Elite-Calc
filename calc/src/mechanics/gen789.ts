@@ -633,6 +633,12 @@ export function calculateSMSSSV(
   if (attacker.hasAbility('Raging Boxer 2nd')) {
     baseDamage = pokeRound(OF32(baseDamage * 2048) / 4096);
   }
+  if (attacker.hasAbility('Dual Wield') && move.flags.pulse) {
+    baseDamage = pokeRound(OF32(baseDamage * 3072) / 4096);
+  }
+  if (attacker.hasAbility('Dual Wield 2nd')) {
+    baseDamage = pokeRound(OF32(baseDamage * 3072) / 4096);
+  }
   if (
     field.hasWeather('Sun') && move.named('Hydro Steam') && !attacker.hasItem('Utility Umbrella')
   ) {
@@ -881,6 +887,7 @@ export function calculateBasePowerSMSSSV(
     desc.moveBP = basePower;
     break;
   case 'Hex':
+  case 'Plasma Pulse':
   case 'Infernal Parade':
     // Hex deals double damage to Pokemon with Comatose (ih8ih8sn0w)
     basePower = move.bp * (defender.status || defender.hasAbility('Comatose') ? 2 : 1);
@@ -1822,8 +1829,8 @@ export function calculateFinalModsSMSSSV(
   if (defender.hasAbility('Multiscale', 'Shadow Shield') &&
       defender.curHP() === defender.maxHP() &&
       (!field.defenderSide.isSR && (!field.defenderSide.spikes || defender.hasType('Flying')) ||
-      defender.hasItem('Heavy-Duty Boots')) && !attacker.hasAbility('Parental Bond (Child)', 'Hyper Aggressive 2nd', 'Multi Headed 2nd', 'Multi Headed 3rd')
-      || !attacker.hasAbility('Raging Boxer 2nd') && move.flags.punch || !attacker.hasAbility('Primal Maw 2nd') && move.flags.bite
+      defender.hasItem('Heavy-Duty Boots')) && !attacker.hasAbility('Parental Bond (Child)', 'Hyper Aggressive 2nd', 'Multi Headed 2nd', 'Multi Headed 3rd',
+      'Primal Maw 2nd', 'Raging Boxer 2nd', 'Dual Wield 2nd')
   ) {
     finalMods.push(2048);
     desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.descAbility);
@@ -2041,7 +2048,16 @@ function calcContribution(
       child: child,
       move: childMove,
     };
-  } else if (attacker.hasAbility('Cheap Tactics') && field.attackerSide.isSwitching === 'in'){
+  } else if (attacker.hasAbility('Dual Wield') && move.flags.pulse) {
+    const child = attacker.clone();
+    child.remplaceAbility('Dual Wield', 'Dual Wield 2nd');
+    const childMove: Move = move.clone();
+    return {
+      child: child,
+      move: childMove,
+    };
+  }
+   else if (attacker.hasAbility('Cheap Tactics') && field.attackerSide.isSwitching === 'in'){
     const child = attacker.clone();
     child.remplaceAbility('Cheap Tactics', 'Cheap Tactics 2nd');
     const childMove: Move = new Move(gen, 'Scratch');
