@@ -2056,8 +2056,7 @@ function calcContribution(
       child: child,
       move: childMove,
     };
-  }
-   else if (attacker.hasAbility('Cheap Tactics') && field.attackerSide.isSwitching === 'in'){
+  } else if (attacker.hasAbility('Cheap Tactics') && field.attackerSide.isSwitching === 'in'){
     const child = attacker.clone();
     child.remplaceAbility('Cheap Tactics', 'Cheap Tactics 2nd');
     const childMove: Move = new Move(gen, 'Scratch');
