@@ -509,8 +509,8 @@ export function calculateSMSSSV(
 
   const fixedDamage = handleFixedDamageMoves(attacker, move);
   if (fixedDamage) {
-    if (attacker.hasAbility('Parental Bond')) {
-      result.damage = [fixedDamage, fixedDamage];
+    if (attacker.hasAbility('Parental Bond', 'Hyper Aggressive', 'Multi Headed')) {
+      result.damage = [fixedDamage, pokeRound(fixedDamage * 0.25)];
       desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.descAbility);
     } else {
       result.damage = fixedDamage;
@@ -621,18 +621,23 @@ export function calculateSMSSSV(
   if (isSpread) {
     baseDamage = pokeRound(OF32(baseDamage * 3072) / 4096);
   }
-
-  if (attacker.hasAbility('Parental Bond (Child)', 'Hyper Aggressive 2th', 'Multi Headed 2th')) {
+  if (attacker.hasAbility('Parental Bond (Child)', 'Hyper Aggressive 2nd', 'Multi Headed 2nd')) {
     baseDamage = pokeRound(OF32(baseDamage * 1024) / 4096);
   }
-  if (attacker.hasAbility('Primal Maw 2th')) {
+  if (attacker.hasAbility('Primal Maw 2nd')) {
     baseDamage = pokeRound(OF32(baseDamage * 2048) / 4096);
   }
-  if (attacker.hasAbility('Multi Headed last')) {
+  if (attacker.hasAbility('Multi Headed 3rd')) {
     baseDamage = pokeRound(OF32(baseDamage * 614) / 4096);
   }
-  if (attacker.hasAbility('Raging Boxer 2th')) {
+  if (attacker.hasAbility('Raging Boxer 2nd')) {
     baseDamage = pokeRound(OF32(baseDamage * 2048) / 4096);
+  }
+  if (attacker.hasAbility('Dual Wield') && move.flags.pulse) {
+    baseDamage = pokeRound(OF32(baseDamage * 3072) / 4096);
+  }
+  if (attacker.hasAbility('Dual Wield 2nd')) {
+    baseDamage = pokeRound(OF32(baseDamage * 3072) / 4096);
   }
   if (
     field.hasWeather('Sun') && move.named('Hydro Steam') && !attacker.hasItem('Utility Umbrella')
@@ -882,6 +887,7 @@ export function calculateBasePowerSMSSSV(
     desc.moveBP = basePower;
     break;
   case 'Hex':
+  case 'Plasma Pulse':
   case 'Infernal Parade':
     // Hex deals double damage to Pokemon with Comatose (ih8ih8sn0w)
     basePower = move.bp * (defender.status || defender.hasAbility('Comatose') ? 2 : 1);
@@ -1823,7 +1829,8 @@ export function calculateFinalModsSMSSSV(
   if (defender.hasAbility('Multiscale', 'Shadow Shield') &&
       defender.curHP() === defender.maxHP() &&
       (!field.defenderSide.isSR && (!field.defenderSide.spikes || defender.hasType('Flying')) ||
-      defender.hasItem('Heavy-Duty Boots')) && !attacker.hasAbility('Parental Bond (Child)')
+      defender.hasItem('Heavy-Duty Boots')) && !attacker.hasAbility('Parental Bond (Child)', 'Hyper Aggressive 2nd', 'Multi Headed 2nd', 'Multi Headed 3rd',
+      'Primal Maw 2nd', 'Raging Boxer 2nd', 'Dual Wield 2nd')
   ) {
     finalMods.push(2048);
     desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.descAbility);
@@ -2003,7 +2010,7 @@ function calcContribution(
     };
   } else if (attacker.hasAbility('Hyper Aggressive')) {
     const child = attacker.clone();
-    child.remplaceAbility('Hyper Aggressive', 'Hyper Aggressive 2th');
+    child.remplaceAbility('Hyper Aggressive', 'Hyper Aggressive 2nd');
     const childMove: Move = move.clone();
     return {
       child: child,
@@ -2011,15 +2018,15 @@ function calcContribution(
     };
   } else if (attacker.hasAbility('Multi Headed')) {
     const child = attacker.clone();
-    child.remplaceAbility('Multi Headed', 'Multi Headed 2th');
+    child.remplaceAbility('Multi Headed', 'Multi Headed 2nd');
     const childMove: Move = move.clone();
     return {
       child: child,
       move: childMove,
     };
-  } else if (attacker.hasAbility('Multi Headed 2th') && attacker.heads === 3) {
+  } else if (attacker.hasAbility('Multi Headed 2nd') && attacker.heads === 3) {
     const child = attacker.clone();
-    child.remplaceAbility('Multi Headed 2th', 'Multi Headed last');
+    child.remplaceAbility('Multi Headed 2nd', 'Multi Headed 3rd');
     const childMove: Move = move.clone();
     return {
       child: child,
@@ -2027,7 +2034,7 @@ function calcContribution(
     };
   } else if (attacker.hasAbility('Raging Boxer') && move.flags.punch) {
     const child = attacker.clone();
-    child.remplaceAbility('Raging Boxer', 'Raging Boxer 2th');
+    child.remplaceAbility('Raging Boxer', 'Raging Boxer 2nd');
     const childMove: Move = move.clone();
     return {
       child: child,
@@ -2035,7 +2042,15 @@ function calcContribution(
     };
   } else if (attacker.hasAbility('Primal Maw') && move.flags.bite) {
     const child = attacker.clone();
-    child.remplaceAbility('Primal Maw', 'Primal Maw 2th');
+    child.remplaceAbility('Primal Maw', 'Primal Maw 2nd');
+    const childMove: Move = move.clone();
+    return {
+      child: child,
+      move: childMove,
+    };
+  } else if (attacker.hasAbility('Dual Wield') && move.flags.pulse) {
+    const child = attacker.clone();
+    child.remplaceAbility('Dual Wield', 'Dual Wield 2nd');
     const childMove: Move = move.clone();
     return {
       child: child,
@@ -2043,7 +2058,7 @@ function calcContribution(
     };
   } else if (attacker.hasAbility('Cheap Tactics') && field.attackerSide.isSwitching === 'in'){
     const child = attacker.clone();
-    child.remplaceAbility('Cheap Tactics', 'Cheap Tactics 2th');
+    child.remplaceAbility('Cheap Tactics', 'Cheap Tactics 2nd');
     const childMove: Move = new Move(gen, 'Scratch');
     return {
       child: child,
