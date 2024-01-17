@@ -65,6 +65,12 @@ export function calculateSMSSSV(
   if (attacker.hasAbility('Big Leaves')) {
     attacker.innates?.push('Chloroplast', 'Chlorophyll', 'Harvest', 'Leaf Guard', 'Solar Power');
   }
+  if (defender.hasAbility('Prismatic Fur')) {
+    defender.innates?.push('Color Change', 'Protean', 'Fur Coat', 'Ice Scales');
+  }
+  if (attacker.hasAbility('Prismatic Fur')) {
+    attacker.innates?.push('Color Change', 'Protean', 'Fur Coat', 'Ice Scales');
+  }
   if (attacker.hasAbility('Iron Barrage')) {
     attacker.innates?.push('Sighting System', 'Mega Launcher');
   }
@@ -118,18 +124,21 @@ export function calculateSMSSSV(
     move.acc = 100;
   }
   if (move.acc){
-    if (attacker.hasAbility('Compound Eyes', 'Illuminate', 'Keen Eye', 'Victory Star')){
+    if (attacker.hasAbility('Compound Eyes', 'Illuminate', 'Keen Eye', 'Victory Star')) {
       move.acc = Math.round(move.acc * 1.2) 
     }
-    if (attacker.hasAbility('Hustle')){
+    if (attacker.hasAbility('Hustle')) {
       move.acc = Math.round(move.acc * 0.9)
     }
-    if (attacker.hasAbility('Radiance')){
+    if (attacker.hasAbility('Radiance')) {
       move.acc = Math.round(move.acc * 1.2)
     }
   }
-  if (attacker.hasAbility('Inner Focus') && move.name === 'Focus Blast'){
+  if (attacker.hasAbility('Inner Focus') && move.name === 'Focus Blast') {
     move.acc = 90
+  }
+  if (defender.hasAbility('Wonder Skin') && move.category == 'Status') {
+    move.acc = 50
   }
 
   if (attacker.hasAbility('Infernal Rage') && move.hasType('Fire')) {
@@ -586,7 +595,7 @@ export function calculateSMSSSV(
     move.category = attacker.stats.atk > attacker.stats.spa ? 'Physical' : 'Special';
   }
   
-  if (attacker.hasAbility('Power Fists')) {
+  if (attacker.hasAbility('Power Fists') && move.flags.punch) {
     move.category = 'Special';
   }
   const attackStat =
@@ -1227,7 +1236,7 @@ export function calculateBPModsSMSSSV(
   // Sheer Force does not power up max moves or remove the effects (SadisticMystic)
   if (
     (attacker.hasAbility('Sheer Force') &&
-      (move.secondaries || move.named('Jet Punch', 'Order Up')) && !move.isMax) ||
+      (move.secondaries || move.named('Order Up')) && !move.isMax) ||
     (attacker.hasAbility('Sand Force') &&
       field.hasWeather('Sand') && move.hasType('Rock', 'Ground', 'Steel')) ||
     (attacker.hasAbility('Analytic') &&
@@ -1267,10 +1276,13 @@ export function calculateBPModsSMSSSV(
     bpMods.push(4506); // redux nerfed it to 10%
   }
 
-  if ((attacker.hasAbility('Reckless') && (move.recoil || move.hasCrashDamage)) ||
-      (attacker.hasAbility('Iron Fist') && move.flags.punch)
-  ) {
+  if ((attacker.hasAbility('Reckless') && (move.recoil || move.hasCrashDamage))) {
     bpMods.push(4915);
+    desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.descAbility);
+  }
+
+  if (attacker.hasAbility('Iron Fist') && move.flags.punch) {
+    bpMods.push(5325);
     desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.descAbility);
   }
 
@@ -1448,7 +1460,7 @@ export function calculateAtModsSMSSSV(
   // Slow Start also halves damage with special Z moves
   if ((attacker.hasAbilityActive('Slow Start') &&
        (move.category === 'Physical' || (move.category === 'Special' && move.isZ))) ||
-      (attacker.hasAbility('Defeatist') && attacker.curHP() <= attacker.maxHP() / 2)
+      (attacker.hasAbility('Defeatist') && attacker.curHP() <= attacker.maxHP() / 3)
   ) {
     atMods.push(2048);
     desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.descAbility);
@@ -1503,7 +1515,7 @@ export function calculateAtModsSMSSSV(
     atMods.push(8192);
     desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.descAbility);
   }
-  if ((attacker.hasAbility('Forest Rage') && move.hasType('Grass'))||
+  if ((attacker.hasAbility('Forest Rage') && move.hasType('Grass')) ||
     (attacker.hasAbility('Riptide') && move.hasType('Water')) ||
     (attacker.hasAbility('Hellblaze') && move.hasType('Fire'))) {
       if (attacker.curHP() <= attacker.maxHP() / 3 ){
@@ -1590,6 +1602,9 @@ export function calculateAtModsSMSSSV(
   if (attacker.hasAbility('Electrocytes') && move.hasType('Electric')) {
     atMods.push(5120);
   }
+  if (attacker.hasAbility('Levitate') && move.hasType('Flying')) {
+    atMods.push(5120);
+  }
   if (attacker.hasAbility('Sage Power') && move.category === 'Special') {
     atMods.push(6144);
   }
@@ -1664,10 +1679,10 @@ export function calculateDfModsSMSSSV(
   hitsPhysical = false
 ) {
   const dfMods = [];
-  if (defender.hasAbility('Overcoat') && move.category == 'Special'){
+  if (defender.hasAbility('Overcoat') && move.category == 'Special') {
     dfMods.push(4505);
   }
-  if ((defender.hasAbility('Immunity') && move.type == 'Poison')||
+  if ((defender.hasAbility('Immunity') && move.type == 'Poison') ||
   (defender.hasAbility('Water Compaction') && move.type == 'Water')) {
     dfMods.push(8192);
   }
@@ -2082,6 +2097,14 @@ function getPriorityAdditionnal(attacker: Pokemon, move: Move, defender: Pokemon
   attacker.curHP() === attacker.maxHP()) {
     add += 1;
   }
+  if (attacker.hasAbility('Volt Rush') && move.hasType('Electric') &&
+  attacker.curHP() == attacker.maxHP()) {
+    add += 1;
+  }
+  if (attacker.hasAbility('Blitz Boxer') && move.flags.punch &&
+  attacker.curHP() == attacker.maxHP()) {
+    add += 1;
+  }
   if (attacker.hasAbility('Opportunist') && (defender.curHP() / defender.maxHP() < 0.5) &&
   !['allAdjacent', 'allAdjacentFoes'].includes(move.target)) {
     add += 1;
@@ -2091,12 +2114,6 @@ function getPriorityAdditionnal(attacker: Pokemon, move: Move, defender: Pokemon
     add += 1;
   }
   if (attacker.hasAbility('Perfectionist') && move.bp < 25) {
-    add += 1;
-  }
-  if (attacker.hasAbility('Volt Rush') && move.hasType('Electric') && attacker.curHP() == attacker.maxHP()) {
-    add += 1;
-  }
-  if (attacker.hasAbility('Blitz Boxer') && move.flags.punch) {
     add += 1;
   }
   if (attacker.hasAbilityActive('Coil Up') && move.flags.bite) {
