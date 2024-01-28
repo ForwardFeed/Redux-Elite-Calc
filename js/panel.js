@@ -12,6 +12,7 @@ class Panel{
         this.field_forme = this.panel.find('.forme')
         this.field_type1 = this.panel.find('.type1')
         this.field_type2 = this.panel.find('.type2')
+        this.field_type3 = this.panel.find('.type3')
         this.field_tera = this.panel.find('.teraType')
         this.field_tera_on = this.panel.find('.teraToggle')
         this.field_gender = this.panel.find('.gender')
@@ -105,7 +106,9 @@ class Panel{
     set type1(val){this.field_type1.val(val)}
     get type2(){return this.field_type2.val()}
     set type2(val){this.field_type2.val(val)}
-    get types(){return [this.type1, this.type2]}
+    get type3(){return this.field_type3.val()}
+    set type3(val){this.field_type3.val(val)}
+    get types(){return [this.type1, this.type2, this.type3]}
     get tera(){return this.field_tera_on.prop("checked") ? this.field_tera.val() : undefined}
     set tera(val){this.field_tera.val(val)}
     get gender(){ const val = this.field_gender.val()
@@ -320,6 +323,7 @@ class Panel{
             this.field_allies_fainted.hide();
 
         }
+        this.type3 = this.getAdditionnalType()
     }
     checkAbilityOnEntry(){
         if (this.hasAbility('Drought', 'Orichalcum Pulse')){
@@ -439,6 +443,7 @@ class Panel{
         if (!+$('#all-abis-on').prop("checked")) this.showAbilities()
         this.type1 = poke.types[0]
         this.type2 = poke.types[1]
+        this.type3 = poke.types[2] || this.getAdditionnalType()
         this.level = poke.level || highestMonLevel
         
         for (const stat of LEGACY_STATS[gen]) {
@@ -516,7 +521,6 @@ class Panel{
 		this.stats.calcHP()
 		// FIXME the Pokemon constructor expects non-dynamaxed HP
 		if (this.stats.dynamax) this.stats.currentHP = Math.floor(this.stats.currentHP / 2);
-
 		return new calc.Pokemon(gen, this.pokemonName, {
             heads: this.heads, //this should be working already within the calc but it doesn't?
             weightkg: this.weightkg, //same goes here
@@ -556,6 +560,7 @@ class Panel{
         return $("#gravity").prop("checked") || (
             teraType ? teraType !== "Flying" : this.type1 !== "Flying" &&
                 teraType ? teraType !== "Flying" : this.type2 !== "Flying" &&
+                teraType ? teraType !== "Flying" : this.type3 !== "Flying" &&
                 this.ability !== "Levitate" && this.item !== "Air Balloon"
         );
     }
@@ -686,6 +691,23 @@ class Panel{
 				types: set.types,
 			}
 		});
+    }
+    getAdditionnalType(){
+        var list  = [].concat.apply([this.ability], this.innates)
+        var abilityAddingType = [
+            ["Phantom", "Ghost"],
+            ["Metallic", "Steel"],
+            ["Dragonfly", "Dragon"],
+            ["Half Drake", "Dragon"],
+            ["Ice Age", "Ice"],
+            ["Grounded", "Ground"],
+            ["Aquatic", "Water"],
+            ["Turboblaze", "Fire"],
+            ["Teravolt", "Electric"],
+        ]
+        for (const abi of abilityAddingType){
+            if (list.indexOf(abi[0]) != -1) return abi[1]
+        }
     }
 }
 

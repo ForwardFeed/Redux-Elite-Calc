@@ -396,7 +396,7 @@ function getEndOfTurn(gen, attacker, defender, move, field) {
             texts.push('Dry Skin recovery');
         }
         else if (defender.hasAbility('Rain Dish')) {
-            damage += Math.floor(defender.maxHP() / 16);
+            damage += Math.floor(defender.maxHP() / 8);
             texts.push('Rain Dish recovery');
         }
     }
@@ -410,7 +410,7 @@ function getEndOfTurn(gen, attacker, defender, move, field) {
     }
     else if (field.hasWeather('Hail', 'Snow')) {
         if (defender.hasAbility('Ice Body')) {
-            damage += Math.floor(defender.maxHP() / 16);
+            damage += Math.floor(defender.maxHP() / 8);
             texts.push('Ice Body recovery');
         }
         else if (!defender.hasType('Ice') &&
@@ -451,6 +451,10 @@ function getEndOfTurn(gen, attacker, defender, move, field) {
     if (defender.hasAbility('Self Repair')) {
         damage += Math.floor(defender.maxHP() / 16);
         texts.push('Self Repair recovery');
+    }
+    if (defender.hasAbility('Sweet Dreams') && defender.hasStatus('slp')) {
+        damage += Math.floor(defender.maxHP() / 8);
+        texts.push('Sweet Dreams recovery');
     }
     if (field.defenderSide.isSeeded) {
         if (!defender.hasAbility('Magic Guard', 'Impenetrable')) {
@@ -509,7 +513,7 @@ function getEndOfTurn(gen, attacker, defender, move, field) {
     else if ((defender.hasStatus('slp') || defender.hasAbility('Comatose')) &&
         attacker.hasAbility('isBadDreams') &&
         !defender.hasAbility('Magic Guard', 'Impenetrable')) {
-        damage -= Math.floor(defender.maxHP() / 8);
+        damage -= Math.floor(defender.maxHP() / 4);
         texts.push('Bad Dreams');
     }
     if (!defender.hasAbility('Magic Guard', 'Impenetrable') && TRAPPING.includes(move.name)) {

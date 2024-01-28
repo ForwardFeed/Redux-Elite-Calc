@@ -331,6 +331,7 @@ $(document).ready(function () {
 	$("select.type1, select.move-type").find("option").remove().end().append(typeOptions);
 	$("select.teraType").find("option").remove().end().append(getSelectOptions(Object.keys(typeChart).slice(1)));
 	$("select.type2").find("option").remove().end().append("<option value=\"\">(none)</option>" + typeOptions);
+	$("select.type3").find("option").remove().end().append("<option value=\"\">(none)</option>" + typeOptions);
 	var moveOptions = getSelectOptions(Object.keys(moves), true);
 	$("select.move-selector").find("option").remove().end().append(moveOptions);
 	var abilityOptions = getSelectOptions(abilities, true);

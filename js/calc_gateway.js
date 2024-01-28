@@ -320,7 +320,6 @@ class CalcGateway{
         if (source.hasActiveAbility('Sun Worship') && $('#sun').prop('checked')) {
             stat2boost = this.getHighestStat(source, wonderRoomActive)
         }
-        console.log(source)
     }
     getHighestStat(source, wonderRoomActive) {
         let def = source.stats.def;
