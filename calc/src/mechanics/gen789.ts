@@ -361,46 +361,6 @@ export function calculateSMSSSV(
   if (attacker.hasAbility('Stall')) {
     move.priority = -7;
   }
-  if (attacker.hasAbility('Phantom')) {
-    attacker.types.push('Ghost');
-  } else if (defender.hasAbility('Phantom')) {
-    defender.types.push('Ghost');
-  }
-  if (attacker.hasAbility('Metallic')) {
-    attacker.types.push('Steel');
-  } else if (defender.hasAbility('Metallic')) {
-    defender.types.push('Steel');
-  }
-  if (attacker.hasAbility('Dragonfly', 'Half Drake')) {
-    attacker.types.push('Dragon');
-  } else if (defender.hasAbility('Dragonfly', 'Half Drake')) {
-    defender.types.push('Dragon');
-  }
-  if (attacker.hasAbility('Ice Age')) {
-    attacker.types.push('Ice');
-  } else if (defender.hasAbility('Ice Age')) {
-    defender.types.push('Ice');
-  }
-  if (attacker.hasAbility('Grounded')) {
-    attacker.types.push('Ground');
-  } else if (defender.hasAbility('Grounded')) {
-    defender.types.push('Ground');
-  }
-  if (attacker.hasAbility('Aquatic')) {
-    attacker.types.push('Water');
-  } else if (defender.hasAbility('Aquatic')) {
-    defender.types.push('Water');
-  }
-  if (attacker.hasAbility('Turboblaze')) {
-    attacker.types.push('Fire');
-  } else if (defender.hasAbility('Turboblaze')) {
-    defender.types.push('Fire');
-  }
-  if (attacker.hasAbility('Teravolt')) {
-    attacker.types.push('Electric');
-  } else if (defender.hasAbility('Teravolt')) {
-    defender.types.push('Electric');
-  }
   const isGhostRevealed =
     !!attacker.hasAbility('Scrappy') || field.defenderSide.isForesight;
   const isRingTarget =
@@ -408,7 +368,7 @@ export function calculateSMSSSV(
   
   let typeEffectiveness = 1
   for (const defenderType of defender.types){
-    if (!defenderType) break
+    if (!defenderType) continue //changed from break to continue due to the introduction of a third type
     typeEffectiveness *= getMoveEffectiveness(
       gen,
       move,
