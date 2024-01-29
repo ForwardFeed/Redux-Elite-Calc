@@ -1815,6 +1815,10 @@ export function calculateFinalModsSMSSSV(
   } else if (attacker.hasAbility('Long Reach')) {
     move.flags.contact = 0
   }
+  if (attacker.hasAbility('Big Pecks') && move.flags.contact){
+    finalMods.push(5325);
+    desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.descAbility);
+  }
   if (defender.hasAbility('Liquified')) {
     if (move.flags.contact) {
       finalMods.push(2048);
