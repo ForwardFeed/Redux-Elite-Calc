@@ -1502,6 +1502,10 @@ function calculateFinalModsSMSSSV(gen, attacker, defender, move, field, desc, is
     else if (attacker.hasAbility('Long Reach')) {
         move.flags.contact = 0;
     }
+    if (attacker.hasAbility('Big Pecks') && move.flags.contact) {
+        finalMods.push(5325);
+        desc.defenderAbility = (0, util_2.appSpacedStr)(desc.defenderAbility, defender.descAbility);
+    }
     if (defender.hasAbility('Liquified')) {
         if (move.flags.contact) {
             finalMods.push(2048);
