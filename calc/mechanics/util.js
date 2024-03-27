@@ -604,13 +604,13 @@ function OF32(n) {
     return n > 4294967295 ? n % 4294967296 : n;
 }
 exports.OF32 = OF32;
-function appSpacedStr(a, b) {
+function addSpacedStr(a, b) {
     if (b) {
         return a ? a + ' ' + b : b;
     }
     return '';
 }
-exports.appSpacedStr = appSpacedStr;
+exports.addSpacedStr = addSpacedStr;
 function checkLoweredStats(target) {
     var e_6, _a;
     var boosts = target.boosts;
