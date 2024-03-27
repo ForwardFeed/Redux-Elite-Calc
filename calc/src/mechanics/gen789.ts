@@ -44,7 +44,7 @@ import {
   isGrounded,
   OF16, OF32,
   pokeRound,
-  appSpacedStr,
+  addSpacedStr,
   checkLoweredStats,
   colorChangeTyping,
 } from './util';
@@ -195,7 +195,7 @@ export function calculateSMSSSV(
   if (!defenderIgnoresAbility && !defender.hasAbility('Poison Heal') &&
     (attackerIgnoresAbility || moveIgnoresAbility)) {
     if (attackerIgnoresAbility) {
-      desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.descAbility);
+      desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
     }
     if (defender.hasItem('Ability Shield')) {
       desc.defenderItem = defender.item;
@@ -333,10 +333,10 @@ export function calculateSMSSSV(
     if (isGalvanize || isPixilate || isRefrigerate || isAerilate || isNormalize || isPollinate ||
       isIntoxicate || isHydrate || isTectonize || isFightingSpirit || isCrystallize || isImmolate ||
       isSpectralize || isDraconize || isMineralize) {
-      desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.descAbility);
+      desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
       hasAteAbilityTypeChange = true;
     } else if (isLiquidVoice) {
-      desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.descAbility);
+      desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
     }
   }
   if (attacker.hasAbility('Sand Song') && move.flags.sound) {
@@ -350,7 +350,7 @@ export function calculateSMSSSV(
   const additionnalPriority = getPriorityAdditionnal(attacker, move, defender);
   move.priority += additionnalPriority
   move.priority = Math.min(move.priority, 5);
-  if (additionnalPriority) desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.descAbility);
+  if (additionnalPriority) desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
   
   if (attacker.hasAbility('Sighting System')) {
     if (move.acc ? move.acc : 100 < 80) {
@@ -451,7 +451,7 @@ export function calculateSMSSSV(
       (move.hasType('Ground') && defender.hasAbility('Earth Eater')) ||
       (move.flags.wind && defender.hasAbility('Wind Rider'))
   ) {
-    desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.descAbility);
+    desc.defenderAbility = addSpacedStr(desc.defenderAbility, defender.descAbility);
     return result;
   }
 
@@ -480,7 +480,7 @@ export function calculateSMSSSV(
   if (fixedDamage) {
     if (attacker.hasAbility('Parental Bond', 'Hyper Aggressive', 'Multi Headed')) {
       result.damage = [fixedDamage, pokeRound(fixedDamage * 0.25)];
-      desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.descAbility);
+      desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
     } else {
       result.damage = fixedDamage;
     }
@@ -651,7 +651,7 @@ export function calculateSMSSSV(
   } else if (attacker.hasAbility('Protean', 'Libero') && !attacker.teraType ||
     (attacker.hasAbility('Lunar Eclipse') && move.hasType('Fairy', 'Dark'))) {
     stabMod += 2048;
-    desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.descAbility);
+    desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
   }
   const teraType = attacker.teraType;
   if (teraType === move.type) {
@@ -660,7 +660,7 @@ export function calculateSMSSSV(
   }
   if (attacker.hasAbility('Adaptability') && attacker.hasType(move.type)) {
     stabMod += teraType && attacker.hasOriginalType(teraType) ? 1024 : 2048;
-    desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.descAbility);
+    desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
   }
   if (attacker.hasAbility('Amphibious') && !attacker.hasType('Water') &&
     move.hasType('Water')) {
@@ -701,9 +701,9 @@ export function calculateSMSSSV(
   if (defender.hasAbilityActive('Cheating Death')){
     if (move.hits <= 2) {
       protect = true
-      desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.descAbility);
+      desc.defenderAbility = addSpacedStr(desc.defenderAbility, defender.descAbility);
     } else {
-      desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.descAbility);
+      desc.defenderAbility = addSpacedStr(desc.defenderAbility, defender.descAbility);
       move.hits -= 2
     }
   }
@@ -716,7 +716,7 @@ export function calculateSMSSSV(
     child.remplaceAbility('Parental Bond', 'Parental Bond (Child)');
     checkMultihitBoost(gen, child, defender, move, field, desc);
     contributionDamage = calculateSMSSSV(gen, child, defender, move, field).damage as number[];
-    desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.descAbility);
+    desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
   }
   const contribution = calcContribution(gen, attacker, move, field);
   if (move.hits === 1 && contribution) {
@@ -724,7 +724,7 @@ export function calculateSMSSSV(
     const childMove = contribution.move;
     checkMultihitBoost(gen, child, defender, move, field, desc);
     contributionDamage = calculateSMSSSV(gen, child, defender, childMove, field).damage as number[];
-    desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.descAbility);
+    desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
   }
   let damage = [];
   for (let i = 0; i < 16; i++) {
@@ -762,11 +762,11 @@ export function calculateSMSSSV(
 
       if (attacker.hasAbility('Contrary')) {
         dropCount = Math.min(6, dropCount + move.dropsStats);
-        desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.descAbility);
+        desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
       } else {
         dropCount = Math.max(-6, dropCount - move.dropsStats * simpleMultiplier);
         if (attacker.hasAbility('Simple')) {
-          desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.descAbility);
+          desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
         }
       }
 
@@ -1180,15 +1180,15 @@ export function calculateBPModsSMSSSV(
     
     if (auraBreak) {
       bpMods.push(3072);
-      desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.descAbility);
-      desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.descAbility);
+      desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
+      desc.defenderAbility = addSpacedStr(desc.defenderAbility, defender.descAbility);
     } else {
       bpMods.push(5448);
       if (isAttackerAura) {
-        desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.descAbility);
+        desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
       }
       if (isDefenderAura) {
-        desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.descAbility);
+        desc.defenderAbility = addSpacedStr(desc.defenderAbility, defender.descAbility);
       }
     }
   }
@@ -1205,7 +1205,7 @@ export function calculateBPModsSMSSSV(
     (attacker.hasAbility('Punk Rock') || attacker.hasAbility('Amplifier') && move.flags.sound)
   ) {
     bpMods.push(5325);
-    desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.descAbility);
+    desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
   }
 
   if (field.attackerSide.isBattery && move.category === 'Special') {
@@ -1227,7 +1227,7 @@ export function calculateBPModsSMSSSV(
       bpMods.push(5120);
       desc.rivalry = 'buffed';
     }
-    desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.descAbility);
+    desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
   }
 
   // The -ate abilities already changed move typing earlier, so most checks are done and desc is set
@@ -1238,12 +1238,12 @@ export function calculateBPModsSMSSSV(
 
   if ((attacker.hasAbility('Reckless') && (move.recoil || move.hasCrashDamage))) {
     bpMods.push(4915);
-    desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.descAbility);
+    desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
   }
 
   if (attacker.hasAbility('Iron Fist') && move.flags.punch) {
     bpMods.push(5325);
-    desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.descAbility);
+    desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
   }
 
   if (attacker.hasItem('Punching Glove') && move.flags.punch) {
@@ -1253,16 +1253,16 @@ export function calculateBPModsSMSSSV(
 
   if (defender.hasAbility('Heatproof') && move.hasType('Fire')) {
     bpMods.push(2048);
-    desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.descAbility);
+    desc.defenderAbility = addSpacedStr(desc.defenderAbility, defender.descAbility);
   } else if (defender.hasAbility('Dry Skin') && move.hasType('Fire')) {
     bpMods.push(5120);
-    desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.descAbility);
+    desc.defenderAbility = addSpacedStr(desc.defenderAbility, defender.descAbility);
   }
 
   if (attacker.hasAbility('Supreme Overlord') && attacker.alliesFainted) {
     const powMod = [4096, 4506, 4915, 5325, 5734, 6144];
     bpMods.push(powMod[Math.min(5, attacker.alliesFainted)]);
-    desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.descAbility);
+    desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
     desc.alliesFainted = attacker.alliesFainted;
   }
 
@@ -1339,7 +1339,7 @@ export function calculateAttackSMSSSV(
     attack = attackSource.rawStats[attackStat];
   } else if (defender.hasAbility('Unaware')) {
     attack = attackSource.rawStats[attackStat];
-    desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.descAbility);
+    desc.defenderAbility = addSpacedStr(desc.defenderAbility, defender.descAbility);
   } else {
     attack = attackSource.stats[attackStat];
     desc.attackBoost = attackSource.boosts[attackStat];
@@ -1348,7 +1348,7 @@ export function calculateAttackSMSSSV(
   // unlike all other attack modifiers, Hustle gets applied directly
   if (attacker.hasAbility('Hustle')) {
     attack = pokeRound(attack * 1.40);
-    desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.descAbility);
+    desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
   }
   if (attacker.hasAbility('Roundhouse') && move.flags.kick) {
     if (defender.stats.def > defender.stats.spd){
@@ -1423,7 +1423,7 @@ export function calculateAtModsSMSSSV(
       (attacker.hasAbility('Defeatist') && attacker.curHP() <= attacker.maxHP() / 3)
   ) {
     atMods.push(2048);
-    desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.descAbility);
+    desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
   } else if (
     (attacker.hasAbility('Solar Power') &&
      field.hasWeather('Sun', 'Harsh Sunshine') &&
@@ -1436,7 +1436,7 @@ export function calculateAtModsSMSSSV(
     (attacker.hasAbility('Gorilla Tactics') && move.category === 'Physical' &&
      !attacker.isDynamaxed)) {
     atMods.push(6144);
-    desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.descAbility);
+    desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
     desc.weather = field.weather;
   } else if (
     field.attackerSide.isFlowerGift &&
@@ -1450,30 +1450,30 @@ export function calculateAtModsSMSSSV(
     (move.category === 'Special' && attacker.hasAbilityActive('Plus', 'Minus'))
   ) {
     atMods.push(6144);
-    desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.descAbility);
+    desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
   } else if (attacker.hasAbilityActive('Flash Fire') && move.hasType('Fire')) {
     atMods.push(6144);
-    desc.attackerAbility = appSpacedStr(desc.attackerAbility, 'Flash Fire');
+    desc.attackerAbility = addSpacedStr(desc.attackerAbility, 'Flash Fire');
   } else if (
     (attacker.hasAbility('Steelworker') && move.hasType('Steel')) ||
     (attacker.hasAbility('Dragon\'s Maw') && move.hasType('Dragon')) ||
     (attacker.hasAbility('Rocky Payload') && move.hasType('Rock'))
   ) {
     atMods.push(6144);
-    desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.descAbility);
+    desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
   } else if (attacker.hasAbility('Transistor') && move.hasType('Electric')) {
-    atMods.push(gen.num >= 9 ? 5325 : 6144);
-    desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.descAbility);
+    atMods.push(6144);
+    desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
   } else if (attacker.hasAbilityActive('Stakeout')) {
     atMods.push(8192);
-    desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.descAbility);
+    desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
   } else if (
     (attacker.hasAbility('Water Bubble') && move.hasType('Water')) ||
     (attacker.hasAbility('Huge Power', 'Pure Power') && move.category === 'Physical') ||
     (attacker.hasAbility('Feline Prowess') && move.category === 'Special')
   ) {
     atMods.push(8192);
-    desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.descAbility);
+    desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
   }
   if ((attacker.hasAbility('Forest Rage') && move.hasType('Grass')) ||
     (attacker.hasAbility('Riptide') && move.hasType('Water')) ||
@@ -1488,7 +1488,7 @@ export function calculateAtModsSMSSSV(
       (defender.hasAbility('Water Bubble') && move.hasType('Fire')) ||
      (defender.hasAbility('Purifying Salt') && move.hasType('Ghost'))) {
     atMods.push(2048);
-    desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.descAbility);
+    desc.defenderAbility = addSpacedStr(desc.defenderAbility, defender.descAbility);
   }
   // Pokemon with " of Ruin" Ability are immune to the opposing "-of Ruin" ability
   const isTabletsOfRuinActive = (defender.hasAbility('Tablets of Ruin') || field.isTabletsOfRuin) &&
@@ -1500,7 +1500,7 @@ export function calculateAtModsSMSSSV(
     (isVesselOfRuinActive && move.category === 'Special')
   ) {
     if (defender.hasAbility('Tablets of Ruin') || defender.hasAbility('Vessel of Ruin')) {
-      desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.descAbility);
+      desc.defenderAbility = addSpacedStr(desc.defenderAbility, defender.descAbility);
     } else {
       desc[move.category === 'Special' ? 'isVesselOfRuin' : 'isTabletsOfRuin'] = true;
     }
@@ -1519,7 +1519,7 @@ export function calculateAtModsSMSSSV(
       (move.category === 'Special' && getQPBoostedStat(attacker) === 'spa')
     ) {
       atMods.push(5325);
-      desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.descAbility);
+      desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
     }
   }
 
@@ -1530,7 +1530,7 @@ export function calculateAtModsSMSSSV(
       field.hasWeather('Sun', 'Harsh Sunshine') && !attacker.hasItem('Utility Umbrella'))
   ) {
     atMods.push(5461);
-    desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.descAbility);
+    desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
   }
   if (attacker.hasItem('Light Ball') && !move.isZ) {
     if (attacker.named('Raichu', 'Raichu Alolan')){
@@ -1598,7 +1598,7 @@ export function calculateDefenseSMSSSV(
     defense = defender.rawStats[defenseStat];
   } else if (attacker.hasAbility('Unaware')) {
     defense = defender.rawStats[defenseStat];
-    desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.descAbility);
+    desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
   } else {
     defense = defender.stats[defenseStat];
     desc.defenseBoost = defender.boosts[defenseStat];
@@ -1648,7 +1648,7 @@ export function calculateDfModsSMSSSV(
   }
   if (defender.hasAbility('Marvel Scale') && defender.status && hitsPhysical) {
     dfMods.push(6144);
-    desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.descAbility);
+    desc.defenderAbility = addSpacedStr(desc.defenderAbility, defender.descAbility);
   } else if (
     defender.named('Cherrim') &&
     defender.hasAbility('Flower Gift') &&
@@ -1656,7 +1656,7 @@ export function calculateDfModsSMSSSV(
     !hitsPhysical
   ) {
     dfMods.push(6144);
-    desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.descAbility);
+    desc.defenderAbility = addSpacedStr(desc.defenderAbility, defender.descAbility);
     desc.weather = field.weather;
   } else if (
     field.defenderSide.isFlowerGift &&
@@ -1671,11 +1671,11 @@ export function calculateDfModsSMSSSV(
     hitsPhysical
   ) {
     dfMods.push(6144);
-    desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.descAbility);
+    desc.defenderAbility = addSpacedStr(desc.defenderAbility, defender.descAbility);
   }
   if (defender.hasAbility('Fur Coat') && hitsPhysical) {
     dfMods.push(8192);
-    desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.descAbility);
+    desc.defenderAbility = addSpacedStr(desc.defenderAbility, defender.descAbility);
   }
   // Pokemon with "-of Ruin" Ability are immune to the opposing "-of Ruin" ability
   const isSwordOfRuinActive = (attacker.hasAbility('Sword of Ruin') || field.isSwordOfRuin) &&
@@ -1687,7 +1687,7 @@ export function calculateDfModsSMSSSV(
     (isBeadsOfRuinActive && !hitsPhysical)
   ) {
     if (attacker.hasAbility('Sword of Ruin') || attacker.hasAbility('Beads of Ruin')) {
-      desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.descAbility);
+      desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
     } else {
       desc[hitsPhysical ? 'isSwordOfRuin' : 'isBeadsOfRuin'] = true;
     }
@@ -1704,7 +1704,7 @@ export function calculateDfModsSMSSSV(
       (hitsPhysical && getQPBoostedStat(defender) === 'def') ||
       (!hitsPhysical && getQPBoostedStat(defender) === 'spd')
     ) {
-      desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.descAbility);
+      desc.defenderAbility = addSpacedStr(desc.defenderAbility, defender.descAbility);
       dfMods.push(5324);
     }
   }
@@ -1786,15 +1786,15 @@ export function calculateFinalModsSMSSSV(
 
   if (attacker.hasAbility('Neuroforce') && typeEffectiveness > 1) {
     finalMods.push(5120);
-    desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.descAbility);
+    desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
   }
   if (attacker.hasAbility('Sniper') && isCritical) {
     finalMods.push(9216);
-    desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.descAbility);
+    desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
   }
    if (attacker.hasAbility('Tinted Lens', 'Bone Zone') && typeEffectiveness < 1) {
     finalMods.push(8192);
-    desc.attackerAbility = appSpacedStr(desc.attackerAbility, attacker.descAbility);
+    desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
   }
 
   if (defender.isDynamaxed && move.named('Dynamax Cannon', 'Behemoth Blade', 'Behemoth Bash')) {
@@ -1808,7 +1808,7 @@ export function calculateFinalModsSMSSSV(
       'Primal Maw 2nd', 'Raging Boxer 2nd', 'Dual Wield 2nd')
   ) {
     finalMods.push(2048);
-    desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.descAbility);
+    desc.defenderAbility = addSpacedStr(desc.defenderAbility, defender.descAbility);
   }
   if (attacker.hasAbility('Long Reach') && !move.flags.contact) {
     finalMods.push(4915);
@@ -1817,48 +1817,48 @@ export function calculateFinalModsSMSSSV(
   }
   if (attacker.hasAbility('Big Pecks') && move.flags.contact){
     finalMods.push(5325);
-    desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.descAbility);
+    desc.defenderAbility = addSpacedStr(desc.defenderAbility, defender.descAbility);
   }
   if (defender.hasAbility('Liquified')) {
     if (move.flags.contact) {
       finalMods.push(2048);
-      desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.descAbility);
+      desc.defenderAbility = addSpacedStr(desc.defenderAbility, defender.descAbility);
     } else if (move.hasType('Water')) {
       finalMods.push(8192);
-      desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.descAbility);
+      desc.defenderAbility = addSpacedStr(desc.defenderAbility, defender.descAbility);
     }
   }
   if (defender.hasAbility('Fluffy') && move.flags.contact || 
   (defender.hasAbility('Furnace') && move.hasType('Fire'))) {
     finalMods.push(2048);
-    desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.descAbility);
+    desc.defenderAbility = addSpacedStr(desc.defenderAbility, defender.descAbility);
   } else if (
     (defender.hasAbility('Punk Rock') && move.flags.sound) ||
     (defender.hasAbility('Ice Scales') && move.category === 'Special')
   ) {
     finalMods.push(2048);
-    desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.descAbility);
+    desc.defenderAbility = addSpacedStr(desc.defenderAbility, defender.descAbility);
   }
   if (defender.hasAbility('Solid Rock', 'Filter', 'Prism Armor', 'Permafrost') &&
   typeEffectiveness > 1) {
     finalMods.push(2662);
-    desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.descAbility);
+    desc.defenderAbility = addSpacedStr(desc.defenderAbility, defender.descAbility);
   }
   if (defender.hasAbility('Lead Coat')){
     finalMods.push(2458);
-    desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.descAbility);
+    desc.defenderAbility = addSpacedStr(desc.defenderAbility, defender.descAbility);
   }
   if (defender.hasAbility('Battle Armor', 'Shell Armor')){
     finalMods.push(3277);
-    desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.descAbility);
+    desc.defenderAbility = addSpacedStr(desc.defenderAbility, defender.descAbility);
   }
   if (defender.hasAbility('Magma Armor') && move.hasType('Water', 'Ice')){
     finalMods.push(2867);
-    desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.descAbility);
+    desc.defenderAbility = addSpacedStr(desc.defenderAbility, defender.descAbility);
   }
   if (defender.hasAbility('Primal Armor') && typeEffectiveness > 1) {
     finalMods.push(2048);
-    desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.descAbility);
+    desc.defenderAbility = addSpacedStr(desc.defenderAbility, defender.descAbility);
   }
   if (defender.hasAbility('Prism Scales') && move.category === 'Special') {
     finalMods.push(2867);
@@ -1886,16 +1886,13 @@ export function calculateFinalModsSMSSSV(
 
   if (defender.hasAbility('Fluffy') && move.hasType('Fire')) {
     finalMods.push(8192);
-    desc.defenderAbility = appSpacedStr(desc.defenderAbility, defender.descAbility);
+    desc.defenderAbility = addSpacedStr(desc.defenderAbility, defender.descAbility);
   }
   if (attacker.hasAbility('Giant Wings') && move.flags.air) {
     finalMods.push(5120);
   }
   if (attacker.hasAbility('Dragon\'s Maw') && move.hasType('Dragon')) {
     finalMods.push(5325);
-  }
-  if (attacker.hasAbility('Transistor') && move.hasType('Electric')) {
-    finalMods.push(6144);
   }
   if ((attacker.hasAbility('Electric Burst') && move.hasType('Electric')) ||
       (attacker.hasAbility('Infernal Rage') && move.hasType('Fire'))) {

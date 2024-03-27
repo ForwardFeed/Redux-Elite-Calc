@@ -596,7 +596,7 @@ export function OF32(n: number) {
   return n > 4294967295 ? n % 4294967296 : n;
 }
 
-export function appSpacedStr(a: string | undefined, b: string | undefined) {
+export function addSpacedStr(a: string | undefined, b: string | undefined) {
   if (b) {
     return a ? a + ' ' + b : b;
   }
