@@ -1424,7 +1424,8 @@ export function calculateAtModsSMSSSV(
   ) {
     atMods.push(2048);
     desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
-  } else if (
+  } 
+  if (
     (attacker.hasAbility('Solar Power') &&
      field.hasWeather('Sun', 'Harsh Sunshine') &&
      move.category === 'Special') ||
@@ -1438,36 +1439,46 @@ export function calculateAtModsSMSSSV(
     atMods.push(6144);
     desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
     desc.weather = field.weather;
-  } else if (
+  }
+  if (
     field.attackerSide.isFlowerGift &&
     field.hasWeather('Sun', 'Harsh Sunshine') &&
     move.category === 'Physical') {
     atMods.push(6144);
     desc.weather = field.weather;
     desc.isFlowerGiftAttacker = true;
-  } else if (
+  }
+  if (
     (attacker.hasAbility('Guts') && attacker.status && move.category === 'Physical') ||
     (move.category === 'Special' && attacker.hasAbilityActive('Plus', 'Minus'))
   ) {
     atMods.push(6144);
     desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
-  } else if (attacker.hasAbilityActive('Flash Fire') && move.hasType('Fire')) {
+  }
+  if (attacker.hasAbilityActive('Flash Fire') && move.hasType('Fire')) {
     atMods.push(6144);
     desc.attackerAbility = addSpacedStr(desc.attackerAbility, 'Flash Fire');
-  } else if (
+  }
+  if (
     (attacker.hasAbility('Steelworker') && move.hasType('Steel')) ||
-    (attacker.hasAbility('Dragon\'s Maw') && move.hasType('Dragon')) ||
     (attacker.hasAbility('Rocky Payload') && move.hasType('Rock'))
   ) {
     atMods.push(6144);
     desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
-  } else if (attacker.hasAbility('Transistor') && move.hasType('Electric')) {
+  }
+  if (attacker.hasAbility('Dragon\'s Maw') && move.hasType('Dragon')){
+    atMods.push(5325);
+    desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
+  }
+  if (attacker.hasAbility('Transistor') && move.hasType('Electric')) {
     atMods.push(6144);
     desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
-  } else if (attacker.hasAbilityActive('Stakeout')) {
+  }
+  if (attacker.hasAbilityActive('Stakeout')) {
     atMods.push(8192);
     desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
-  } else if (
+  }
+  if (
     (attacker.hasAbility('Water Bubble') && move.hasType('Water')) ||
     (attacker.hasAbility('Huge Power', 'Pure Power') && move.category === 'Physical') ||
     (attacker.hasAbility('Feline Prowess') && move.category === 'Special')
@@ -1705,7 +1716,7 @@ export function calculateDfModsSMSSSV(
       (!hitsPhysical && getQPBoostedStat(defender) === 'spd')
     ) {
       desc.defenderAbility = addSpacedStr(desc.defenderAbility, defender.descAbility);
-      dfMods.push(5324);
+      dfMods.push(5325);
     }
   }
   if ((defender.hasItem('Eviolite') && gen.species.get(toID(defender.name))?.nfe) ||
@@ -1823,7 +1834,8 @@ export function calculateFinalModsSMSSSV(
     if (move.flags.contact) {
       finalMods.push(2048);
       desc.defenderAbility = addSpacedStr(desc.defenderAbility, defender.descAbility);
-    } else if (move.hasType('Water')) {
+    }
+    if (move.hasType('Water')) {
       finalMods.push(8192);
       desc.defenderAbility = addSpacedStr(desc.defenderAbility, defender.descAbility);
     }
@@ -1891,9 +1903,6 @@ export function calculateFinalModsSMSSSV(
   if (attacker.hasAbility('Giant Wings') && move.flags.air) {
     finalMods.push(5120);
   }
-  if (attacker.hasAbility('Dragon\'s Maw') && move.hasType('Dragon')) {
-    finalMods.push(5325);
-  }
   if ((attacker.hasAbility('Electric Burst') && move.hasType('Electric')) ||
       (attacker.hasAbility('Infernal Rage') && move.hasType('Fire'))) {
     finalMods.push(5530);
@@ -1914,7 +1923,7 @@ export function calculateFinalModsSMSSSV(
     finalMods.push(4915);
     desc.attackerItem = attacker.item;
   } else if (attacker.hasItem('Life Orb')) {
-    finalMods.push(5324);
+    finalMods.push(5325);
     desc.attackerItem = attacker.item;
   } else if (attacker.hasItem('Metronome') && move.timesUsedWithMetronome! >= 1) {
     const timesUsedWithMetronome = Math.floor(move.timesUsedWithMetronome!);

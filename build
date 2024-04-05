@@ -53,9 +53,9 @@ function cpdir(src, dest) {
 
 if (process.argv[2] !== 'view' && process.argv[2] !== '161') {
 	require('child_process').execSync('npm --prefix calc/ run compile', {stdio: 'inherit'});
-} else if (process.argv[2] == '161') {
+} /*else if (process.argv[2] == '161') {
 	require('child_process').execSync('npm --prefix calcv161/ run compile', {stdio: 'inherit'});
-}
+}*/
 cpdir('src', 'dist');
 cpdir('calc/dist', 'dist/calc');
-cpdir('calcv161/dist', 'dist/calcv161');
+
