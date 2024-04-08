@@ -1620,7 +1620,8 @@ export function calculateDefenseSMSSSV(
     defense = pokeRound((defense * 3) / 2);
     desc.weather = field.weather;
   }
-  if (field.hasWeather('Snow') && defender.hasType('Ice') && hitsPhysical) {
+  
+  if (field.hasWeather('Hail', 'Snow') && defender.hasType('Ice') && hitsPhysical) {
     defense = pokeRound((defense * 3) / 2);
     desc.weather = field.weather;
   }
