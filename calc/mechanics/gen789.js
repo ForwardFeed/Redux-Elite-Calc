@@ -529,8 +529,14 @@ function calculateSMSSSV(gen, attacker, defender, move, field, defenderFriend) {
         desc.defenderItem = defender.item;
     }
     if (isCritical) {
-        baseDamage = Math.floor((0, util_2.OF32)(baseDamage * 1.5));
         desc.isCritical = isCritical;
+        if (attacker.hasAbility('Sniper')) {
+            baseDamage = Math.floor((0, util_2.OF32)(baseDamage * 2.25));
+            desc.attackerAbility = (0, util_2.addSpacedStr)(desc.attackerAbility, attacker.descAbility);
+        }
+        else {
+            baseDamage = Math.floor((0, util_2.OF32)(baseDamage * 1.5));
+        }
     }
     var stabMod = 4096;
     if (attacker.hasOriginalType(move.type) || attacker.hasAbility('Mystic Power') &&
@@ -982,6 +988,10 @@ function calculateBPModsSMSSSV(gen, attacker, defender, move, field, desc, baseP
         (attacker.hasAbility('Punk Rock') || attacker.hasAbility('Amplifier') && move.flags.sound)) {
         bpMods.push(5325);
         desc.attackerAbility = (0, util_2.addSpacedStr)(desc.attackerAbility, attacker.descAbility);
+    }
+    if (attacker.hasAbility('Fossilized') && move.hasType('Rock')) {
+        bpMods.push(4915);
+        desc.defenderAbility = (0, util_2.addSpacedStr)(desc.defenderAbility, defender.descAbility);
     }
     if (field.attackerSide.isBattery && move.category === 'Special') {
         bpMods.push(5325);
@@ -1479,10 +1489,6 @@ function calculateFinalModsSMSSSV(gen, attacker, defender, move, field, desc, is
     }
     if (attacker.hasAbility('Neuroforce') && typeEffectiveness > 1) {
         finalMods.push(5120);
-        desc.attackerAbility = (0, util_2.addSpacedStr)(desc.attackerAbility, attacker.descAbility);
-    }
-    if (attacker.hasAbility('Sniper') && isCritical) {
-        finalMods.push(9216);
         desc.attackerAbility = (0, util_2.addSpacedStr)(desc.attackerAbility, attacker.descAbility);
     }
     if (attacker.hasAbility('Tinted Lens', 'Bone Zone') && typeEffectiveness < 1) {
