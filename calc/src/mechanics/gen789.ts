@@ -1212,6 +1212,7 @@ export function calculateBPModsSMSSSV(
     bpMods.push(5325);
     desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
   }
+
   if (attacker.hasAbility('Fossilized') && move.hasType('Rock')){
     bpMods.push(4915);
     desc.defenderAbility = addSpacedStr(desc.defenderAbility, defender.descAbility);
