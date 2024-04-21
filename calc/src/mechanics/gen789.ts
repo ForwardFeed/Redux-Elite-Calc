@@ -1198,7 +1198,6 @@ export function calculateBPModsSMSSSV(
       }
     }
   }
-
   // Sheer Force does not power up max moves or remove the effects (SadisticMystic)
   if (
     (attacker.hasAbility('Sheer Force') &&
@@ -1213,7 +1212,10 @@ export function calculateBPModsSMSSSV(
     bpMods.push(5325);
     desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
   }
-
+  if (attacker.hasAbility('Fossilized') && move.hasType('Rock')){
+    bpMods.push(4915);
+    desc.defenderAbility = addSpacedStr(desc.defenderAbility, defender.descAbility);
+  }
   if (field.attackerSide.isBattery && move.category === 'Special') {
     bpMods.push(5325);
     desc.isBattery = true;
