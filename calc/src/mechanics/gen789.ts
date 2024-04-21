@@ -638,8 +638,14 @@ export function calculateSMSSSV(
   }
 
   if (isCritical) {
-    baseDamage = Math.floor(OF32(baseDamage * 1.5));
     desc.isCritical = isCritical;
+    if (attacker.hasAbility('Sniper')) {
+      baseDamage = Math.floor(OF32(baseDamage * 2.25));
+      desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
+    } else {
+      baseDamage = Math.floor(OF32(baseDamage * 1.5));
+    }
+    
   }
 
   // the random factor is applied between the crit mod and the stab mod, so don't apply anything
@@ -1800,11 +1806,7 @@ export function calculateFinalModsSMSSSV(
     finalMods.push(5120);
     desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
   }
-  if (attacker.hasAbility('Sniper') && isCritical) {
-    finalMods.push(9216);
-    desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
-  }
-   if (attacker.hasAbility('Tinted Lens', 'Bone Zone') && typeEffectiveness < 1) {
+  if (attacker.hasAbility('Tinted Lens', 'Bone Zone') && typeEffectiveness < 1) {
     finalMods.push(8192);
     desc.attackerAbility = addSpacedStr(desc.attackerAbility, attacker.descAbility);
   }
