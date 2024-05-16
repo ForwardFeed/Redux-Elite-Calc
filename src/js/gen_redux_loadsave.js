@@ -192,7 +192,7 @@ function readBoxRedux(bytes, PC, nbToRead=30*26){
 
 function getFooterDataRedux(startOffset, endOffset, bytes) {
     const SIZE_SECTOR = 4096;
-    const START_SECTOR_SAVEBOX = 12;
+    const START_SECTOR_SAVEBOX = 8;
     const SAVEBBLOCK_1_SECTOR = 2;
     let SB1, // SAVEBLOCK 1
         //SI, //Save index
